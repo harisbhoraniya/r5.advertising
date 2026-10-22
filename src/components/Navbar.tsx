@@ -388,16 +388,15 @@ export const Navbar: React.FC = () => {
                     <div className="flex items-center justify-between transition-colors duration-150 hover:bg-white/15 text-white">
                       <Link
                         to="/n-loc"
-                        className="flex-1 px-5 py-3 text-[0.875rem] font-medium text-white no-underline flex items-center justify-between"
+                        className="flex-1 px-5 py-3 text-[0.875rem] font-medium text-white no-underline"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <span>N-Loc</span>
-                        <ArrowRight size={13} className="opacity-60 mr-2" />
+                        N-Loc
                       </Link>
                       <button
                         type="button"
                         aria-label="Toggle N-Loc submenu"
-                        className="pr-5 py-3 pl-2 bg-transparent border-none cursor-pointer outline-none text-white border-l border-white/10"
+                        className="px-5 py-3 bg-transparent border-none cursor-pointer outline-none text-white flex items-center"
                         onClick={(e) => {
                           e.stopPropagation();
                           setMobileNLocOpen(!mobileNLocOpen);
