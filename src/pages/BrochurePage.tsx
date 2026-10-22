@@ -277,10 +277,6 @@ export const BrochurePage: React.FC = () => {
             {/* Modal Header */}
             <div className="px-6 sm:px-8 pt-6 pb-4 border-b border-slate-100 flex items-start justify-between">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold uppercase tracking-wider bg-emerald-50 text-[#004428] mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-                  Free PDF Download
-                </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight m-0">
                   {isSuccess ? 'Download Ready!' : 'Download Brochure'}
                 </h3>
