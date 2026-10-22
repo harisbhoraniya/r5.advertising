@@ -56,13 +56,13 @@ export const RollerBallPage: React.FC = () => {
       <BackToProducts />
 
       {/* 3. Roller Ball Variants & Specifications */}
-      <section className="py-9 pb-16 bg-white">
+      <section className="py-6 sm:py-9 pb-12 sm:pb-16 bg-white">
         {/* Coated / Uncoated Interactive Showcase Card */}
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex justify-center items-center gap-2.5 mx-auto mb-9 w-full">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="flex justify-center items-center gap-2 sm:gap-2.5 mx-auto mb-7 sm:mb-9 w-full">
             <button
               type="button"
-              className={`inline-flex items-center justify-center whitespace-nowrap h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
+              className={`inline-flex items-center justify-center whitespace-nowrap h-10 sm:h-11 px-6 sm:px-9 text-sm sm:text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
                 activeTab === 'uncoated' 
                   ? 'bg-gradient-to-r from-[#004428] to-[#065f46] text-white shadow-[0_4px_18px_rgba(6,95,70,0.32)] -translate-y-0.5' 
                   : 'bg-white text-slate-700 border border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
@@ -73,7 +73,7 @@ export const RollerBallPage: React.FC = () => {
             </button>
             <button
               type="button"
-              className={`inline-flex items-center justify-center whitespace-nowrap h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
+              className={`inline-flex items-center justify-center whitespace-nowrap h-10 sm:h-11 px-6 sm:px-9 text-sm sm:text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
                 activeTab === 'coated' 
                   ? 'bg-gradient-to-r from-[#004428] to-[#065f46] text-white shadow-[0_4px_18px_rgba(6,95,70,0.32)] -translate-y-0.5' 
                   : 'bg-white text-slate-700 border border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
@@ -85,26 +85,26 @@ export const RollerBallPage: React.FC = () => {
           </div>
 
           {/* Display Card Matching User Reference Photo */}
-          <div className="relative bg-[#f8fafc] border border-slate-200 rounded-2xl p-7 md:p-11 shadow-sm overflow-hidden">
+          <div className="relative bg-[#f8fafc] border border-slate-200 rounded-2xl p-5 sm:p-7 md:p-11 shadow-sm overflow-hidden">
             {/* Top Area: Image on Left, Content on Right */}
-            <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-10 items-center relative z-10">
-              <div className="flex items-center justify-center p-4">
+            <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-6 sm:gap-8 md:gap-10 items-center relative z-10">
+              <div className="flex items-center justify-center p-3 sm:p-4 bg-white sm:bg-transparent rounded-xl border sm:border-0 border-slate-200/60 shadow-sm sm:shadow-none">
                 <img 
                   src={activeTab === 'coated' ? '/assets/range_roller_ball.png' : '/assets/cable_tie_overview.png'} 
                   alt={activeTab === 'coated' ? 'Roller Ball Coated Cable Tie' : 'Roller Ball Uncoated Cable Tie'}
-                  className="max-w-full h-auto max-h-[240px] object-contain drop-shadow-md transition-transform duration-300 hover:scale-105"
+                  className="max-w-full h-auto max-h-[190px] sm:max-h-[240px] object-contain drop-shadow-md transition-transform duration-300 hover:scale-105"
                 />
               </div>
 
               <div className="flex flex-col">
-                <div className="text-[19px] font-normal text-slate-600 tracking-tight mb-1">
+                <div className="text-[16px] sm:text-[19px] font-normal text-slate-600 tracking-tight mb-1">
                   Stainless Steel Cable Ties
                 </div>
-                <h3 className="text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-tight mb-5 leading-tight">
+                <h3 className="text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-tight mb-4 sm:mb-5 leading-tight">
                   {activeTab === 'coated' ? 'Roller Ball Coated' : 'Roller Ball Uncoated'}
                 </h3>
 
-                <ul className="flex flex-col gap-2.5 text-[14.5px] text-slate-700 leading-normal pl-4 list-disc marker:text-slate-500">
+                <ul className="flex flex-col gap-2 sm:gap-2.5 text-[13.5px] sm:text-[14.5px] text-slate-700 leading-normal pl-4 list-disc marker:text-slate-500">
                   {activeTab === 'coated' ? (
                     <>
                       <li>Roller ball stainless steel cable ties coated.</li>
@@ -131,46 +131,46 @@ export const RollerBallPage: React.FC = () => {
             </div>
 
             {/* Bottom 3 Columns Matching Photo */}
-            <div className="mt-11 pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-[1fr_1fr_1.35fr] gap-6 md:gap-8 relative z-10">
-              <div className="flex flex-col">
-                <h4 className="text-[14.5px] font-extrabold text-slate-900 mb-2 tracking-tight">Available in Grade</h4>
-                <div className="text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
+            <div className="mt-8 sm:mt-11 pt-6 sm:pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-[1fr_1fr_1.35fr] gap-5 sm:gap-6 md:gap-8 relative z-10">
+              <div className="flex flex-col pb-4 sm:pb-0 border-b sm:border-b-0 border-slate-200">
+                <h4 className="text-[14px] sm:text-[14.5px] font-extrabold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Available in Grade</h4>
+                <div className="text-[13px] sm:text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
                   <span>Stainless Steel.</span>
                   <span>304/304L : 316/316L</span>
                 </div>
               </div>
 
-              <div className="flex flex-col md:pl-8 md:border-l border-slate-300">
-                <h4 className="text-[14.5px] font-extrabold text-slate-900 mb-2 tracking-tight">Temperature Range</h4>
-                <div className="text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
+              <div className="flex flex-col pb-4 sm:pb-0 border-b sm:border-b-0 border-slate-200 md:pl-8 md:border-l border-slate-300">
+                <h4 className="text-[14px] sm:text-[14.5px] font-extrabold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Temperature Range</h4>
+                <div className="text-[13px] sm:text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
                   <span>{activeTab === 'coated' ? '-60°C to +150°C' : '-80°C to +538°C'}</span>
                 </div>
               </div>
 
               <div className="flex flex-col md:pl-8 md:border-l border-slate-300">
-                <h4 className="text-[14.5px] font-extrabold text-slate-900 mb-2 tracking-tight">Surface Finish</h4>
-                <div className="text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
+                <h4 className="text-[14px] sm:text-[14.5px] font-extrabold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Surface Finish</h4>
+                <div className="text-[13px] sm:text-[13.5px] text-slate-700 leading-normal flex flex-col gap-1">
                   <span>
-                    {activeTab === 'coated' ? 'Polyester and  Nylon - Coated.' : 'Bare Metallic / Uncoated.'}
+                    {activeTab === 'coated' ? 'Polyester and Nylon - Coated.' : 'Bare Metallic / Uncoated.'}
                   </span>
                   
                   {activeTab === 'coated' ? (
                     <>
                       <div className="flex items-center gap-2 mt-2">
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#1e1e1e]" title="Black" />
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#e11d48]" title="Red" />
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#059669]" title="Green" />
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#0284c7]" title="Blue" />
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#eab308]" title="Yellow" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#1e1e1e]" title="Black" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#e11d48]" title="Red" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#059669]" title="Green" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#0284c7]" title="Blue" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-black/10 bg-[#eab308]" title="Yellow" />
                       </div>
-                      <span className="text-[11.5px] text-slate-500 mt-1.5">*Colour as per requirements</span>
+                      <span className="text-[11px] sm:text-[11.5px] text-slate-500 mt-1.5">*Colour as per requirements</span>
                     </>
                   ) : (
                     <>
                       <div className="flex items-center gap-2 mt-2">
-                        <span className="w-[22px] h-[22px] rounded-sm inline-block shadow-sm border border-slate-400 bg-gradient-to-br from-slate-200 to-slate-400" title="Silver Metallic" />
+                        <span className="w-5 h-5 sm:w-[22px] sm:h-[22px] rounded-sm inline-block shadow-sm border border-slate-400 bg-gradient-to-br from-slate-200 to-slate-400" title="Silver Metallic" />
                       </div>
-                      <span className="text-[11.5px] text-slate-500 mt-1.5">*Custom finish & embossing available</span>
+                      <span className="text-[11px] sm:text-[11.5px] text-slate-500 mt-1.5">*Custom finish & embossing available</span>
                     </>
                   )}
                 </div>
@@ -179,23 +179,28 @@ export const RollerBallPage: React.FC = () => {
 
             {/* Side-by-Side Coated Tables (Responsive: Stack on small screens) */}
             {activeTab === 'coated' && (
-              <div className="mt-12 pt-9 border-t border-slate-200 w-full relative z-10">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-9 border-t border-slate-200 w-full relative z-10">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
                   {/* Table 1: 4.6mm Width */}
                   <div className="bg-white border-2 border-emerald-100 rounded-xl overflow-hidden shadow-sm transition-all duration-200 hover:border-emerald-200 hover:shadow-md">
-                    <div className="bg-gradient-to-r from-[#004428] to-[#065f46] text-white text-[13.5px] font-bold tracking-wider py-3 px-4 text-center uppercase border-b-2 border-emerald-600">
+                    <div className="bg-gradient-to-r from-[#004428] to-[#065f46] text-white text-xs sm:text-[13.5px] font-bold tracking-wider py-2.5 sm:py-3 px-3 sm:px-4 text-center uppercase border-b-2 border-emerald-600">
                       BALL LOCK - COATED - 4.6MM WIDTH
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-[12.5px] border-collapse">
+                    {/* Mobile swipe hint */}
+                    <div className="sm:hidden text-[11px] text-slate-500 bg-emerald-50/70 px-3 py-1.5 flex items-center justify-between border-b border-emerald-100">
+                      <span className="font-medium text-emerald-900">Specifications Table</span>
+                      <span className="text-emerald-700">Scroll right →</span>
+                    </div>
+                    <div className="overflow-x-auto scrollbar-thin">
+                      <table className="w-full text-[11.5px] sm:text-[12.5px] border-collapse min-w-[500px]">
                         <thead className="bg-emerald-50 border-b border-emerald-200">
                           <tr>
-                            <th className="text-left py-2.5 px-3 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100">Part No.</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Width<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Length<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Thickness<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Max Bundle<br />Diameter (mm)</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] leading-tight">Minimum Loop<br />Tensile strength (N)</th>
+                            <th className="text-left py-2 px-2.5 sm:py-2.5 sm:px-3 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100">Part No.</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Width<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Length<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Thickness<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Max Bundle<br />Dia (mm)</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] leading-tight">Tensile<br />Loop (N)</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -204,12 +209,12 @@ export const RollerBallPage: React.FC = () => {
                               key={row.partNo} 
                               className={`border-b border-slate-100 transition-colors hover:bg-emerald-50/70 ${idx % 2 === 1 ? 'bg-slate-50' : 'bg-white'}`}
                             >
-                              <td className="text-left py-2 px-3 font-semibold text-emerald-800 border-r border-slate-100">{row.partNo}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.width}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.length}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.thickness}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.maxBundle}</td>
-                              <td className="text-center py-2 px-2 text-slate-700">{row.tensile}</td>
+                              <td className="text-left py-1.5 px-2.5 sm:py-2 sm:px-3 font-semibold text-emerald-800 border-r border-slate-100">{row.partNo}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.width}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.length}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.thickness}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.maxBundle}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700">{row.tensile}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -219,19 +224,24 @@ export const RollerBallPage: React.FC = () => {
 
                   {/* Table 2: 7.9mm Width */}
                   <div className="bg-white border-2 border-emerald-100 rounded-xl overflow-hidden shadow-sm transition-all duration-200 hover:border-emerald-200 hover:shadow-md">
-                    <div className="bg-gradient-to-r from-[#004428] to-[#065f46] text-white text-[13.5px] font-bold tracking-wider py-3 px-4 text-center uppercase border-b-2 border-emerald-600">
+                    <div className="bg-gradient-to-r from-[#004428] to-[#065f46] text-white text-xs sm:text-[13.5px] font-bold tracking-wider py-2.5 sm:py-3 px-3 sm:px-4 text-center uppercase border-b-2 border-emerald-600">
                       BALL LOCK - COATED – 7.9MM WIDTH
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-[12.5px] border-collapse">
+                    {/* Mobile swipe hint */}
+                    <div className="sm:hidden text-[11px] text-slate-500 bg-emerald-50/70 px-3 py-1.5 flex items-center justify-between border-b border-emerald-100">
+                      <span className="font-medium text-emerald-900">Specifications Table</span>
+                      <span className="text-emerald-700">Scroll right →</span>
+                    </div>
+                    <div className="overflow-x-auto scrollbar-thin">
+                      <table className="w-full text-[11.5px] sm:text-[12.5px] border-collapse min-w-[500px]">
                         <thead className="bg-emerald-50 border-b border-emerald-200">
                           <tr>
-                            <th className="text-left py-2.5 px-3 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100">Part No.</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Width<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Length<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Thickness<br />mm</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] border-r border-emerald-100 leading-tight">Max Bundle<br />Diameter (mm)</th>
-                            <th className="text-center py-2.5 px-2 font-bold text-emerald-950 text-[11.5px] leading-tight">Minimum Loop<br />Tensile strength (N)</th>
+                            <th className="text-left py-2 px-2.5 sm:py-2.5 sm:px-3 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100">Part No.</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Width<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Length<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Thickness<br />mm</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] border-r border-emerald-100 leading-tight">Max Bundle<br />Dia (mm)</th>
+                            <th className="text-center py-2 px-1.5 sm:py-2.5 sm:px-2 font-bold text-emerald-950 text-[11px] sm:text-[11.5px] leading-tight">Tensile<br />Loop (N)</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -240,12 +250,12 @@ export const RollerBallPage: React.FC = () => {
                               key={row.partNo} 
                               className={`border-b border-slate-100 transition-colors hover:bg-emerald-50/70 ${idx % 2 === 1 ? 'bg-slate-50' : 'bg-white'}`}
                             >
-                              <td className="text-left py-2 px-3 font-semibold text-emerald-800 border-r border-slate-100">{row.partNo}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.width}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.length}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.thickness}</td>
-                              <td className="text-center py-2 px-2 text-slate-700 border-r border-slate-100">{row.maxBundle}</td>
-                              <td className="text-center py-2 px-2 text-slate-700">{row.tensile}</td>
+                              <td className="text-left py-1.5 px-2.5 sm:py-2 sm:px-3 font-semibold text-emerald-800 border-r border-slate-100">{row.partNo}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.width}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.length}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.thickness}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700 border-r border-slate-100">{row.maxBundle}</td>
+                              <td className="text-center py-1.5 px-1.5 sm:py-2 sm:px-2 text-slate-700">{row.tensile}</td>
                             </tr>
                           ))}
                         </tbody>

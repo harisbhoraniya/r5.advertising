@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 
 interface ProductItem {
   id: string;
@@ -28,12 +28,22 @@ const otherProducts: ProductItem[] = [
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [subOpen, setSubOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileNLocOpen, setMobileNLocOpen] = useState(false);
+
   const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
   const openSubTimeoutRef = useRef<number | null>(null);
   const subTimeoutRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setIsOpen(false);
+    setSubOpen(false);
+  }, [location.pathname]);
 
   const isProductsActive =
     location.pathname === '/product' ||
@@ -104,21 +114,24 @@ export const Navbar: React.FC = () => {
     if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current);
     setIsOpen(false);
     setSubOpen(false);
+    setMobileMenuOpen(false);
     navigate(path);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-100 h-[72px] flex items-center">
-      <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between w-full h-full">
+    <header className="sticky top-0 z-50 bg-white border-b border-slate-100 h-[64px] sm:h-[72px] flex items-center">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between w-full h-full">
+        {/* Brand Logo */}
         <Link to="/" className="flex items-center">
           <img
             src="/assets/logo_naepl.png?v=2"
             alt="N GANDHI ADVANCE ENGINEERING PRIVATE LIMITED - ISO 9001:2015"
-            className="h-[42px] w-auto object-contain"
+            className="h-[34px] sm:h-[42px] w-auto object-contain"
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 h-full">
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-8 h-full">
           <Link 
             to="/" 
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
@@ -133,6 +146,7 @@ export const Navbar: React.FC = () => {
             About
           </span>
 
+          {/* Desktop Products Dropdown Trigger */}
           <div
             className="relative inline-flex items-center"
             onMouseEnter={handleMouseEnter}
@@ -154,6 +168,7 @@ export const Navbar: React.FC = () => {
               />
             </Link>
 
+            {/* Desktop Dropdown Flyout Card */}
             {isOpen && (
               <div
                 className="absolute top-full left-0 pt-2.5 z-[1000]"
@@ -230,7 +245,156 @@ export const Navbar: React.FC = () => {
             Contact
           </span>
         </nav>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <button
+          type="button"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-slate-700 hover:text-emerald-800 hover:bg-slate-100 transition-colors cursor-pointer outline-none"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Drawer / Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-x-0 top-[64px] sm:top-[72px] bottom-0 bg-slate-900/50 backdrop-blur-sm z-50 transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <div 
+            className="bg-white border-b border-slate-200 shadow-2xl max-h-[calc(100vh-64px)] overflow-y-auto px-5 py-4 flex flex-col gap-1"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Link
+              to="/"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
+                location.pathname === '/' 
+                  ? 'bg-emerald-50 text-emerald-800 font-bold' 
+                  : 'text-slate-800 font-semibold hover:bg-slate-50'
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Home</span>
+            </Link>
+
+            <div 
+              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>About</span>
+            </div>
+
+            {/* Mobile Products Accordion */}
+            <div className="rounded-lg overflow-hidden bg-slate-50/70 border border-slate-100 my-1">
+              <div 
+                className="flex items-center justify-between py-3 px-3 text-[15px] font-semibold text-slate-800 cursor-pointer select-none"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              >
+                <span className={isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800'}>
+                  Products
+                </span>
+                <ChevronDown 
+                  size={18} 
+                  className={`text-slate-500 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                />
+              </div>
+
+              {mobileProductsOpen && (
+                <div className="px-3 pb-3 pt-1 flex flex-col gap-1 border-t border-slate-200/60 bg-white">
+                  <Link
+                    to="/product"
+                    className="py-2 px-2 text-[13.5px] font-bold text-emerald-800 hover:bg-emerald-50 rounded-md flex items-center justify-between"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>All Products Overview</span>
+                    <span className="text-xs">→</span>
+                  </Link>
+
+                  {/* N-Loc & Sub-Products */}
+                  <div className="border-t border-slate-100 pt-1 mt-1">
+                    <div 
+                      className="flex items-center justify-between py-2 px-2 text-[13.5px] font-semibold text-slate-800 hover:bg-slate-50 rounded-md cursor-pointer"
+                      onClick={() => setMobileNLocOpen(!mobileNLocOpen)}
+                    >
+                      <span>N-Loc (Cable Ties)</span>
+                      <ChevronDown 
+                        size={15} 
+                        className={`text-slate-400 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180' : ''}`} 
+                      />
+                    </div>
+
+                    {mobileNLocOpen && (
+                      <div className="pl-3 py-1 flex flex-col gap-1 border-l-2 border-emerald-600/40 ml-2 mt-1">
+                        <Link
+                          to="/n-loc"
+                          className="py-1.5 px-2 text-[13px] font-semibold text-emerald-800 hover:bg-emerald-50 rounded-md"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          N-Loc Range Overview
+                        </Link>
+                        {nlocSubItems.map((item) => (
+                          <Link
+                            key={item.id}
+                            to={item.path}
+                            className="py-1.5 px-2 text-[13px] text-slate-700 hover:text-emerald-800 hover:bg-emerald-50/60 rounded-md transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Other Products List */}
+                  <div className="border-t border-slate-100 pt-1 mt-1 flex flex-col gap-0.5">
+                    {otherProducts.map((item) => (
+                      <Link
+                        key={item.id}
+                        to={item.path}
+                        className="py-2 px-2 text-[13.5px] text-slate-700 hover:text-emerald-800 hover:bg-emerald-50 rounded-md font-medium transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div 
+              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Industry</span>
+            </div>
+
+            <div 
+              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Brochure</span>
+            </div>
+
+            <div 
+              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Contact</span>
+            </div>
+
+            {/* Mobile Footer Badge */}
+            <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2 px-2 text-xs text-slate-500">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block" />
+              <span>ISO 9001:2015 Precision Engineering</span>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

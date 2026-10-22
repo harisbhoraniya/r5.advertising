@@ -1,22 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, Globe, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-200 py-16 pb-8 text-slate-600">
-      <div className="max-w-[1200px] mx-auto px-6 flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-9 md:gap-14 mb-14">
+    <footer className="bg-white border-t border-slate-200 py-12 sm:py-16 pb-8 text-slate-600">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-14 mb-10 md:mb-14">
           {/* Column 1: Company Profile */}
-          <div>
-            <div className="mb-5">
-              <img 
-                src="/assets/logo_naepl.png?v=2" 
-                alt="N Gandhi Advance Engineering Private Limited"
-                className="h-10 w-auto object-contain" 
-              />
+          <div className="sm:col-span-2 md:col-span-1">
+            <div className="mb-4 sm:mb-5">
+              <Link to="/">
+                <img 
+                  src="/assets/logo_naepl.png?v=2" 
+                  alt="N Gandhi Advance Engineering Private Limited"
+                  className="h-9 sm:h-10 w-auto object-contain" 
+                />
+              </Link>
             </div>
             
-            <p className="text-[13.5px] leading-relaxed text-slate-500 max-w-[380px] mb-6">
+            <p className="text-[13.5px] leading-relaxed text-slate-500 max-w-[380px] mb-5 sm:mb-6">
               ISO 9001:2015 certified precision engineering company delivering CNC machining, 
               fabrication, and industrial solutions.
             </p>
@@ -29,47 +32,75 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: Pages Navigation */}
           <div>
-            <h5 className="text-xs font-bold tracking-[0.12em] text-slate-900 uppercase mb-5">PAGES</h5>
-            <ul className="flex flex-col gap-3 text-[13.5px] text-slate-600">
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">Home</span></li>
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">About</span></li>
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">Products</span></li>
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">Industry</span></li>
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">Brochure</span></li>
-              <li><span className="cursor-pointer transition-colors duration-200 hover:text-emerald-600">Contact</span></li>
+            <h5 className="text-xs font-bold tracking-[0.12em] text-slate-900 uppercase mb-4 sm:mb-5">PAGES</h5>
+            <ul className="flex flex-col gap-2.5 sm:gap-3 text-[13.5px] text-slate-600">
+              <li>
+                <Link to="/" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  About
+                </span>
+              </li>
+              <li>
+                <Link to="/product" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Industry
+                </span>
+              </li>
+              <li>
+                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Brochure
+                </span>
+              </li>
+              <li>
+                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Contact
+                </span>
+              </li>
             </ul>
           </div>
 
           {/* Column 3: Contact Info */}
           <div>
-            <h5 className="text-xs font-bold tracking-[0.12em] text-slate-900 uppercase mb-5">CONTACT</h5>
-            <ul className="flex flex-col gap-3 text-[13.5px] text-slate-600">
+            <h5 className="text-xs font-bold tracking-[0.12em] text-slate-900 uppercase mb-4 sm:mb-5">CONTACT</h5>
+            <ul className="flex flex-col gap-2.5 sm:gap-3 text-[13.5px] text-slate-600">
               <li className="flex items-center gap-2.5">
-                <Phone size={14} className="text-slate-500 shrink-0" />
-                <span>[Add Number]</span>
+                <Phone size={14} className="text-emerald-700 shrink-0" />
+                <span>+91 (022) 2850-XXXX</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail size={14} className="text-slate-500 shrink-0" />
-                <span>[Add Email]</span>
+                <Mail size={14} className="text-emerald-700 shrink-0" />
+                <a href="mailto:info@ngandhi.com" className="hover:text-emerald-700 transition-colors">
+                  info@ngandhi.com
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Globe size={14} className="text-slate-500 shrink-0" />
-                <span>ngandhi.com</span>
+                <Globe size={14} className="text-emerald-700 shrink-0" />
+                <a href="https://ngandhi.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">
+                  ngandhi.com
+                </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin size={14} className="text-slate-500 shrink-0" />
-                <span>Mumbai, India</span>
+              <li className="flex items-start gap-2.5">
+                <MapPin size={14} className="text-emerald-700 shrink-0 mt-0.5" />
+                <span>Mumbai, Maharashtra, India</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100 pt-7 text-[12.5px] text-slate-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100 pt-6 sm:pt-7 text-[12px] sm:text-[12.5px] text-slate-500 text-center sm:text-left">
           <div>
             © 2026 N Gandhi Advance Engineering Pvt. Ltd. All rights reserved.
           </div>
-          <div>
+          <div className="text-slate-400">
             Made in India
           </div>
         </div>
@@ -77,3 +108,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+export default Footer;
