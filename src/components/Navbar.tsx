@@ -289,32 +289,58 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Products Accordion */}
             <div className="rounded-lg overflow-hidden bg-slate-50/70 border border-slate-100 my-1">
-              <div 
-                className="flex items-center justify-between py-3 px-3 text-[15px] font-semibold text-slate-800 cursor-pointer select-none"
-                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-              >
-                <span className={isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800'}>
+              <div className="flex items-center justify-between py-1 px-1">
+                <Link
+                  to="/product"
+                  className={`flex-1 py-2.5 px-2.5 text-[15px] font-semibold rounded-md transition-colors ${
+                    isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800 hover:text-emerald-800'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Products
-                </span>
-                <ChevronDown 
-                  size={18} 
-                  className={`text-slate-500 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-emerald-800' : ''}`} 
-                />
+                </Link>
+                <button
+                  type="button"
+                  className="p-2.5 text-slate-500 hover:text-emerald-800 hover:bg-slate-100 rounded-md transition-colors cursor-pointer outline-none"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileProductsOpen(!mobileProductsOpen);
+                  }}
+                  aria-label="Toggle Products sub-menu"
+                >
+                  <ChevronDown 
+                    size={18} 
+                    className={`transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                  />
+                </button>
               </div>
 
               {mobileProductsOpen && (
                 <div className="px-3 pb-3 pt-1 flex flex-col gap-1 border-t border-slate-200/60 bg-white">
                   {/* N-Loc & Sub-Products */}
                   <div>
-                    <div 
-                      className="flex items-center justify-between py-2 px-2 text-[13.5px] font-semibold text-slate-800 hover:bg-slate-50 rounded-md cursor-pointer select-none"
-                      onClick={() => setMobileNLocOpen(!mobileNLocOpen)}
-                    >
-                      <span>N-Loc</span>
-                      <ChevronDown 
-                        size={15} 
-                        className={`text-slate-400 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180 text-emerald-800' : ''}`} 
-                      />
+                    <div className="flex items-center justify-between py-1 px-1">
+                      <Link
+                        to="/n-loc"
+                        className="flex-1 py-1.5 px-2 text-[13.5px] font-semibold text-slate-800 hover:text-emerald-800 hover:bg-slate-50 rounded-md transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        N-Loc
+                      </Link>
+                      <button
+                        type="button"
+                        className="p-1.5 text-slate-400 hover:text-emerald-800 hover:bg-slate-100 rounded-md transition-colors cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileNLocOpen(!mobileNLocOpen);
+                        }}
+                        aria-label="Toggle N-Loc sub-items"
+                      >
+                        <ChevronDown 
+                          size={15} 
+                          className={`transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                        />
+                      </button>
                     </div>
 
                     {mobileNLocOpen && (
