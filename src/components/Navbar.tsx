@@ -28,7 +28,9 @@ const otherProducts: ProductItem[] = [
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [subOpen, setSubOpen] = useState(false);
+  const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
+  const openSubTimeoutRef = useRef<number | null>(null);
   const subTimeoutRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,17 +46,26 @@ export const Navbar: React.FC = () => {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
-    setIsOpen(true);
+    if (!isOpen) {
+      if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
+      openTimeoutRef.current = window.setTimeout(() => {
+        setIsOpen(true);
+      }, 120);
+    }
   };
 
   const handleMouseLeave = () => {
+    if (openTimeoutRef.current) {
+      clearTimeout(openTimeoutRef.current);
+      openTimeoutRef.current = null;
+    }
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
     }
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
       setSubOpen(false);
-    }, 200);
+    }, 180);
   };
 
   const handleSubMouseEnter = () => {
@@ -62,10 +73,19 @@ export const Navbar: React.FC = () => {
       clearTimeout(subTimeoutRef.current);
       subTimeoutRef.current = null;
     }
-    setSubOpen(true);
+    if (!subOpen) {
+      if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
+      openSubTimeoutRef.current = window.setTimeout(() => {
+        setSubOpen(true);
+      }, 100);
+    }
   };
 
   const handleSubMouseLeave = () => {
+    if (openSubTimeoutRef.current) {
+      clearTimeout(openSubTimeoutRef.current);
+      openSubTimeoutRef.current = null;
+    }
     if (subTimeoutRef.current) {
       clearTimeout(subTimeoutRef.current);
     }
@@ -78,7 +98,9 @@ export const Navbar: React.FC = () => {
     if (e) {
       e.stopPropagation();
     }
+    if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
     if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current);
     setIsOpen(false);
     setSubOpen(false);
@@ -112,7 +134,7 @@ export const Navbar: React.FC = () => {
           </span>
 
           <div
-            className="relative flex items-center h-full"
+            className="relative inline-flex items-center"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -134,59 +156,66 @@ export const Navbar: React.FC = () => {
 
             {isOpen && (
               <div
-                className="absolute top-[calc(100%+2px)] left-0 min-w-[230px] bg-white border border-slate-200 rounded-[10px] p-1.5 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.08),0_8px_10px_-6px_rgba(15,23,42,0.04)] z-[1000] before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-3.5"
+                className="absolute top-full left-0 pt-2.5 z-[1000]"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                {/* 1. N-Loc with Roller Ball flyout submenu only */}
-                <div
-                  className="relative"
-                  onMouseEnter={handleSubMouseEnter}
-                  onMouseLeave={handleSubMouseLeave}
-                >
+                <div className="min-w-[230px] bg-white border border-slate-200/90 rounded-xl p-1.5 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.12),0_4px_12px_-2px_rgba(15,23,42,0.06)] animate-in fade-in-0 duration-150">
+                  {/* 1. N-Loc with Roller Ball flyout submenu only */}
                   <div
-                    className={`relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] rounded-md cursor-pointer select-none transition-all duration-150 ${
-                      subOpen ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-800 font-medium hover:bg-emerald-50 hover:text-emerald-800 hover:font-semibold'
-                    }`}
-                    onClick={(e) => handleNavigate('/n-loc', e)}
+                    className="relative"
+                    onMouseEnter={handleSubMouseEnter}
+                    onMouseLeave={handleSubMouseLeave}
                   >
-                    <span className="text-[13.5px] leading-tight">N-Loc</span>
-                    <ChevronRight 
-                      size={13} 
-                      className={`shrink-0 transition-transform duration-150 ${subOpen ? 'text-emerald-800 translate-x-0.5' : 'text-slate-400'}`} 
-                    />
-                  </div>
-
-                  {subOpen && (
                     <div
-                      className="absolute -top-1 left-[calc(100%+4px)] min-w-[240px] bg-white border border-slate-200 rounded-lg p-1 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.08),0_8px_10px_-6px_rgba(15,23,42,0.04)] z-[1001] before:content-[''] before:absolute before:inset-y-0 before:-left-3 before:w-3.5"
-                      onMouseEnter={handleSubMouseEnter}
-                      onMouseLeave={handleSubMouseLeave}
+                      className={`relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] rounded-lg cursor-pointer select-none transition-all duration-150 ${
+                        subOpen ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-800'
+                      }`}
+                      onClick={(e) => handleNavigate('/n-loc', e)}
                     >
-                      {nlocSubItems.map((subItem) => (
-                        <div
-                          key={subItem.id}
-                          className="flex items-center justify-between px-3 py-2 text-[13px] font-medium text-slate-800 rounded-md cursor-pointer whitespace-nowrap transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800 hover:font-semibold"
-                          onClick={(e) => handleNavigate(subItem.path, e)}
-                        >
-                          <span>{subItem.title}</span>
-                        </div>
-                      ))}
+                      <span className="text-[13.5px] leading-tight">N-Loc</span>
+                      <ChevronRight 
+                        size={13} 
+                        className={`shrink-0 transition-transform duration-150 ${subOpen ? 'text-emerald-800 translate-x-0.5' : 'text-slate-400'}`} 
+                      />
                     </div>
-                  )}
-                </div>
 
-                {/* 2. All other products without any sub-dropdown */}
-                {otherProducts.map((item) => (
-                  <div
-                    key={item.id}
-                    className="relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] font-medium text-slate-800 rounded-md cursor-pointer select-none transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800 hover:font-semibold"
-                    onMouseEnter={() => setSubOpen(false)}
-                    onClick={(e) => handleNavigate(item.path, e)}
-                  >
-                    <span className="text-[13.5px] leading-tight">{item.title}</span>
+                    {subOpen && (
+                      <div
+                        className="absolute -top-1 left-full pl-2 z-[1001]"
+                        onMouseEnter={handleSubMouseEnter}
+                        onMouseLeave={handleSubMouseLeave}
+                      >
+                        <div className="min-w-[245px] bg-white border border-slate-200/90 rounded-xl p-1.5 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.12),0_4px_12px_-2px_rgba(15,23,42,0.06)]">
+                          {nlocSubItems.map((subItem) => (
+                            <div
+                              key={subItem.id}
+                              className="flex items-center justify-between px-3 py-2 text-[13px] font-medium text-slate-700 rounded-lg cursor-pointer whitespace-nowrap transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800"
+                              onClick={(e) => handleNavigate(subItem.path, e)}
+                            >
+                              <span>{subItem.title}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                ))}
+
+                  {/* 2. All other products without any sub-dropdown */}
+                  {otherProducts.map((item) => (
+                    <div
+                      key={item.id}
+                      className="relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] font-medium text-slate-700 rounded-lg cursor-pointer select-none transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800"
+                      onMouseEnter={() => {
+                        if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
+                        setSubOpen(false);
+                      }}
+                      onClick={(e) => handleNavigate(item.path, e)}
+                    >
+                      <span className="text-[13.5px] leading-tight">{item.title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>

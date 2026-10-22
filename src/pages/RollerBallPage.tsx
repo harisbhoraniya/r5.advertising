@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { HeroBanner } from '../components/HeroBanner';
 import { BackToProducts } from '../components/BackToProducts';
 import { TrustRow } from '../components/TrustRow';
-import { Button } from '../components/ui/button';
 
 export const RollerBallPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'coated' | 'uncoated'>('coated');
+  const [activeTab, setActiveTab] = useState<'coated' | 'uncoated'>('uncoated');
 
   // Table 1: 4.6mm Width Data
   const table46Data = [
@@ -61,28 +60,28 @@ export const RollerBallPage: React.FC = () => {
         {/* Coated / Uncoated Interactive Showcase Card */}
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex justify-center items-center gap-2.5 mx-auto mb-9 w-full">
-            <Button
-              variant={activeTab === 'coated' ? 'default' : 'outline'}
-              className={`h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer ${
-                activeTab === 'coated' 
-                  ? 'bg-gradient-to-r from-[#004428] to-[#065f46] text-white shadow-[0_4px_18px_rgba(6,95,70,0.32)] -translate-y-0.5' 
-                  : 'bg-white text-slate-700 border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
-              }`}
-              onClick={() => setActiveTab('coated')}
-            >
-              Coated
-            </Button>
-            <Button
-              variant={activeTab === 'uncoated' ? 'default' : 'outline'}
-              className={`h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+            <button
+              type="button"
+              className={`inline-flex items-center justify-center whitespace-nowrap h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
                 activeTab === 'uncoated' 
                   ? 'bg-gradient-to-r from-[#004428] to-[#065f46] text-white shadow-[0_4px_18px_rgba(6,95,70,0.32)] -translate-y-0.5' 
-                  : 'bg-white text-slate-700 border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
+                  : 'bg-white text-slate-700 border border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
               }`}
               onClick={() => setActiveTab('uncoated')}
             >
               Uncoated
-            </Button>
+            </button>
+            <button
+              type="button"
+              className={`inline-flex items-center justify-center whitespace-nowrap h-11 px-9 text-[15px] font-semibold rounded-full transition-all duration-200 cursor-pointer outline-none ${
+                activeTab === 'coated' 
+                  ? 'bg-gradient-to-r from-[#004428] to-[#065f46] text-white shadow-[0_4px_18px_rgba(6,95,70,0.32)] -translate-y-0.5' 
+                  : 'bg-white text-slate-700 border border-slate-300 shadow-sm hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-700 hover:-translate-y-0.5'
+              }`}
+              onClick={() => setActiveTab('coated')}
+            >
+              Coated
+            </button>
           </div>
 
           {/* Display Card Matching User Reference Photo */}
