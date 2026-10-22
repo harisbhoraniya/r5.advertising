@@ -65,13 +65,46 @@ const productCatalog: ProductItem[] = [
 export const ProductsPage: React.FC = () => {
   return (
     <main className="bg-[#fbfbfa] min-h-screen text-[#1a1a1a]">
-      {/* 1. Hero Banner Matching Reference */}
-      <section className="relative w-full bg-[#12151a] overflow-hidden leading-none after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] sm:after:h-[3.5px] after:bg-gradient-to-r after:from-[#004428] after:via-[#065f46] after:to-[#8c2442] after:z-10">
-        <img
-          src="/assets/product_banner.png"
-          alt="Our Product Range - Precision-engineered components and solutions"
-          className="w-full h-auto block object-cover sm:object-contain"
-        />
+      {/* ── 1. Hero Banner Section ── */}
+      <section className="relative w-full min-h-[560px] sm:min-h-[640px] md:min-h-[80vh] lg:min-h-[88vh] flex items-end bg-[#0c0f14] overflow-hidden">
+        {/* Background Image with Dark Vignette Overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img
+            src="https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=1800&q=85"
+            alt="Our Product Range Overview"
+            className="w-full h-full object-cover object-[center_30%]"
+            loading="eager"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.85) 100%)',
+            }}
+          />
+        </div>
+
+        {/* Banner Content */}
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
+          {/* Eyebrow */}
+          <p className="text-[11px] font-semibold text-white/70 tracking-[0.2em] uppercase mb-4 sm:mb-5 flex items-center gap-3">
+            <span className="inline-block w-8 h-[1px] bg-white/50" />
+            Our Range
+          </p>
+
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-light text-white tracking-tight leading-[1.08] sm:leading-[1.05] mb-4 sm:mb-6 max-w-[800px]">
+            Our <strong className="font-semibold text-white">Product Range</strong>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base md:text-[17px] text-white/75 font-light leading-relaxed max-w-[500px]">
+            Precision-engineered components and solutions for demanding industrial applications worldwide.
+          </p>
+        </div>
+
+        {/* Bottom 3px Gradient Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#065f46] to-[#8c2442] z-20 pointer-events-none" />
       </section>
 
       {/* 2. Main Section Header & Products Grid */}
@@ -150,13 +183,13 @@ export const ProductsPage: React.FC = () => {
             </p>
           </div>
           <div className="shrink-0 w-full sm:w-auto">
-            <a 
-              href="#contact" 
+            <Link 
+              to="/contact" 
               className="group inline-flex items-center gap-3 bg-transparent text-white border border-white/20 rounded-lg py-3 sm:py-3.5 px-6 sm:px-7 text-[12px] sm:text-[12.5px] font-semibold tracking-wider uppercase transition-all duration-200 hover:border-white hover:bg-white/10 w-full sm:w-auto justify-center"
             >
               <span>REQUEST PRODUCT DETAILS</span>
               <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-1">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

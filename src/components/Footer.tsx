@@ -40,9 +40,9 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
-                  About
-                </span>
+                <Link to="/about" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  About Us
+                </Link>
               </li>
               <li>
                 <Link to="/product" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
@@ -50,19 +50,19 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link to="/industry" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Industry
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
-                  Brochure
-                </span>
+                <Link to="/brochure" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Download
+                </Link>
               </li>
               <li>
-                <span className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link to="/contact" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Contact
-                </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,8 +83,8 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Globe size={14} className="text-emerald-700 shrink-0" />
-                <a href="https://ngandhi.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">
-                  ngandhi.com
+                <a href="https://naepl.r5advertising.com/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">
+                  naepl.r5advertising.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

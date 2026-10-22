@@ -1,32 +1,94 @@
-# React + TypeScript + Vite
+# NAEPL - Precision Engineering & Cable Management Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Official product catalog and engineering solutions showcase for **N Gandhi Advance Engineering Private Limited (NAEPL)**, featuring precision CNC machining, sheet metal fabrication, and **N-LOC** stainless steel cable management systems.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
 
-## React Compiler
+- **Framework**: [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Bundler & Tooling**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v3](https://tailwindcss.com/) + PostCSS + Autoprefixer
+- **Routing**: [React Router DOM v7](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/) (configured with SPA rewrites)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+r5.advertising/
+├── public/
+│   ├── assets/              # Optimized product images, banners, and logos
+│   └── _redirects           # SPA fallback configuration for static hosting
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── ApplicationsSection.tsx  # Industry applications showcase
+│   │   ├── BackToProducts.tsx       # Breadcrumb / back navigation
+│   │   ├── Footer.tsx               # Site-wide responsive footer
+│   │   ├── HeroBanner.tsx           # Scalable responsive page hero banner
+│   │   ├── Navbar.tsx               # Header with desktop dropdown & mobile drawer
+│   │   ├── ProductOverview.tsx      # Product highlights & specifications
+│   │   ├── ProductRange.tsx         # Product catalog card grid
+│   │   ├── ScrollToTop.tsx          # Auto-scroll reset on route changes
+│   │   └── TrustRow.tsx             # Quality, ISO & delivery trust carousel
+│   ├── pages/               # Page views mapped to client routes
+│   │   ├── HomePage.tsx             # Main landing view (/)
+│   │   ├── ProductsPage.tsx         # Full product catalog (/product)
+│   │   ├── NLocPage.tsx             # N-LOC cable ties showcase (/n-loc)
+│   │   └── RollerBallPage.tsx       # Coated/Uncoated specifications (/roller-ball)
+│   ├── App.tsx              # Application layout & client router configuration
+│   ├── index.css            # Global Tailwind directives & scroll resets
+│   └── main.tsx             # React DOM entry point
+├── index.html               # Main HTML entry point (SEO metadata & Google Fonts)
+├── package.json             # Project dependencies and npm scripts
+├── postcss.config.js        # PostCSS configuration for Tailwind CSS
+├── tailwind.config.js       # Tailwind CSS custom themes & animations
+├── tsconfig.json            # TypeScript base configuration
+├── vercel.json              # Vercel SPA routing & rewrites configuration
+└── vite.config.ts           # Vite server, PostCSS, and plugin configurations
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Run Local Development Server
+```bash
+npm run dev
+```
+The application will be running at `http://localhost:5173/`.
+
+### 3. Build for Production
+```bash
+npm run build
+```
+Generates an optimized, minified production bundle in the `dist/` directory.
+
+### 4. Preview Production Build
+```bash
+npm run preview
+```
+
+---
+
+## 🌐 Routes Overview
+
+| Route | Page Component | Description |
+|---|---|---|
+| `/` | `HomePage.tsx` | Overview of NAEPL engineering solutions & product highlights |
+| `/product` | `ProductsPage.tsx` | Comprehensive product range catalog & custom solution CTA |
+| `/n-loc` | `NLocPage.tsx` | N-LOC Stainless Steel Cable Ties line & applications |
+| `/roller-ball` | `RollerBallPage.tsx` | Interactive Coated/Uncoated Roller Ball specifications & tables |
+
+---
+
+## 📄 License
+
+Private & Proprietary © 2026 N Gandhi Advance Engineering Pvt. Ltd. All rights reserved.

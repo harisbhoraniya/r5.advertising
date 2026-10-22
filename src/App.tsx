@@ -8,6 +8,11 @@ import { ProductsPage } from './pages/ProductsPage';
 import { NLocPage } from './pages/NLocPage';
 import { RollerBallPage } from './pages/RollerBallPage';
 
+import { AboutPage } from './pages/AboutPage';
+import { IndustryPage } from './pages/IndustryPage';
+import { BrochurePage } from './pages/BrochurePage';
+import { ContactPage } from './pages/ContactPage';
+
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -16,6 +21,13 @@ export const App: React.FC = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about-us" element={<Navigate to="/about" replace />} />
+          <Route path="/industry" element={<IndustryPage />} />
+          <Route path="/industries" element={<Navigate to="/industry" replace />} />
+          <Route path="/brochure" element={<BrochurePage />} />
+          <Route path="/download" element={<Navigate to="/brochure" replace />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/product" element={<ProductsPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/n-loc" element={<NLocPage />} />

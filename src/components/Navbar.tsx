@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X, ArrowRight } from 'lucide-react';
 
 interface ProductItem {
   id: string;
@@ -48,6 +48,7 @@ export const Navbar: React.FC = () => {
   const isProductsActive =
     location.pathname === '/product' ||
     location.pathname === '/products' ||
+    location.pathname.startsWith('/product') ||
     location.pathname.startsWith('/n-loc') ||
     location.pathname.startsWith('/roller-ball');
 
@@ -142,108 +143,168 @@ export const Navbar: React.FC = () => {
           >
             Home
           </Link>
-          <span className="text-[14.5px] font-medium text-slate-700 transition-all duration-200 select-none cursor-pointer hover:text-emerald-800 py-1">
-            About
-          </span>
+          <Link 
+            to="/about" 
+            className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
+              location.pathname === '/about' || location.pathname === '/about-us'
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
+          >
+            About Us
+          </Link>
 
           {/* Desktop Products Dropdown Trigger */}
           <div
-            className="relative inline-flex items-center"
+            className={`relative inline-flex items-center select-none cursor-pointer py-1 transition-all duration-200 ${
+              isProductsActive
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full'
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Link
-              to="/product"
-              className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer inline-flex items-center gap-1.5 relative py-1 ${
-                isProductsActive 
-                  ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
-                  : 'text-slate-700 font-medium hover:text-emerald-800'
-              }`}
-              onClick={(e) => handleNavigate('/product', e)}
-            >
-              Products
-              <ChevronDown 
-                size={14} 
-                className={`transition-transform duration-200 text-current ${isOpen ? 'rotate-180' : ''}`} 
-              />
-            </Link>
+            <div className="flex items-center gap-1">
+              <Link
+                to="/product"
+                className={`text-[14.5px] tracking-tight no-underline transition-colors duration-200 ${
+                  isProductsActive 
+                    ? 'text-emerald-800 font-semibold' 
+                    : 'text-slate-700 hover:text-emerald-800'
+                }`}
+                onClick={(e) => handleNavigate('/product', e)}
+              >
+                Products
+              </Link>
+              <button 
+                type="button"
+                aria-label="Open products menu"
+                className={`p-0 bg-transparent border-none cursor-pointer transition-colors duration-200 outline-none flex items-center ${
+                  isProductsActive ? 'text-emerald-800' : 'text-slate-500 hover:text-emerald-800'
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(!isOpen);
+                }}
+              >
+                <ChevronDown 
+                  size={13} 
+                  className={`transition-transform duration-200 ${isOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                />
+              </button>
+            </div>
 
-            {/* Desktop Dropdown Flyout Card */}
+            {/* Desktop Dropdown Flyout Card (ngcco style with our theme) */}
             {isOpen && (
               <div
-                className="absolute top-full left-0 pt-2.5 z-[1000]"
+                className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-60 rounded-2xl bg-[#004428] shadow-[0_12px_40px_rgba(0,68,40,0.35),0_4px_16px_rgba(0,0,0,0.14)] overflow-visible transition-all duration-200 ease-out origin-top z-50 animate-in fade-in-0 zoom-in-95"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="min-w-[230px] bg-white border border-slate-200/90 rounded-xl p-1.5 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.12),0_4px_12px_-2px_rgba(15,23,42,0.06)] animate-in fade-in-0 duration-150">
-                  {/* 1. N-Loc with Roller Ball flyout submenu only */}
-                  <div
+                {/* Top Center Triangular Pointer Notch */}
+                <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#004428] rotate-45 rounded-sm shadow-sm" />
+
+                <ul className="relative py-2 list-none m-0 p-0">
+                  {/* 1. N-Loc with Level 2 Flyout Submenu */}
+                  <li
                     className="relative"
                     onMouseEnter={handleSubMouseEnter}
                     onMouseLeave={handleSubMouseLeave}
                   >
-                    <div
-                      className={`relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] rounded-lg cursor-pointer select-none transition-all duration-150 ${
-                        subOpen ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-800'
-                      }`}
-                      onClick={(e) => handleNavigate('/n-loc', e)}
-                    >
-                      <span className="text-[13.5px] leading-tight">N-Loc</span>
-                      <ChevronRight 
-                        size={13} 
-                        className={`shrink-0 transition-transform duration-150 ${subOpen ? 'text-emerald-800 translate-x-0.5' : 'text-slate-400'}`} 
-                      />
-                    </div>
-
-                    {subOpen && (
+                    <div>
                       <div
-                        className="absolute -top-1 left-full pl-2 z-[1001]"
-                        onMouseEnter={handleSubMouseEnter}
-                        onMouseLeave={handleSubMouseLeave}
+                        className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                          subOpen ? 'bg-white/20' : 'hover:bg-white/15'
+                        }`}
+                        onClick={(e) => handleNavigate('/n-loc', e)}
                       >
-                        <div className="min-w-[245px] bg-white border border-slate-200/90 rounded-xl p-1.5 shadow-[0_12px_32px_-4px_rgba(15,23,42,0.12),0_4px_12px_-2px_rgba(15,23,42,0.06)]">
-                          {nlocSubItems.map((subItem) => (
-                            <div
-                              key={subItem.id}
-                              className="flex items-center justify-between px-3 py-2 text-[13px] font-medium text-slate-700 rounded-lg cursor-pointer whitespace-nowrap transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800"
-                              onClick={(e) => handleNavigate(subItem.path, e)}
-                            >
-                              <span>{subItem.title}</span>
-                            </div>
-                          ))}
-                        </div>
+                        <span>N-Loc</span>
+                        <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
                       </div>
-                    )}
-                  </div>
 
-                  {/* 2. All other products without any sub-dropdown */}
-                  {otherProducts.map((item) => (
-                    <div
-                      key={item.id}
-                      className="relative flex items-center justify-between gap-2.5 px-3 py-2 text-[13.5px] font-medium text-slate-700 rounded-lg cursor-pointer select-none transition-all duration-150 hover:bg-emerald-50 hover:text-emerald-800"
-                      onMouseEnter={() => {
-                        if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
-                        setSubOpen(false);
-                      }}
-                      onClick={(e) => handleNavigate(item.path, e)}
-                    >
-                      <span className="text-[13.5px] leading-tight">{item.title}</span>
+                      {/* Level 2 Flyout Menu (Sub-items) */}
+                      {subOpen && (
+                        <div
+                          className="absolute left-[calc(100%+6px)] top-0 w-64 rounded-2xl bg-[#003820] shadow-[0_12px_40px_rgba(0,56,32,0.45),0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-200 ease-out origin-top-left z-50 animate-in fade-in-0 zoom-in-95"
+                          onMouseEnter={handleSubMouseEnter}
+                          onMouseLeave={handleSubMouseLeave}
+                        >
+                          <ul className="py-2 list-none m-0 p-0">
+                            {nlocSubItems.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  <span>{subItem.title}</span>
+                                  <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
+                                </div>
+                                {sIdx < nlocSubItems.length - 1 && (
+                                  <div className="mx-5 h-px bg-white/15" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
+                    <div className="mx-5 h-px bg-white/15" />
+                  </li>
+
+                  {/* 2. All other products with divider & right arrow */}
+                  {otherProducts.map((item, idx) => (
+                    <li key={item.id}>
+                      <div
+                        className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                        onMouseEnter={() => {
+                          if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
+                          setSubOpen(false);
+                        }}
+                        onClick={(e) => handleNavigate(item.path, e)}
+                      >
+                        <span>{item.title}</span>
+                        <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
+                      </div>
+                      {idx < otherProducts.length - 1 && (
+                        <div className="mx-5 h-px bg-white/15" />
+                      )}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             )}
           </div>
 
-          <span className="text-[14.5px] font-medium text-slate-700 transition-all duration-200 select-none cursor-pointer hover:text-emerald-800 py-1">
+          <Link
+            to="/industry"
+            className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
+              location.pathname === '/industry' || location.pathname.startsWith('/industry')
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
+          >
             Industry
-          </span>
-          <span className="text-[14.5px] font-medium text-slate-700 transition-all duration-200 select-none cursor-pointer hover:text-emerald-800 py-1">
-            Brochure
-          </span>
-          <span className="text-[14.5px] font-medium text-slate-700 transition-all duration-200 select-none cursor-pointer hover:text-emerald-800 py-1">
+          </Link>
+          <Link
+            to="/brochure"
+            className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
+              location.pathname === '/brochure' || location.pathname === '/download'
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
+          >
+            Download
+          </Link>
+          <Link
+            to="/contact"
+            className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
+              location.pathname === '/contact'
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
+          >
             Contact
-          </span>
+          </Link>
         </nav>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -280,19 +341,24 @@ export const Navbar: React.FC = () => {
               <span>Home</span>
             </Link>
 
-            <div 
-              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+            <Link 
+              to="/about"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
+                location.pathname === '/about' || location.pathname === '/about-us'
+                  ? 'bg-emerald-50 text-emerald-800 font-bold' 
+                  : 'text-slate-800 font-semibold hover:bg-slate-50'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span>About</span>
-            </div>
+              <span>About Us</span>
+            </Link>
 
-            {/* Mobile Products Accordion */}
-            <div className="rounded-lg overflow-hidden bg-slate-50/70 border border-slate-100 my-1">
-              <div className="flex items-center justify-between py-1 px-1">
+            {/* Mobile Products Accordion (matching ngcco UI with our theme) */}
+            <div className="my-1">
+              <div className="flex items-center justify-between rounded-xl transition-all duration-200 hover:bg-black/3">
                 <Link
                   to="/product"
-                  className={`flex-1 py-2.5 px-2.5 text-[15px] font-semibold rounded-md transition-colors ${
+                  className={`flex-1 px-3.5 py-3 text-[15px] font-semibold no-underline transition-colors duration-200 ${
                     isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800 hover:text-emerald-800'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
@@ -301,101 +367,126 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <button
                   type="button"
-                  className="p-2.5 text-slate-500 hover:text-emerald-800 hover:bg-slate-100 rounded-md transition-colors cursor-pointer outline-none"
+                  aria-label="Toggle products menu"
+                  className="px-3.5 py-3 bg-transparent border-none cursor-pointer outline-none"
                   onClick={(e) => {
                     e.stopPropagation();
                     setMobileProductsOpen(!mobileProductsOpen);
                   }}
-                  aria-label="Toggle Products sub-menu"
                 >
                   <ChevronDown 
-                    size={18} 
-                    className={`transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                    size={16} 
+                    className={`transition-transform duration-200 text-slate-500 ${mobileProductsOpen ? 'rotate-180 text-emerald-800' : ''}`} 
                   />
                 </button>
               </div>
 
               {mobileProductsOpen && (
-                <div className="px-3 pb-3 pt-1 flex flex-col gap-1 border-t border-slate-200/60 bg-white">
-                  {/* N-Loc & Sub-Products */}
+                <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
+                  {/* N-Loc & Nested Submenu */}
                   <div>
-                    <div className="flex items-center justify-between py-1 px-1">
+                    <div className="flex items-center justify-between transition-colors duration-150 hover:bg-white/15 text-white">
                       <Link
                         to="/n-loc"
-                        className="flex-1 py-1.5 px-2 text-[13.5px] font-semibold text-slate-800 hover:text-emerald-800 hover:bg-slate-50 rounded-md transition-colors"
+                        className="flex-1 px-5 py-3 text-[0.875rem] font-medium text-white no-underline flex items-center justify-between"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        N-Loc
+                        <span>N-Loc</span>
+                        <ArrowRight size={13} className="opacity-60 mr-2" />
                       </Link>
                       <button
                         type="button"
-                        className="p-1.5 text-slate-400 hover:text-emerald-800 hover:bg-slate-100 rounded-md transition-colors cursor-pointer outline-none"
+                        aria-label="Toggle N-Loc submenu"
+                        className="pr-5 py-3 pl-2 bg-transparent border-none cursor-pointer outline-none text-white border-l border-white/10"
                         onClick={(e) => {
                           e.stopPropagation();
                           setMobileNLocOpen(!mobileNLocOpen);
                         }}
-                        aria-label="Toggle N-Loc sub-items"
                       >
                         <ChevronDown 
-                          size={15} 
-                          className={`transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180 text-emerald-800' : ''}`} 
+                          size={14} 
+                          className={`opacity-70 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180' : ''}`} 
                         />
                       </button>
                     </div>
 
                     {mobileNLocOpen && (
-                      <div className="pl-3 py-1 flex flex-col gap-1 border-l-2 border-emerald-600/40 ml-2 mt-1">
-                        {nlocSubItems.map((item) => (
-                          <Link
-                            key={item.id}
-                            to={item.path}
-                            className="py-1.5 px-2 text-[13px] text-slate-700 hover:text-emerald-800 hover:bg-emerald-50/60 rounded-md transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {item.title}
-                          </Link>
+                      <div className="ml-4 mr-3 mb-2 rounded-xl bg-[#003820] overflow-hidden">
+                        {nlocSubItems.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              to={subItem.path}
+                              className="flex items-center justify-between px-4 py-2.5 text-[0.8125rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <span>{subItem.title}</span>
+                              <ArrowRight size={12} className="opacity-60" />
+                            </Link>
+                            {sIdx < nlocSubItems.length - 1 && (
+                              <div className="mx-4 h-px bg-white/15" />
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
+                    <div className="mx-5 h-px bg-white/15" />
                   </div>
 
-                  {/* Other Products List */}
-                  <div className="border-t border-slate-100 pt-1 mt-1 flex flex-col gap-0.5">
-                    {otherProducts.map((item) => (
+                  {/* Other Products with Dividers & Right Arrow */}
+                  {otherProducts.map((item, idx) => (
+                    <div key={item.id}>
                       <Link
-                        key={item.id}
                         to={item.path}
-                        className="py-2 px-2 text-[13.5px] text-slate-700 hover:text-emerald-800 hover:bg-emerald-50 rounded-md font-medium transition-colors"
+                        className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {item.title}
+                        <span>{item.title}</span>
+                        <ArrowRight size={13} className="opacity-60" />
                       </Link>
-                    ))}
-                  </div>
+                      {idx < otherProducts.length - 1 && (
+                        <div className="mx-5 h-px bg-white/15" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
 
-            <div 
-              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+            <Link 
+              to="/industry"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
+                location.pathname === '/industry' || location.pathname.startsWith('/industry')
+                  ? 'bg-emerald-50 text-emerald-800 font-bold' 
+                  : 'text-slate-800 font-semibold hover:bg-slate-50'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Industry</span>
-            </div>
+            </Link>
 
-            <div 
-              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+            <Link 
+              to="/brochure"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
+                location.pathname === '/brochure' || location.pathname === '/download'
+                  ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'
+                  : 'text-slate-800 hover:bg-slate-50'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span>Brochure</span>
-            </div>
+              <span>Download</span>
+            </Link>
 
-            <div 
-              className="flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold text-slate-800 hover:bg-slate-50 cursor-pointer"
+            <Link 
+              to="/contact"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
+                location.pathname === '/contact'
+                  ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'
+                  : 'text-slate-800 hover:bg-slate-50'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Contact</span>
-            </div>
+            </Link>
 
             {/* Mobile Footer Badge */}
             <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2 px-2 text-xs text-slate-500">
