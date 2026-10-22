@@ -304,37 +304,21 @@ export const Navbar: React.FC = () => {
 
               {mobileProductsOpen && (
                 <div className="px-3 pb-3 pt-1 flex flex-col gap-1 border-t border-slate-200/60 bg-white">
-                  <Link
-                    to="/product"
-                    className="py-2 px-2 text-[13.5px] font-bold text-emerald-800 hover:bg-emerald-50 rounded-md flex items-center justify-between"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span>All Products Overview</span>
-                    <span className="text-xs">→</span>
-                  </Link>
-
                   {/* N-Loc & Sub-Products */}
-                  <div className="border-t border-slate-100 pt-1 mt-1">
+                  <div>
                     <div 
-                      className="flex items-center justify-between py-2 px-2 text-[13.5px] font-semibold text-slate-800 hover:bg-slate-50 rounded-md cursor-pointer"
+                      className="flex items-center justify-between py-2 px-2 text-[13.5px] font-semibold text-slate-800 hover:bg-slate-50 rounded-md cursor-pointer select-none"
                       onClick={() => setMobileNLocOpen(!mobileNLocOpen)}
                     >
-                      <span>N-Loc (Cable Ties)</span>
+                      <span>N-Loc</span>
                       <ChevronDown 
                         size={15} 
-                        className={`text-slate-400 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180' : ''}`} 
+                        className={`text-slate-400 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180 text-emerald-800' : ''}`} 
                       />
                     </div>
 
                     {mobileNLocOpen && (
                       <div className="pl-3 py-1 flex flex-col gap-1 border-l-2 border-emerald-600/40 ml-2 mt-1">
-                        <Link
-                          to="/n-loc"
-                          className="py-1.5 px-2 text-[13px] font-semibold text-emerald-800 hover:bg-emerald-50 rounded-md"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          N-Loc Range Overview
-                        </Link>
                         {nlocSubItems.map((item) => (
                           <Link
                             key={item.id}
