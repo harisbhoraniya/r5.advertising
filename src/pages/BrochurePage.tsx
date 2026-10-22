@@ -218,10 +218,9 @@ export const BrochurePage: React.FC = () => {
               {/* Subtle ambient decorative backdrop glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#004428]/15 via-transparent to-[#8c2442]/15 rounded-3xl filter blur-2xl pointer-events-none" />
 
-              {/* Main Brochure Mockup Card (Clickable to open download modal) */}
+              {/* Main Brochure Mockup Card (Visual Showcase Only) */}
               <div 
-                onClick={() => openModal(highlights[0])}
-                className="group relative w-full h-full rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_36px_84px_rgba(0,0,0,0.26)] border border-slate-200/80 bg-[#0c120e] cursor-pointer"
+                className="group relative w-full h-full rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_84px_rgba(0,0,0,0.24)] border border-slate-200/80 bg-[#0c120e] cursor-default select-none"
               >
                 <img
                   src="https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=900&q=85"
@@ -233,12 +232,6 @@ export const BrochurePage: React.FC = () => {
 
                 {/* Top Accent Line */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#34d399] to-[#8c2442]" />
-
-                {/* Floating Click to Download Overlay Badge */}
-                <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-semibold text-[#004428]">
-                  <Download size={13} />
-                  <span>Click to Download</span>
-                </div>
 
                 {/* Text Overlay */}
                 <div className="absolute inset-0 p-7 sm:p-10 md:p-12 flex flex-col justify-end text-white">
