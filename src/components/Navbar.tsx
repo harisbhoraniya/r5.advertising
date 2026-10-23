@@ -9,20 +9,20 @@ interface ProductItem {
 }
 
 const nlocSubItems: ProductItem[] = [
-  { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/roller-ball' },
-  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/roller-ball' },
-  { id: 'releasable', title: 'Releasable Cable Tie', path: '/roller-ball' },
-  { id: 'ladder', title: 'Ladder Cable Tie', path: '/roller-ball' },
-  { id: 'marker-tag', title: 'Cable Marker Tag', path: '/roller-ball' },
-  { id: 'marker-plates', title: 'Marker Plates', path: '/roller-ball' },
+  { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/products/n-loc/roller-ball' },
+  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/products/n-loc/roller-ball' },
+  { id: 'releasable', title: 'Releasable Cable Tie', path: '/products/n-loc/roller-ball' },
+  { id: 'ladder', title: 'Ladder Cable Tie', path: '/products/n-loc/roller-ball' },
+  { id: 'marker-tag', title: 'Cable Marker Tag', path: '/products/n-loc/roller-ball' },
+  { id: 'marker-plates', title: 'Marker Plates', path: '/products/n-loc/roller-ball' },
 ];
 
 const otherProducts: ProductItem[] = [
-  { id: 'cable-cleat', title: 'Cable Cleat', path: '/product#cable-cleat' },
-  { id: 'link-box', title: 'Link Box', path: '/product#link-box' },
-  { id: 'lugx', title: 'LUGX', path: '/product#lugx' },
-  { id: 'cnc-machine-component', title: 'CNC Machine Component', path: '/product#cnc-machine-component' },
-  { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/product#press-parts' },
+  { id: 'cable-cleat', title: 'Cable Cleat', path: '/products/cable-cleat' },
+  { id: 'link-box', title: 'Link Box', path: '/products/link-box' },
+  { id: 'lugx', title: 'LUGX', path: '/products/lugx' },
+  { id: 'cnc-machine-component', title: 'CNC Machine Component', path: '/products#cnc-machine-component' },
+  { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products#press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -46,11 +46,13 @@ export const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   const isProductsActive =
-    location.pathname === '/product' ||
-    location.pathname === '/products' ||
+    location.pathname.startsWith('/products') ||
     location.pathname.startsWith('/product') ||
     location.pathname.startsWith('/n-loc') ||
-    location.pathname.startsWith('/roller-ball');
+    location.pathname.startsWith('/roller-ball') ||
+    location.pathname.startsWith('/cable-cleat') ||
+    location.pathname.startsWith('/link-box') ||
+    location.pathname.startsWith('/lugx');
 
   const handleMouseEnter = () => {
     if (closeTimeoutRef.current) {
@@ -144,7 +146,7 @@ export const Navbar: React.FC = () => {
             Home
           </Link>
           <Link 
-            to="/about" 
+            to="/about-us" 
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/about' || location.pathname === '/about-us'
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -166,13 +168,13 @@ export const Navbar: React.FC = () => {
           >
             <div className="flex items-center gap-1">
               <Link
-                to="/product"
+                to="/products"
                 className={`text-[14.5px] tracking-tight no-underline transition-colors duration-200 ${
                   isProductsActive 
                     ? 'text-emerald-800 font-semibold' 
                     : 'text-slate-700 hover:text-emerald-800'
                 }`}
-                onClick={(e) => handleNavigate('/product', e)}
+                onClick={(e) => handleNavigate('/products', e)}
               >
                 Products
               </Link>
@@ -216,7 +218,7 @@ export const Navbar: React.FC = () => {
                         className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
                           subOpen ? 'bg-white/20' : 'hover:bg-white/15'
                         }`}
-                        onClick={(e) => handleNavigate('/n-loc', e)}
+                        onClick={(e) => handleNavigate('/products/n-loc', e)}
                       >
                         <span>N-Loc</span>
                         <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
@@ -342,7 +344,7 @@ export const Navbar: React.FC = () => {
             </Link>
 
             <Link 
-              to="/about"
+              to="/about-us"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
                 location.pathname === '/about' || location.pathname === '/about-us'
                   ? 'bg-emerald-50 text-emerald-800 font-bold' 
@@ -357,7 +359,7 @@ export const Navbar: React.FC = () => {
             <div className="my-1">
               <div className="flex items-center justify-between rounded-xl transition-all duration-200 hover:bg-black/3">
                 <Link
-                  to="/product"
+                  to="/products"
                   className={`flex-1 px-3.5 py-3 text-[15px] font-semibold no-underline transition-colors duration-200 ${
                     isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800 hover:text-emerald-800'
                   }`}
@@ -387,7 +389,7 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center justify-between transition-colors duration-150 hover:bg-white/15 text-white">
                       <Link
-                        to="/n-loc"
+                        to="/products/n-loc"
                         className="flex-1 px-5 py-3 text-[0.875rem] font-medium text-white no-underline"
                         onClick={() => setMobileMenuOpen(false)}
                       >

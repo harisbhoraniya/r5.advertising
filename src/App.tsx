@@ -13,6 +13,10 @@ import { IndustryPage } from './pages/IndustryPage';
 import { BrochurePage } from './pages/BrochurePage';
 import { ContactPage } from './pages/ContactPage';
 
+import { CableCleatPage } from './pages/CableCleatPage';
+import { LinkBoxPage } from './pages/LinkBoxPage';
+import { LugxPage } from './pages/LugxPage';
+
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -21,21 +25,36 @@ export const App: React.FC = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/about-us" element={<Navigate to="/about" replace />} />
+          <Route path="/about-us" element={<AboutPage />} />
+          <Route path="/about" element={<Navigate to="/about-us" replace />} />
           <Route path="/industry" element={<IndustryPage />} />
           <Route path="/industries" element={<Navigate to="/industry" replace />} />
           <Route path="/brochure" element={<BrochurePage />} />
           <Route path="/download" element={<Navigate to="/brochure" replace />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/product" element={<ProductsPage />} />
+          {/* Products Catalog & Individual Product Pages */}
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/n-loc" element={<NLocPage />} />
-          <Route path="/nloc" element={<Navigate to="/n-loc" replace />} />
-          <Route path="/products/n-loc" element={<Navigate to="/n-loc" replace />} />
-          <Route path="/roller-ball" element={<RollerBallPage />} />
-          <Route path="/roller" element={<Navigate to="/roller-ball" replace />} />
-          <Route path="/products/roller-ball" element={<Navigate to="/roller-ball" replace />} />
+          <Route path="/product" element={<Navigate to="/products" replace />} />
+
+          <Route path="/products/n-loc" element={<NLocPage />} />
+          <Route path="/n-loc" element={<Navigate to="/products/n-loc" replace />} />
+          <Route path="/nloc" element={<Navigate to="/products/n-loc" replace />} />
+
+          <Route path="/products/n-loc/roller-ball" element={<RollerBallPage />} />
+          <Route path="/products/roller-ball" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
+          <Route path="/roller-ball" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
+          <Route path="/roller" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
+
+          <Route path="/products/cable-cleat" element={<CableCleatPage />} />
+          <Route path="/cable-cleat" element={<Navigate to="/products/cable-cleat" replace />} />
+          <Route path="/cable-cleats" element={<Navigate to="/products/cable-cleat" replace />} />
+
+          <Route path="/products/link-box" element={<LinkBoxPage />} />
+          <Route path="/link-box" element={<Navigate to="/products/link-box" replace />} />
+          <Route path="/junction-box" element={<Navigate to="/products/link-box" replace />} />
+
+          <Route path="/products/lugx" element={<LugxPage />} />
+          <Route path="/lugx" element={<Navigate to="/products/lugx" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

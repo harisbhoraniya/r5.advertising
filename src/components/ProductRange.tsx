@@ -18,7 +18,7 @@ const products: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'SELF-LOCKING · BALL LOCK',
     image: '/assets/range_roller_ball.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'roller-ball-hd',
@@ -26,7 +26,7 @@ const products: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'HEAVY DUTY · HIGH TENSILE',
     image: '/assets/Cable_Ties.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'releasable',
@@ -34,7 +34,7 @@ const products: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'REUSABLE · PPA571 COATED',
     image: '/assets/range_releasable.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'ladder',
@@ -42,7 +42,7 @@ const products: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'LADDER TYPE · SELF-LOCKING',
     image: '/assets/range_ladder.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'marker-tag',
@@ -50,7 +50,7 @@ const products: ProductItem[] = [
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'LASER & EMBOSSED',
     image: '/assets/range_marker_tag.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'marker-plates',
@@ -58,7 +58,7 @@ const products: ProductItem[] = [
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'STAINLESS STEEL PLATES',
     image: '/assets/marker_tag.png',
-    link: '/roller-ball',
+    link: '/products/n-loc/roller-ball',
   },
 ];
 

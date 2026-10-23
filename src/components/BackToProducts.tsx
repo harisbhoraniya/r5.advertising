@@ -7,7 +7,7 @@ interface BackToProductsProps {
 }
 
 export const BackToProducts: React.FC<BackToProductsProps> = ({
-  to = '/n-loc',
+  to = '/products',
   label = '← Back to Products'
 }) => {
   return (

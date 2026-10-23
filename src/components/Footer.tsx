@@ -40,12 +40,12 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link to="/about-us" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/product" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link to="/products" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Products
                 </Link>
               </li>

@@ -83,9 +83,9 @@ npm run preview
 | Route | Page Component | Description |
 |---|---|---|
 | `/` | `HomePage.tsx` | Overview of NAEPL engineering solutions & product highlights |
-| `/product` | `ProductsPage.tsx` | Comprehensive product range catalog & custom solution CTA |
-| `/n-loc` | `NLocPage.tsx` | N-LOC Stainless Steel Cable Ties line & applications |
-| `/roller-ball` | `RollerBallPage.tsx` | Interactive Coated/Uncoated Roller Ball specifications & tables |
+| `/products` | `ProductsPage.tsx` | Comprehensive product range catalog & custom solution CTA |
+| `/products/n-loc` | `NLocPage.tsx` | N-LOC Stainless Steel Cable Ties line & applications |
+| `/products/n-loc/roller-ball` | `RollerBallPage.tsx` | Interactive Coated/Uncoated Roller Ball specifications & tables |
 
 ---
 

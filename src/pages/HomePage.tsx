@@ -136,7 +136,7 @@ const featuredProducts = [
     category: 'STAINLESS STEEL CABLE TIES',
     desc: 'Self-locking roller ball, ladder & coated stainless steel ties in SS 304 & 316',
     img: '/assets/Cable_Ties.png',
-    link: '/n-loc',
+    link: '/products/n-loc',
   },
   {
     slug: 'cable-cleat',
@@ -144,7 +144,7 @@ const featuredProducts = [
     category: 'CABLE MANAGEMENT',
     desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
     img: '/assets/Cable_cleats.png',
-    link: '/product#cable-cleat',
+    link: '/products/cable-cleat',
   },
   {
     slug: 'link-box',
@@ -152,7 +152,7 @@ const featuredProducts = [
     category: 'ENCLOSURES',
     desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes',
     img: '/assets/Junction_Box.jpg',
-    link: '/product#link-box',
+    link: '/products/link-box',
   },
   {
     slug: 'lugx',
@@ -160,7 +160,7 @@ const featuredProducts = [
     category: 'ELECTRICAL FITTINGS',
     desc: 'High-conductivity electrical termination lugs and connector hardware',
     img: '/assets/app_control_panels.png',
-    link: '/product#lugx',
+    link: '/products/lugx',
   },
   {
     slug: 'cnc-machine-component',
@@ -168,7 +168,7 @@ const featuredProducts = [
     category: 'CNC MACHINING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
     img: '/assets/Machine_Components.png',
-    link: '/product#cnc-machine-component',
+    link: '/products#cnc-machine-component',
   },
   {
     slug: 'press-parts',
@@ -176,7 +176,7 @@ const featuredProducts = [
     category: 'PRESS COMPONENTS · STRAPPING',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
     img: '/assets/Press_Parts.png',
-    link: '/product#press-parts',
+    link: '/products#press-parts',
   },
 ];
 
@@ -537,7 +537,7 @@ export const HomePage: React.FC = () => {
                 Every product in our range is built to perform — precision materials, exacting tolerances, and global-standard certifications.
               </p>
               <Link
-                to="/product"
+                to="/products"
                 className="group inline-flex items-center gap-2 text-[12.5px] font-bold tracking-wider text-[#8c2442] hover:text-[#5c182c] transition-colors relative uppercase"
               >
                 <span>View All Products</span>

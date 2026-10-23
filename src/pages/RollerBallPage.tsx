@@ -53,7 +53,7 @@ export const RollerBallPage: React.FC = () => {
       />
 
       {/* 2. Back to Products Bar */}
-      <BackToProducts />
+      <BackToProducts to="/products/n-loc" label="← Back to N-LOC" />
 
       {/* 3. Roller Ball Variants & Specifications */}
       <section className="py-6 sm:py-9 pb-12 sm:pb-16 bg-white">

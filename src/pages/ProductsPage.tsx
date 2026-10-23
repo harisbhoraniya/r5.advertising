@@ -18,7 +18,7 @@ const productCatalog: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'STAINLESS STEEL CABLE TIES',
     image: '/assets/Cable_Ties.png',
-    link: '/n-loc',
+    link: '/products/n-loc',
   },
   {
     id: 'cable-cleat',
@@ -26,7 +26,7 @@ const productCatalog: ProductItem[] = [
     category: 'CABLE MANAGEMENT',
     badge: 'CABLE MANAGEMENT',
     image: '/assets/Cable_cleats.png',
-    link: '/n-loc',
+    link: '/products/cable-cleat',
   },
   {
     id: 'link-box',
@@ -34,7 +34,7 @@ const productCatalog: ProductItem[] = [
     category: 'ENCLOSURES',
     badge: 'ENCLOSURES',
     image: '/assets/Junction_Box.jpg',
-    link: '/n-loc',
+    link: '/products/link-box',
   },
   {
     id: 'lugx',
@@ -42,7 +42,7 @@ const productCatalog: ProductItem[] = [
     category: 'ELECTRICAL FITTINGS',
     badge: 'ELECTRICAL FITTINGS',
     image: '/assets/app_control_panels.png',
-    link: '/n-loc',
+    link: '/products/lugx',
   },
   {
     id: 'cnc-machine-component',
@@ -50,7 +50,7 @@ const productCatalog: ProductItem[] = [
     category: 'CNC MACHINING',
     badge: 'CNC MACHINING',
     image: '/assets/Machine_Components.png',
-    link: '/n-loc',
+    link: '/products#cnc-machine-component',
   },
   {
     id: 'press-parts',
@@ -58,7 +58,7 @@ const productCatalog: ProductItem[] = [
     category: 'PRESS COMPONENTS · STRAPPING',
     badge: 'PRESS COMPONENTS · STRAPPING',
     image: '/assets/Press_Parts.png',
-    link: '/n-loc',
+    link: '/products#press-parts',
   },
 ];
 
