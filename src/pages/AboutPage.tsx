@@ -182,7 +182,7 @@ export const AboutPage: React.FC = () => {
               
               {/* Badge */}
               <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-[#004428]/95 backdrop-blur-sm px-5 py-3 rounded shadow">
-                <p className="font-serif text-[13px] text-white tracking-wide m-0">
+                <p className="text-[13px] font-semibold text-white tracking-wide m-0">
                   Built to Deliver
                 </p>
               </div>

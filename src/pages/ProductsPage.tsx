@@ -50,7 +50,7 @@ const productCatalog: ProductItem[] = [
     category: 'CNC MACHINING',
     badge: 'CNC MACHINING',
     image: '/assets/Machine_Components.png',
-    link: '/products#cnc-machine-component',
+    link: '/products/cnc-machine-component',
   },
   {
     id: 'press-parts',
@@ -58,7 +58,7 @@ const productCatalog: ProductItem[] = [
     category: 'PRESS COMPONENTS · STRAPPING',
     badge: 'PRESS COMPONENTS · STRAPPING',
     image: '/assets/Press_Parts.png',
-    link: '/products#press-parts',
+    link: '/products/sheet-metal-press-parts',
   },
 ];
 

@@ -100,8 +100,8 @@ const heroSlides: HeroSlide[] = [
 const capabilities = [
   'Stainless Steel Cable Ties',
   'Cable Cleat',
-  'Link Box',
-  'LUGX',
+  'Junction Box',
+  'LUG',
   'CNC Machine Component',
   'Sheet Metal Press Parts',
 ];
@@ -168,7 +168,7 @@ const featuredProducts = [
     category: 'CNC MACHINING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
     img: '/assets/Machine_Components.png',
-    link: '/products#cnc-machine-component',
+    link: '/products/cnc-machine-component',
   },
   {
     slug: 'press-parts',
@@ -176,7 +176,7 @@ const featuredProducts = [
     category: 'PRESS COMPONENTS · STRAPPING',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
     img: '/assets/Press_Parts.png',
-    link: '/products#press-parts',
+    link: '/products/sheet-metal-press-parts',
   },
 ];
 

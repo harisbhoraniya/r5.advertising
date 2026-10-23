@@ -143,8 +143,8 @@ export const BrochurePage: React.FC = () => {
       setIsSubmitting(false);
       setIsSuccess(true);
 
-      // Trigger the browser PDF download automatically
-      triggerDownload(selectedBrochure.filename);
+      // PDF download temporarily disabled per user requirement
+      // triggerDownload(selectedBrochure.filename);
     }, 850);
   };
 

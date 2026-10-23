@@ -16,12 +16,14 @@ import { ContactPage } from './pages/ContactPage';
 import { CableCleatPage } from './pages/CableCleatPage';
 import { LinkBoxPage } from './pages/LinkBoxPage';
 import { LugxPage } from './pages/LugxPage';
+import { CncMachineComponentPage } from './pages/CncMachineComponentPage';
+import { SheetMetalPressPartsPage } from './pages/SheetMetalPressPartsPage';
 
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="w-full min-h-screen flex flex-col bg-white">
+      <div className="w-full min-h-screen flex flex-col bg-white font-sans">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -55,6 +57,17 @@ export const App: React.FC = () => {
 
           <Route path="/products/lugx" element={<LugxPage />} />
           <Route path="/lugx" element={<Navigate to="/products/lugx" replace />} />
+
+          <Route path="/products/cnc-machine-component" element={<CncMachineComponentPage />} />
+          <Route path="/products/cnc" element={<Navigate to="/products/cnc-machine-component" replace />} />
+          <Route path="/cnc-machine-component" element={<Navigate to="/products/cnc-machine-component" replace />} />
+          <Route path="/cnc" element={<Navigate to="/products/cnc-machine-component" replace />} />
+
+          <Route path="/products/sheet-metal-press-parts" element={<SheetMetalPressPartsPage />} />
+          <Route path="/products/press-parts" element={<Navigate to="/products/sheet-metal-press-parts" replace />} />
+          <Route path="/sheet-metal-press-parts" element={<Navigate to="/products/sheet-metal-press-parts" replace />} />
+          <Route path="/press-parts" element={<Navigate to="/products/sheet-metal-press-parts" replace />} />
+          <Route path="/sheet-metal" element={<Navigate to="/products/sheet-metal-press-parts" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

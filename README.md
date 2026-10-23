@@ -86,6 +86,7 @@ npm run preview
 | `/products` | `ProductsPage.tsx` | Comprehensive product range catalog & custom solution CTA |
 | `/products/n-loc` | `NLocPage.tsx` | N-LOC Stainless Steel Cable Ties line & applications |
 | `/products/n-loc/roller-ball` | `RollerBallPage.tsx` | Interactive Coated/Uncoated Roller Ball specifications & tables |
+| `/products/cnc-machine-component` | `CncMachineComponentPage.tsx` | Precision CNC turned, milled & drilled components in Copper, SS, Aluminium & Chrome Steel |
 
 ---
 

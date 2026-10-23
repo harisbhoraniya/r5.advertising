@@ -21,8 +21,8 @@ const otherProducts: ProductItem[] = [
   { id: 'cable-cleat', title: 'Cable Cleat', path: '/products/cable-cleat' },
   { id: 'link-box', title: 'Link Box', path: '/products/link-box' },
   { id: 'lugx', title: 'LUGX', path: '/products/lugx' },
-  { id: 'cnc-machine-component', title: 'CNC Machine Component', path: '/products#cnc-machine-component' },
-  { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products#press-parts' },
+  { id: 'cnc-machine-component', title: 'CNC Machine Component', path: '/products/cnc-machine-component' },
+  { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products/sheet-metal-press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -52,7 +52,10 @@ export const Navbar: React.FC = () => {
     location.pathname.startsWith('/roller-ball') ||
     location.pathname.startsWith('/cable-cleat') ||
     location.pathname.startsWith('/link-box') ||
-    location.pathname.startsWith('/lugx');
+    location.pathname.startsWith('/lugx') ||
+    location.pathname.startsWith('/cnc') ||
+    location.pathname.startsWith('/sheet-metal') ||
+    location.pathname.startsWith('/press-parts');
 
   const handleMouseEnter = () => {
     if (closeTimeoutRef.current) {
