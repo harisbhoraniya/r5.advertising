@@ -187,13 +187,13 @@ export const CableCleatPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                <Link 
+                {/* <Link 
                   to="/contact?product=trefoil-cable-cleat" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -225,13 +225,13 @@ export const CableCleatPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                <Link 
+                {/* <Link 
                   to="/contact?product=single-cable-cleat" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -263,13 +263,13 @@ export const CableCleatPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                <Link 
+                {/* <Link 
                   to="/contact?product=cable-cleat-hardware" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
+                </Link> */}
               </div>
             </div>
 

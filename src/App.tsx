@@ -42,10 +42,13 @@ export const App: React.FC = () => {
           <Route path="/n-loc" element={<Navigate to="/products/n-loc" replace />} />
           <Route path="/nloc" element={<Navigate to="/products/n-loc" replace />} />
 
+          {/* Roller Ball routes commented out temporarily */}
+          {/*
           <Route path="/products/n-loc/roller-ball" element={<RollerBallPage />} />
           <Route path="/products/roller-ball" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
           <Route path="/roller-ball" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
           <Route path="/roller" element={<Navigate to="/products/n-loc/roller-ball" replace />} />
+          */}
 
           <Route path="/products/cable-cleat" element={<CableCleatPage />} />
           <Route path="/cable-cleat" element={<Navigate to="/products/cable-cleat" replace />} />

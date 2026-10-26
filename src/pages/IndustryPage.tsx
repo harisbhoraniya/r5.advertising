@@ -14,31 +14,31 @@ const industries: IndustryItem[] = [
     name: 'Electrical & Electronics',
     category: 'Power · Wiring · Components',
     desc: 'Precision-engineered components supporting electrical panels, control systems, and wiring infrastructure — built to withstand demanding electrical environments.',
-    img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=85',
+    img: '/assets/industry_electrical.jpg',
   },
   {
     name: 'Industrial Manufacturing',
     category: 'Production · Machining · Assembly',
     desc: 'End-to-end manufacturing support for production lines — from machined components to press parts, engineered for consistency at scale.',
-    img: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=85',
+    img: '/assets/industry_manufacturing.jpg',
   },
   {
     name: 'Infrastructure & Utilities',
     category: 'Power Grids · Public Works',
     desc: 'Rugged, weather-resistant components engineered for power distribution, utility installations, and large-scale infrastructure projects.',
-    img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=85',
+    img: '/assets/industry_infrastructure.jpg',
   },
   {
     name: 'Engineering & Automation',
     category: 'Control Systems · Integration',
     desc: 'Supporting automation and control system builders with precision parts engineered to exacting specifications and tight lead times.',
-    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=85',
+    img: '/assets/industry_automation.jpg',
   },
   {
     name: 'Oil & Gas',
     category: 'Energy · Harsh Environments',
     desc: 'Heavy-duty, corrosion-resistant components built to perform reliably in the harsh, high-stakes environments of the oil & gas sector.',
-    img: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&q=85',
+    img: '/assets/industry_oil_gas.jpg',
   },
 ];
 
