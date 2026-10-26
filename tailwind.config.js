@@ -9,7 +9,7 @@ export default {
       fontFamily: {
         sans: ['Manrope', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
-        accent: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        accent: ['Manrope', 'sans-serif'],
       },
       colors: {
         primary: '#111827',

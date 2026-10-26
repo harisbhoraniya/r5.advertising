@@ -28,36 +28,43 @@ const entities = [
 export const AboutPage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
-      {/* ── 1. Hero Section ── */}
-      <section className="bg-white relative">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16">
+      {/* ── 1. Hero Banner Section ── */}
+      <section className="relative w-full min-h-[560px] sm:min-h-[640px] md:min-h-[78vh] lg:min-h-[84vh] flex items-end bg-[#0a0f0d] overflow-hidden">
+        {/* Background Image with Dark Cinematic Gradient Overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img
+            src="/assets/about_hero_banner.webp"
+            alt="NAEPL Engineering Excellence and Advanced Manufacturing Plant"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(5,15,10,0.30) 0%, rgba(5,15,10,0.65) 55%, rgba(5,15,10,0.92) 100%)',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+        </div>
+
+        {/* Banner Content Over Image */}
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
           {/* Eyebrow */}
-          <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-4 sm:mb-6 flex items-center gap-2.5">
-            <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-            About Us
+          <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
+            <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
+            About Us · N Gandhi Group
           </p>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-medium text-[#1a1a1a] leading-[1.08] tracking-tight max-w-[760px] mb-6 sm:mb-8">
-            <span className="text-[#004428]">Engineering Excellence.</span> Trusted Quality.
-            <span className="block text-[#8c2442]">Global Reach.</span>
+          <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 whitespace-pre-line drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
+            Engineering Excellence.{'\n'}Trusted Quality. Global Reach.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg font-light text-[#6b6b6b] leading-relaxed max-w-[580px]">
-            NAEPL is part of <strong className="text-[#8c2442] font-semibold">N Gandhi Group</strong> — an ISO 9001:2015 certified engineering company focused on delivering quality-driven, cost-effective manufacturing solutions to global markets.
+          <p className="max-w-[640px] text-sm sm:text-base md:text-[16.5px] font-light text-white/90 leading-relaxed mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
+            NAEPL is part of <strong className="text-white font-semibold">N Gandhi Group</strong> — an ISO 9001:2015 certified engineering company focused on delivering quality-driven, cost-effective manufacturing solutions to global markets.
           </p>
-        </div>
-
-        {/* Hero Banner Image */}
-        <div className="w-full h-[320px] sm:h-[420px] md:h-[500px] relative overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80&auto=format&fit=crop"
-            alt="NAEPL Engineering and manufacturing facility"
-            className="w-full h-full object-cover object-[center_40%]"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-[#004428]/25" />
         </div>
       </section>
 

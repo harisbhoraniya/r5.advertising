@@ -157,19 +157,19 @@ export const BrochurePage: React.FC = () => {
             {/* Left Column: Information & Download Trigger */}
             <div>
               {/* Eyebrow */}
-              <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-4 sm:mb-5 flex items-center gap-2.5">
-                <span className="inline-block w-4 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
+              <p className="text-[12px] sm:text-[13px] font-semibold text-[#004428] tracking-[0.14em] uppercase mb-4 sm:mb-5 flex items-center gap-2.5">
+                <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
                 Brochure
               </p>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[62px] font-medium text-[#1a1a1a] leading-[1.08] tracking-tight mb-4 sm:mb-6">
+              <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-5 sm:mb-6">
                 Download Our<br />
                 <span className="text-[#004428]">Company</span> <span className="text-[#8c2442]">Profile.</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b] leading-relaxed mb-8 max-w-[520px]">
+              <p className="text-sm sm:text-base md:text-[16.5px] font-light text-[#6b6b6b] leading-relaxed mb-8 max-w-[520px]">
                 Explore detailed information about our <strong className="text-[#004428] font-medium">products, capabilities</strong>, infrastructure, and quality standards — all in one comprehensive document.
               </p>
 

@@ -4,7 +4,8 @@ import { BackToProducts } from '../components/BackToProducts';
 import { TrustRow } from '../components/TrustRow';
 import { 
   CheckCircle2, 
-  ArrowRight
+  ArrowRight,
+  FileText
 } from 'lucide-react';
 
 export const CableCleatPage: React.FC = () => {
@@ -17,34 +18,39 @@ export const CableCleatPage: React.FC = () => {
           <img
             src="/assets/cable_cleats/cable_cleats_installation.png"
             alt="NAEPL Cable Cleats Short-Circuit Withstand Systems"
-            className="w-full h-full object-cover object-center scale-105 filter brightness-90 contrast-105"
+            className="w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105"
             loading="eager"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,17,14,0.92) 0%, rgba(10,17,14,0.78) 45%, rgba(10,17,14,0.55) 100%)',
+                'linear-gradient(to right, rgba(10,17,14,0.76) 0%, rgba(10,17,14,0.45) 50%, rgba(10,17,14,0.12) 100%)',
             }}
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,17,14,0.95) 0%, rgba(10,17,14,0.3) 60%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,17,14,0.80) 0%, rgba(10,17,14,0.20) 40%, transparent 100%)',
             }}
           />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-14 sm:py-20 md:py-24 w-full">
+          {/* Eyebrow */}
+          <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
+            <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
+            Cable Cleats · Short-Circuit Protection
+          </p>
 
-          <h1 className="font-['Manrope',sans-serif] text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.08] mb-4 sm:mb-6 max-w-[850px]">
+          <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
             Hold Strong. <br className="hidden sm:inline" />
             <span className="text-[#f0859a]">Move Forward.</span>
           </h1>
 
-          <p className="font-['Manrope',sans-serif] text-sm sm:text-base md:text-[17px] text-white/80 font-normal leading-relaxed max-w-[680px] mb-7 sm:mb-9">
+          <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[640px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
             Engineered to securely hold and support cables under all operating conditions and protect installations from destructive electromagnetic short-circuit forces up to 180 kA peak (IEC 61914).
           </p>
 
@@ -89,7 +95,7 @@ export const CableCleatPage: React.FC = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-4 sm:mb-5">
-              Hold Strong. <span className="font-accent italic font-medium text-[#d27083] ml-1 sm:ml-1.5">Move Forward.</span>
+              Hold Strong. <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Move Forward.</span>
             </h2>
 
             {/* Exact Content from Brochure Page 32 */}
@@ -149,7 +155,7 @@ export const CableCleatPage: React.FC = () => {
             OUR RANGE
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-7 sm:mb-9">
-            Explore the <span className="font-accent italic font-medium text-[#d27083] ml-1 sm:ml-1.5">Cable Cleats Range</span>
+            Explore the <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Cable Cleats Range</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -272,36 +278,56 @@ export const CableCleatPage: React.FC = () => {
       </section>
 
       {/* ── Engineering Support & RFQ Banner ── */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-[#004428] via-[#00331e] to-[#0a110e] text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#004428] via-[#00331e] to-[#0a110e] text-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-[700px]">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider mb-3">
-                <CheckCircle2 size={13} />
-                <span>NAEPL Technical Consultation</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: A4 Brochure Mockup Card + Download PDF Brochure Button */}
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
+              <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
+                <img
+                  src="/assets/brochure_covers/page_29.png"
+                  alt="NAEPL Cable Cleats Catalog Brochure (A4)"
+                  className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none rounded-2xl" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
-                Need Help Calculating Fault Currents or Sizing Cleats?
-              </h2>
-              <p className="text-white/80 text-[14px] sm:text-[15px] leading-relaxed">
-                Our application engineering team helps contractors, OEMs, and consultants calculate dynamic short-circuit electromagnetic forces and establish recommended cleat spacing for custom cable routes.
-              </p>
-            </div>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                to="/contact"
-                className="bg-white hover:bg-emerald-50 text-[#004428] font-bold px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-lg hover:shadow-xl"
-              >
-                Request Quotation &amp; Samples
-              </Link>
               <Link
                 to="/brochure"
-                className="bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-5 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all"
+                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25"
               >
-                Download PDF Brochure
+                <FileText size={16} className="text-emerald-300" />
+                <span>Download PDF Brochure</span>
               </Link>
             </div>
+
+            {/* Right Column: Technical Consultation Info + Request Quotation */}
+            <div className="lg:col-span-7 lg:pl-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-4 border border-emerald-400/20">
+                <CheckCircle2 size={14} className="text-emerald-400" />
+                <span>NAEPL Technical Consultation</span>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 leading-tight">
+                Need Help Calculating Fault Currents or Sizing Cleats?
+              </h2>
+              
+              <p className="text-white/80 text-[14px] sm:text-[15px] leading-relaxed mb-6 max-w-[620px]">
+                Our application engineering team helps contractors, OEMs, and consultants calculate dynamic short-circuit electromagnetic forces and establish recommended cleat spacing for custom cable routes.
+              </p>
+
+              <div>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2.5 bg-white hover:bg-emerald-50 text-[#004428] font-bold px-7 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-lg hover:shadow-xl hover:translate-y-[-1px]"
+                >
+                  <span>Request Quotation &amp; Samples</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

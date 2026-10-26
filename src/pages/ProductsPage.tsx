@@ -17,7 +17,7 @@ const productCatalog: ProductItem[] = [
     title: 'N-Loc',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'STAINLESS STEEL CABLE TIES',
-    image: '/assets/Cable_Ties.png',
+    image: '/assets/featured_products/featured_nloc.webp',
     link: '/products/n-loc',
   },
   {
@@ -25,7 +25,7 @@ const productCatalog: ProductItem[] = [
     title: 'Cable Cleat',
     category: 'CABLE MANAGEMENT',
     badge: 'CABLE MANAGEMENT',
-    image: '/assets/Cable_cleats.png',
+    image: '/assets/featured_products/featured_cable_cleat.webp',
     link: '/products/cable-cleat',
   },
   {
@@ -33,7 +33,7 @@ const productCatalog: ProductItem[] = [
     title: 'Link Box',
     category: 'ENCLOSURES',
     badge: 'ENCLOSURES',
-    image: '/assets/Junction_Box.jpg',
+    image: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
   },
   {
@@ -41,7 +41,7 @@ const productCatalog: ProductItem[] = [
     title: 'LUGX',
     category: 'ELECTRICAL FITTINGS',
     badge: 'ELECTRICAL FITTINGS',
-    image: '/assets/app_control_panels.png',
+    image: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
   {
@@ -49,7 +49,7 @@ const productCatalog: ProductItem[] = [
     title: 'CNC Machine Component',
     category: 'CNC MACHINING',
     badge: 'CNC MACHINING',
-    image: '/assets/Machine_Components.png',
+    image: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
   },
   {
@@ -57,7 +57,7 @@ const productCatalog: ProductItem[] = [
     title: 'Sheet Metal Press Parts',
     category: 'PRESS COMPONENTS · STRAPPING',
     badge: 'PRESS COMPONENTS · STRAPPING',
-    image: '/assets/Press_Parts.png',
+    image: '/assets/featured_products/featured_press_parts.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];
@@ -70,16 +70,16 @@ export const ProductsPage: React.FC = () => {
         {/* Background Image with Dark Vignette Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=1800&q=85"
-            alt="Our Product Range Overview"
-            className="w-full h-full object-cover object-[center_30%]"
+            src="/assets/products_hero_banner.webp"
+            alt="Our Product Range Overview - NAEPL Precision Engineered Hardware"
+            className="w-full h-full object-cover object-[center_35%]"
             loading="eager"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.85) 100%)',
+                'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.88) 100%)',
             }}
           />
         </div>
@@ -87,18 +87,18 @@ export const ProductsPage: React.FC = () => {
         {/* Banner Content */}
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
           {/* Eyebrow */}
-          <p className="text-[11px] font-semibold text-white/70 tracking-[0.2em] uppercase mb-4 sm:mb-5 flex items-center gap-3">
-            <span className="inline-block w-8 h-[1px] bg-white/50" />
+          <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
+            <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
             Our Range
           </p>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-light text-white tracking-tight leading-[1.08] sm:leading-[1.05] mb-4 sm:mb-6 max-w-[800px]">
-            Our <strong className="font-semibold text-white">Product Range</strong>
+          <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
+            Our Product Range
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base md:text-[17px] text-white/75 font-light leading-relaxed max-w-[500px]">
+          <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[540px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
             Precision-engineered components and solutions for demanding industrial applications worldwide.
           </p>
         </div>
@@ -133,11 +133,11 @@ export const ProductsPage: React.FC = () => {
                   product.id === 'press-parts' ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none' : ''
                 }`}
               >
-                <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
+                <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">

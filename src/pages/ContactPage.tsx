@@ -37,19 +37,19 @@ export const ContactPage: React.FC = () => {
       <section className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 bg-white overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-16">
           {/* Eyebrow */}
-          <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-4 sm:mb-5 flex items-center gap-2.5">
-            <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
+          <p className="text-[12px] sm:text-[13px] font-semibold text-[#004428] tracking-[0.14em] uppercase mb-4 sm:mb-5 flex items-center gap-2.5">
+            <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
             Contact
           </p>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-medium text-[#1a1a1a] leading-[1.08] tracking-tight max-w-[620px] mb-4 sm:mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight max-w-[620px] mb-5 sm:mb-6">
             Let&apos;s <span className="text-[#004428]">Build</span><br />
             <span className="text-[#8c2442]">Together.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b] leading-relaxed max-w-[480px]">
+          <p className="text-sm sm:text-base md:text-[16.5px] font-light text-[#6b6b6b] leading-relaxed max-w-[520px]">
             Reach out with your requirements. Our engineering team will respond within{' '}
             <strong className="text-[#004428] font-medium">one business day</strong>.
           </p>

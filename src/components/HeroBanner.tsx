@@ -37,12 +37,12 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       </div>
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
         <div className="flex items-center gap-2.5 mb-2.5 sm:mb-3.5">
-          <span className="inline-block w-[18px] sm:w-[22px] h-[1.5px] bg-slate-400" />
-          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] text-slate-300 uppercase">{tag}</span>
+          <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
+          <span className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase drop-shadow-sm">{tag}</span>
         </div>
         <h1 className="flex flex-wrap items-baseline gap-2 sm:gap-3.5 m-0 leading-tight">
-          <span className="text-2xl sm:text-4xl md:text-[52px] font-extrabold tracking-tight text-white">{titleMain}</span>
-          <span className="font-accent text-2xl sm:text-4xl md:text-[52px] italic font-medium text-[#df8497] tracking-tight">{titleAccent}</span>
+          <span className="text-2xl sm:text-4xl md:text-[52px] font-bold tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">{titleMain}</span>
+          <span className="text-2xl sm:text-4xl md:text-[52px] font-bold tracking-tight text-[#df8497] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">{titleAccent}</span>
         </h1>
       </div>
     </section>

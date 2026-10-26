@@ -21,7 +21,7 @@
 }
 
 .font-accent, [class*="font-accent"] {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .font-serif, [class*="font-serif"] {

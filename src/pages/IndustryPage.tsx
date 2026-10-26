@@ -58,16 +58,16 @@ export const IndustryPage: React.FC = () => {
         {/* Background Image with Dark Vignette Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1800&q=85"
-            alt="Sectors and Industries Overview"
-            className="w-full h-full object-cover object-[center_30%]"
+            src="/assets/industries_hero_banner.webp"
+            alt="Sectors and Industries Overview - NAEPL Engineering Solutions"
+            className="w-full h-full object-cover object-[center_35%]"
             loading="eager"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.85) 100%)',
+                'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.88) 100%)',
             }}
           />
         </div>
@@ -75,18 +75,18 @@ export const IndustryPage: React.FC = () => {
         {/* Banner Content */}
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
           {/* Eyebrow */}
-          <p className="text-[11px] font-semibold text-white/70 tracking-[0.2em] uppercase mb-4 sm:mb-5 flex items-center gap-3">
-            <span className="inline-block w-8 h-[1px] bg-white/50" />
+          <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
+            <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
             Sectors We Serve
           </p>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-light text-white tracking-tight leading-[1.08] sm:leading-[1.05] mb-4 sm:mb-6 max-w-[800px]">
-            Industries <strong className="font-semibold text-white">We Power</strong>
+          <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
+            Industries We Power
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base md:text-[17px] text-white/75 font-light leading-relaxed max-w-[500px]">
+          <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[540px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
             Engineering solutions trusted across critical sectors — built for reliability, precision, and scale wherever they&apos;re deployed.
           </p>
         </div>
@@ -105,9 +105,9 @@ export const IndustryPage: React.FC = () => {
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
                 Industry Solutions
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-[44px] font-normal text-slate-900 tracking-tight leading-[1.15] m-0">
+              <h2 className="text-2xl sm:text-3xl md:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.15] m-0">
                 Solutions Built for <br className="hidden sm:inline" />
-                <em className="italic text-[#8c2442] font-normal">Every</em> Sector
+                <span className="text-[#8c2442]">Every</span> Sector
               </h2>
             </div>
             <p className="text-sm sm:text-[15px] font-light text-slate-500 leading-relaxed max-w-[420px] m-0">

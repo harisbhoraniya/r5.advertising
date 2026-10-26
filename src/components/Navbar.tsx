@@ -8,6 +8,8 @@ interface ProductItem {
   path: string;
 }
 
+// Sub-items for N-Loc dropdown (Commented out for now as dropdown is disabled)
+/*
 const nlocSubItems: ProductItem[] = [
   { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/products/n-loc/roller-ball' },
   { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/products/n-loc/roller-ball' },
@@ -16,6 +18,7 @@ const nlocSubItems: ProductItem[] = [
   { id: 'marker-tag', title: 'Cable Marker Tag', path: '/products/n-loc/roller-ball' },
   { id: 'marker-plates', title: 'Marker Plates', path: '/products/n-loc/roller-ball' },
 ];
+*/
 
 const otherProducts: ProductItem[] = [
   { id: 'cable-cleat', title: 'Cable Cleat', path: '/products/cable-cleat' },
@@ -27,22 +30,22 @@ const otherProducts: ProductItem[] = [
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [subOpen, setSubOpen] = useState(false);
+  // const [subOpen, setSubOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [mobileNLocOpen, setMobileNLocOpen] = useState(false);
+  // const [mobileNLocOpen, setMobileNLocOpen] = useState(false);
 
   const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
-  const openSubTimeoutRef = useRef<number | null>(null);
-  const subTimeoutRef = useRef<number | null>(null);
+  // const openSubTimeoutRef = useRef<number | null>(null);
+  // const subTimeoutRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
     setIsOpen(false);
-    setSubOpen(false);
+    // setSubOpen(false);
   }, [location.pathname]);
 
   const isProductsActive =
@@ -80,10 +83,11 @@ export const Navbar: React.FC = () => {
     }
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
-      setSubOpen(false);
+      // setSubOpen(false);
     }, 180);
   };
 
+  /*
   const handleSubMouseEnter = () => {
     if (subTimeoutRef.current) {
       clearTimeout(subTimeoutRef.current);
@@ -109,6 +113,7 @@ export const Navbar: React.FC = () => {
       setSubOpen(false);
     }, 180);
   };
+  */
 
   const handleNavigate = (path: string, e?: React.MouseEvent) => {
     if (e) {
@@ -116,10 +121,10 @@ export const Navbar: React.FC = () => {
     }
     if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-    if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
-    if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current);
+    // if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
+    // if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current);
     setIsOpen(false);
-    setSubOpen(false);
+    // setSubOpen(false);
     setMobileMenuOpen(false);
     navigate(path);
   };
@@ -210,24 +215,18 @@ export const Navbar: React.FC = () => {
                 <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#004428] rotate-45 rounded-sm shadow-sm" />
 
                 <ul className="relative py-2 list-none m-0 p-0">
-                  {/* 1. N-Loc with Level 2 Flyout Submenu */}
-                  <li
-                    className="relative"
-                    onMouseEnter={handleSubMouseEnter}
-                    onMouseLeave={handleSubMouseLeave}
-                  >
+                  {/* 1. N-Loc Link (Level 2 Flyout Submenu Commented Out as requested) */}
+                  <li className="relative">
                     <div>
                       <div
-                        className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
-                          subOpen ? 'bg-white/20' : 'hover:bg-white/15'
-                        }`}
+                        className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer hover:bg-white/15"
                         onClick={(e) => handleNavigate('/products/n-loc', e)}
                       >
                         <span>N-Loc</span>
                         <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
                       </div>
 
-                      {/* Level 2 Flyout Menu (Sub-items) */}
+                      {/* Level 2 Flyout Menu (Sub-items) - Commented out for now
                       {subOpen && (
                         <div
                           className="absolute left-[calc(100%+6px)] top-0 w-64 rounded-2xl bg-[#003820] shadow-[0_12px_40px_rgba(0,56,32,0.45),0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-200 ease-out origin-top-left z-50 animate-in fade-in-0 zoom-in-95"
@@ -252,6 +251,7 @@ export const Navbar: React.FC = () => {
                           </ul>
                         </div>
                       )}
+                      */}
                     </div>
                     <div className="mx-5 h-px bg-white/15" />
                   </li>
@@ -261,10 +261,6 @@ export const Navbar: React.FC = () => {
                     <li key={item.id}>
                       <div
                         className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
-                        onMouseEnter={() => {
-                          if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
-                          setSubOpen(false);
-                        }}
                         onClick={(e) => handleNavigate(item.path, e)}
                       >
                         <span>{item.title}</span>
@@ -388,32 +384,18 @@ export const Navbar: React.FC = () => {
 
               {mobileProductsOpen && (
                 <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
-                  {/* N-Loc & Nested Submenu */}
+                  {/* N-Loc Direct Link (Submenu dropdown commented out for now) */}
                   <div>
-                    <div className="flex items-center justify-between transition-colors duration-150 hover:bg-white/15 text-white">
-                      <Link
-                        to="/products/n-loc"
-                        className="flex-1 px-5 py-3 text-[0.875rem] font-medium text-white no-underline"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        N-Loc
-                      </Link>
-                      <button
-                        type="button"
-                        aria-label="Toggle N-Loc submenu"
-                        className="px-5 py-3 bg-transparent border-none cursor-pointer outline-none text-white flex items-center"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setMobileNLocOpen(!mobileNLocOpen);
-                        }}
-                      >
-                        <ChevronDown 
-                          size={14} 
-                          className={`opacity-70 transition-transform duration-200 ${mobileNLocOpen ? 'rotate-180' : ''}`} 
-                        />
-                      </button>
-                    </div>
+                    <Link
+                      to="/products/n-loc"
+                      className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <span>N-Loc</span>
+                      <ArrowRight size={13} className="opacity-60" />
+                    </Link>
 
+                    {/* Mobile N-Loc Submenu - Commented out for now
                     {mobileNLocOpen && (
                       <div className="ml-4 mr-3 mb-2 rounded-xl bg-[#003820] overflow-hidden">
                         {nlocSubItems.map((subItem, sIdx) => (
@@ -433,6 +415,7 @@ export const Navbar: React.FC = () => {
                         ))}
                       </div>
                     )}
+                    */}
                     <div className="mx-5 h-px bg-white/15" />
                   </div>
 

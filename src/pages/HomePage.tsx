@@ -32,8 +32,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1735494033576-9c882e80504c?w=1600&q=80&auto=format&fit=crop',
-    alt: 'Precision metal cutting with sparks',
+    image: '/assets/hero_slides/slide_1_precision_cutting.webp',
+    alt: 'High-precision metal cutting with sparks and CNC lathe machining',
   },
   {
     eyebrow: 'Advanced Machinery',
@@ -44,8 +44,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1717386255773-1e3037c81788?w=1600&q=80&auto=format&fit=crop',
-    alt: 'State-of-the-art CNC and VMC industrial machinery',
+    image: '/assets/hero_slides/slide_2_advanced_machinery.webp',
+    alt: 'State-of-the-art 5-axis CNC and VMC industrial machinery',
   },
   {
     eyebrow: 'Skilled Craftsmanship',
@@ -56,8 +56,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1730584474196-b0e8a29303e8?w=1600&q=80&auto=format&fit=crop',
-    alt: 'Experienced welders at work in a manufacturing facility',
+    image: '/assets/hero_slides/slide_3_skilled_craftsmanship.webp',
+    alt: 'Experienced precision engineer inspecting CNC machined components with micrometer',
   },
   {
     eyebrow: 'Modern Facilities',
@@ -68,8 +68,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1764185800646-f75f7e16e465?w=1600&q=80&auto=format&fit=crop',
-    alt: 'Modern, well-equipped industrial factory floor',
+    image: '/assets/hero_slides/slide_4_modern_facilities.webp',
+    alt: 'Modern, well-equipped automated smart factory floor',
   },
   {
     eyebrow: 'End-to-End Production',
@@ -80,8 +80,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=1600&q=80&auto=format&fit=crop',
-    alt: 'Comprehensive in-house manufacturing machines',
+    image: '/assets/hero_slides/slide_5_end_to_end.webp',
+    alt: 'Comprehensive in-house manufacturing, sheet metal stamping, and fabrication under one roof',
   },
   {
     eyebrow: 'Scaled Manufacturing',
@@ -92,8 +92,8 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: 'https://images.unsplash.com/photo-1670483111819-ed62eff77173?w=1600&q=80&auto=format&fit=crop',
-    alt: 'Large-scale global manufacturing and assembly hall',
+    image: '/assets/hero_slides/slide_6_global_demand.webp',
+    alt: 'Large-scale global manufacturing logistics and dispatch warehouse ready for export',
   },
 ];
 
@@ -135,7 +135,7 @@ const featuredProducts = [
     name: 'N-Loc',
     category: 'STAINLESS STEEL CABLE TIES',
     desc: 'Self-locking roller ball, ladder & coated stainless steel ties in SS 304 & 316',
-    img: '/assets/Cable_Ties.png',
+    img: '/assets/featured_products/featured_nloc.webp',
     link: '/products/n-loc',
   },
   {
@@ -143,7 +143,7 @@ const featuredProducts = [
     name: 'Cable Cleat',
     category: 'CABLE MANAGEMENT',
     desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
-    img: '/assets/Cable_cleats.png',
+    img: '/assets/featured_products/featured_cable_cleat.webp',
     link: '/products/cable-cleat',
   },
   {
@@ -151,7 +151,7 @@ const featuredProducts = [
     name: 'Link Box',
     category: 'ENCLOSURES',
     desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes',
-    img: '/assets/Junction_Box.jpg',
+    img: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
   },
   {
@@ -159,7 +159,7 @@ const featuredProducts = [
     name: 'LUGX',
     category: 'ELECTRICAL FITTINGS',
     desc: 'High-conductivity electrical termination lugs and connector hardware',
-    img: '/assets/app_control_panels.png',
+    img: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
   {
@@ -167,7 +167,7 @@ const featuredProducts = [
     name: 'CNC Machine Component',
     category: 'CNC MACHINING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
-    img: '/assets/Machine_Components.png',
+    img: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
   },
   {
@@ -175,7 +175,7 @@ const featuredProducts = [
     name: 'Sheet Metal Press Parts',
     category: 'PRESS COMPONENTS · STRAPPING',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
-    img: '/assets/Press_Parts.png',
+    img: '/assets/featured_products/featured_press_parts.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];
@@ -259,9 +259,8 @@ export const HomePage: React.FC = () => {
           {heroSlides.map((slide, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out hero-slide-bg ${
-                idx === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out hero-slide-bg ${idx === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -372,7 +371,7 @@ export const HomePage: React.FC = () => {
       {/* ── 2. About Snapshot Section ── */}
       <section className="py-16 sm:py-24 bg-[#f8f8f7] relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8c2442] to-[#004428]" />
-        
+
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column: About Narrative */}
@@ -420,19 +419,12 @@ export const HomePage: React.FC = () => {
             {/* Right Column: Facility Showcase Card */}
             <div className="relative h-[340px] sm:h-[440px] rounded-lg overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-slate-200">
               <img
-                src="/assets/hero_banner.png"
-                alt="NAEPL Engineering facility"
+                src="/assets/about_naepl.webp"
+                alt="NAEPL Advanced Engineering and Manufacturing Facility"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#004428]/20 to-[#8c2442]/15" />
-              
-              {/* Floating Quality Badge */}
-              <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-md px-5 py-3.5 rounded border-l-[3px] border-[#004428] shadow-lg">
-                <p className="text-xs font-semibold text-[#004428] tracking-[0.06em] uppercase m-0">
-                  Made in India · Global Standards
-                </p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#004428]/15 to-[#8c2442]/10" />
             </div>
           </div>
         </div>
@@ -555,11 +547,11 @@ export const HomePage: React.FC = () => {
                 className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
               >
                 {/* Image Container with Top-Left Badge */}
-                <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
+                <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100">
                   <img
                     src={product.img}
                     alt={product.name}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
