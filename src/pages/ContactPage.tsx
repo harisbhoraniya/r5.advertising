@@ -62,6 +62,10 @@ export const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 items-start">
             {/* Left Column: Direct Info & Location Map Card */}
             <div>
+              <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-1.5 flex items-center gap-2">
+                <span className="inline-block w-4 h-[1.5px] bg-[#004428]" />
+                N Gandhi Advance Engineering Private Limited
+              </p>
               <h2 className="text-2xl sm:text-3xl font-medium text-[#1a1a1a] tracking-tight mb-7 sm:mb-8">
                 Get in <span className="text-[#004428]">Touch</span>
               </h2>
@@ -72,20 +76,20 @@ export const ContactPage: React.FC = () => {
                   {
                     icon: MapPin,
                     label: 'Address',
-                    value: 'Mumbai, Maharashtra, India',
-                    href: undefined,
+                    value: '104 First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013, Maharashtra, India',
+                    href: 'https://maps.google.com/?q=Marathon+Futurex,+NM+Joshi+Marg,+Lower+Parel,+Mumbai+400013',
                   },
                   {
                     icon: Phone,
                     label: 'Phone',
-                    value: '+91 (022) 2850-XXXX',
-                    href: 'tel:+912228500000',
+                    value: '020 68380200',
+                    href: 'tel:02068380200',
                   },
                   {
                     icon: Mail,
                     label: 'Email',
-                    value: 'info@ngandhi.com',
-                    href: 'mailto:info@ngandhi.com',
+                    value: 'naepl@ngandhi.com',
+                    href: 'mailto:naepl@ngandhi.com',
                   },
                   {
                     icon: Globe,
@@ -140,15 +144,15 @@ export const ContactPage: React.FC = () => {
                   Our <span className="text-[#004428]">Location</span>
                 </h3>
                 <p className="text-[13.5px] font-light text-[#6b6b6b] leading-relaxed m-0">
-                  Visit our office in Mumbai, the heart of India&apos;s commercial capital.
+                  Visit our office at Marathon Futurex, Lower Parel in the heart of Mumbai.
                 </p>
               </div>
 
               {/* Interactive Google Map Card */}
               <div className="group relative rounded-xl overflow-hidden border border-[#e8e8e8] h-[300px] sm:h-[320px] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)] hover:-translate-y-0.5 bg-slate-100">
                 <iframe
-                  title="Google Map - Mumbai, Maharashtra, India Headquarters"
-                  src="https://maps.google.com/maps?q=Mumbai%2C%20Maharashtra%2C%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                  title="Google Map - Marathon Futurex, Lower Parel, Mumbai"
+                  src="https://maps.google.com/maps?q=Marathon%20Futurex%2C%20Lower%20Parel%2C%20Mumbai%20400013&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
                   allowFullScreen
@@ -159,10 +163,10 @@ export const ContactPage: React.FC = () => {
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none gap-2">
                   <div className="bg-white/95 backdrop-blur-md border border-[#e8e8e8] rounded-md py-1.5 px-3 text-[11px] sm:text-[12px] font-medium text-slate-800 flex items-center gap-2 shadow-sm pointer-events-auto truncate max-w-[85%] sm:max-w-none">
                     <span className="w-2 h-2 rounded-full bg-[#004428] animate-pulse shrink-0" />
-                    <span className="truncate">Mumbai, Maharashtra, India — Headquarters</span>
+                    <span className="truncate">Marathon Futurex, Lower Parel, Mumbai — NAEPL</span>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=Mumbai,+Maharashtra,+India"
+                    href="https://maps.google.com/?q=Marathon+Futurex,+NM+Joshi+Marg,+Lower+Parel,+Mumbai+400013"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hidden sm:inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md border border-[#e8e8e8] rounded-md py-1.5 px-2.5 text-[11px] font-semibold text-[#004428] hover:text-[#8c2442] hover:bg-white shadow-sm pointer-events-auto transition-colors shrink-0"

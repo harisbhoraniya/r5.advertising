@@ -73,12 +73,14 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col gap-2.5 sm:gap-3 text-[13.5px] text-slate-600">
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-emerald-700 shrink-0" />
-                <span>+91 (022) 2850-XXXX</span>
+                <a href="tel:02068380200" className="hover:text-emerald-700 transition-colors">
+                  020 68380200
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="text-emerald-700 shrink-0" />
-                <a href="mailto:info@ngandhi.com" className="hover:text-emerald-700 transition-colors">
-                  info@ngandhi.com
+                <a href="mailto:naepl@ngandhi.com" className="hover:text-emerald-700 transition-colors">
+                  naepl@ngandhi.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -89,7 +91,9 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span className="leading-snug text-[13px]">
+                  104 First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013 Maharashtra, India
+                </span>
               </li>
             </ul>
           </div>

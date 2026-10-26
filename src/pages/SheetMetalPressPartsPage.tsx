@@ -220,13 +220,13 @@ export const SheetMetalPressPartsPage: React.FC = () => {
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  <Link 
+                  {/* <Link 
                     to={product.link} 
                     className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                   >
                     <span>VIEW DETAILS</span>
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}

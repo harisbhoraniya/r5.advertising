@@ -140,7 +140,7 @@ const featuredProducts = [
   },
   {
     slug: 'cable-cleat',
-    name: 'Cable Cleat',
+    name: 'Cable Cleats',
     category: 'CABLE MANAGEMENT',
     desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
     img: '/assets/featured_products/featured_cable_cleat.webp',
@@ -164,7 +164,7 @@ const featuredProducts = [
   },
   {
     slug: 'cnc-machine-component',
-    name: 'CNC Machine Component',
+    name: 'CNC Machined Component',
     category: 'CNC MACHINING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
     img: '/assets/featured_products/featured_cnc.webp',
@@ -400,7 +400,7 @@ export const HomePage: React.FC = () => {
                   <div className="font-serif text-3xl sm:text-[34px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors">
                     ISO
                   </div>
-                  <div className="text-xs text-[#9a9a9a] font-light mt-1">
+                  <div className="text-xs text-[#4a4a4a] font-medium mt-1">
                     9001:2015 Certified
                   </div>
                 </div>
@@ -409,7 +409,7 @@ export const HomePage: React.FC = () => {
                   <div className="font-serif text-3xl sm:text-[34px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors">
                     One-Stop
                   </div>
-                  <div className="text-xs text-[#9a9a9a] font-light mt-1">
+                  <div className="text-xs text-[#4a4a4a] font-medium mt-1">
                     Solution Provider
                   </div>
                 </div>
@@ -419,7 +419,7 @@ export const HomePage: React.FC = () => {
             {/* Right Column: Facility Showcase Card */}
             <div className="relative h-[340px] sm:h-[440px] rounded-lg overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-slate-200">
               <img
-                src="/assets/about_naepl.webp"
+                src="/assets/about_naepl.jpg"
                 alt="NAEPL Advanced Engineering and Manufacturing Facility"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -575,13 +575,13 @@ export const HomePage: React.FC = () => {
                     {product.desc}
                   </p>
 
-                  <Link
+                  {/* <Link
                     to={product.link}
                     className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#5c182c] group-hover:gap-3"
                   >
                     <span>VIEW DETAILS</span>
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}
