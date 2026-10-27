@@ -25,33 +25,6 @@ const entities = [
   'NAMTPL – N Gandhi Advance Material Technology Pvt. Ltd.',
 ];
 
-interface BrandItem {
-  id: string;
-  name: string;
-  img: string;
-  link: string;
-}
-
-const proprietaryBrands: BrandItem[] = [
-  {
-    id: 'n-loc',
-    name: 'N-LOC Stainless Steel Cable Ties',
-    img: '/assets/logo_nloc.png',
-    link: '/products/n-loc',
-  },
-  {
-    id: 'link-box',
-    name: 'LINKBOX Industrial Enclosures',
-    img: '/assets/logo_linkbox.png',
-    link: '/products/link-box',
-  },
-  {
-    id: 'lugx',
-    name: 'LUGX Cable Retention Cleats',
-    img: '/assets/logo_lugx.png',
-    link: '/products/cable-cleats',
-  },
-];
 
 export const AboutPage: React.FC = () => {
   return (
@@ -163,42 +136,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-
-      {/* ── 3. Proprietary Brands Section (3 Brand Boxes) ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f8f7] border-t border-[#e8e8e8]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-          {/* Section Header */}
-          <div className="mb-8 sm:mb-10 pb-5 border-b border-[#e8e8e8]">
-            <p className="text-[11px] font-semibold text-[#004428] tracking-[0.18em] uppercase mb-2 flex items-center gap-2.5">
-              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-              Our Brands
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] tracking-tight">
-              NAEPL <span className="text-[#004428]">Products</span> <span className="text-[#8c2442]">Brands</span>
-            </h2>
-          </div>
-
-          {/* 3 Brand Boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {proprietaryBrands.map((brand) => (
-              <Link
-                key={brand.id}
-                to={brand.link}
-                className="group bg-white border border-[#e2e8f0] rounded-xl p-0 flex items-center justify-center shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:border-[#004428]/40 transition-all duration-300 h-[190px] sm:h-[220px] overflow-hidden"
-              >
-                <img
-                  src={brand.img}
-                  alt={brand.name}
-                  className="w-full h-full object-contain p-0 transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Core Values Section ("What Guides Us") ── */}
+      {/* ── 3. Core Values Section ("What Guides Us") ── */}
       <section className="pt-2 sm:pt-4 pb-16 sm:pb-24 bg-[#f8f8f7]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 sm:mb-10">
@@ -243,13 +181,13 @@ export const AboutPage: React.FC = () => {
             {/* Left: Manufacturing Facility Photo Card */}
             <div className="relative h-[340px] sm:h-[460px] rounded overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-[#e8e8e8]">
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&auto=format&fit=crop"
-                alt="NAEPL Manufacturing and engineering facility"
-                className="w-full h-full object-cover"
+                src="/assets/built_to_deliver.jpg"
+                alt="NAEPL Advanced Quality Control Lab, Precision CNC Manufacturing and Export-Ready Logistics"
+                className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#004428]/20 to-[#8c2442]/15" />
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
               {/* Badge */}
               <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-[#004428]/95 backdrop-blur-sm px-5 py-3 rounded shadow">
                 <p className="text-[13px] font-semibold text-white tracking-wide m-0">

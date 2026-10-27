@@ -23,7 +23,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Roller Ball Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'SELF-LOCKING · BALL LOCK',
-    image: '/assets/nloc/roller_ball_heavy_duty.png',
+    image: '/assets/nloc/roller_ball_standard.png',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -226,8 +226,12 @@ export const NLocPage: React.FC = () => {
                 id={item.id} 
                 className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
               >
-                <div className={`relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4 ${
-                  item.id === 'roller-ball-hd' ? 'pt-7 sm:pt-9' : ''
+                <div className={`relative h-[190px] sm:h-[220px] flex items-center justify-center overflow-hidden ${
+                  item.id === 'roller-ball'
+                    ? 'bg-white px-5 sm:px-6 py-4 sm:py-5'
+                    : item.id === 'roller-ball-hd'
+                      ? 'bg-slate-50 p-4 pt-8 sm:pt-10 px-5 pb-3'
+                      : 'bg-slate-50 p-4'
                 }`}>
                   <img
                     src={item.image}
@@ -282,11 +286,11 @@ export const NLocPage: React.FC = () => {
               </div>
 
               <Link
-                to="/brochure"
-                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25"
+                to="/brochure?doc=n-loc-brochure"
+                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12.5px] sm:text-[13.5px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
-                <FileText size={16} className="text-emerald-300" />
-                <span>Download PDF Brochure</span>
+                <FileText size={16} className="text-emerald-300 shrink-0" />
+                <span>Download N-Loc Brochure</span>
               </Link>
             </div>
 
