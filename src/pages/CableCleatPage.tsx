@@ -16,23 +16,23 @@ export const CableCleatPage: React.FC = () => {
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="/assets/cable_cleats/cable_cleats_installation.png"
+            src="/assets/cable_cleats/cable_cleats_hero_hd.jpg"
             alt="NAEPL Cable Cleats Short-Circuit Withstand Systems"
-            className="w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,17,14,0.76) 0%, rgba(10,17,14,0.45) 50%, rgba(10,17,14,0.12) 100%)',
+                'linear-gradient(to right, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.48) 50%, rgba(10,17,14,0.15) 100%)',
             }}
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,17,14,0.80) 0%, rgba(10,17,14,0.20) 40%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.25) 40%, transparent 100%)',
             }}
           />
         </div>
@@ -166,9 +166,9 @@ export const CableCleatPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/cable_cleats/cable_cleats_installation.png"
+                  src="/assets/cable_cleats/cable_cleats_hero_hd.jpg"
                   alt="Trefoil Cable Cleat"
-                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
@@ -294,11 +294,11 @@ export const CableCleatPage: React.FC = () => {
               </div>
 
               <Link
-                to="/brochure"
-                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25"
+                to="/brochure?doc=cable-cleats-brochure"
+                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12.5px] sm:text-[13.5px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
-                <FileText size={16} className="text-emerald-300" />
-                <span>Download PDF Brochure</span>
+                <FileText size={16} className="text-emerald-300 shrink-0" />
+                <span>Download Cable Cleats Brochure</span>
               </Link>
             </div>
 

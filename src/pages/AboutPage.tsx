@@ -174,7 +174,7 @@ export const AboutPage: React.FC = () => {
               Our Brands
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] tracking-tight">
-              NAEPL <span className="text-[#004428]">Products</span> <span className="text-[#8c2442]">Brands</span>
+              NAEPL <span className="text-[#004428]">Proprietary</span> <span className="text-[#8c2442]">Brands</span>
             </h2>
           </div>
 
@@ -189,7 +189,7 @@ export const AboutPage: React.FC = () => {
                 <img
                   src={brand.img}
                   alt={brand.name}
-                  className="w-full h-full object-contain p-0 transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-contain p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               </Link>
@@ -243,13 +243,13 @@ export const AboutPage: React.FC = () => {
             {/* Left: Manufacturing Facility Photo Card */}
             <div className="relative h-[340px] sm:h-[460px] rounded overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-[#e8e8e8]">
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&auto=format&fit=crop"
-                alt="NAEPL Manufacturing and engineering facility"
-                className="w-full h-full object-cover"
+                src="/assets/built_to_deliver.jpg"
+                alt="NAEPL Advanced Quality Control Lab, Precision CNC Manufacturing and Export-Ready Logistics"
+                className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#004428]/20 to-[#8c2442]/15" />
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
               {/* Badge */}
               <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-[#004428]/95 backdrop-blur-sm px-5 py-3 rounded shadow">
                 <p className="text-[13px] font-semibold text-white tracking-wide m-0">

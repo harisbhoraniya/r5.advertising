@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Download, X, CheckCircle2, User, Mail, Building2, Phone, FileText, Loader2, } from 'lucide-react';
 
 interface BrochureItem {
@@ -10,10 +11,22 @@ interface BrochureItem {
 
 const highlights: BrochureItem[] = [
   {
+    id: 'cable-cleats-brochure',
+    title: 'Cable Cleats Brochure',
+    subtitle: 'Short-circuit withstand cleats, trefoil & single cable clamps (IEC 61914)',
+    filename: 'NAEPL_Cable_Cleats_Brochure.pdf',
+  },
+  {
     id: 'n-loc-brochure',
     title: 'N-Loc Brochure',
     subtitle: 'Roller ball, ladder, coated ties & tensile strength data sheets',
     filename: 'NAEPL_N-Loc_Brochure.pdf',
+  },
+  {
+    id: 'cnc-brochure',
+    title: 'CNC Machined Components Brochure',
+    subtitle: 'Precision turned components, custom tooling & multi-axis CNC parts',
+    filename: 'NAEPL_CNC_Machined_Components_Brochure.pdf',
   },
   {
     id: 'link-box-brochure',
@@ -27,9 +40,16 @@ const highlights: BrochureItem[] = [
     subtitle: 'High-conductivity terminal lugs, cleats & cable support hardware',
     filename: 'NAEPL_LUGX_Brochure.pdf',
   },
+  {
+    id: 'sheet-metal-brochure',
+    title: 'Sheet Metal Press Parts Brochure',
+    subtitle: 'Custom press stamping, brackets, banding strapping & deep drawn parts',
+    filename: 'NAEPL_Sheet_Metal_Press_Parts_Brochure.pdf',
+  },
 ];
 
 export const BrochurePage: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBrochure, setSelectedBrochure] = useState<BrochureItem>(highlights[0]);
   const [formData, setFormData] = useState({
@@ -41,6 +61,17 @@ export const BrochurePage: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    const docParam = searchParams.get('doc');
+    if (docParam) {
+      const match = highlights.find((h) => h.id === docParam);
+      if (match) {
+        setSelectedBrochure(match);
+        setIsModalOpen(true);
+      }
+    }
+  }, [searchParams]);
 
   // Close modal on Escape key and prevent background scroll
   useEffect(() => {

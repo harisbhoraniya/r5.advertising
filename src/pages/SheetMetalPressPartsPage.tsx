@@ -251,11 +251,11 @@ export const SheetMetalPressPartsPage: React.FC = () => {
               </div>
 
               <Link
-                to="/brochure"
-                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25"
+                to="/brochure?doc=sheet-metal-brochure"
+                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12px] sm:text-[13px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
-                <FileText size={16} className="text-emerald-300" />
-                <span>Download PDF Brochure</span>
+                <FileText size={16} className="text-emerald-300 shrink-0" />
+                <span>Download Sheet Metal Press Parts Brochure</span>
               </Link>
             </div>
 

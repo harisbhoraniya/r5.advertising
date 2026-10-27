@@ -21,7 +21,7 @@ const productCatalog: ProductItem[] = [
   },
   {
     id: 'cable-cleat',
-    title: 'Cable Cleat',
+    title: 'Cable Cleats',
     category: 'CABLE MANAGEMENT',
     badge: 'CABLE MANAGEMENT',
     image: '/assets/featured_products/featured_cable_cleat.webp',
@@ -45,7 +45,7 @@ const productCatalog: ProductItem[] = [
   },
   {
     id: 'cnc-machine-component',
-    title: 'CNC Machine Component',
+    title: 'CNC Machined Components',
     category: 'CNC MACHINING',
     badge: 'CNC MACHINING',
     image: '/assets/featured_products/featured_cnc.webp',
