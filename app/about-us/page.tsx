@@ -29,6 +29,8 @@ const entities = [
 interface BrandItem {
   id: string;
   name: string;
+  tag: string;
+  desc: string;
   img: string;
   link: string;
 }
@@ -36,21 +38,27 @@ interface BrandItem {
 const proprietaryBrands: BrandItem[] = [
   {
     id: 'n-loc',
-    name: 'N-LOC Stainless Steel Cable Ties',
+    name: 'N-LOC',
+    tag: 'STAINLESS STEEL CABLE TIES',
+    desc: 'Self-locking roller ball, ladder, and coated stainless steel ties in SS 304 & 316 engineered for high-tensile bundling in demanding environments.',
     img: '/assets/logo_nloc.png',
     link: '/products/n-loc',
   },
   {
     id: 'link-box',
-    name: 'LINKBOX Industrial Enclosures',
+    name: 'LINKBOX',
+    tag: 'WEATHERPROOF ENCLOSURES',
+    desc: 'Heavy-duty IP66 & IP68 junction boxes and electrical link boxes manufactured in aluminium die-cast, stainless steel, and mild steel.',
     img: '/assets/logo_linkbox.png',
     link: '/products/link-box',
   },
   {
     id: 'lugx',
-    name: 'LUGX Cable Retention Cleats',
+    name: 'LUGX',
+    tag: 'ELECTRICAL TERMINATION LUGS',
+    desc: 'High-conductivity copper and bimetallic terminal lugs, heavy-duty connectors, and cable hardware engineered for critical electrical power connections.',
     img: '/assets/logo_lugx.png',
-    link: '/products/cable-cleats',
+    link: '/products/lugx',
   },
 ];
 
@@ -58,7 +66,7 @@ const AboutPage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
       {/* ── 1. Hero Banner Section ── */}
-      <section className="relative w-full min-h-[560px] sm:min-h-[640px] md:min-h-[78vh] lg:min-h-[84vh] flex items-end bg-[#0a0f0d] overflow-hidden">
+      <section className="relative w-full min-h-[390px] sm:min-h-[450px] md:min-h-[55vh] lg:min-h-[59vh] flex items-end bg-[#0a0f0d] overflow-hidden">
         {/* Background Image with Dark Cinematic Gradient Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
@@ -78,7 +86,7 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Banner Content Over Image */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-12 md:py-16 w-full">
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
@@ -185,14 +193,35 @@ const AboutPage: React.FC = () => {
               <Link
                 key={brand.id}
                 href={brand.link}
-                className="group bg-white border border-[#e2e8f0] rounded-xl p-0 flex items-center justify-center shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:border-[#004428]/40 transition-all duration-300 h-[190px] sm:h-[220px] overflow-hidden"
+                className="group bg-white border border-[#e2e8f0] rounded-xl overflow-hidden flex flex-col shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,68,40,0.10)] hover:border-[#004428]/40 hover:-translate-y-1 transition-all duration-300"
               >
-                <img
-                  src={brand.img}
-                  alt={brand.name}
-                  className="w-full h-full object-contain p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
+                {/* Brand Logo Container */}
+                <div className="h-[190px] sm:h-[220px] bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-2 sm:p-3 overflow-hidden">
+                  <img
+                    src={brand.img}
+                    alt={brand.name}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Brand About & Details */}
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
+                  <span className="text-[10px] sm:text-[10.5px] font-bold tracking-[0.14em] text-[#8c2442] uppercase mb-1.5">
+                    {brand.tag}
+                  </span>
+                  <h3 className="text-lg sm:text-[20px] font-bold text-slate-900 tracking-tight mb-2.5 group-hover:text-[#004428] transition-colors">
+                    {brand.name}
+                  </h3>
+                  <div className="w-7 h-[2px] bg-slate-200 mb-3.5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#004428]" />
+                  <p className="text-[13px] sm:text-[13.5px] font-light text-slate-600 leading-relaxed mb-5 flex-1">
+                    {brand.desc}
+                  </p>
+                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#004428] uppercase transition-all duration-200 group-hover:gap-3">
+                    <span>Explore Products</span>
+                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

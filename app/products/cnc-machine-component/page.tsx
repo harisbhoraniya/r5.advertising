@@ -13,7 +13,7 @@ const CncMachineComponentPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner ── */}
-      <section className="relative w-full min-h-[520px] sm:min-h-[580px] md:min-h-[640px] flex items-end bg-[#0a110e] overflow-hidden">
+      <section className="relative w-full min-h-[365px] sm:min-h-[405px] md:min-h-[450px] flex items-end bg-[#0a110e] overflow-hidden">
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
@@ -39,7 +39,7 @@ const CncMachineComponentPage: React.FC = () => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-14 sm:py-20 md:py-24 w-full">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-12 md:py-16 w-full">
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
@@ -205,11 +205,6 @@ const CncMachineComponentPage: React.FC = () => {
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                    <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9px] sm:text-[9.5px] font-bold tracking-wider py-1 px-2.5 rounded-full uppercase">
-                      {product.badge}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-5 flex flex-col flex-1">

@@ -13,7 +13,7 @@ const CableCleatPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner ── */}
-      <section className="relative w-full min-h-[520px] sm:min-h-[580px] md:min-h-[640px] flex items-end bg-[#0a110e] overflow-hidden">
+      <section className="relative w-full min-h-[365px] sm:min-h-[405px] md:min-h-[450px] flex items-end bg-[#0a110e] overflow-hidden">
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
@@ -39,7 +39,7 @@ const CableCleatPage: React.FC = () => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-14 sm:py-20 md:py-24 w-full">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-12 md:py-16 w-full">
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
@@ -159,24 +159,19 @@ const CableCleatPage: React.FC = () => {
             Explore the <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Cable Cleats Range</span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
             {/* Card 1: Trefoil Cable Cleats */}
             <div 
               id="trefoil-cleat"
-              className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-[380px] group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
                   src="/assets/cable_cleats/cable_cleats_hero_hd.jpg"
-                  alt="Trefoil Cable Cleat"
+                  alt="Trefoil Cable Cleats"
                   className="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                  <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9.5px] sm:text-[10px] font-bold tracking-wider py-1 px-2.5 sm:px-3 rounded-full uppercase">
-                    3-PHASE TREFOIL · 23 SIZES
-                  </span>
-                </div>
               </div>
 
               <div className="p-5 sm:p-6 flex flex-col flex-1">
@@ -184,7 +179,7 @@ const CableCleatPage: React.FC = () => {
                   CABLE CLEATS
                 </div>
                 <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  Trefoil Cable Cleat
+                  Trefoil Cable Cleats
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
@@ -200,20 +195,15 @@ const CableCleatPage: React.FC = () => {
             {/* Card 2: Single Cable Cleats */}
             <div 
               id="single-cleat"
-              className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-[380px] group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
                   src="/assets/cable_cleats/single_cable_cleat_product.png"
-                  alt="Single Cable Cleat"
+                  alt="Single Cable Cleats"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                  <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9.5px] sm:text-[10px] font-bold tracking-wider py-1 px-2.5 sm:px-3 rounded-full uppercase">
-                    SINGLE CONDUCTOR · 11 SIZES
-                  </span>
-                </div>
               </div>
 
               <div className="p-5 sm:p-6 flex flex-col flex-1">
@@ -221,7 +211,7 @@ const CableCleatPage: React.FC = () => {
                   CABLE CLEATS
                 </div>
                 <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  Single Cable Cleat
+                  Single Cable Cleats
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
@@ -233,44 +223,6 @@ const CableCleatPage: React.FC = () => {
                 </Link> */}
               </div>
             </div>
-
-            {/* Card 3: Cleat Cushion & Base Pads */}
-            <div 
-              id="cleat-assembly"
-              className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
-            >
-              <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
-                <img
-                  src="/assets/cable_cleats/cleat_assembly_components.png"
-                  alt="Cleat Cushion & Base Pads"
-                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                  <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9.5px] sm:text-[10px] font-bold tracking-wider py-1 px-2.5 sm:px-3 rounded-full uppercase">
-                    LSF ZERO HALOGEN · BASE PADS
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5 sm:p-6 flex flex-col flex-1">
-                <div className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  HARDWARE & ACCESSORIES
-                </div>
-                <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  Cleat Cushion & Base Pads
-                </h3>
-                <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-
-                {/* <Link href="/contact?product=cable-cleat-hardware" 
-                  className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
-                >
-                  <span>VIEW DETAILS</span>
-                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link> */}
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

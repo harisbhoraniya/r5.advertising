@@ -76,7 +76,7 @@ const IndustryPage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
       {/* ── 1. Hero Banner Section ── */}
-      <section className="relative w-full min-h-[560px] sm:min-h-[640px] md:min-h-[80vh] lg:min-h-[88vh] flex items-end bg-[#0c0f14] overflow-hidden">
+      <section className="relative w-full min-h-[390px] sm:min-h-[450px] md:min-h-[56vh] lg:min-h-[62vh] flex items-end bg-[#0c0f14] overflow-hidden">
         {/* Background Image with Dark Vignette Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
@@ -95,7 +95,7 @@ const IndustryPage: React.FC = () => {
         </div>
 
         {/* Banner Content */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-12 md:py-16 w-full">
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />

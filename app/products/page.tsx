@@ -57,7 +57,7 @@ const productCatalog: ProductItem[] = [
     title: 'Sheet Metal Press Parts',
     category: 'PRESS COMPONENTS · STRAPPING',
     badge: 'PRESS COMPONENTS · STRAPPING',
-    image: '/assets/featured_products/featured_press_parts.webp',
+    image: '/assets/sheet_metal/page_98_img_0.png',
     link: '/products/sheet-metal-press-parts',
   },
 ];
@@ -66,7 +66,7 @@ const ProductsPage: React.FC = () => {
   return (
     <main className="bg-[#fbfbfa] min-h-screen text-[#1a1a1a]">
       {/* ── 1. Hero Banner Section ── */}
-      <section className="relative w-full min-h-[560px] sm:min-h-[640px] md:min-h-[80vh] lg:min-h-[88vh] flex items-end bg-[#0c0f14] overflow-hidden">
+      <section className="relative w-full min-h-[390px] sm:min-h-[450px] md:min-h-[56vh] lg:min-h-[62vh] flex items-end bg-[#0c0f14] overflow-hidden">
         {/* Background Image with Dark Vignette Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
@@ -85,7 +85,7 @@ const ProductsPage: React.FC = () => {
         </div>
 
         {/* Banner Content */}
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24 w-full">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-12 md:py-16 w-full">
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
@@ -140,11 +140,6 @@ const ProductsPage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                    <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9.5px] sm:text-[10px] font-bold tracking-wider py-1 px-2.5 sm:px-3 rounded-full uppercase">
-                      {product.badge}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-5 sm:p-6 flex flex-col flex-1">

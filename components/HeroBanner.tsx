@@ -28,14 +28,14 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   }
 
   return (
-    <section className="relative w-full min-h-[180px] sm:min-h-[220px] md:min-h-[290px] flex items-center bg-[#0b0d10] overflow-hidden">
+    <section className="relative w-full min-h-[125px] sm:min-h-[155px] md:min-h-[200px] flex items-center bg-[#0b0d10] overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-85"
         style={{ backgroundImage: `url('/assets/hero_banner.png')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0c10]/95 via-[#0a0c10]/80 to-[#0a0c10]/50" />
       </div>
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8 w-full">
         <div className="flex items-center gap-2.5 mb-2.5 sm:mb-3.5">
           <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
           <span className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase drop-shadow-sm">{tag}</span>

@@ -50,14 +50,14 @@ const heroSlides: HeroSlide[] = [
   },
   {
     eyebrow: 'Skilled Craftsmanship',
-    title: 'Skilled Hands.\nFlawless Craftsmanship.',
+    title: 'Skilled Hands. Flawless Craftsmanship.',
     description:
       'A team of experienced engineers and technicians committed to consistent, dependable quality.',
     primaryBtnText: 'View Products',
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: '/assets/hero_slides/slide_3_skilled_craftsmanship.webp',
+    image: '/assets/hero_slides/slide_3_skilled_craftsmanship.jpg',
     alt: 'Experienced precision engineer inspecting CNC machined components with micrometer',
   },
   {
@@ -100,10 +100,10 @@ const heroSlides: HeroSlide[] = [
 
 const capabilities = [
   'Stainless Steel Cable Ties',
-  'Cable Cleat',
+  'Cable Cleats',
   'Junction Box',
-  'LUG',
-  'CNC Machine Component',
+  'Lugs',
+  'CNC Machined Components',
   'Sheet Metal Press Parts',
 ];
 
@@ -140,7 +140,7 @@ const featuredProducts = [
     link: '/products/n-loc',
   },
   {
-    slug: 'cable-cleat',
+    slug: 'cable-cleats',
     name: 'Cable Cleats',
     category: 'CABLE MANAGEMENT',
     desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
@@ -164,8 +164,8 @@ const featuredProducts = [
     link: '/products/lugx',
   },
   {
-    slug: 'cnc-machine-component',
-    name: 'CNC Machined Component',
+    slug: 'cnc-machined-components',
+    name: 'CNC Machined Components',
     category: 'CNC MACHINING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
     img: '/assets/featured_products/featured_cnc.webp',
@@ -176,17 +176,20 @@ const featuredProducts = [
     name: 'Sheet Metal Press Parts',
     category: 'PRESS COMPONENTS · STRAPPING',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
-    img: '/assets/featured_products/featured_press_parts.webp',
+    img: '/assets/sheet_metal/page_98_img_0.png',
     link: '/products/sheet-metal-press-parts',
   },
 ];
 
 const industries = [
-  'Electrical & Electronics',
-  'Industrial Manufacturing',
-  'Infrastructure & Utilities',
-  'Engineering & Automation',
-  'Oil & Gas',
+  'Electrical & Control Systems',
+  'Robotics & Industrial Automation',
+  'Renewable Energy (Solar & Wind)',
+  'Oil & Gas / Petrochemicals',
+  'Marine & Shipbuilding',
+  'Infrastructure & Rail Transit',
+  'Process Instrumentation & Control',
+  'Water & Wastewater Treatment',
 ];
 
 const HomePage: React.FC = () => {
@@ -234,7 +237,7 @@ const HomePage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
       {/* ── 1. Hero Slider Section ── */}
-      <section className="relative min-h-[580px] sm:min-h-[640px] md:min-h-[82vh] lg:min-h-[88vh] flex items-center bg-[#0a0c10] overflow-hidden group">
+      <section className="relative min-h-[400px] sm:min-h-[450px] md:min-h-[58vh] lg:min-h-[62vh] flex items-center bg-[#0a0c10] overflow-hidden group">
         <style>{`
           @keyframes heroKenBurns {
             from { transform: scale(1) translateZ(0); }
@@ -284,10 +287,10 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* Hero Slide Content */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 py-20 sm:py-24 md:py-28 w-full flex items-center min-h-full">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 w-full flex items-center min-h-full">
           <div
             key={currentSlide}
-            className="max-w-[640px]"
+            className="max-w-[780px]"
             style={{ animation: 'heroTextIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)' }}
           >
             {/* Eyebrow */}
@@ -544,7 +547,7 @@ const HomePage: React.FC = () => {
                 id={product.slug}
                 className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
               >
-                {/* Image Container with Top-Left Badge */}
+                {/* Image Container */}
                 <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100">
                   <img
                     src={product.img}
@@ -552,11 +555,6 @@ const HomePage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-10">
-                    <span className="inline-block bg-slate-800/90 backdrop-blur-sm text-white text-[9.5px] sm:text-[10px] font-bold tracking-wider py-1 px-2.5 sm:px-3 rounded-full uppercase">
-                      {product.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Body with Category, Title, Underline Accent, Description, and View Details Button */}
@@ -607,12 +605,13 @@ const HomePage: React.FC = () => {
             {/* Interactive Industry Chips */}
             <div className="flex flex-wrap gap-3">
               {industries.map((ind) => (
-                <div
+                <Link
                   key={ind}
-                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-default"
+                  href="/industry"
+                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-pointer inline-block"
                 >
                   {ind}
-                </div>
+                </Link>
               ))}
             </div>
           </div>
