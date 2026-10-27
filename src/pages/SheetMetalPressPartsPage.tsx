@@ -160,12 +160,12 @@ export const SheetMetalPressPartsPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {[
               {
-                id: 'custom-sheet-metal-press-parts',
-                title: 'Custom Sheet Metal Press Parts',
+                id: 'sheet-metal-press-parts',
+                title: 'Sheet Metal Press Parts',
                 category: 'CUSTOM PRESS COMPONENTS',
                 badge: 'BLANKING · PIERCING · FORMING',
                 image: '/assets/sheet_metal/page_98_img_0.png',
-                link: '/contact?product=custom-sheet-metal-press-parts',
+                link: '/contact?product=sheet-metal-press-parts',
               },
               {
                 id: 'stainless-steel-banding',
