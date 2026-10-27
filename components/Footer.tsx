@@ -73,14 +73,14 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col gap-2.5 sm:gap-3 text-[13.5px] text-slate-600">
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-emerald-700 shrink-0" />
-                <a href="tel:02068380200" className="hover:text-emerald-700 transition-colors">
-                  020 68380200
+                <a href="tel:+912268380200" className="hover:text-emerald-700 transition-colors">
+                  +91 22-68380200
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="text-emerald-700 shrink-0" />
-                <a href="mailto:naepl@ngandhi.com" className="hover:text-emerald-700 transition-colors">
-                  naepl@ngandhi.com
+                <a href="mailto:enquiryengg@ngandhi.com" className="hover:text-emerald-700 transition-colors">
+                  enquiryengg@ngandhi.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

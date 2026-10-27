@@ -83,14 +83,14 @@ const ContactPage: React.FC = () => {
                   {
                     icon: Phone,
                     label: 'Phone',
-                    value: '020 68380200',
-                    href: 'tel:02068380200',
+                    value: '+91 22-68380200',
+                    href: 'tel:+912268380200',
                   },
                   {
                     icon: Mail,
                     label: 'Email',
-                    value: 'naepl@ngandhi.com',
-                    href: 'mailto:naepl@ngandhi.com',
+                    value: 'enquiryengg@ngandhi.com',
+                    href: 'mailto:enquiryengg@ngandhi.com',
                   },
                   {
                     icon: Globe,
