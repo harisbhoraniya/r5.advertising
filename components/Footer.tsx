@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Phone, Mail, Globe, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Column 1: Company Profile */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="mb-4 sm:mb-5">
-              <Link to="/">
+              <Link href="/">
                 <img 
                   src="/assets/logo_naepl.png?v=2" 
                   alt="N Gandhi Advance Engineering Private Limited"
@@ -35,32 +35,32 @@ export const Footer: React.FC = () => {
             <h5 className="text-xs font-bold tracking-[0.12em] text-slate-900 uppercase mb-4 sm:mb-5">PAGES</h5>
             <ul className="flex flex-col gap-2.5 sm:gap-3 text-[13.5px] text-slate-600">
               <li>
-                <Link to="/" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about-us" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/about-us" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/products" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/industry" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/industry" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Industry
                 </Link>
               </li>
               <li>
-                <Link to="/brochure" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/brochure" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Download
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                <Link href="/contact" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Contact
                 </Link>
               </li>

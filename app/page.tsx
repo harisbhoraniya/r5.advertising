@@ -1,5 +1,6 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   ShieldCheck,
   Clock,
@@ -188,7 +189,7 @@ const industries = [
   'Oil & Gas',
 ];
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const timerRef = useRef<number | null>(null);
 
@@ -306,16 +307,14 @@ export const HomePage: React.FC = () => {
 
             {/* Pill CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <Link
-                to={heroSlides[currentSlide].primaryBtnLink}
+              <Link href={heroSlides[currentSlide].primaryBtnLink}
                 className="inline-flex items-center gap-2 bg-[#004428] hover:bg-[#003420] text-white px-7 sm:px-8 py-3.5 rounded-full text-[14px] sm:text-[15px] font-medium transition-all duration-200 shadow-[0_4px_16px_rgba(0,68,40,0.35)] hover:shadow-[0_6px_22px_rgba(0,68,40,0.5)] hover:-translate-y-0.5"
               >
                 <span>{heroSlides[currentSlide].primaryBtnText}</span>
                 <ArrowRight size={15} />
               </Link>
 
-              <Link
-                to="/contact"
+              <Link href="/contact"
                 className="inline-flex items-center justify-center border border-white/50 hover:bg-white/10 hover:border-white/80 text-white px-7 sm:px-8 py-3.5 rounded-full text-[14px] sm:text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5"
               >
                 {heroSlides[currentSlide].secondaryBtnText}
@@ -528,8 +527,7 @@ export const HomePage: React.FC = () => {
               <p className="max-w-[480px] text-[14px] sm:text-[15px] font-normal text-slate-500 leading-relaxed m-0 md:text-right">
                 Every product in our range is built to perform — precision materials, exacting tolerances, and global-standard certifications.
               </p>
-              <Link
-                to="/products"
+              <Link href="/products"
                 className="group inline-flex items-center gap-2 text-[12.5px] font-bold tracking-wider text-[#8c2442] hover:text-[#5c182c] transition-colors relative uppercase"
               >
                 <span>View All Products</span>
@@ -575,8 +573,7 @@ export const HomePage: React.FC = () => {
                     {product.desc}
                   </p>
 
-                  {/* <Link
-                    to={product.link}
+                  {/* <Link href={product.link}
                     className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#5c182c] group-hover:gap-3"
                   >
                     <span>VIEW DETAILS</span>
@@ -638,8 +635,7 @@ export const HomePage: React.FC = () => {
               </p>
             </div>
 
-            <Link
-              to="/contact"
+            <Link href="/contact"
               className="group relative inline-flex items-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-8 py-4 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.35)] hover:-translate-y-0.5 shrink-0 w-full sm:w-auto justify-center"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

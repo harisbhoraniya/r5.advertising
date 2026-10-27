@@ -1,5 +1,7 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 
 interface ProductItem {
@@ -39,8 +41,10 @@ export const Navbar: React.FC = () => {
   const closeTimeoutRef = useRef<number | null>(null);
   // const openSubTimeoutRef = useRef<number | null>(null);
   // const subTimeoutRef = useRef<number | null>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const navigate = (p: string) => router.push(p);
+  const pathname = usePathname() || '/';
+  const location = { pathname };
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -133,7 +137,7 @@ export const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50 bg-white border-b border-slate-100 h-[64px] sm:h-[72px] flex items-center">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between w-full h-full">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img
             src="/assets/logo_naepl.png?v=2"
             alt="N GANDHI ADVANCE ENGINEERING PRIVATE LIMITED - ISO 9001:2015"
@@ -143,8 +147,7 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-7 lg:gap-8 h-full">
-          <Link 
-            to="/" 
+          <Link href="/" 
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/' 
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -153,8 +156,7 @@ export const Navbar: React.FC = () => {
           >
             Home
           </Link>
-          <Link 
-            to="/about-us" 
+          <Link href="/about-us" 
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/about' || location.pathname === '/about-us'
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -175,8 +177,7 @@ export const Navbar: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div className="flex items-center gap-1">
-              <Link
-                to="/products"
+              <Link href="/products"
                 className={`text-[14.5px] tracking-tight no-underline transition-colors duration-200 ${
                   isProductsActive 
                     ? 'text-emerald-800 font-semibold' 
@@ -276,8 +277,7 @@ export const Navbar: React.FC = () => {
             )}
           </div>
 
-          <Link
-            to="/industry"
+          <Link href="/industry"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/industry' || location.pathname.startsWith('/industry')
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -286,8 +286,7 @@ export const Navbar: React.FC = () => {
           >
             Industry
           </Link>
-          <Link
-            to="/brochure"
+          <Link href="/brochure"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/brochure' || location.pathname === '/download'
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -296,8 +295,7 @@ export const Navbar: React.FC = () => {
           >
             Download
           </Link>
-          <Link
-            to="/contact"
+          <Link href="/contact"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
               location.pathname === '/contact'
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
@@ -330,8 +328,7 @@ export const Navbar: React.FC = () => {
             className="bg-white border-b border-slate-200 shadow-2xl max-h-[calc(100vh-64px)] overflow-y-auto px-5 py-4 flex flex-col gap-1"
             onClick={(e) => e.stopPropagation()}
           >
-            <Link
-              to="/"
+            <Link href="/"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
                 location.pathname === '/' 
                   ? 'bg-emerald-50 text-emerald-800 font-bold' 
@@ -342,8 +339,7 @@ export const Navbar: React.FC = () => {
               <span>Home</span>
             </Link>
 
-            <Link 
-              to="/about-us"
+            <Link href="/about-us"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
                 location.pathname === '/about' || location.pathname === '/about-us'
                   ? 'bg-emerald-50 text-emerald-800 font-bold' 
@@ -357,8 +353,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Products Accordion (matching ngcco UI with our theme) */}
             <div className="my-1">
               <div className="flex items-center justify-between rounded-xl transition-all duration-200 hover:bg-black/3">
-                <Link
-                  to="/products"
+                <Link href="/products"
                   className={`flex-1 px-3.5 py-3 text-[15px] font-semibold no-underline transition-colors duration-200 ${
                     isProductsActive ? 'text-emerald-800 font-bold' : 'text-slate-800 hover:text-emerald-800'
                   }`}
@@ -386,8 +381,7 @@ export const Navbar: React.FC = () => {
                 <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
                   {/* N-Loc Direct Link (Submenu dropdown commented out for now) */}
                   <div>
-                    <Link
-                      to="/products/n-loc"
+                    <Link href="/products/n-loc"
                       className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -400,8 +394,7 @@ export const Navbar: React.FC = () => {
                       <div className="ml-4 mr-3 mb-2 rounded-xl bg-[#003820] overflow-hidden">
                         {nlocSubItems.map((subItem, sIdx) => (
                           <div key={subItem.id}>
-                            <Link
-                              to={subItem.path}
+                            <Link href={subItem.path}
                               className="flex items-center justify-between px-4 py-2.5 text-[0.8125rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                               onClick={() => setMobileMenuOpen(false)}
                             >
@@ -422,8 +415,7 @@ export const Navbar: React.FC = () => {
                   {/* Other Products with Dividers & Right Arrow */}
                   {otherProducts.map((item, idx) => (
                     <div key={item.id}>
-                      <Link
-                        to={item.path}
+                      <Link href={item.path}
                         className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -439,8 +431,7 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            <Link 
-              to="/industry"
+            <Link href="/industry"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] transition-colors ${
                 location.pathname === '/industry' || location.pathname.startsWith('/industry')
                   ? 'bg-emerald-50 text-emerald-800 font-bold' 
@@ -451,8 +442,7 @@ export const Navbar: React.FC = () => {
               <span>Industry</span>
             </Link>
 
-            <Link 
-              to="/brochure"
+            <Link href="/brochure"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
                 location.pathname === '/brochure' || location.pathname === '/download'
                   ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'
@@ -463,8 +453,7 @@ export const Navbar: React.FC = () => {
               <span>Download</span>
             </Link>
 
-            <Link 
-              to="/contact"
+            <Link href="/contact"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
                 location.pathname === '/contact'
                   ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'

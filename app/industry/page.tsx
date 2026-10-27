@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 interface IndustryItem {
@@ -71,7 +72,7 @@ const sectorChips = [
   'Water & Wastewater Treatment',
 ];
 
-export const IndustryPage: React.FC = () => {
+const IndustryPage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
       {/* ── 1. Hero Banner Section ── */}
@@ -246,8 +247,7 @@ export const IndustryPage: React.FC = () => {
               </p>
             </div>
 
-            <Link
-              to="/contact"
+            <Link href="/contact"
               className="group relative inline-flex items-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-8 py-4 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.35)] hover:-translate-y-0.5 shrink-0 w-full sm:w-auto justify-center"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

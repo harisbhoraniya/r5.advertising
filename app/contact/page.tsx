@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import {
   MapPin,
@@ -8,7 +9,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
-export const ContactPage: React.FC = () => {
+const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',

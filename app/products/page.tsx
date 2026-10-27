@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface ProductItem {
   id: string;
@@ -61,7 +62,7 @@ const productCatalog: ProductItem[] = [
   },
 ];
 
-export const ProductsPage: React.FC = () => {
+const ProductsPage: React.FC = () => {
   return (
     <main className="bg-[#fbfbfa] min-h-screen text-[#1a1a1a]">
       {/* ── 1. Hero Banner Section ── */}
@@ -155,8 +156,7 @@ export const ProductsPage: React.FC = () => {
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  {/* <Link 
-                    to={product.link} 
+                  {/* <Link href={product.link} 
                     className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#5c182c] group-hover:gap-3"
                   >
                     <span>VIEW DETAILS</span>
@@ -182,8 +182,7 @@ export const ProductsPage: React.FC = () => {
             </p>
           </div>
           <div className="shrink-0 w-full sm:w-auto">
-            <Link 
-              to="/contact" 
+            <Link href="/contact" 
               className="group inline-flex items-center gap-3 bg-transparent text-white border border-white/20 rounded-lg py-3 sm:py-3.5 px-6 sm:px-7 text-[12px] sm:text-[12.5px] font-semibold tracking-wider uppercase transition-all duration-200 hover:border-white hover:bg-white/10 w-full sm:w-auto justify-center"
             >
               <span>REQUEST PRODUCT DETAILS</span>

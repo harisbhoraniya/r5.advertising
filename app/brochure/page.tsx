@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+'use client';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Download, X, CheckCircle2, User, Mail, Building2, Phone, FileText, Loader2, } from 'lucide-react';
 
 interface BrochureItem {
@@ -48,8 +49,8 @@ const highlights: BrochureItem[] = [
   },
 ];
 
-export const BrochurePage: React.FC = () => {
-  const [searchParams] = useSearchParams();
+const BrochureContent: React.FC = () => {
+  const searchParams = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBrochure, setSelectedBrochure] = useState<BrochureItem>(highlights[0]);
   const [formData, setFormData] = useState({
@@ -63,7 +64,7 @@ export const BrochurePage: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    const docParam = searchParams.get('doc');
+    const docParam = searchParams?.get('doc');
     if (docParam) {
       const match = highlights.find((h) => h.id === docParam);
       if (match) {
@@ -519,5 +520,14 @@ export const BrochurePage: React.FC = () => {
   );
 };
 
-export default BrochurePage;
 
+
+
+
+export default function BrochurePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-500 text-sm">Loading brochures...</div>}>
+      <BrochureContent />
+    </Suspense>
+  );
+}

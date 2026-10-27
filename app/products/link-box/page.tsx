@@ -1,14 +1,15 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BackToProducts } from '../components/BackToProducts';
-import { TrustRow } from '../components/TrustRow';
+import Link from 'next/link';
+import { BackToProducts } from '@/components/BackToProducts';
+import { TrustRow } from '@/components/TrustRow';
 import { 
   CheckCircle2, 
   ArrowRight,
   FileText
 } from 'lucide-react';
 
-export const LinkBoxPage: React.FC = () => {
+const LinkBoxPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner ── */}
@@ -186,8 +187,7 @@ export const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                {/* <Link 
-                  to="/contact?product=aluminium-die-cast-junction-box" 
+                {/* <Link href="/contact?product=aluminium-die-cast-junction-box" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
@@ -224,8 +224,7 @@ export const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                {/* <Link 
-                  to="/contact?product=stainless-steel-junction-box" 
+                {/* <Link href="/contact?product=stainless-steel-junction-box" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
@@ -262,8 +261,7 @@ export const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                {/* <Link 
-                  to="/contact?product=mild-steel-junction-box" 
+                {/* <Link href="/contact?product=mild-steel-junction-box" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
@@ -300,8 +298,7 @@ export const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                {/* <Link 
-                  to="/contact?product=custom-machined-enclosures" 
+                {/* <Link href="/contact?product=custom-machined-enclosures" 
                   className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
                 >
                   <span>VIEW DETAILS</span>
@@ -330,8 +327,7 @@ export const LinkBoxPage: React.FC = () => {
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none rounded-2xl" />
               </div>
 
-              <Link
-                to="/brochure?doc=link-box-brochure"
+              <Link href="/brochure?doc=link-box-brochure"
                 className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12.5px] sm:text-[13.5px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
                 <FileText size={16} className="text-emerald-300 shrink-0" />
@@ -355,8 +351,7 @@ export const LinkBoxPage: React.FC = () => {
               </p>
 
               <div>
-                <Link
-                  to="/contact"
+                <Link href="/contact"
                   className="inline-flex items-center gap-2.5 bg-white hover:bg-emerald-50 text-[#004428] font-bold px-7 py-3.5 rounded-xl text-[13px] sm:text-[14px] uppercase tracking-wide transition-all shadow-lg hover:shadow-xl hover:translate-y-[-1px]"
                 >
                   <span>Request Quotation &amp; Samples</span>
