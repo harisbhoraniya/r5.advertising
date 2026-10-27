@@ -146,10 +146,7 @@ const CableCleatPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Trust Row / Certified Engineering ── */}
-      <TrustRow />
-
-      {/* ── 5. Product Range Showcase: "Explore the Cable Cleats Range" (Exact match to N-LOC Range UI) ── */}
+      {/* ── 4. Product Range Showcase: "Explore the Cable Cleats Range" (Exact match to N-LOC Range UI) ── */}
       <section className="py-12 sm:py-16 pb-16 sm:pb-20 bg-white" id="products">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#0d8a68] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#0d8a68]">
@@ -226,6 +223,9 @@ const CableCleatPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── 5. Trust Row / Certified Engineering ── */}
+      <TrustRow />
 
       {/* ── Engineering Support & RFQ Banner ── */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#004428] via-[#00331e] to-[#0a110e] text-white">
