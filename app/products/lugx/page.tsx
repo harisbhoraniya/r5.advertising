@@ -43,7 +43,7 @@ const LugxPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            LUGX · ELECTRICAL FITTINGS & CONNECTORS
+            LUGX · ELECTRICAL LUGS & TERMINALS
           </p>
 
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">

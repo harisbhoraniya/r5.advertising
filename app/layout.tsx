@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import '@fontsource/manrope';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';

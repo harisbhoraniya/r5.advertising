@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { BackToProducts } from '@/components/BackToProducts';
 import { TrustRow } from '@/components/TrustRow';
@@ -24,7 +24,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Roller Ball Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'SELF-LOCKING · BALL LOCK',
-    image: '/assets/nloc/roller_ball_standard.png',
+    image: '/assets/nloc/roller_ball_standard_transparent.png',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -32,7 +32,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Roller Ball Heavy Duty Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'HEAVY DUTY · HIGH TENSILE',
-    image: '/assets/nloc/roller_ball_hd_clean.png',
+    image: '/assets/nloc/roller_ball_hd_transparent.png',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -70,6 +70,7 @@ const nlocProducts: ProductItem[] = [
 ];
 
 const NLocPage: React.FC = () => {
+  const [rollerBallType, setRollerBallType] = useState<'coated' | 'uncoated'>('coated');
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner (Same Premium UI as Cable Cleats / Lugx / Link Box) ── */}
@@ -226,17 +227,24 @@ const NLocPage: React.FC = () => {
               >
                 <div className={`relative h-[190px] sm:h-[220px] flex items-center justify-center overflow-hidden ${
                   item.id === 'roller-ball'
-                    ? 'bg-white px-5 sm:px-6 py-4 sm:py-5'
+                    ? 'bg-slate-50 p-4 sm:p-5'
                     : item.id === 'roller-ball-hd'
-                      ? 'bg-slate-50 p-4 pt-8 sm:pt-10 px-5 pb-3'
+                      ? 'bg-slate-50 p-4 sm:p-5'
                       : 'bg-slate-50 p-4'
                 }`}>
                   <img
-                    src={item.image}
+                    src={
+                      item.id === 'roller-ball'
+                        ? rollerBallType === 'coated'
+                          ? '/assets/nloc/roller_ball_standard_transparent.png'
+                          : '/assets/nloc/roller_ball_coated_black.png'
+                        : item.image
+                    }
                     alt={item.title}
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+
                 </div>
 
                 <div className="p-5 sm:p-6 flex flex-col flex-1">
@@ -247,6 +255,42 @@ const NLocPage: React.FC = () => {
                     {item.title}
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
+
+
+                  {item.id === 'roller-ball' && (
+                    <div className="flex items-center gap-2 mb-4">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRollerBallType('coated');
+                        }}
+                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
+                          rollerBallType === 'coated'
+                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        Coated
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRollerBallType('uncoated');
+                        }}
+                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
+                          rollerBallType === 'uncoated'
+                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        Uncoated
+                      </button>
+                    </div>
+                  )}
+
+
 
                   {/* <Link href={item.link} 
                     className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3"

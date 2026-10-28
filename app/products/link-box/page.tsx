@@ -3,8 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import { BackToProducts } from '@/components/BackToProducts';
 import { TrustRow } from '@/components/TrustRow';
-import { 
-  CheckCircle2, 
+import {
+  CheckCircle2,
   ArrowRight,
   FileText
 } from 'lucide-react';
@@ -43,7 +43,7 @@ const LinkBoxPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            LINK BOX · ENCLOSURES & JUNCTION BOXES
+            LINKBOX · ENCLOSURES & JUNCTION BOXES
           </p>
 
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
@@ -77,12 +77,12 @@ const LinkBoxPage: React.FC = () => {
       {/* ── 3. Product Overview Section ── */}
       <section className="py-10 sm:py-14 md:py-18 bg-white" id="overview">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[500px_1fr] gap-8 lg:gap-14 items-center">
-          
+
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
-            <img 
-              src="/assets/link_box/junction_box_overview.png" 
-              alt="NAEPL LINKBOX Industrial Enclosures" 
+            <img
+              src="/assets/link_box/junction_box_overview.png"
+              alt="NAEPL LINKBOX Industrial Enclosures"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -110,7 +110,7 @@ const LinkBoxPage: React.FC = () => {
                   High-grade stainless steel, aluminium and other suitable materials for durable protection.
                 </p>
               </div>
-              
+
               <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
                 <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">SUPERIOR PROTECTION</h4>
                 <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
@@ -157,7 +157,7 @@ const LinkBoxPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {/* Card 1: Aluminium Die Cast Junction Box */}
-            <div 
+            <div
               id="aluminium-enclosure"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
@@ -172,10 +172,10 @@ const LinkBoxPage: React.FC = () => {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  ALUMINIUM ENCLOSURES
+                  ALUMINIUM DIE-CAST ENCLOSURES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  Aluminium Die Cast Box
+                  Aluminium Die Cast Enclosures
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
@@ -189,7 +189,7 @@ const LinkBoxPage: React.FC = () => {
             </div>
 
             {/* Card 2: Stainless Steel Watertight Junction Box */}
-            <div 
+            <div
               id="ss-enclosure"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
@@ -204,7 +204,7 @@ const LinkBoxPage: React.FC = () => {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  STAINLESS STEEL
+                  STAINLESS STEEL ENCLOSURES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
                   Stainless Steel Box
@@ -221,7 +221,7 @@ const LinkBoxPage: React.FC = () => {
             </div>
 
             {/* Card 3: Mild Steel Clamp-Secured Junction Box */}
-            <div 
+            <div
               id="ms-enclosure"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
@@ -236,7 +236,7 @@ const LinkBoxPage: React.FC = () => {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  MILD STEEL ENCLOSURES
+                  MILD STEEL JUNCTION BOXES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
                   Mild Steel Junction Box
@@ -253,7 +253,7 @@ const LinkBoxPage: React.FC = () => {
             </div>
 
             {/* Card 4: Custom Machined & Terminal Enclosures */}
-            <div 
+            <div
               id="custom-enclosure"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
@@ -268,7 +268,7 @@ const LinkBoxPage: React.FC = () => {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  CUSTOM SOLUTIONS
+                  CUSTOM ELECTRICAL ENCLOSURES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
                   Custom Enclosures
@@ -295,7 +295,7 @@ const LinkBoxPage: React.FC = () => {
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#004428] via-[#00331e] to-[#0a110e] text-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Column: A4 Brochure Mockup Card + Download PDF Brochure Button */}
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
@@ -321,11 +321,11 @@ const LinkBoxPage: React.FC = () => {
                 <CheckCircle2 size={14} className="text-emerald-400" />
                 <span>NAEPL Technical Consultation</span>
               </div>
-              
+
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 leading-tight">
                 Need Custom Machining, Sizing, or Terminal Assembly?
               </h2>
-              
+
               <p className="text-white/80 text-[14px] sm:text-[15px] leading-relaxed mb-6 max-w-[620px]">
                 Our enclosure engineering team helps OEMs, contractors, and consultants with custom cutouts, terminal rail configurations, cable gland drilling, and application-specific ingress certification.
               </p>

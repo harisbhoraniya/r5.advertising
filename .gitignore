@@ -25,3 +25,5 @@ out
 *.sln
 *.sw?
 *.timestamp-*.mjs
+*.tsbuildinfo
+.DS_Store

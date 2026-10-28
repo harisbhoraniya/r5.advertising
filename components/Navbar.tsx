@@ -24,9 +24,9 @@ const nlocSubItems: ProductItem[] = [
 
 const otherProducts: ProductItem[] = [
   { id: 'cable-cleat', title: 'Cable Cleats', path: '/products/cable-cleat' },
-  { id: 'link-box', title: 'Link Box', path: '/products/link-box' },
+  { id: 'link-box', title: 'LINKBOX', path: '/products/link-box' },
   { id: 'lugx', title: 'LUGX', path: '/products/lugx' },
-  { id: 'cnc-machine-component', title: 'CNC Machined Components', path: '/products/cnc-machine-component' },
+  { id: 'cnc-machine-component', title: 'CNC Machined Component', path: '/products/cnc-machine-component' },
   { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products/sheet-metal-press-parts' },
 ];
 
@@ -223,7 +223,7 @@ export const Navbar: React.FC = () => {
                         className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer hover:bg-white/15"
                         onClick={(e) => handleNavigate('/products/n-loc', e)}
                       >
-                        <span>N-Loc</span>
+                        <span>N-LOC</span>
                         <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
                       </div>
 
@@ -385,7 +385,7 @@ export const Navbar: React.FC = () => {
                       className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span>N-Loc</span>
+                      <span>N-LOC</span>
                       <ArrowRight size={13} className="opacity-60" />
                     </Link>
 

@@ -133,7 +133,7 @@ const reasons = [
 const featuredProducts = [
   {
     slug: 'n-loc',
-    name: 'N-Loc',
+    name: 'N-LOC',
     category: 'STAINLESS STEEL CABLE TIES',
     desc: 'Self-locking roller ball, ladder & coated stainless steel ties in SS 304 & 316',
     img: '/assets/featured_products/featured_nloc.webp',
@@ -142,15 +142,15 @@ const featuredProducts = [
   {
     slug: 'cable-cleats',
     name: 'Cable Cleats',
-    category: 'CABLE MANAGEMENT',
+    category: 'POWER CABLE ACCESSORIES',
     desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
-    img: '/assets/featured_products/featured_cable_cleat.webp',
+    img: '/assets/featured_products/featured_cable_cleats.webp',
     link: '/products/cable-cleat',
   },
   {
     slug: 'link-box',
-    name: 'Link Box',
-    category: 'ENCLOSURES',
+    name: 'LINKBOX',
+    category: 'ENCLOSURES & JUNCTION BOXES',
     desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes',
     img: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
@@ -158,15 +158,15 @@ const featuredProducts = [
   {
     slug: 'lugx',
     name: 'LUGX',
-    category: 'ELECTRICAL FITTINGS',
+    category: 'ELECTRICAL LUGS & TERMINALS',
     desc: 'High-conductivity electrical termination lugs and connector hardware',
     img: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
   {
     slug: 'cnc-machined-components',
-    name: 'CNC Machined Components',
-    category: 'CNC MACHINING',
+    name: 'CNC Machined Component',
+    category: 'PRECISION ENGINEERING',
     desc: 'High precision turned, milled & drilled components with tight tolerances',
     img: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
@@ -174,7 +174,7 @@ const featuredProducts = [
   {
     slug: 'press-parts',
     name: 'Sheet Metal Press Parts',
-    category: 'PRESS COMPONENTS · STRAPPING',
+    category: 'SHEET METAL COMPONENTS',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
     img: '/assets/sheet_metal/page_98_img_0.png',
     link: '/products/sheet-metal-press-parts',
