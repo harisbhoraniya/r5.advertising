@@ -70,7 +70,37 @@ const nlocProducts: ProductItem[] = [
 ];
 
 const NLocPage: React.FC = () => {
-  const [rollerBallType, setRollerBallType] = useState<'coated' | 'uncoated'>('coated');
+  const [productTypes, setProductTypes] = useState<Record<string, 'coated' | 'uncoated'>>({
+    'roller-ball': 'coated',
+    'roller-ball-hd': 'coated',
+    'releasable': 'coated',
+    'ladder': 'coated',
+  });
+
+  const getItemImage = (item: ProductItem) => {
+    const type = productTypes[item.id] || 'coated';
+    if (item.id === 'roller-ball') {
+      return type === 'coated'
+        ? '/assets/nloc/roller_ball_coated_black.png'
+        : '/assets/nloc/roller_ball_standard_transparent.png';
+    }
+    if (item.id === 'roller-ball-hd') {
+      return type === 'coated'
+        ? '/assets/nloc/roller_ball_hd_coated.jpg'
+        : '/assets/nloc/roller_ball_hd_transparent.png';
+    }
+    if (item.id === 'releasable') {
+      return type === 'coated'
+        ? '/assets/nloc/releasable_cable_tie_coated.jpg'
+        : '/assets/nloc/releasable_cable_tie.png';
+    }
+    if (item.id === 'ladder') {
+      return type === 'coated'
+        ? '/assets/nloc/ladder_cable_tie_coated.jpg'
+        : '/assets/nloc/ladder_cable_tie.png';
+    }
+    return item.image;
+  };
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner (Same Premium UI as Cable Cleats / Lugx / Link Box) ── */}
@@ -120,7 +150,7 @@ const NLocPage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <a
               href="#products"
-              className="font-['Manrope',sans-serif] inline-flex items-center gap-2 bg-[#004428] hover:bg-[#00331e] text-white px-5 sm:px-6 py-3 rounded-xl text-[13px] sm:text-[14px] font-bold tracking-wide uppercase transition-all shadow-lg hover:shadow-emerald-950/40"
+              className="font-montserrat inline-flex items-center gap-2 bg-[#004428] hover:bg-[#00331e] text-white px-5 sm:px-6 py-3 rounded-xl text-[13px] sm:text-[14px] font-bold tracking-wide uppercase transition-all shadow-lg hover:shadow-emerald-950/40"
             >
               <span>Explore N-LOC Range</span>
               <ArrowRight size={15} />
@@ -233,14 +263,14 @@ const NLocPage: React.FC = () => {
                       : 'bg-slate-50 p-4'
                 }`}>
                   <img
-                    src={
+                    src={getItemImage(item)} /*
                       item.id === 'roller-ball'
                         ? rollerBallType === 'coated'
                           ? '/assets/nloc/roller_ball_standard_transparent.png'
                           : '/assets/nloc/roller_ball_coated_black.png'
                         : item.image
                     }
-                    alt={item.title}
+                    */ alt={item.title}
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -257,16 +287,16 @@ const NLocPage: React.FC = () => {
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
 
-                  {item.id === 'roller-ball' && (
+                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder'].includes(item.id) && (
                     <div className="flex items-center gap-2 mb-4">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setRollerBallType('coated');
+                          setProductTypes((prev) => ({ ...prev, [item.id]: 'coated' }));
                         }}
                         className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          rollerBallType === 'coated'
+                          (productTypes[item.id] || 'coated') === 'coated'
                             ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
                             : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                         }`}
@@ -277,10 +307,10 @@ const NLocPage: React.FC = () => {
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setRollerBallType('uncoated');
+                          setProductTypes((prev) => ({ ...prev, [item.id]: 'uncoated' }));
                         }}
                         className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          rollerBallType === 'uncoated'
+                          productTypes[item.id] === 'uncoated'
                             ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
                             : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                         }`}
@@ -317,7 +347,7 @@ const NLocPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/page_6.png"
+                  src="/assets/brochure_covers/n_loc_brochure_cover.png"
                   alt="NAEPL N-LOC Cable Ties Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

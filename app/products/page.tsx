@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 interface ProductItem {
   id: string;
@@ -30,7 +31,7 @@ const productCatalog: ProductItem[] = [
   },
   {
     id: 'link-box',
-    title: 'LINKBOX',
+    title: 'LINK BOX',
     category: 'ENCLOSURES & JUNCTION BOXES',
     badge: 'ENCLOSURES & JUNCTION BOXES',
     image: '/assets/featured_products/featured_link_box.webp',
@@ -114,7 +115,7 @@ const ProductsPage: React.FC = () => {
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal text-slate-900 leading-[1.25] tracking-tight m-0">
                 Engineered for <br className="hidden sm:inline" />
-                <span className="italic font-normal text-[#8c2442]">Demanding</span> Applications
+                <span className="font-normal text-[#8c2442]">Demanding</span> Applications
               </h1>
             </div>
             <div>
@@ -126,10 +127,11 @@ const ProductsPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {productCatalog.map((product) => (
-              <div 
+              <Link 
                 key={product.id} 
                 id={product.id} 
-                className={`group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 ${
+                href={product.link}
+                className={`group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 cursor-pointer block no-underline ${
                   product.id === 'press-parts' ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none' : ''
                 }`}
               >
@@ -146,19 +148,17 @@ const ProductsPage: React.FC = () => {
                   <div className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
                     {product.category}
                   </div>
-                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
+                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3 group-hover:text-[#004428] transition-colors">
                     {product.title}
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  {/* <Link href={product.link} 
-                    className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#5c182c] group-hover:gap-3"
-                  >
-                    <span>VIEW DETAILS</span>
+                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 group-hover:gap-3">
+                    <span>EXPLORE PRODUCTS</span>
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link> */}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

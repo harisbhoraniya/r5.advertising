@@ -8,6 +8,13 @@ import {
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -283,27 +290,30 @@ const ContactPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Row 3: Requirement Select */}
+                    {/* Row 3: Requirement Select (Shadcn UI) */}
                     <div>
                       <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
                         Requirement
                       </label>
-                      <select
-                        name="requirement"
+                      <Select
                         value={formData.requirement}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 text-[14px] font-light text-[#1a1a1a] bg-white border border-[#e8e8e8] rounded outline-none transition-all duration-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/10 cursor-pointer"
+                        onValueChange={(val) =>
+                          setFormData((prev) => ({ ...prev, requirement: val }))
+                        }
                       >
-                        <option value="">Select a requirement</option>
-                        <option value="cable-ties">Stainless Steel Cable Ties (N-Loc)</option>
-                        <option value="cable-cleat">Cable Cleats & Retention</option>
-                        <option value="link-box">Link Box & Enclosures</option>
-                        <option value="lugx">LUGX Terminations</option>
-                        <option value="cnc-components">CNC / VMC Machined Components</option>
-                        <option value="press-parts">Sheet Metal Press Parts</option>
-                        <option value="custom">Custom Engineering Solution</option>
-                        <option value="other">Other</option>
-                      </select>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select a requirement" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="cable-ties">Stainless Steel Cable Ties (N-Loc)</SelectItem>
+                          <SelectItem value="cable-cleat">Cable Cleats</SelectItem>
+                          <SelectItem value="link-box">Junction Box &amp; Enclosures</SelectItem>
+                          <SelectItem value="lugx">Lugs &amp; Terminals (LUGX)</SelectItem>
+                          <SelectItem value="cnc-components">CNC Machined Components</SelectItem>
+                          <SelectItem value="press-parts">Sheet Metal Press Parts</SelectItem>
+                          <SelectItem value="custom">Custom Engineering Solution</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     {/* Row 4: Message Textarea */}

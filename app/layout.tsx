@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import '@fontsource/manrope';
+import '@fontsource/montserrat';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -21,6 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+      </head>
       <body className="w-full min-h-screen flex flex-col bg-white font-sans">
         <Navbar />
         <div className="flex-1 w-full">

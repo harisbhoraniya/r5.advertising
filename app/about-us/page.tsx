@@ -149,7 +149,7 @@ const AboutPage: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-6 sm:gap-8">
                   <div className="group p-4 rounded transition-all duration-300 hover:bg-[#f0f7f3] border-b border-[#e8e8e8] pb-6 cursor-default">
-                    <div className="font-serif text-3xl sm:text-[38px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5">
+                    <div className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5 whitespace-nowrap">
                       ISO
                     </div>
                     <div className="text-xs sm:text-[13px] font-medium text-[#4a4a4a]">
@@ -158,7 +158,7 @@ const AboutPage: React.FC = () => {
                   </div>
 
                   <div className="group p-4 rounded transition-all duration-300 hover:bg-[#f0f7f3] border-b border-[#e8e8e8] pb-6 cursor-default">
-                    <div className="font-serif text-3xl sm:text-[38px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5">
+                    <div className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5 whitespace-nowrap">
                       One-Stop
                     </div>
                     <div className="text-xs sm:text-[13px] font-medium text-[#4a4a4a]">

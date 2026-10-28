@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        manrope: ['Manrope', 'sans-serif'],
-        accent: ['Manrope', 'sans-serif'],
+        sans: ['Montserrat', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        accent: ['Montserrat', 'sans-serif'],
       },
       colors: {
         primary: '#111827',

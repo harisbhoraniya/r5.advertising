@@ -8,46 +8,65 @@ interface BrochureItem {
   title: string;
   subtitle: string;
   filename: string;
+  coverImage: string;
 }
 
-const highlights: BrochureItem[] = [
+const rawHighlights: BrochureItem[] = [
   {
     id: 'cable-cleats-brochure',
     title: 'Cable Cleats Brochure',
     subtitle: 'Short-circuit withstand cleats, trefoil & single cable clamps (IEC 61914)',
     filename: 'NAEPL_Cable_Cleats_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/cable_cleats_brochure_cover.png',
   },
   {
     id: 'n-loc-brochure',
     title: 'N-Loc Brochure',
     subtitle: 'Roller ball, ladder, coated ties & tensile strength data sheets',
     filename: 'NAEPL_N-Loc_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/n_loc_brochure_cover.png',
   },
   {
     id: 'cnc-brochure',
     title: 'CNC Machined Components Brochure',
     subtitle: 'Precision turned components, custom tooling & multi-axis CNC parts',
     filename: 'NAEPL_CNC_Machined_Components_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/cnc_brochure_cover.png',
   },
   {
     id: 'link-box-brochure',
     title: 'Link Box Brochure',
     subtitle: 'IP66/IP68 weatherproof junction boxes & terminal arrangements',
     filename: 'NAEPL_Link_Box_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/link_box_brochure_cover.png',
   },
   {
     id: 'lugx-brochure',
     title: 'LUGX Brochure',
     subtitle: 'High-conductivity terminal lugs, cleats & cable support hardware',
     filename: 'NAEPL_LUGX_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/lugx_brochure_cover.png',
   },
-  {
+  { 
     id: 'sheet-metal-brochure',
     title: 'Sheet Metal Press Parts Brochure',
     subtitle: 'Custom press stamping, brackets, banding strapping & deep drawn parts',
     filename: 'NAEPL_Sheet_Metal_Press_Parts_Brochure.pdf',
+    coverImage: '/assets/brochure_covers/sheet_metal_brochure_cover.png',
   },
 ];
+
+// Exact sequence matching Products dropdown: N-LOC -> Cable Cleats -> Link Box -> LUGX -> CNC -> Sheet Metal
+const highlightsOrder = [
+  'n-loc-brochure',
+  'cable-cleats-brochure',
+  'link-box-brochure',
+  'lugx-brochure',
+  'cnc-brochure',
+  'sheet-metal-brochure',
+];
+
+const highlights: BrochureItem[] = highlightsOrder.map((id) => rawHighlights.find((h) => h.id === id)!);
 
 const BrochureContent: React.FC = () => {
   const searchParams = useSearchParams();
@@ -134,7 +153,7 @@ const BrochureContent: React.FC = () => {
   };
 
   // Simulates download and client-side trigger
-  const triggerDownload = (filename: string) => {
+  const triggerDownload = (filename: string = '') => { return;
     try {
       const samplePdfContent = `%PDF-1.4\n1 0 obj\n<<\n/Title (${selectedBrochure.title})\n/Author (N Gandhi Advance Engineering Pvt. Ltd.)\n/Subject (Corporate Brochure)\n>>\nendobj\n%%EOF`;
       const blob = new Blob([samplePdfContent], { type: 'application/pdf' });
@@ -246,27 +265,27 @@ const BrochureContent: React.FC = () => {
             </div>
 
             {/* Right Column: High-End Brochure Mockup */}
-            <div className="relative h-[360px] sm:h-[460px] lg:h-[520px] w-full flex items-center justify-center">
+            <div className="relative w-full flex items-center justify-center">
               {/* Subtle ambient decorative backdrop glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#004428]/15 via-transparent to-[#8c2442]/15 rounded-3xl filter blur-2xl pointer-events-none" />
 
               {/* Main Brochure Mockup Card (Visual Showcase Only) */}
               <div 
-                className="group relative w-full h-full rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_84px_rgba(0,0,0,0.24)] border border-slate-200/80 bg-[#0c120e] cursor-default select-none"
+                className="group relative w-full max-w-[390px] aspect-[210/297] rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_84px_rgba(0,0,0,0.24)] border border-slate-200/80 bg-white cursor-default select-none"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=900&q=85"
+                  src="/assets/brochure_covers/company_profile_brochure_cover.png"
                   alt="Company Profile Brochure Cover"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#004428]/90 via-[#004428]/60 to-[#111317]/85" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-slate-900/10 pointer-events-none rounded-2xl" />
 
                 {/* Top Accent Line */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#34d399] to-[#8c2442]" />
+                <div className="hidden absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#34d399] to-[#8c2442]" />
 
                 {/* Text Overlay */}
-                <div className="absolute inset-0 p-7 sm:p-10 md:p-12 flex flex-col justify-end text-white">
+                <div className="hidden absolute inset-0 p-7 sm:p-10 md:p-12 flex flex-col justify-end text-white">
                   <div className="text-right">
                     <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/70 mb-2">
                       Official Technical Catalog
@@ -286,7 +305,73 @@ const BrochureContent: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 2. Lead Capture Popup Modal Form ── */}
+      {/* ── 2. Product Brochures Catalog Section (3 Top, 3 Bottom) ── */}
+      <section className="py-16 sm:py-24 bg-slate-50/70 border-t border-slate-200/80" id="brochures-grid">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12">
+          {/* Section Heading */}
+          <div className="text-center max-w-[720px] mx-auto mb-12 sm:mb-16">
+            <p className="text-[12px] sm:text-[13px] font-semibold text-[#004428] tracking-[0.14em] uppercase mb-3 flex items-center justify-center gap-2">
+              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
+              Official Catalogs
+              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
+              Technical Product Brochures
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+              Explore and request comprehensive technical specifications, dimensions, and certification documents for our complete range of precision engineering products.
+            </p>
+          </div>
+
+          {/* 3 Top, 3 Bottom Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {highlights.map((item) => (
+              <div
+                key={item.id}
+                className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between"
+              >
+                {/* A4 Brochure Cover Image Frame */}
+                <div
+                  onClick={() => openModal(item)}
+                  className="w-full aspect-[210/297] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm relative mb-5 cursor-pointer group-hover:border-[#004428]/40 transition-colors"
+                >
+                  <img
+                    src={item.coverImage}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none rounded-xl" />
+                </div>
+
+                {/* Info & Download Button */}
+                <div className="flex flex-col flex-1 justify-between">
+                  <div className="mb-4">
+                    <h3 className="text-lg sm:text-[19px] font-bold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#004428] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-500 font-normal leading-relaxed line-clamp-2">
+                      {item.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Download Button with Brochure Name */}
+                  <button
+                    type="button"
+                    onClick={() => openModal(item)}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#004428] hover:bg-[#00331e] text-white py-3 px-4 rounded-xl text-[12px] sm:text-[13px] font-bold uppercase tracking-wide transition-all shadow-md hover:shadow-[#004428]/25 cursor-pointer"
+                  >
+                    <Download size={15} className="shrink-0" />
+                    <span className="truncate">Download {item.title}</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Lead Capture Popup Modal Form ── */}
       {isModalOpen && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/65 backdrop-blur-md transition-all duration-300 animate-in fade-in-0"
@@ -303,11 +388,11 @@ const BrochureContent: React.FC = () => {
             <div className="px-6 sm:px-8 pt-6 pb-4 border-b border-slate-100 flex items-start justify-between">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight m-0">
-                  {isSuccess ? 'Download Ready!' : 'Download Brochure'}
+                  {isSuccess ? 'Request Received!' : 'Download Brochure'}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-slate-500 font-normal mt-1 leading-relaxed m-0">
                   {isSuccess 
-                    ? 'Your technical brochure has started downloading.' 
+                    ? 'We have received your brochure request.' 
                     : 'Please fill in your details below to receive the technical catalog.'}
                 </p>
               </div>
@@ -336,7 +421,7 @@ const BrochureContent: React.FC = () => {
                     Thank you, {formData.name}!
                   </h4>
                   <p className="text-sm text-slate-600 max-w-sm mx-auto mb-6 leading-relaxed">
-                    Your download for <strong className="text-slate-800">{selectedBrochure.title}</strong> has started automatically.
+                    Thank you for requesting <strong className="text-slate-800">{selectedBrochure.title}</strong>. Our team has received your details and will share the technical brochure shortly.
                   </p>
 
                   <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70 mb-6 text-xs text-slate-600 flex items-center justify-between">
@@ -349,7 +434,7 @@ const BrochureContent: React.FC = () => {
                       onClick={() => triggerDownload(selectedBrochure.filename)}
                       className="text-[#004428] font-bold hover:underline shrink-0 pl-2 bg-transparent border-none cursor-pointer"
                     >
-                      Download Again
+                      Request Logged
                     </button>
                   </div>
 

@@ -149,7 +149,7 @@ const featuredProducts = [
   },
   {
     slug: 'link-box',
-    name: 'LINKBOX',
+    name: 'LINK BOX',
     category: 'ENCLOSURES & JUNCTION BOXES',
     desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes',
     img: '/assets/featured_products/featured_link_box.webp',
@@ -399,7 +399,7 @@ const HomePage: React.FC = () => {
               {/* Stat Blocks */}
               <div className="flex items-center gap-8 sm:gap-12 flex-wrap pt-4 border-t border-[#e8e8e8]">
                 <div className="group cursor-default">
-                  <div className="font-serif text-3xl sm:text-[34px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors">
+                  <div className="text-3xl sm:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors whitespace-nowrap">
                     ISO
                   </div>
                   <div className="text-xs text-[#4a4a4a] font-medium mt-1">
@@ -408,7 +408,7 @@ const HomePage: React.FC = () => {
                 </div>
 
                 <div className="group cursor-default">
-                  <div className="font-serif text-3xl sm:text-[34px] font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors">
+                  <div className="text-3xl sm:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors whitespace-nowrap">
                     One-Stop
                   </div>
                   <div className="text-xs text-[#4a4a4a] font-medium mt-1">
@@ -523,7 +523,7 @@ const HomePage: React.FC = () => {
               </p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal text-slate-900 leading-[1.25] tracking-tight m-0">
                 Engineered for <br className="hidden sm:inline" />
-                <span className="italic font-normal text-[#8c2442]">Demanding</span> Applications
+                <span className="font-normal text-[#8c2442]">Demanding</span> Applications
               </h2>
             </div>
             <div className="flex flex-col sm:items-end gap-3">
@@ -542,10 +542,11 @@ const HomePage: React.FC = () => {
           {/* 6-Card Responsive Grid with Exact ProductsPage Card UI */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product) => (
-              <div
+              <Link
                 key={product.slug}
                 id={product.slug}
-                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
+                href={product.link}
+                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 cursor-pointer block no-underline"
               >
                 {/* Image Container */}
                 <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100">
@@ -571,14 +572,12 @@ const HomePage: React.FC = () => {
                     {product.desc}
                   </p>
 
-                  {/* <Link href={product.link}
-                    className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#5c182c] group-hover:gap-3"
-                  >
-                    <span>VIEW DETAILS</span>
+                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 group-hover:gap-3">
+                    <span>EXPLORE PRODUCTS</span>
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link> */}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

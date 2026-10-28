@@ -24,7 +24,7 @@ const nlocSubItems: ProductItem[] = [
 
 const otherProducts: ProductItem[] = [
   { id: 'cable-cleat', title: 'Cable Cleats', path: '/products/cable-cleat' },
-  { id: 'link-box', title: 'LINKBOX', path: '/products/link-box' },
+  { id: 'link-box', title: 'LINK BOX', path: '/products/link-box' },
   { id: 'lugx', title: 'LUGX', path: '/products/lugx' },
   { id: 'cnc-machine-component', title: 'CNC Machined Component', path: '/products/cnc-machine-component' },
   { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products/sheet-metal-press-parts' },
