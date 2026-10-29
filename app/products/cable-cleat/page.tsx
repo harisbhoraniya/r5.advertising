@@ -83,7 +83,7 @@ const CableCleatPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img 
-              src="/assets/Cable_cleats.png" 
+              src="/assets/cable_cleats/single_cable_cleat_product.webp" 
               alt="NAEPL Stainless Steel Cable Cleats" 
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />

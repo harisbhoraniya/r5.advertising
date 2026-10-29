@@ -31,7 +31,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
     <section className="relative w-full min-h-[125px] sm:min-h-[155px] md:min-h-[200px] flex items-center bg-[#0b0d10] overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-85"
-        style={{ backgroundImage: `url('/assets/hero_banner.png')` }}
+        style={{ backgroundImage: `url('/assets/products_hero_banner.webp')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0c10]/95 via-[#0a0c10]/80 to-[#0a0c10]/50" />
       </div>
