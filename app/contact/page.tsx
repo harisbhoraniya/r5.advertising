@@ -46,7 +46,7 @@ const ContactPage: React.FC = () => {
     try {
       const accessKey =
         process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
-        '3556119d-6875-4b80-b33c-a88f4b3ed82e';
+        '3f07030f-0894-4634-9ac1-392f3f8ca19d';
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
