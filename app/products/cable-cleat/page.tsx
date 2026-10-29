@@ -83,7 +83,7 @@ const CableCleatPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img 
-              src="/assets/cable_cleats/single_cable_cleat_product.webp" 
+              src="/assets/cable_cleats/single_cable_cleat_product.webp?v=4" 
               alt="NAEPL Stainless Steel Cable Cleats" 
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -196,7 +196,7 @@ const CableCleatPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/cable_cleats/single_cable_cleat_product.webp"
+                  src="/assets/cable_cleats/single_cable_cleat_product.webp?v=4"
                   alt="Single Cable Cleats"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
