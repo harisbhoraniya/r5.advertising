@@ -14,7 +14,8 @@ export async function POST(request: Request) {
 
     const accessKey =
       process.env.WEB3FORMS_ACCESS_KEY ||
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+      '3556119d-6875-4b80-b33c-a88f4b3ed82e';
 
     // If Access Key is configured, forward directly to Web3Forms to deliver to enquiryengg@ngandhi.com
     if (accessKey) {

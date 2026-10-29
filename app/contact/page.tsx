@@ -44,18 +44,33 @@ const ContactPage: React.FC = () => {
     setErrorMessage('');
 
     try {
-      const res = await fetch('/api/contact', {
+      const accessKey =
+        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+        '3556119d-6875-4b80-b33c-a88f4b3ed82e';
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: accessKey,
+          from_name: 'NAEPL Website Contact Form',
+          subject: `New Technical Inquiry: ${formData.requirement || 'General'} - from ${formData.name}`,
+          name: formData.name,
+          company: formData.company || 'Not specified',
+          email: formData.email,
+          phone: formData.phone || 'Not specified',
+          requirement: formData.requirement || 'General Inquiry',
+          message: formData.message || 'No additional message entered',
+        }),
       });
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit inquiry. Please try again.');
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to submit inquiry. Please try again.');
       }
 
       setSubmitted(true);
