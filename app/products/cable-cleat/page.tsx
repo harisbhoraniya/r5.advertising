@@ -17,7 +17,7 @@ const CableCleatPage: React.FC = () => {
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="/assets/cable_cleats/cable_cleats_hero_hd.jpg"
+            src="/assets/cable_cleats/cable_cleats_hero_hd.webp"
             alt="NAEPL Cable Cleats Short-Circuit Withstand Systems"
             className="w-full h-full object-cover object-center"
             loading="eager"
@@ -164,7 +164,7 @@ const CableCleatPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/cable_cleats/cable_cleats_hero_hd.jpg"
+                  src="/assets/cable_cleats/cable_cleats_hero_hd.webp"
                   alt="Trefoil Cable Cleats"
                   className="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -196,7 +196,7 @@ const CableCleatPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/cable_cleats/single_cable_cleat_product.png"
+                  src="/assets/cable_cleats/single_cable_cleat_product.webp"
                   alt="Single Cable Cleats"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -236,7 +236,7 @@ const CableCleatPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/cable_cleats_brochure_cover.png"
+                  src="/assets/brochure_covers/cable_cleats_brochure_cover.webp"
                   alt="NAEPL Cable Cleats Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

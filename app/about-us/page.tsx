@@ -41,7 +41,7 @@ const proprietaryBrands: BrandItem[] = [
     name: 'N-LOC',
     tag: 'STAINLESS STEEL CABLE TIES',
     desc: 'Self-locking roller ball, ladder, and coated stainless steel ties in SS 304 & 316 engineered for high-tensile bundling in demanding environments.',
-    img: '/assets/logo_nloc.png',
+    img: '/assets/logo_nloc.webp',
     link: '/products/n-loc',
   },
   {
@@ -49,7 +49,7 @@ const proprietaryBrands: BrandItem[] = [
     name: 'LINKBOX',
     tag: 'WEATHERPROOF ENCLOSURES',
     desc: 'Heavy-duty IP66 & IP68 junction boxes and electrical link boxes manufactured in aluminium die-cast, stainless steel, and mild steel.',
-    img: '/assets/logo_linkbox.png',
+    img: '/assets/logo_linkbox.webp',
     link: '/products/link-box',
   },
   {
@@ -57,7 +57,7 @@ const proprietaryBrands: BrandItem[] = [
     name: 'LUGX',
     tag: 'ELECTRICAL TERMINATION LUGS',
     desc: 'High-conductivity copper and bimetallic terminal lugs, heavy-duty connectors, and cable hardware engineered for critical electrical power connections.',
-    img: '/assets/logo_lugx.png',
+    img: '/assets/logo_lugx.webp',
     link: '/products/lugx',
   },
 ];
@@ -273,7 +273,7 @@ const AboutPage: React.FC = () => {
             {/* Left: Manufacturing Facility Photo Card */}
             <div className="relative h-[340px] sm:h-[460px] rounded overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-[#e8e8e8]">
               <img
-                src="/assets/built_to_deliver.jpg"
+                src="/assets/built_to_deliver.webp"
                 alt="NAEPL Advanced Quality Control Lab, Precision CNC Manufacturing and Export-Ready Logistics"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"

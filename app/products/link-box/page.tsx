@@ -81,7 +81,7 @@ const LinkBoxPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img
-              src="/assets/link_box/junction_box_overview.png"
+              src="/assets/link_box/junction_box_overview.webp"
               alt="NAEPL LINKBOX Industrial Enclosures"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -163,7 +163,7 @@ const LinkBoxPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/aluminium_junction_box.png"
+                  src="/assets/link_box/aluminium_junction_box.webp"
                   alt="Aluminium Die Cast Junction Box"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -195,7 +195,7 @@ const LinkBoxPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/stainless_steel_junction_box.png"
+                  src="/assets/link_box/stainless_steel_junction_box.webp"
                   alt="Stainless Steel Watertight Junction Box"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -227,7 +227,7 @@ const LinkBoxPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/mild_steel_junction_box.png"
+                  src="/assets/link_box/mild_steel_junction_box.webp"
                   alt="Mild Steel Clamp-Secured Junction Box"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -259,7 +259,7 @@ const LinkBoxPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/custom_machined_enclosure.png"
+                  src="/assets/link_box/custom_machined_enclosure.webp"
                   alt="Custom Machined & Pre-Assembled Enclosures"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -300,7 +300,7 @@ const LinkBoxPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/link_box_brochure_cover.png"
+                  src="/assets/brochure_covers/link_box_brochure_cover.webp"
                   alt="NAEPL Link Box & Junction Box Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

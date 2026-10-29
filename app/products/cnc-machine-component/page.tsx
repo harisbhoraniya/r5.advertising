@@ -81,7 +81,7 @@ const CncMachineComponentPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img
-              src="/assets/cnc_machined/page_91_img_0.png"
+              src="/assets/cnc_machined/page_91_img_0.webp"
               alt="NAEPL CNC Machined Components"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -162,7 +162,7 @@ const CncMachineComponentPage: React.FC = () => {
                 title: 'Copper Machined Components',
                 category: 'COPPER PRECISION MACHINED COMPONENTS',
                 badge: 'C11000 · C14500 · C18200',
-                image: '/assets/cnc_machined/page_92_img_9.png',
+                image: '/assets/cnc_machined/page_92_img_9.webp',
                 link: '/contact?product=copper-cnc-machined-components',
               },
               {
@@ -170,7 +170,7 @@ const CncMachineComponentPage: React.FC = () => {
                 title: 'Stainless Steel CNC Components',
                 category: 'STAINLESS STEEL MACHINED COMPONENTS',
                 badge: 'SS 303 / 304 / 316 / 17-4PH',
-                image: '/assets/cnc_machined/page_93_img_8.png',
+                image: '/assets/cnc_machined/page_93_img_8.webp',
                 link: '/contact?product=stainless-steel-cnc-machined-components',
               },
               {
@@ -178,7 +178,7 @@ const CncMachineComponentPage: React.FC = () => {
                 title: 'Aluminium Machined Components',
                 category: 'ALUMINIUM CNC MACHINED COMPONENTS',
                 badge: 'AL 6061 · 6082 · 7075',
-                image: '/assets/cnc_machined/page_94_img_0.png',
+                image: '/assets/cnc_machined/page_94_img_0.webp',
                 link: '/contact?product=aluminium-cnc-machined-components',
               },
               {
@@ -186,7 +186,7 @@ const CncMachineComponentPage: React.FC = () => {
                 title: 'Chrome Steel & Special Alloy Parts',
                 category: 'CHROME STEEL & ALLOY MACHINED COMPONENTS',
                 badge: 'EN31 · EN19 · 52100',
-                image: '/assets/cnc_machined/page_91_img_0.png',
+                image: '/assets/cnc_machined/page_91_img_0.webp',
                 link: '/contact?product=chrome-steel-cnc-machined-components',
               },
             ].map((product) => (
@@ -238,7 +238,7 @@ const CncMachineComponentPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/cnc_brochure_cover.png"
+                  src="/assets/brochure_covers/cnc_brochure_cover.webp"
                   alt="NAEPL CNC Machined Components Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

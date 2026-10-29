@@ -57,7 +57,7 @@ const heroSlides: HeroSlide[] = [
     primaryBtnLink: '/products',
     secondaryBtnText: 'Contact Us',
     secondaryBtnLink: '#contact',
-    image: '/assets/hero_slides/slide_3_skilled_craftsmanship.jpg',
+    image: '/assets/hero_slides/slide_3_skilled_craftsmanship.webp',
     alt: 'Experienced precision engineer inspecting CNC machined components with micrometer',
   },
   {
@@ -176,7 +176,7 @@ const featuredProducts = [
     name: 'Sheet Metal Press Parts',
     category: 'SHEET METAL COMPONENTS',
     desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
-    img: '/assets/sheet_metal/page_98_img_0.png',
+    img: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];
@@ -421,7 +421,7 @@ const HomePage: React.FC = () => {
             {/* Right Column: Facility Showcase Card */}
             <div className="relative h-[340px] sm:h-[440px] rounded-lg overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-slate-200">
               <img
-                src="/assets/about_naepl.jpg"
+                src="/assets/about_naepl.webp"
                 alt="NAEPL Advanced Engineering and Manufacturing Facility"
                 className="w-full h-full object-cover"
                 loading="lazy"

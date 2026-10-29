@@ -24,7 +24,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Roller Ball Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'SELF-LOCKING · BALL LOCK',
-    image: '/assets/nloc/roller_ball_standard_transparent.png',
+    image: '/assets/nloc/roller_ball_standard_transparent.webp',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -32,7 +32,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Roller Ball Heavy Duty Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'HEAVY DUTY · HIGH TENSILE',
-    image: '/assets/nloc/roller_ball_hd_transparent.png',
+    image: '/assets/nloc/roller_ball_hd_transparent.webp',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -40,7 +40,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Releasable Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'REUSABLE · PPA571 COATED',
-    image: '/assets/nloc/releasable_cable_tie.png',
+    image: '/assets/nloc/releasable_cable_tie.webp',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -48,7 +48,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Ladder Cable Tie',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'LADDER TYPE · SELF-LOCKING',
-    image: '/assets/nloc/ladder_cable_tie.png',
+    image: '/assets/nloc/ladder_cable_tie.webp',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -56,7 +56,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Cable Marker Tag',
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'LASER & EMBOSSED',
-    image: '/assets/nloc/cable_marker_tag.png',
+    image: '/assets/nloc/cable_marker_tag.webp',
     link: '/products/n-loc/roller-ball',
   },
   {
@@ -64,7 +64,7 @@ const nlocProducts: ProductItem[] = [
     title: 'Marker Plates',
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'STAINLESS STEEL PLATES',
-    image: '/assets/nloc/marker_plates.png',
+    image: '/assets/nloc/marker_plates.webp',
     link: '/products/n-loc/roller-ball',
   },
 ];
@@ -81,23 +81,23 @@ const NLocPage: React.FC = () => {
     const type = productTypes[item.id] || 'coated';
     if (item.id === 'roller-ball') {
       return type === 'coated'
-        ? '/assets/nloc/roller_ball_coated_black.png'
-        : '/assets/nloc/roller_ball_standard_transparent.png';
+        ? '/assets/nloc/roller_ball_coated_black.webp'
+        : '/assets/nloc/roller_ball_standard_transparent.webp';
     }
     if (item.id === 'roller-ball-hd') {
       return type === 'coated'
-        ? '/assets/nloc/roller_ball_hd_coated.jpg'
-        : '/assets/nloc/roller_ball_hd_transparent.png';
+        ? '/assets/nloc/roller_ball_hd_coated.webp'
+        : '/assets/nloc/roller_ball_hd_transparent.webp';
     }
     if (item.id === 'releasable') {
       return type === 'coated'
-        ? '/assets/nloc/releasable_cable_tie_coated.jpg'
-        : '/assets/nloc/releasable_cable_tie.png';
+        ? '/assets/nloc/releasable_cable_tie_coated.webp'
+        : '/assets/nloc/releasable_cable_tie.webp';
     }
     if (item.id === 'ladder') {
       return type === 'coated'
-        ? '/assets/nloc/ladder_cable_tie_coated.jpg'
-        : '/assets/nloc/ladder_cable_tie.png';
+        ? '/assets/nloc/ladder_cable_tie_coated.webp'
+        : '/assets/nloc/ladder_cable_tie.webp';
     }
     return item.image;
   };
@@ -108,7 +108,7 @@ const NLocPage: React.FC = () => {
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="/assets/nloc/nloc_hero_banner_hd.jpg"
+            src="/assets/nloc/nloc_hero_banner_hd.webp"
             alt="NAEPL N-LOC Stainless Steel Cable Ties & Ball Lock Systems"
             className="w-full h-full object-cover object-[center_center]"
             loading="eager"
@@ -172,7 +172,7 @@ const NLocPage: React.FC = () => {
           {/* Left Side: Product Image Showcase (from PDF Page 9) */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img 
-              src="/assets/nloc/nloc_overview_product.png" 
+              src="/assets/nloc/nloc_overview_product.webp" 
               alt="NAEPL N-LOC Stainless Steel Cable Ties Mechanism" 
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -266,8 +266,8 @@ const NLocPage: React.FC = () => {
                     src={getItemImage(item)} /*
                       item.id === 'roller-ball'
                         ? rollerBallType === 'coated'
-                          ? '/assets/nloc/roller_ball_standard_transparent.png'
-                          : '/assets/nloc/roller_ball_coated_black.png'
+                          ? '/assets/nloc/roller_ball_standard_transparent.webp'
+                          : '/assets/nloc/roller_ball_coated_black.webp'
                         : item.image
                     }
                     */ alt={item.title}
@@ -347,7 +347,7 @@ const NLocPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/n_loc_brochure_cover.png"
+                  src="/assets/brochure_covers/n_loc_brochure_cover.webp"
                   alt="NAEPL N-LOC Cable Ties Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

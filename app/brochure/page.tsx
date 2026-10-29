@@ -17,42 +17,42 @@ const rawHighlights: BrochureItem[] = [
     title: 'Cable Cleats Brochure',
     subtitle: 'Short-circuit withstand cleats, trefoil & single cable clamps (IEC 61914)',
     filename: 'NAEPL_Cable_Cleats_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/cable_cleats_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/cable_cleats_brochure_cover.webp',
   },
   {
     id: 'n-loc-brochure',
     title: 'N-Loc Brochure',
     subtitle: 'Roller ball, ladder, coated ties & tensile strength data sheets',
     filename: 'NAEPL_N-Loc_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/n_loc_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/n_loc_brochure_cover.webp',
   },
   {
     id: 'cnc-brochure',
     title: 'CNC Machined Components Brochure',
     subtitle: 'Precision turned components, custom tooling & multi-axis CNC parts',
     filename: 'NAEPL_CNC_Machined_Components_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/cnc_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/cnc_brochure_cover.webp',
   },
   {
     id: 'link-box-brochure',
     title: 'Link Box Brochure',
     subtitle: 'IP66/IP68 weatherproof junction boxes & terminal arrangements',
     filename: 'NAEPL_Link_Box_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/link_box_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/link_box_brochure_cover.webp',
   },
   {
     id: 'lugx-brochure',
     title: 'LUGX Brochure',
     subtitle: 'High-conductivity terminal lugs, cleats & cable support hardware',
     filename: 'NAEPL_LUGX_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/lugx_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/lugx_brochure_cover.webp',
   },
   { 
     id: 'sheet-metal-brochure',
     title: 'Sheet Metal Press Parts Brochure',
     subtitle: 'Custom press stamping, brackets, banding strapping & deep drawn parts',
     filename: 'NAEPL_Sheet_Metal_Press_Parts_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/sheet_metal_brochure_cover.png',
+    coverImage: '/assets/brochure_covers/sheet_metal_brochure_cover.webp',
   },
 ];
 
@@ -274,7 +274,7 @@ const BrochureContent: React.FC = () => {
                 className="group relative w-full max-w-[390px] aspect-[210/297] rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_84px_rgba(0,0,0,0.24)] border border-slate-200/80 bg-white cursor-default select-none"
               >
                 <img
-                  src="/assets/brochure_covers/company_profile_brochure_cover.png"
+                  src="/assets/brochure_covers/company_profile_brochure_cover.webp"
                   alt="Company Profile Brochure Cover"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="eager"

@@ -139,8 +139,10 @@ export const Navbar: React.FC = () => {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center">
           <img
-            src="/assets/logo_naepl.png?v=2"
+            src="/assets/logo_naepl.webp?v=2"
             alt="N GANDHI ADVANCE ENGINEERING PRIVATE LIMITED - ISO 9001:2015"
+            width={250}
+            height={42}
             className="h-[34px] sm:h-[42px] w-auto object-contain"
           />
         </Link>

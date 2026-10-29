@@ -12,8 +12,10 @@ export const Footer: React.FC = () => {
             <div className="mb-4 sm:mb-5">
               <Link href="/">
                 <img 
-                  src="/assets/logo_naepl.png?v=2" 
+                  src="/assets/logo_naepl.webp?v=2" 
                   alt="N Gandhi Advance Engineering Private Limited"
+                  width={250}
+                  height={40}
                   className="h-9 sm:h-10 w-auto object-contain" 
                 />
               </Link>

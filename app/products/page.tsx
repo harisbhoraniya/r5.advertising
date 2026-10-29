@@ -58,7 +58,7 @@ const productCatalog: ProductItem[] = [
     title: 'Sheet Metal Press Parts',
     category: 'SHEET METAL COMPONENTS',
     badge: 'SHEET METAL COMPONENTS',
-    image: '/assets/sheet_metal/page_98_img_0.png',
+    image: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];

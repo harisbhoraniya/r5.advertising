@@ -81,7 +81,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img 
-              src="/assets/sheet_metal/page_97_img_0.png" 
+              src="/assets/sheet_metal/page_97_img_0.webp" 
               alt="NAEPL Sheet Metal Press Parts & Banding Solutions" 
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -162,7 +162,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 title: 'Sheet Metal Press Parts',
                 category: 'CUSTOM PRESS COMPONENTS',
                 badge: 'BLANKING · PIERCING · FORMING',
-                image: '/assets/sheet_metal/page_98_img_0.png',
+                image: '/assets/sheet_metal/page_98_img_0.webp',
                 link: '/contact?product=sheet-metal-press-parts',
               },
               {
@@ -170,7 +170,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 title: 'Stainless Steel Banding Products',
                 category: 'STAINLESS STEEL BANDING',
                 badge: 'SS201 · SS304 · SS316 · SS430',
-                image: '/assets/sheet_metal/page_99_img_0.png',
+                image: '/assets/sheet_metal/page_99_img_0.webp',
                 link: '/contact?product=stainless-steel-banding',
               },
               {
@@ -178,7 +178,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 title: 'Banding Buckles & Fasteners',
                 category: 'FASTENING ACCESSORIES',
                 badge: 'JAW · WING · SCREW BUCKLES',
-                image: '/assets/sheet_metal/page_100_img_0.png',
+                image: '/assets/sheet_metal/page_100_img_0.webp',
                 link: '/contact?product=banding-buckles-fasteners',
               },
               {
@@ -186,7 +186,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 title: 'Sign Mounting Brackets',
                 category: 'MOUNTING SOLUTIONS',
                 badge: 'STRAIGHT & FLARED-LEG · SS201',
-                image: '/assets/sheet_metal/page_100_img_2.png',
+                image: '/assets/sheet_metal/page_100_img_2.webp',
                 link: '/contact?product=sign-mounting-brackets',
               },
             ].map((product) => (
@@ -238,7 +238,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/sheet_metal_brochure_cover.png"
+                  src="/assets/brochure_covers/sheet_metal_brochure_cover.webp"
                   alt="NAEPL Sheet Metal Press Parts & Banding Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />

@@ -1,16 +1,23 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import '@fontsource/montserrat';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-montserrat',
+});
+
 export const metadata: Metadata = {
   title: 'NAEPL | N Gandhi Advance Engineering Pvt. Ltd. | Precision Engineering',
   description: 'ISO 9001:2015 certified manufacturer of precision engineered components, stainless steel cable ties, cable cleats, link boxes, CNC machined parts, and sheet metal press components.',
   icons: {
-    icon: '/assets/logo_naepl.png',
+    icon: '/assets/logo_naepl.webp',
   },
 };
 
@@ -20,13 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={montserrat.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/hero_slides/slide_1_precision_cutting.webp"
+          type="image/webp"
+        />
       </head>
-      <body className="w-full min-h-screen flex flex-col bg-white font-sans">
+      <body className={`w-full min-h-screen flex flex-col bg-white ${montserrat.className}`}>
         <Navbar />
         <div className="flex-1 w-full">
           {children}

@@ -81,7 +81,7 @@ const LugxPage: React.FC = () => {
           {/* Left Side: Single Product Image Showcase */}
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img
-              src="/assets/lugx/lugx_overview.png"
+              src="/assets/lugx/lugx_overview.webp"
               alt="NAEPL LUGX Cable Lugs & Terminals"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
@@ -162,7 +162,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Cable Lugs',
                 category: 'COPPER CABLE LUGS',
                 badge: '1-HOLE / 2-HOLE · HEAVY DUTY',
-                image: '/assets/lugx/page_54_img_0.png',
+                image: '/assets/lugx/page_54_img_0.webp',
                 link: '/contact?product=copper-cable-lugs',
               },
               {
@@ -170,7 +170,7 @@ const LugxPage: React.FC = () => {
                 title: 'Aluminium Crimping Terminals Lugs',
                 category: 'ALUMINIUM CRIMPING TERMINALS',
                 badge: '2-HOLE & LONG BARREL',
-                image: '/assets/lugx/page_78_img_0.png',
+                image: '/assets/lugx/page_78_img_0.webp',
                 link: '/contact?product=aluminium-crimping-terminals-lugs',
               },
               {
@@ -178,7 +178,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Ring Terminals',
                 category: 'COPPER RING TERMINALS',
                 badge: 'OPEN & CLOSE · SOLDERING TYPE',
-                image: '/assets/lugx/page_80_img_0.png',
+                image: '/assets/lugx/page_80_img_0.webp',
                 link: '/contact?product=copper-ring-terminals',
               },
               {
@@ -186,7 +186,7 @@ const LugxPage: React.FC = () => {
                 title: 'Bi-Metallic Terminals',
                 category: 'BI-METALLIC TERMINALS',
                 badge: 'FRICTION WELDED · COPPER RING',
-                image: '/assets/lugx/page_81_img_0.png',
+                image: '/assets/lugx/page_81_img_0.webp',
                 link: '/contact?product=bi-metallic-terminals',
               },
               {
@@ -194,7 +194,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Crimping Pin Terminals',
                 category: 'COPPER PIN TERMINALS',
                 badge: 'NON-INSULATED & INSULATED',
-                image: '/assets/lugx/page_83_img_0.png',
+                image: '/assets/lugx/page_83_img_0.webp',
                 link: '/contact?product=copper-crimping-pin-terminals',
               },
               {
@@ -202,7 +202,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Crimping Ring Terminals',
                 category: 'COPPER RING TERMINALS',
                 badge: 'NON-INSULATED · HIGH CONDUCTIVITY',
-                image: '/assets/lugx/page_84_img_0.png',
+                image: '/assets/lugx/page_84_img_0.webp',
                 link: '/contact?product=copper-crimping-ring-terminals',
               },
               {
@@ -210,7 +210,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Crimping Fork Terminals',
                 category: 'COPPER FORK TERMINALS',
                 badge: 'NON-INSULATED & INSULATED',
-                image: '/assets/lugx/page_86_img_0.png',
+                image: '/assets/lugx/page_86_img_0.webp',
                 link: '/contact?product=copper-crimping-fork-terminals',
               },
               {
@@ -218,7 +218,7 @@ const LugxPage: React.FC = () => {
                 title: 'Copper Ring Tongue Fork Terminals',
                 category: 'RING TONGUE FORK TERMINALS',
                 badge: 'FLANGED HOOK · INSULATED',
-                image: '/assets/lugx/page_86_img_0.png',
+                image: '/assets/lugx/page_86_img_0.webp',
                 link: '/contact?product=copper-ring-tongue-fork-terminals',
               },
             ].map((product) => (
@@ -270,7 +270,7 @@ const LugxPage: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start w-full max-w-[320px] sm:max-w-[340px] mx-auto lg:mr-auto">
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
-                  src="/assets/brochure_covers/lugx_brochure_cover.png"
+                  src="/assets/brochure_covers/lugx_brochure_cover.webp"
                   alt="NAEPL LUGX Terminal Lugs Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />
