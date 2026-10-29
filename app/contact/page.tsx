@@ -7,6 +7,8 @@ import {
   Globe,
   ArrowRight,
   CheckCircle2,
+  Loader2,
+  AlertCircle,
 } from 'lucide-react';
 import {
   Select,
@@ -27,6 +29,8 @@ const ContactPage: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -34,9 +38,34 @@ const ContactPage: React.FC = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit inquiry. Please try again.');
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      setErrorMessage(
+        err.message || 'Something went wrong. Please try again or email enquiryengg@ngandhi.com directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -200,7 +229,7 @@ const ContactPage: React.FC = () => {
                     Inquiry <span className="text-[#004428]">Received</span>
                   </h3>
                   <p className="text-[14px] sm:text-[15px] font-light text-[#6b6b6b] leading-relaxed max-w-[360px] mx-auto mb-8">
-                    Thank you for reaching out. Our engineering team will review your specifications and get back to you within one business day.
+                    Thank you for reaching out. Our engineering team has received your details and will get back to you within one business day.
                   </p>
                   <button
                     type="button"
@@ -226,6 +255,13 @@ const ContactPage: React.FC = () => {
                   <h2 className="text-2xl sm:text-3xl font-medium text-[#1a1a1a] tracking-tight mb-7 sm:mb-9">
                     Submit <span className="text-[#8c2442]">Inquiry</span>
                   </h2>
+
+                  {errorMessage && (
+                    <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-2.5">
+                      <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-600" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
 
                   <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Row 1: Name & Company */}
@@ -334,11 +370,21 @@ const ContactPage: React.FC = () => {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="group relative w-full inline-flex items-center justify-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white py-4 px-8 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.30)] hover:-translate-y-0.5 hover:border-transparent cursor-pointer"
+                      disabled={isSubmitting}
+                      className="group relative w-full inline-flex items-center justify-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white py-4 px-8 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.30)] hover:-translate-y-0.5 hover:border-transparent cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <span className="relative z-10">Submit Inquiry</span>
-                      <ArrowRight size={15} className="relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin relative z-10" />
+                          <span className="relative z-10">Submitting Inquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="relative z-10">Submit Inquiry</span>
+                          <ArrowRight size={15} className="relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
+                        </>
+                      )}
                     </button>
                   </form>
                 </>
