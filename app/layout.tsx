@@ -1,17 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import '@fontsource/montserrat';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-montserrat',
-});
 
 export const metadata: Metadata = {
   title: 'NAEPL | N Gandhi Advance Engineering Pvt. Ltd. | Precision Engineering',
@@ -27,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en">
       <head>
         <link
           rel="preload"
@@ -36,7 +29,7 @@ export default function RootLayout({
           type="image/webp"
         />
       </head>
-      <body className={`w-full min-h-screen flex flex-col bg-white ${montserrat.className}`}>
+      <body className="w-full min-h-screen flex flex-col bg-white font-sans">
         <Navbar />
         <div className="flex-1 w-full">
           {children}
