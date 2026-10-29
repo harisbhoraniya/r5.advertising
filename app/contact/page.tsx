@@ -84,7 +84,7 @@ const ContactPage: React.FC = () => {
                   {
                     icon: MapPin,
                     label: 'Address',
-                    value: '104 First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013, Maharashtra, India',
+                    value: '104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013, Maharashtra, India',
                     href: 'https://maps.google.com/?q=Marathon+Futurex,+NM+Joshi+Marg,+Lower+Parel,+Mumbai+400013',
                   },
                   {

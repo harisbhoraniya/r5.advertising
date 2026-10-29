@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-emerald-700 shrink-0 mt-0.5" />
                 <span className="leading-snug text-[13px]">
-                  104 First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013 Maharashtra, India
+                  104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013 Maharashtra, India
                 </span>
               </li>
             </ul>
