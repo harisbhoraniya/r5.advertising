@@ -23,6 +23,9 @@ interface HeroSlide {
   alt: string;
 }
 
+// Hero slider slides - 4th slide removed per client feedback.
+// Updated to realistic medium-scale engineering/machining visuals.
+// Easy to update when original factory photographs are provided by the client.
 const heroSlides: HeroSlide[] = [
   {
     eyebrow: 'ISO 9001:2015 Certified · Made in India',
@@ -61,18 +64,6 @@ const heroSlides: HeroSlide[] = [
     alt: 'Experienced precision engineer inspecting CNC machined components with micrometer',
   },
   {
-    eyebrow: 'Modern Facilities',
-    title: 'Built for the Future\nof Manufacturing',
-    description:
-      'Modern, well-equipped facilities designed for efficiency, safety, and scalable production.',
-    primaryBtnText: 'View Products',
-    primaryBtnLink: '/products',
-    secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: '#contact',
-    image: '/assets/hero_slides/slide_4_modern_facilities.webp',
-    alt: 'Modern, well-equipped automated smart factory floor',
-  },
-  {
     eyebrow: 'End-to-End Production',
     title: 'One Roof.\nEnd-to-End Production.',
     description:
@@ -98,13 +89,45 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-const capabilities = [
-  'Stainless Steel Cable Ties',
-  'Cable Cleats',
-  'Junction Box',
-  'Lugs',
-  'CNC Machined Components',
-  'Sheet Metal Press Parts',
+interface CapabilityItem {
+  title: string;
+  desc: string;
+  badge: string;
+}
+
+// "What We Do" section: Meaningful, independent capabilities content
+// detailing NAEPL's engineering processes and capabilities rather than repeating product names.
+const capabilities: CapabilityItem[] = [
+  {
+    title: 'Precision CNC Machining & Turning',
+    desc: 'Multi-axis CNC turning, milling, and precision drilling across stainless steel, copper, brass, and alloy steels with micron-level tolerances and stringent surface finish standards.',
+    badge: 'PRECISION MACHINING',
+  },
+  {
+    title: 'Sheet Metal Stamping & Progressive Tooling',
+    desc: 'In-house high-tonnage power presses and progressive die tooling for blanking, piercing, bending, and deep drawing in mild steel, stainless steel, and aluminium.',
+    badge: 'PRESS OPERATIONS',
+  },
+  {
+    title: 'Severe-Duty Fastening & Bundling Systems',
+    desc: 'Metallic self-locking retention mechanisms engineered for extreme thermal conditions, fire resistance, and aggressive chemical and marine environments.',
+    badge: 'RETENTION SYSTEMS',
+  },
+  {
+    title: 'Short-Circuit Withstand Retention Engineering',
+    desc: 'Design and fabrication of dynamic fault-current retention systems tested in accordance with IEC 61914 standards to safeguard critical cabling networks.',
+    badge: 'FAULT PROTECTION',
+  },
+  {
+    title: 'Electromechanical Termination & Conductivity',
+    desc: 'Manufacturing high-conductivity copper, aluminium, and bi-metallic friction-welded terminals engineered for optimal current transfer and mechanical grip.',
+    badge: 'ELECTRICAL HARDWARE',
+  },
+  {
+    title: 'Ingress-Protected Weatherproof Enclosures',
+    desc: 'Aluminium die-casting, sheet steel forming, and sealing assembly delivering robust IP66 & IP68 weatherproof enclosures for demanding industrial sites.',
+    badge: 'ENCLOSURE FABRICATION',
+  },
 ];
 
 const reasons = [
@@ -130,57 +153,75 @@ const reasons = [
   },
 ];
 
+// Featured Products: Descriptive naming (brand names as secondary identifiers)
+// Added Zig Zag Cable Ties per client feedback
 const featuredProducts = [
   {
-    slug: 'n-loc',
-    name: 'N-LOC',
+    slug: 'stainless-steel-cable-ties',
+    name: 'Stainless Steel Cable Ties',
+    brandNote: 'N-LOC Series',
     category: 'STAINLESS STEEL CABLE TIES',
     desc: 'Self-locking roller ball, ladder & coated stainless steel ties in SS 304 & 316',
     img: '/assets/featured_products/featured_nloc.webp',
     link: '/products/n-loc',
   },
   {
+    slug: 'zig-zag-cable-ties',
+    name: 'Zig Zag Cable Ties',
+    brandNote: 'N-LOC Series',
+    category: 'STAINLESS STEEL FASTENING',
+    desc: 'Contoured stainless steel ties engineered for secure retention on vibrating, high-flexibility, and uneven bundling profiles',
+    img: '/assets/nloc/ladder_cable_tie.webp',
+    link: '/products/n-loc',
+  },
+  {
     slug: 'cable-cleats',
     name: 'Cable Cleats',
+    brandNote: 'Power Accessories',
     category: 'POWER CABLE ACCESSORIES',
-    desc: 'Short-circuit withstand retention cleats for single and trefoil power cables',
+    desc: 'Short-circuit withstand retention cleats for single and trefoil power cables (IEC 61914)',
     img: '/assets/featured_products/featured_cable_cleats.webp',
     link: '/products/cable-cleat',
   },
   {
-    slug: 'link-box',
-    name: 'LINK BOX',
+    slug: 'junction-boxes',
+    name: 'Weatherproof Junction Boxes',
+    brandNote: 'LINKBOX Series',
     category: 'ENCLOSURES & JUNCTION BOXES',
-    desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes',
+    desc: 'Weatherproof IP66/IP68 industrial electrical enclosures & junction boxes in Aluminium, MS & SS',
     img: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
   },
   {
-    slug: 'lugx',
-    name: 'LUGX',
+    slug: 'electrical-lugs',
+    name: 'Electrical Termination Lugs',
+    brandNote: 'LUGX Series',
     category: 'ELECTRICAL LUGS & TERMINALS',
-    desc: 'High-conductivity electrical termination lugs and connector hardware',
+    desc: 'High-conductivity copper, aluminium and bi-metallic electrical termination lugs & connectors',
     img: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
   {
     slug: 'cnc-machined-components',
-    name: 'CNC Machined Component',
+    name: 'CNC Machined Components',
+    brandNote: 'Precision Turned Parts',
     category: 'PRECISION ENGINEERING',
-    desc: 'High precision turned, milled & drilled components with tight tolerances',
+    desc: 'High precision turned, milled & drilled components in Copper, SS, Aluminium & Chrome Steel',
     img: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
   },
   {
     slug: 'press-parts',
     name: 'Sheet Metal Press Parts',
+    brandNote: 'Stamping & Banding',
     category: 'SHEET METAL COMPONENTS',
-    desc: 'Precision progressive tool stamping & pressed parts for global assembly lines',
+    desc: 'Precision progressive tool stamping & pressed parts, strapping banding & buckles for industrial lines',
     img: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];
 
+// Industries list: "Process Instrumentation & Control" replaced with "Automobile"
 const industries = [
   'Electrical & Control Systems',
   'Robotics & Industrial Automation',
@@ -188,7 +229,7 @@ const industries = [
   'Oil & Gas / Petrochemicals',
   'Marine & Shipbuilding',
   'Infrastructure & Rail Transit',
-  'Process Instrumentation & Control',
+  'Automobile',
   'Water & Wastewater Treatment',
 ];
 
@@ -263,8 +304,9 @@ const HomePage: React.FC = () => {
           {heroSlides.map((slide, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out hero-slide-bg ${idx === currentSlide ? 'opacity-100' : 'opacity-0'
-                }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out hero-slide-bg ${
+                idx === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -276,7 +318,7 @@ const HomePage: React.FC = () => {
             </div>
           ))}
 
-          {/* Atmospheric Gradient Overlays (Darkened left side for text readability, clear right side for sparks/machinery) */}
+          {/* Atmospheric Gradient Overlays */}
           <div
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
@@ -310,14 +352,16 @@ const HomePage: React.FC = () => {
 
             {/* Pill CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <Link href={heroSlides[currentSlide].primaryBtnLink}
+              <Link
+                href={heroSlides[currentSlide].primaryBtnLink}
                 className="inline-flex items-center gap-2 bg-[#004428] hover:bg-[#003420] text-white px-7 sm:px-8 py-3.5 rounded-full text-[14px] sm:text-[15px] font-medium transition-all duration-200 shadow-[0_4px_16px_rgba(0,68,40,0.35)] hover:shadow-[0_6px_22px_rgba(0,68,40,0.5)] hover:-translate-y-0.5"
               >
                 <span>{heroSlides[currentSlide].primaryBtnText}</span>
                 <ArrowRight size={15} />
               </Link>
 
-              <Link href="/contact"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center border border-white/50 hover:bg-white/10 hover:border-white/80 text-white px-7 sm:px-8 py-3.5 rounded-full text-[14px] sm:text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5"
               >
                 {heroSlides[currentSlide].secondaryBtnText}
@@ -346,7 +390,7 @@ const HomePage: React.FC = () => {
           </button>
         </div>
 
-        {/* Carousel Slider Dash Indicators (Bottom Left - exactly matching reference screenshot) */}
+        {/* Carousel Slider Dash Indicators */}
         <div className="absolute bottom-7 left-4 sm:left-6 md:left-8 z-20 flex items-center gap-2">
           {heroSlides.map((slide, i) => (
             <button
@@ -440,32 +484,42 @@ const HomePage: React.FC = () => {
             <div className="lg:sticky lg:top-28">
               <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-4 flex items-center gap-2.5">
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Capabilities
+                Engineering Capabilities
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-[#1a1a1a] leading-[1.18] tracking-tight">
                 What We <span className="text-[#8c2442]">Do</span>
               </h2>
-              <p className="text-sm font-light text-[#9a9a9a] leading-relaxed mt-4 max-w-[340px]">
-                End-to-end manufacturing capabilities under one roof.
+              <p className="text-sm font-light text-[#6b6b6b] leading-relaxed mt-4 max-w-[340px]">
+                Comprehensive in-house manufacturing, precision tooling, and scalable engineering solutions under one roof.
               </p>
             </div>
 
-            {/* Right Column: Numbered Interactive Capability Rows */}
+            {/* Right Column: Rich Manufacturing Capability Cards */}
             <div className="flex flex-col border-t border-[#e8e8e8]">
               {capabilities.map((cap, i) => (
                 <div
-                  key={cap}
-                  className="group relative flex items-center justify-between py-5 sm:py-6 px-4 sm:px-5 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f0f7f3] hover:pl-7 cursor-default"
+                  key={cap.title}
+                  className="group relative flex flex-col py-6 sm:py-7 px-4 sm:px-6 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f0f7f3] hover:pl-8 cursor-default"
                 >
                   {/* Left accent hover stripe */}
                   <span className="absolute left-0 top-0 bottom-0 w-0 bg-gradient-to-b from-[#004428] to-[#8c2442] transition-all duration-300 group-hover:w-1" />
 
-                  <span className="text-base sm:text-lg font-medium text-[#1a1a1a] group-hover:text-[#004428] transition-colors">
-                    {cap}
-                  </span>
-                  <span className="font-sans text-xs font-light text-[#9a9a9a] group-hover:text-[#8c2442] group-hover:font-semibold transition-colors">
-                    0{i + 1}
-                  </span>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-bold tracking-wider text-[#8c2442] uppercase">
+                      {cap.badge}
+                    </span>
+                    <span className="font-sans text-xs font-light text-[#9a9a9a] group-hover:text-[#004428] group-hover:font-semibold transition-colors">
+                      0{i + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg sm:text-[20px] font-semibold text-[#1a1a1a] group-hover:text-[#004428] transition-colors mb-2">
+                    {cap.title}
+                  </h3>
+
+                  <p className="text-[13.5px] sm:text-[14px] font-light text-[#6b6b6b] leading-relaxed m-0">
+                    {cap.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -511,10 +565,10 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 5. Featured Products Section ("Engineered for Demanding Applications") ── */}
+      {/* ── 5. Featured Products Section ── */}
       <section className="py-16 sm:py-24 bg-[#fbfbfa]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          {/* Header row matching ProductsPage */}
+          {/* Header row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-10 mb-10 sm:mb-14 pb-6 sm:pb-7 border-b border-slate-200">
             <div>
               <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
@@ -530,7 +584,8 @@ const HomePage: React.FC = () => {
               <p className="max-w-[480px] text-[14px] sm:text-[15px] font-normal text-slate-500 leading-relaxed m-0 md:text-right">
                 Every product in our range is built to perform — precision materials, exacting tolerances, and global-standard certifications.
               </p>
-              <Link href="/products"
+              <Link
+                href="/products"
                 className="group inline-flex items-center gap-2 text-[12.5px] font-bold tracking-wider text-[#8c2442] hover:text-[#5c182c] transition-colors relative uppercase"
               >
                 <span>View All Products</span>
@@ -539,7 +594,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* 6-Card Responsive Grid with Exact ProductsPage Card UI */}
+          {/* Card Grid with Descriptive Product Naming & Zig Zag Cable Ties Included */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product) => (
               <Link
@@ -549,20 +604,28 @@ const HomePage: React.FC = () => {
                 className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 cursor-pointer block no-underline"
               >
                 {/* Image Container */}
-                <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100">
+                <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100 flex items-center justify-center p-3">
                   <img
                     src={product.img}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Card Body with Category, Title, Underline Accent, Description, and View Details Button */}
+                {/* Card Body */}
                 <div className="p-5 sm:p-6 flex flex-col flex-1">
-                  <div className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                    {product.category}
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+                      {product.category}
+                    </span>
+                    {product.brandNote && (
+                      <span className="text-[10px] font-semibold text-[#004428] bg-emerald-50 px-2 py-0.5 rounded">
+                        {product.brandNote}
+                      </span>
+                    )}
                   </div>
+
                   <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
                     {product.name}
                   </h3>
@@ -617,7 +680,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 7. CTA Banner Section ("Looking for a reliable engineering partner?") ── */}
+      {/* ── 7. CTA Banner Section ── */}
       <section id="contact" className="py-16 sm:py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
@@ -633,7 +696,8 @@ const HomePage: React.FC = () => {
               </p>
             </div>
 
-            <Link href="/contact"
+            <Link
+              href="/contact"
               className="group relative inline-flex items-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-8 py-4 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.35)] hover:-translate-y-0.5 shrink-0 w-full sm:w-auto justify-center"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

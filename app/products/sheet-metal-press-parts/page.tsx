@@ -9,10 +9,23 @@ import {
   FileText
 } from 'lucide-react';
 
+// Verified Technical Specifications data from sheet metal engineering datasheets
+const technicalSpecifications = [
+  { spec: 'Material Options', details: 'Stainless Steel (AISI 201 / 304 / 316 / 430), Mild Steel (CRCA), Brass, Copper, and Aluminium' },
+  { spec: 'Press Shop Operations', details: 'Progressive tool stamping, blanking, piercing, high-tonnage forming, bending, embossing, and deep drawing' },
+  { spec: 'Banding Dimensions', details: 'Widths: 6.35 mm (1/4"), 9.53 mm (3/8"), 12.7 mm (1/2"), 15.88 mm (5/8"), 19.05 mm (3/4") | Thickness: 0.50 mm to 0.76 mm' },
+  { spec: 'Fasteners & Buckles', details: 'Wing buckles, jaw seals, heavy-duty screw buckles, and straight / flared-leg sign mounting brackets' },
+  { spec: 'Edge Treatment', details: 'Deburred, smooth rounded safety edges preventing installer lacerations and cable sheath abrasion' },
+  { spec: 'Surface Finishes', details: 'Bright annealed finish, mirror polished, zinc electroplated, passivation, or epoxy coated' },
+  { spec: 'Packaging Standard', details: 'Convenient plastic dispenser tote packs (30.5 m / 100 ft coils) or industrial bulk ribbon wound coils' },
+  { spec: 'Tooling & Prototyping', details: 'In-house die tooling design, prototype sample runs, and scalable repeat production runs' },
+  { spec: 'Primary Applications', details: 'Traffic sign and banner mounting, utility pole hardware, industrial hose clamping, pipe insulation strapping, and automotive stamped assemblies' },
+];
+
 const SheetMetalPressPartsPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
-      {/* ── 1. Hero Banner ── */}
+      {/* ── 1. Hero Banner (Pink removed, corporate styling applied) ── */}
       <section className="relative w-full min-h-[365px] sm:min-h-[405px] md:min-h-[450px] flex items-end bg-[#0a110e] overflow-hidden">
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
@@ -26,14 +39,14 @@ const SheetMetalPressPartsPage: React.FC = () => {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,17,14,0.76) 0%, rgba(10,17,14,0.45) 50%, rgba(10,17,14,0.12) 100%)',
+                'linear-gradient(to right, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.52) 50%, rgba(10,17,14,0.18) 100%)',
             }}
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,17,14,0.80) 0%, rgba(10,17,14,0.20) 40%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.25) 40%, transparent 100%)',
             }}
           />
         </div>
@@ -43,16 +56,16 @@ const SheetMetalPressPartsPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            SHEET METAL PRESS PARTS · SHEET METAL COMPONENTS
+            Sheet Metal Press Parts &amp; Banding Systems
           </p>
 
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-            Shaped Right. <br className="hidden sm:inline" />
-            <span className="text-[#f0859a]">Built Right.</span>
+            Sheet Metal Press Parts <br className="hidden sm:inline" />
+            <span className="text-[#8fd6ae]">Precision Stamping &amp; Banding.</span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[640px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-            Precision-formed sheet metal components, stainless steel banding straps, buckles and sign mounting brackets built for demanding industrial and infrastructure applications.
+            Precision-formed sheet metal press components, stainless steel banding strapping, buckles, and sign mounting brackets engineered for demanding utility, industrial, and infrastructure applications.
           </p>
 
           {/* Quick Action CTA */}
@@ -68,7 +81,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
         </div>
 
         {/* Bottom Accent Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#0d8a68] to-[#d27083] z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#0d8a68] to-[#8c2442] z-20 pointer-events-none" />
       </section>
 
       {/* ── 2. Back To Products Bar ── */}
@@ -89,53 +102,52 @@ const SheetMetalPressPartsPage: React.FC = () => {
 
           {/* Right Side: Product Details & Core Specifications */}
           <div className="flex flex-col">
-            <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.15em] uppercase text-[#0d8a68] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#0d8a68]">
+            <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.15em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
               SHEET METAL PRESS PARTS &amp; BANDING SOLUTIONS
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-4 sm:mb-5">
-              Shaped Right. <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Built Right.</span>
+              Shaped Right. <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Built Right.</span>
             </h2>
 
-            {/* Content from Brochure Page 96 & 98 */}
             <p className="text-[14px] sm:text-[15px] leading-[1.7] text-gray-700 mb-5 font-normal">
-              NAEPL manufactures custom sheet metal press parts, stainless steel banding straps, and fastening buckles strictly to customer drawings, samples, and specifications. Press operations include blanking, piercing, bending, and forming across mild steel, stainless steel (SS304/SS316), brass, copper, and aluminium. From prototype development to repeat production runs, we maintain strict dimensional tolerances, burr-free edges, and protective surface finishes.
+              NAEPL manufactures custom sheet metal press parts, stainless steel banding strapping, and fastening buckles strictly to customer drawings, samples, and international specifications. Our press facilities handle blanking, piercing, bending, and deep drawing across mild steel (CRCA), stainless steel (SS201/SS304/SS316), brass, copper, and aluminium. From prototype development to repeat production runs, we maintain strict dimensional tolerances, burr-free safety edges, and protective surface finishes.
             </p>
 
-            {/* Two Simple Highlights from Brochure Page 96 */}
+            {/* Two Simple Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-7">
               <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">PRECISION MANUFACTURING</h4>
+                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">PROGRESSIVE DIE STAMPING</h4>
                 <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  Precision-formed sheet metal components with consistent dimensions and quality.
+                  Precision-stamped sheet metal components with strict repeatability across high volumes.
                 </p>
               </div>
               
               <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">DURABLE CONSTRUCTION</h4>
+                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">BURR-FREE SAFETY EDGES</h4>
                 <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  Stainless steel, aluminium and other suitable materials built for demanding applications.
+                  Fully deburred, rounded-edge stainless steel banding protecting cables and workers.
                 </p>
               </div>
             </div>
 
-            {/* Badges / Pill Tags (from Brochure Page 96) */}
+            {/* Badges / Pill Tags */}
             <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Precision Pressed Parts
+                Precision Stamped Parts
               </span>
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Custom Solutions
+                Stainless Steel Banding
               </span>
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Strong &amp; Reliable
+                In-House Tooling
               </span>
             </div>
 
             {/* Bottom Tagline Container */}
             <div className="flex flex-col gap-1 border-t border-slate-100 pt-4">
               <p className="text-[12.5px] sm:text-[13.5px] text-slate-500">
-                Precision formed. Securely connected. Built for demanding applications.
+                Precision formed, securely fastened, and built for demanding utility and industrial applications.
               </p>
               <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 Shaped Right. Built Right.
@@ -145,14 +157,61 @@ const SheetMetalPressPartsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Product Range Showcase: "Explore the Press Parts & Banding Range" ── */}
+      {/* ── 4. Technical Specifications Table Section ── */}
+      <section className="py-12 sm:py-16 bg-[#f8f9fa] border-y border-slate-200">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="mb-6 sm:mb-8">
+            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#004428]">
+              Verified Engineering Specifications
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
+              Technical Specification Table
+            </h3>
+            <p className="text-sm text-slate-500 mt-1 max-w-[620px]">
+              Actual verified mechanical parameters, dimensional ranges, and material standards for NAEPL Sheet Metal Press Parts &amp; Banding Systems.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm text-slate-700">
+                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-semibold text-slate-500 tracking-wider">
+                  <tr>
+                    <th className="py-4 px-5 sm:px-6 w-1/3">Specification</th>
+                    <th className="py-4 px-5 sm:px-6">Details</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {technicalSpecifications.map((row, idx) => (
+                    <tr 
+                      key={row.spec} 
+                      className={`transition-colors hover:bg-slate-50/80 ${
+                        idx % 2 === 0 ? 'bg-white' : 'bg-[#fafafa]'
+                      }`}
+                    >
+                      <td className="py-3.5 px-5 sm:px-6 font-semibold text-slate-900">
+                        {row.spec}
+                      </td>
+                      <td className="py-3.5 px-5 sm:px-6 text-slate-600 leading-relaxed">
+                        {row.details}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Product Range Showcase ── */}
       <section className="py-12 sm:py-16 pb-16 sm:pb-20 bg-white" id="products">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#0d8a68] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#0d8a68]">
+          <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
             OUR RANGE
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-7 sm:mb-9">
-            Explore the <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Press Parts &amp; Banding Range</span>
+            Explore the <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Press Parts &amp; Banding Range</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
@@ -163,15 +222,15 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 category: 'CUSTOM PRESS COMPONENTS',
                 badge: 'BLANKING · PIERCING · FORMING',
                 image: '/assets/sheet_metal/page_98_img_0.webp',
-                link: '/contact?product=sheet-metal-press-parts',
+                desc: 'Custom stamped metal press components, mounting brackets, and precision clips made to drawings.',
               },
               {
                 id: 'stainless-steel-banding',
-                title: 'Stainless Steel Banding Products',
+                title: 'Stainless Steel Banding',
                 category: 'STAINLESS STEEL BANDING',
                 badge: 'SS201 · SS304 · SS316 · SS430',
                 image: '/assets/sheet_metal/page_99_img_0.webp',
-                link: '/contact?product=stainless-steel-banding',
+                desc: 'Deburred, safe rounded-edge strapping coils in 1/4" to 3/4" widths for heavy industrial clamping.',
               },
               {
                 id: 'banding-buckles-fasteners',
@@ -179,7 +238,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 category: 'FASTENING ACCESSORIES',
                 badge: 'JAW · WING · SCREW BUCKLES',
                 image: '/assets/sheet_metal/page_100_img_0.webp',
-                link: '/contact?product=banding-buckles-fasteners',
+                desc: 'Heavy-duty wing seals and screw buckles ensuring maximum tension retention on strapped bundles.',
               },
               {
                 id: 'sign-mounting-brackets',
@@ -187,7 +246,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 category: 'MOUNTING SOLUTIONS',
                 badge: 'STRAIGHT & FLARED-LEG · SS201',
                 image: '/assets/sheet_metal/page_100_img_2.webp',
-                link: '/contact?product=sign-mounting-brackets',
+                desc: 'Straight and flared-leg brackets designed for secure mounting of signs, cameras, and electrical boxes.',
               },
             ].map((product) => (
               <div 
@@ -212,13 +271,9 @@ const SheetMetalPressPartsPage: React.FC = () => {
                     {product.title}
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-
-                  {/* <Link href={product.link} 
-                    className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
-                  >
-                    <span>VIEW DETAILS</span>
-                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </Link> */}
+                  <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
+                    {product.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -226,10 +281,10 @@ const SheetMetalPressPartsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 5. Trust Row / Certified Engineering ── */}
+      {/* ── 6. Trust Row / Certified Engineering ── */}
       <TrustRow />
 
-      {/* ── 6. Engineering Support & RFQ Banner ── */}
+      {/* ── 7. Engineering Support & RFQ Banner ── */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#004428] via-[#00331e] to-[#0a110e] text-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -249,7 +304,7 @@ const SheetMetalPressPartsPage: React.FC = () => {
                 className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12px] sm:text-[13px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
                 <FileText size={16} className="text-emerald-300 shrink-0" />
-                <span>Download Sheet Metal Press Parts Brochure</span>
+                <span>Download Press Parts Brochure</span>
               </Link>
             </div>
 

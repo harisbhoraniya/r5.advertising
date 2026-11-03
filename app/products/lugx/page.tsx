@@ -12,13 +12,13 @@ import {
 const LugxPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
-      {/* ── 1. Hero Banner ── */}
+      {/* ── 1. Hero Banner (Descriptive Naming: "Electrical Termination Lugs", Pink removed) ── */}
       <section className="relative w-full min-h-[365px] sm:min-h-[405px] md:min-h-[450px] flex items-end bg-[#0a110e] overflow-hidden">
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
             src="/assets/lugx/lugx_hero_banner_hd.webp"
-            alt="NAEPL LUGX Cable Lugs & Terminals"
+            alt="NAEPL Electrical Termination Lugs and Connector Hardware"
             className="w-full h-full object-cover object-[center_center]"
             loading="eager"
           />
@@ -26,14 +26,14 @@ const LugxPage: React.FC = () => {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,17,14,0.76) 0%, rgba(10,17,14,0.45) 50%, rgba(10,17,14,0.12) 100%)',
+                'linear-gradient(to right, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.52) 50%, rgba(10,17,14,0.18) 100%)',
             }}
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,17,14,0.80) 0%, rgba(10,17,14,0.20) 40%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.25) 40%, transparent 100%)',
             }}
           />
         </div>
@@ -43,16 +43,16 @@ const LugxPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            LUGX · ELECTRICAL LUGS & TERMINALS
+            Electrical Termination Lugs · LUGX Series
           </p>
 
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-            Built to Grip. <br className="hidden sm:inline" />
-            <span className="text-[#f0859a]">Made to Last.</span>
+            Electrical Termination Lugs <br className="hidden sm:inline" />
+            <span className="text-[#8fd6ae]">High Conductivity &amp; Grip.</span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[640px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-            Engineered to establish secure mechanical grip, reliable electrical conductivity and long-lasting connections across demanding electrical and industrial applications.
+            High-conductivity electrolytic copper, aluminium, and friction-welded bi-metallic terminal lugs engineered to ensure low electrical resistance, secure mechanical grip, and long-lasting electrical distribution connections.
           </p>
 
           {/* Quick Action CTA */}
@@ -61,14 +61,14 @@ const LugxPage: React.FC = () => {
               href="#products"
               className="font-montserrat inline-flex items-center gap-2 bg-[#004428] hover:bg-[#00331e] text-white px-5 sm:px-6 py-3 rounded-xl text-[13px] sm:text-[14px] font-bold tracking-wide uppercase transition-all shadow-lg hover:shadow-emerald-950/40"
             >
-              <span>Explore LUGX Range</span>
+              <span>Explore Lugs Range</span>
               <ArrowRight size={15} />
             </a>
           </div>
         </div>
 
         {/* Bottom Accent Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#0d8a68] to-[#d27083] z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#0d8a68] to-[#8c2442] z-20 pointer-events-none" />
       </section>
 
       {/* ── 2. Back To Products Bar ── */}
@@ -82,60 +82,59 @@ const LugxPage: React.FC = () => {
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img
               src="/assets/lugx/lugx_overview.webp"
-              alt="NAEPL LUGX Cable Lugs & Terminals"
+              alt="NAEPL Electrical Termination Lugs & Hardware"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
           </div>
 
           {/* Right Side: Product Details & Core Specifications */}
           <div className="flex flex-col">
-            <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.15em] uppercase text-[#0d8a68] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#0d8a68]">
-              LUGX · CABLE LUGS & TERMINALS
+            <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.15em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
+              CABLE TERMINALS &amp; CONNECTORS · LUGX SERIES
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-4 sm:mb-5">
-              Built to Grip. <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">Made to Last.</span>
+              Built to Grip. <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Made to Last.</span>
             </h2>
 
-            {/* Exact Content from Brochure Page 6 */}
             <p className="text-[14px] sm:text-[15px] leading-[1.7] text-gray-700 mb-5 font-normal">
-              LUGX is NAEPL's specialized brand for cable lugs, terminals and electrical connectivity solutions. The range is designed to provide secure mechanical grip, reliable electrical conductivity and long-lasting connections across a wide variety of electrical and industrial applications. LUGX combines functional design and dependable performance to support safe and efficient electrical installations.
+              NAEPL manufactures precision electrical cable lugs, terminals, and power connectivity hardware under the LUGX series. Fabricated from 99.9% pure electrolytic high-conductivity copper (ETP) and EC-grade aluminium, our terminal lugs feature uniform electro-tin plating to prevent galvanic oxidation and ensure optimal conductivity across power distribution switchgear, transformer terminals, and heavy industrial machinery.
             </p>
 
-            {/* Two Simple Highlights from Brochure Page 48 */}
+            {/* Two Simple Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-7">
               <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">PREMIUM QUALITY</h4>
+                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">ELECTROLYTIC CONDUCTIVITY</h4>
                 <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  High-grade copper, aluminium and other suitable materials for reliable connections.
+                  99.9% pure electrolytic copper for minimal electrical resistance and cool joint operation.
                 </p>
               </div>
 
               <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">SUPERIOR CONDUCTIVITY</h4>
+                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">PRECISION CRIMP BARREL</h4>
                 <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  Designed for efficient current transfer and dependable performance.
+                  Chamfered entry barrels engineered for effortless cable insertion and uniform compression grip.
                 </p>
               </div>
             </div>
 
-            {/* Badges / Pill Tags (from Brochure Page 48) */}
+            {/* Badges / Pill Tags */}
             <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Corrosion Resistant
+                Electro-Tin Plated
               </span>
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Secure Connection
+                Heavy-Duty Palm Drilling
               </span>
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Precision Engineered
+                Friction-Welded Bi-Metallic
               </span>
             </div>
 
             {/* Bottom Tagline Container */}
             <div className="flex flex-col gap-1 border-t border-slate-100 pt-4">
               <p className="text-[12.5px] sm:text-[13.5px] text-slate-500">
-                Reliable electrical connections built for demanding applications.
+                Reliable electrical power connections engineered for demanding electrical utility and industrial projects.
               </p>
               <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 Built to Grip. Made to Last.
@@ -145,14 +144,14 @@ const LugxPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Product Range Showcase: "Explore the LUGX Range" ── */}
+      {/* ── 4. Product Range Showcase: Retained Existing 8-Card Layout as explicitly requested by client ── */}
       <section className="py-12 sm:py-16 pb-16 sm:pb-20 bg-white" id="products">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#0d8a68] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#0d8a68]">
+          <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
             OUR RANGE
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-7 sm:mb-9">
-            Explore the <span className="font-bold text-[#d27083] ml-1 sm:ml-1.5">LUGX Range</span>
+            Explore the <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Electrical Lugs &amp; Terminals Range</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
@@ -163,15 +162,15 @@ const LugxPage: React.FC = () => {
                 category: 'COPPER CABLE LUGS',
                 badge: '1-HOLE / 2-HOLE · HEAVY DUTY',
                 image: '/assets/lugx/page_54_img_0.webp',
-                link: '/contact?product=copper-cable-lugs',
+                desc: 'Heavy-duty copper tube terminal lugs with standard and long barrels for power cables.',
               },
               {
                 id: 'aluminium-crimping-terminals',
-                title: 'Aluminium Crimping Terminals Lugs',
+                title: 'Aluminium Crimping Terminals',
                 category: 'ALUMINIUM CRIMPING TERMINALS',
                 badge: '2-HOLE & LONG BARREL',
                 image: '/assets/lugx/page_78_img_0.webp',
-                link: '/contact?product=aluminium-crimping-terminals-lugs',
+                desc: 'High-conductivity aluminium lugs designed for terminating aluminium conductor cables.',
               },
               {
                 id: 'copper-ring-terminals',
@@ -179,7 +178,7 @@ const LugxPage: React.FC = () => {
                 category: 'COPPER RING TERMINALS',
                 badge: 'OPEN & CLOSE · SOLDERING TYPE',
                 image: '/assets/lugx/page_80_img_0.webp',
-                link: '/contact?product=copper-ring-terminals',
+                desc: 'Open and closed barrel copper ring terminals for control panels and instrumentation wiring.',
               },
               {
                 id: 'bi-metallic-terminals',
@@ -187,7 +186,7 @@ const LugxPage: React.FC = () => {
                 category: 'BI-METALLIC TERMINALS',
                 badge: 'FRICTION WELDED · COPPER RING',
                 image: '/assets/lugx/page_81_img_0.webp',
-                link: '/contact?product=bi-metallic-terminals',
+                desc: 'Friction-welded copper-to-aluminium transitions preventing galvanic corrosion at connection points.',
               },
               {
                 id: 'copper-crimping-pin-terminals',
@@ -195,7 +194,7 @@ const LugxPage: React.FC = () => {
                 category: 'COPPER PIN TERMINALS',
                 badge: 'NON-INSULATED & INSULATED',
                 image: '/assets/lugx/page_83_img_0.webp',
-                link: '/contact?product=copper-crimping-pin-terminals',
+                desc: 'Pin type electrical crimping terminals for terminal block insertions and relay connections.',
               },
               {
                 id: 'copper-crimping-ring-terminals',
@@ -203,7 +202,7 @@ const LugxPage: React.FC = () => {
                 category: 'COPPER RING TERMINALS',
                 badge: 'NON-INSULATED · HIGH CONDUCTIVITY',
                 image: '/assets/lugx/page_84_img_0.webp',
-                link: '/contact?product=copper-crimping-ring-terminals',
+                desc: 'Ring tongue compression terminals with serrated barrels for enhanced mechanical grip.',
               },
               {
                 id: 'copper-crimping-fork-terminals',
@@ -211,15 +210,15 @@ const LugxPage: React.FC = () => {
                 category: 'COPPER FORK TERMINALS',
                 badge: 'NON-INSULATED & INSULATED',
                 image: '/assets/lugx/page_86_img_0.webp',
-                link: '/contact?product=copper-crimping-fork-terminals',
+                desc: 'Fork and spade type copper terminals allowing rapid connection under screw terminals.',
               },
               {
                 id: 'copper-ring-tongue-fork-terminals',
-                title: 'Copper Ring Tongue Fork Terminals',
+                title: 'Ring Tongue & Flanged Terminals',
                 category: 'RING TONGUE FORK TERMINALS',
                 badge: 'FLANGED HOOK · INSULATED',
                 image: '/assets/lugx/page_86_img_0.webp',
-                link: '/contact?product=copper-ring-tongue-fork-terminals',
+                desc: 'Flanged hook and specialized tongue terminals engineered for vibration-resistant wiring.',
               },
             ].map((product) => (
               <div
@@ -244,13 +243,9 @@ const LugxPage: React.FC = () => {
                     {product.title}
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-
-                  {/* <Link href={product.link}
-                    className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3 text-left"
-                  >
-                    <span>VIEW DETAILS</span>
-                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </Link> */}
+                  <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
+                    {product.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -271,7 +266,7 @@ const LugxPage: React.FC = () => {
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
                   src="/assets/brochure_covers/lugx_brochure_cover.webp"
-                  alt="NAEPL LUGX Terminal Lugs Catalog Brochure (A4)"
+                  alt="NAEPL Terminal Lugs Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none rounded-2xl" />
@@ -281,7 +276,7 @@ const LugxPage: React.FC = () => {
                 className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-white border border-emerald-400/40 font-semibold px-4 sm:px-5 py-3.5 rounded-xl text-[12.5px] sm:text-[13.5px] uppercase tracking-wide transition-all shadow-md text-center hover:bg-emerald-500/25 leading-snug"
               >
                 <FileText size={16} className="text-emerald-300 shrink-0" />
-                <span>Download LUGX Brochure</span>
+                <span>Download Lugs Brochure</span>
               </Link>
             </div>
 

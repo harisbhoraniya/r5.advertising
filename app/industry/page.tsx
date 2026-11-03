@@ -4,59 +4,53 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 interface IndustryItem {
+  id: string;
   name: string;
-  category: string;
-  desc: string;
   img: string;
 }
 
+// 8 Verified Industries per client instructions
+// "Process Instrumentation & Control" removed and replaced with "Automobile"
+// Long descriptions and paragraphs removed for a clean, professional image-grid layout
 const industries: IndustryItem[] = [
   {
+    id: 'electrical-control-systems',
     name: 'Electrical & Control Systems',
-    category: 'Power · Switchgear · Wiring Infrastructure',
-    desc: 'Precision-engineered components supporting electrical panels, switchgear, and critical wiring infrastructure — built to withstand demanding electrical environments and severe fault currents.',
     img: '/assets/sector_control_panel.webp',
   },
   {
+    id: 'robotics-industrial-automation',
     name: 'Robotics & Industrial Automation',
-    category: 'Robotics · Conveyor Systems · Smart Factory',
-    desc: 'Specialized CNC machined components, cable cleats, and vibration-resistant fastening hardware designed to endure continuous dynamic movement and cyclical stress in automated manufacturing.',
     img: '/assets/sector_robotics_automation.webp',
   },
   {
+    id: 'renewable-energy',
     name: 'Renewable Energy (Solar & Wind)',
-    category: 'Solar PV Farms · Wind Turbines · Green Grid',
-    desc: 'UV-resistant and marine-grade stainless steel cable cleats, ties, and grounding accessories engineered to resist harsh outdoor weathering, high wind loads, and thermal expansion across utility-scale renewable installations.',
     img: '/assets/sector_renewable_energy.webp',
   },
   {
+    id: 'oil-gas-petrochemicals',
     name: 'Oil & Gas / Petrochemicals',
-    category: 'Refineries · Offshore Platforms · Petrochemical Plants',
-    desc: 'Heavy-duty, fire-retardant, and corrosion-resistant metallic fastening solutions designed for severe hazardous environments, chemical exposure, and offshore marine conditions.',
     img: '/assets/sector_oil_gas.webp',
   },
   {
+    id: 'marine-shipbuilding',
     name: 'Marine & Shipbuilding',
-    category: 'Dry Docks · Commercial Vessels · Offshore Marine',
-    desc: 'AISI 316 / 316L stainless steel cable ties, cleats, and custom sheet metal press components built to withstand extreme saltwater corrosion, wave action, and severe marine environments.',
     img: '/assets/sector_marine_shipbuilding.webp',
   },
   {
+    id: 'infrastructure-rail-transit',
     name: 'Infrastructure & Rail Transit',
-    category: 'Metro Rail · High-Speed Viaducts · Urban Transit',
-    desc: 'Certified short-circuit tested cable retention systems and structural fasteners trusted by metro rail, tunnels, and mass transit networks for maximum passenger safety and zero downtime.',
     img: '/assets/sector_metro_infrastructure.webp',
   },
   {
-    name: 'Process Instrumentation & Control',
-    category: 'Flow Transmitters · Manifold Systems · Fluid Lines',
-    desc: 'Precision-machined brass and stainless steel components, custom fittings, and secure identification tagging systems built for high-precision measurement and fluid flow control.',
-    img: '/assets/sector_process_instrumentation.webp',
+    id: 'automobile',
+    name: 'Automobile',
+    img: '/assets/hero_slides/slide_5_end_to_end.webp',
   },
   {
+    id: 'water-wastewater-treatment',
     name: 'Water & Wastewater Treatment',
-    category: 'Municipal Utilities · Clarifiers · Desalination',
-    desc: 'Corrosion-proof cable bundling and retention hardware built to withstand constant moisture, chlorine, chemical additives, and biological agents in public water treatment plants.',
     img: '/assets/sector_water_treatment.webp',
   },
 ];
@@ -68,7 +62,7 @@ const sectorChips = [
   'Oil & Gas / Petrochemicals',
   'Marine & Shipbuilding',
   'Infrastructure & Rail Transit',
-  'Process Instrumentation & Control',
+  'Automobile',
   'Water & Wastewater Treatment',
 ];
 
@@ -117,88 +111,68 @@ const IndustryPage: React.FC = () => {
         <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#065f46] to-[#8c2442] z-20 pointer-events-none" />
       </section>
 
-      {/* ── 2. Industries List Section ── */}
+      {/* ── 2. Clean Image-Grid Industry Section (Simple & Clean, No Long Paragraphs) ── */}
       <section className="py-12 sm:py-20 md:py-24 bg-white">
         {/* Section Header */}
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 mb-10 sm:mb-16">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 mb-10 sm:mb-14">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
             <div>
               <p className="text-[11px] font-semibold text-[#004428] tracking-[0.18em] uppercase mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Industry Solutions
+                Industry Focus
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.15] m-0">
-                Solutions Built for <br className="hidden sm:inline" />
-                <span className="text-[#8c2442]">Every</span> Sector
+              <h2 className="text-2xl sm:text-3xl md:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15] m-0">
+                Sectors Powered by <span className="text-[#8c2442]">NAEPL</span>
               </h2>
             </div>
             <p className="text-sm sm:text-[15px] font-light text-slate-500 leading-relaxed max-w-[420px] m-0">
-              From electrical infrastructure to heavy manufacturing, our components are engineered to meet the demanding standards each sector requires.
+              Our precision components and metallic fastening systems are engineered to meet the demanding standards required by each key industrial sector.
             </p>
           </div>
         </div>
 
-        {/* Alternating Industry Cards */}
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 flex flex-col gap-6 sm:gap-10">
-          {industries.map((ind, i) => {
-            const isReversed = i % 2 !== 0;
-            return (
+        {/* Professional 8-Card Clean Image Grid (Consistent dimensions, clean styling) */}
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+            {industries.map((ind, i) => (
               <div
-                key={ind.name}
-                className={`group relative bg-white border border-[#e8e8e8] rounded-xl overflow-hidden grid grid-cols-1 ${
-                  isReversed ? 'lg:grid-cols-[1fr_420px]' : 'lg:grid-cols-[420px_1fr]'
-                } lg:h-[320px] transition-all duration-300 hover:shadow-[0_12px_44px_rgba(0,0,0,0.08)] hover:-translate-y-1`}
+                key={ind.id}
+                className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 bg-slate-950 border border-slate-200/80 aspect-[4/3] flex flex-col justify-end cursor-default"
               >
-                {/* Left/Right Vertical Hover Accent Stripe */}
-                <div
-                  className={`absolute top-6 bottom-6 w-[3px] bg-gradient-to-b from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden lg:block ${
-                    isReversed ? 'right-0' : 'left-0'
-                  }`}
+                {/* Background Image with Hover Scale */}
+                <img
+                  src={ind.img}
+                  alt={ind.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
                 />
 
-                {/* Image Container */}
-                <div
-                  className={`relative w-full h-[220px] sm:h-[280px] lg:h-full overflow-hidden bg-slate-100 ${
-                    isReversed ? 'order-1 lg:order-2' : 'order-1 lg:order-1'
-                  }`}
-                >
-                  <img
-                    src={ind.img}
-                    alt={ind.name}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden" />
+                {/* Dark Vignette & Gradient Overlays for Crystal Clear Text Contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10 transition-opacity duration-300 group-hover:opacity-90" />
+
+                {/* Top-Right Number Pill Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white/90 text-[11px] font-mono font-medium shadow-sm">
+                    0{i + 1}
+                  </span>
                 </div>
 
-                {/* Card Body */}
-                <div
-                  className={`relative p-6 sm:p-8 md:p-12 flex flex-col justify-center ${
-                    isReversed ? 'order-2 lg:order-1' : 'order-2 lg:order-2'
-                  }`}
-                >
-                  {/* Category */}
-                  <p className="text-[10px] sm:text-[11px] font-semibold text-[#8c2442] tracking-[0.16em] uppercase mb-2.5 sm:mb-3 transition-colors duration-200 group-hover:text-[#004428]">
-                    {ind.category}
-                  </p>
-
-                  {/* Title */}
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-normal text-slate-900 tracking-tight leading-snug mb-2.5 sm:mb-3.5 transition-colors duration-200 group-hover:text-[#004428]">
+                {/* Bottom Content Container: Displaying ONLY the Industry Title */}
+                <div className="relative z-10 p-5 sm:p-6">
+                  <h3 className="text-lg sm:text-[19px] font-bold text-white tracking-tight leading-snug m-0 group-hover:text-[#8fd6ae] transition-colors duration-200">
                     {ind.name}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-[13px] sm:text-[14.5px] font-light text-slate-600 leading-relaxed m-0">
-                    {ind.desc}
-                  </p>
                 </div>
+
+                {/* Bottom Expanding Accent Line on Hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#34d399] to-[#8c2442] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── 3. Sectors We Serve Section ── */}
+      {/* ── 3. Sectors We Serve Quick Navigation Section ── */}
       <section className="py-16 sm:py-24 bg-[#1a1a1a] relative overflow-hidden text-white">
         {/* Ambient Gradient Glows */}
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(0,68,40,0.3)_0%,transparent_70%)] pointer-events-none" />
@@ -209,7 +183,7 @@ const IndustryPage: React.FC = () => {
             <div>
               <p className="text-[11px] font-semibold text-[#8b96a5] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-                Industries
+                Industry Coverage
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-white leading-[1.18] tracking-tight">
                 Sectors We <span className="text-[#8c2442]">Serve</span>
@@ -231,10 +205,10 @@ const IndustryPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. CTA Banner Section ("Looking for a reliable engineering partner?") ── */}
+      {/* ── 4. CTA Banner Section ── */}
       <section className="py-16 sm:py-24 bg-white border-t border-[#e8e8e8]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12">
-          <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
+          <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded-2xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
             {/* Top 3px Gradient Line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
 

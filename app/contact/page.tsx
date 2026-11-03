@@ -18,6 +18,79 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+// Organized requirement categories and logical subcategories
+const requirementOptions: Record<
+  string,
+  { label: string; subcategories: string[] }
+> = {
+  'cable-ties': {
+    label: 'Stainless Steel Cable Ties (N-LOC)',
+    subcategories: [
+      'Roller Ball Cable Ties',
+      'Heavy Duty Cable Ties',
+      'Releasable Cable Ties',
+      'Ladder Cable Ties',
+      'Zig Zag Cable Ties',
+      'Cable Marker Tags & Plates',
+      'General / Custom SS Ties',
+    ],
+  },
+  'cable-cleat': {
+    label: 'Cable Cleats',
+    subcategories: [
+      'Trefoil Cable Cleats (IEC 61914 Certified)',
+      'Single Cable Cleats',
+      'Aluminium / Polymer Cleats',
+      'Custom Engineered Cleats',
+    ],
+  },
+  'link-box': {
+    label: 'Weatherproof Junction Boxes & Enclosures (LINKBOX)',
+    subcategories: [
+      'Aluminium Die-Cast Enclosures (IP66/IP68)',
+      'Stainless Steel Terminal Enclosures',
+      'Mild Steel Powder-Coated Boxes',
+      'Custom CNC Machined Enclosures',
+    ],
+  },
+  'lugx': {
+    label: 'Electrical Termination Lugs & Connectors (LUGX)',
+    subcategories: [
+      'Copper Cable Lugs & Terminals',
+      'Aluminium Crimping Terminals',
+      'Bi-Metallic Compression Terminals',
+      'Pin, Ring & Fork Terminals',
+    ],
+  },
+  'cnc-components': {
+    label: 'CNC Machined Components',
+    subcategories: [
+      'Precision Copper Busbars & Turnings',
+      'Stainless Steel Turned Components',
+      'Aluminium CNC Milled Enclosures & Parts',
+      'Chrome Steel & EN-Series Precision Spindles',
+    ],
+  },
+  'press-parts': {
+    label: 'Sheet Metal Press Parts',
+    subcategories: [
+      'Progressive Die Stamped Components',
+      'Stainless Steel Banding Straps',
+      'Banding Buckles & Wing Seals',
+      'Sign Mounting Brackets & Clamps',
+    ],
+  },
+  custom: {
+    label: 'Custom Engineering Solution',
+    subcategories: [
+      'OEM Contract Manufacturing',
+      'Tooling & Rapid Prototyping',
+      'Short-Circuit & Ingress Testing Qualification',
+      'General Technical Inquiry',
+    ],
+  },
+};
+
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +98,7 @@ const ContactPage: React.FC = () => {
     email: '',
     phone: '',
     requirement: '',
+    subcategory: '',
     message: '',
   });
 
@@ -33,7 +107,7 @@ const ContactPage: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -43,10 +117,40 @@ const ContactPage: React.FC = () => {
     setIsSubmitting(true);
     setErrorMessage('');
 
+    // Frontend validation
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your full name.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.email.trim() || !formData.email.includes('@')) {
+      setErrorMessage('Please enter a valid email address.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Phone number is strictly mandatory
+    if (!formData.phone.trim() || formData.phone.trim().length < 7) {
+      setErrorMessage(
+        'Please enter a valid phone number (mandatory field, minimum 7 digits).'
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const accessKey =
         process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
         '3f07030f-0894-4634-9ac1-392f3f8ca19d';
+
+      const categoryLabel =
+        requirementOptions[formData.requirement]?.label ||
+        formData.requirement ||
+        'General Inquiry';
+      const combinedRequirement = formData.subcategory
+        ? `${categoryLabel} > ${formData.subcategory}`
+        : categoryLabel;
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -57,12 +161,12 @@ const ContactPage: React.FC = () => {
         body: JSON.stringify({
           access_key: accessKey,
           from_name: 'NAEPL Website Contact Form',
-          subject: `New Technical Inquiry: ${formData.requirement || 'General'} - from ${formData.name}`,
+          subject: `New Technical Inquiry: ${combinedRequirement} - from ${formData.name}`,
           name: formData.name,
           company: formData.company || 'Not specified',
           email: formData.email,
-          phone: formData.phone || 'Not specified',
-          requirement: formData.requirement || 'General Inquiry',
+          phone: formData.phone.trim(),
+          requirement: combinedRequirement,
           message: formData.message || 'No additional message entered',
         }),
       });
@@ -70,13 +174,16 @@ const ContactPage: React.FC = () => {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        throw new Error(data.message || 'Failed to submit inquiry. Please try again.');
+        throw new Error(
+          data.message || 'Failed to submit inquiry. Please try again.'
+        );
       }
 
       setSubmitted(true);
     } catch (err: any) {
       setErrorMessage(
-        err.message || 'Something went wrong. Please try again or email enquiryengg@ngandhi.com directly.'
+        err.message ||
+          'Something went wrong. Please try again or email enquiryengg@ngandhi.com directly.'
       );
     } finally {
       setIsSubmitting(false);
@@ -96,7 +203,8 @@ const ContactPage: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight max-w-[620px] mb-5 sm:mb-6">
-            Let&apos;s <span className="text-[#004428]">Build</span><br />
+            Let&apos;s <span className="text-[#004428]">Build</span>
+            <br />
             <span className="text-[#8c2442]">Together.</span>
           </h1>
 
@@ -128,7 +236,8 @@ const ContactPage: React.FC = () => {
                   {
                     icon: MapPin,
                     label: 'Address',
-                    value: '104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013, Maharashtra, India',
+                    value:
+                      '104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013, Maharashtra, India',
                     href: 'https://maps.google.com/?q=Marathon+Futurex,+NM+Joshi+Marg,+Lower+Parel,+Mumbai+400013',
                   },
                   {
@@ -215,7 +324,9 @@ const ContactPage: React.FC = () => {
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none gap-2">
                   <div className="bg-white/95 backdrop-blur-md border border-[#e8e8e8] rounded-md py-1.5 px-3 text-[11px] sm:text-[12px] font-medium text-slate-800 flex items-center gap-2 shadow-sm pointer-events-auto truncate max-w-[85%] sm:max-w-none">
                     <span className="w-2 h-2 rounded-full bg-[#004428] animate-pulse shrink-0" />
-                    <span className="truncate">Marathon Futurex, Lower Parel, Mumbai — NAEPL</span>
+                    <span className="truncate">
+                      Marathon Futurex, Lower Parel, Mumbai — NAEPL
+                    </span>
                   </div>
                   <a
                     href="https://maps.google.com/?q=Marathon+Futurex,+NM+Joshi+Marg,+Lower+Parel,+Mumbai+400013"
@@ -256,10 +367,11 @@ const ContactPage: React.FC = () => {
                         email: '',
                         phone: '',
                         requirement: '',
+                        subcategory: '',
                         message: '',
                       });
                     }}
-                    className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#004428] uppercase tracking-wider hover:underline"
+                    className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#004428] uppercase tracking-wider hover:underline cursor-pointer"
                   >
                     <span>Submit another inquiry</span>
                     <ArrowRight size={14} />
@@ -310,7 +422,7 @@ const ContactPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Row 2: Email & Phone */}
+                    {/* Row 2: Email & Phone (Mandatory with *) */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
@@ -328,43 +440,86 @@ const ContactPage: React.FC = () => {
                       </div>
                       <div>
                         <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
-                          Phone
+                          Phone *
                         </label>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
+                          required
                           placeholder="+91 00000 00000"
                           className="w-full px-4 py-3 text-[14px] font-light text-[#1a1a1a] bg-white border border-[#e8e8e8] rounded outline-none transition-all duration-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/10"
                         />
                       </div>
                     </div>
 
-                    {/* Row 3: Requirement Select (Shadcn UI) */}
-                    <div>
-                      <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
-                        Requirement
-                      </label>
-                      <Select
-                        value={formData.requirement}
-                        onValueChange={(val) =>
-                          setFormData((prev) => ({ ...prev, requirement: val }))
-                        }
-                      >
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select a requirement" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="cable-ties">Stainless Steel Cable Ties (N-Loc)</SelectItem>
-                          <SelectItem value="cable-cleat">Cable Cleats</SelectItem>
-                          <SelectItem value="link-box">Junction Box &amp; Enclosures</SelectItem>
-                          <SelectItem value="lugx">Lugs &amp; Terminals (LUGX)</SelectItem>
-                          <SelectItem value="cnc-components">CNC Machined Components</SelectItem>
-                          <SelectItem value="press-parts">Sheet Metal Press Parts</SelectItem>
-                          <SelectItem value="custom">Custom Engineering Solution</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    {/* Row 3: Requirement Category & Dependent Subcategories */}
+                    <div
+                      className={`grid gap-5 ${
+                        formData.requirement
+                          ? 'grid-cols-1 sm:grid-cols-2'
+                          : 'grid-cols-1'
+                      }`}
+                    >
+                      <div>
+                        <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
+                          Requirement *
+                        </label>
+                        <Select
+                          value={formData.requirement}
+                          onValueChange={(val) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              requirement: val,
+                              subcategory: '',
+                            }))
+                          }
+                        >
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select primary requirement" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Object.entries(requirementOptions).map(
+                              ([key, item]) => (
+                                <SelectItem key={key} value={key}>
+                                  {item.label}
+                                </SelectItem>
+                              )
+                            )}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {formData.requirement && (
+                        <div className="transition-all duration-200 animate-in fade-in">
+                          <label className="block text-[11px] font-semibold text-[#6b6b6b] tracking-[0.08em] uppercase mb-2">
+                            Subcategory
+                          </label>
+                          <Select
+                            value={formData.subcategory}
+                            onValueChange={(val) =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                subcategory: val,
+                              }))
+                            }
+                          >
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select subcategory (optional)" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {requirementOptions[
+                                formData.requirement
+                              ]?.subcategories.map((sub) => (
+                                <SelectItem key={sub} value={sub}>
+                                  {sub}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )}
                     </div>
 
                     {/* Row 4: Message Textarea */}
@@ -397,7 +552,10 @@ const ContactPage: React.FC = () => {
                       ) : (
                         <>
                           <span className="relative z-10">Submit Inquiry</span>
-                          <ArrowRight size={15} className="relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
+                          <ArrowRight
+                            size={15}
+                            className="relative z-10 transition-transform duration-200 group-hover:translate-x-1"
+                          />
                         </>
                       )}
                     </button>

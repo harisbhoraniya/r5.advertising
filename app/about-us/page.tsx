@@ -1,14 +1,48 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import {
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Cpu,
+  Users,
+  TrendingUp,
+  Award,
+} from 'lucide-react';
 
-const values = [
-  { title: 'Customer First', desc: 'Every decision centers on delivering value to our clients.' },
-  { title: 'Quality Excellence', desc: 'Uncompromising standards at every stage of production.' },
-  { title: 'Innovation & Engineering', desc: 'Continuously evolving our processes and capabilities.' },
-  { title: 'Reliability & Commitment', desc: 'Dependable partnerships built on trust and performance.' },
-  { title: 'Continuous Improvement', desc: 'Kaizen mindset embedded across all operations.' },
+interface ValueItem {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
+
+const values: ValueItem[] = [
+  {
+    icon: <Users size={24} />,
+    title: 'Customer First',
+    desc: 'Every decision centers on delivering value, responsiveness, and tailored manufacturing support to our clients.',
+  },
+  {
+    icon: <ShieldCheck size={24} />,
+    title: 'Quality Excellence',
+    desc: 'Uncompromising standards and rigorous quality inspection at every single stage of production.',
+  },
+  {
+    icon: <Cpu size={24} />,
+    title: 'Innovation & Engineering',
+    desc: 'Continuously evolving our processes, advanced CNC machinery, and technical capabilities.',
+  },
+  {
+    icon: <Award size={24} />,
+    title: 'Reliability & Commitment',
+    desc: 'Dependable long-term partnerships built on consistent trust, transparency, and verified performance.',
+  },
+  {
+    icon: <TrendingUp size={24} />,
+    title: 'Continuous Improvement',
+    desc: 'Kaizen mindset and defect-prevention methodologies embedded across all manufacturing operations.',
+  },
 ];
 
 const strengths = [
@@ -20,12 +54,6 @@ const strengths = [
   'Advanced Quality Control Lab',
 ];
 
-const entities = [
-  'N Gandhi & Co.',
-  'NAEPL – N Gandhi Advance Engineering Pvt. Ltd.',
-  'NAMTPL – N Gandhi Advance Material Technology Pvt. Ltd.',
-];
-
 interface BrandItem {
   id: string;
   name: string;
@@ -35,7 +63,8 @@ interface BrandItem {
   link: string;
 }
 
-const proprietaryBrands: BrandItem[] = [
+// Brand list - "Proprietary" removed from headings and identifiers per client feedback
+const brands: BrandItem[] = [
   {
     id: 'n-loc',
     name: 'N-LOC',
@@ -65,7 +94,7 @@ const proprietaryBrands: BrandItem[] = [
 const AboutPage: React.FC = () => {
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
-      {/* ── 1. Hero Banner Section ── */}
+      {/* ── 1. Hero Banner Section (Kept unchanged per client instruction) ── */}
       <section className="relative w-full min-h-[390px] sm:min-h-[450px] md:min-h-[55vh] lg:min-h-[59vh] flex items-end bg-[#0a0f0d] overflow-hidden">
         {/* Background Image with Dark Cinematic Gradient Overlay */}
         <div className="absolute inset-0 pointer-events-none">
@@ -105,91 +134,23 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 2. Company Overview Section ── */}
-      <section className="pt-16 sm:pt-20 pb-8 sm:pb-10 bg-[#f8f8f7]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Column: Group Entities */}
-            <div>
-              <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-4 flex items-center gap-2.5">
-                <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Company Overview
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] leading-[1.18] tracking-tight mb-5">
-                Part of <span className="text-[#004428]">N Gandhi</span> Group
-              </h2>
-              <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b] leading-relaxed mb-6">
-                N Gandhi Group comprises three entities working together to provide complete engineering and materials solutions:
-              </p>
-
-              {/* Entity Items */}
-              <div className="flex flex-col gap-3">
-                {entities.map((entity) => (
-                  <div
-                    key={entity}
-                    className="group flex items-start gap-3.5 p-3.5 sm:p-4 rounded border border-transparent transition-all duration-300 hover:bg-[#f0f7f3] hover:border-[#004428]/15 hover:translate-x-1.5 cursor-default bg-white/60 sm:bg-transparent"
-                  >
-                    <CheckCircle2
-                      size={18}
-                      className="text-[#004428] shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-[#8c2442]"
-                    />
-                    <span className="text-[13.5px] sm:text-[14.5px] font-normal text-[#1a1a1a] leading-snug">
-                      {entity}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Column: Key Certifications & Stats Box */}
-            <div>
-              <div className="relative bg-white border border-[#e8e8e8] rounded p-8 sm:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden">
-                {/* Top 3px gradient line */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-
-                <div className="grid grid-cols-2 gap-6 sm:gap-8">
-                  <div className="group p-4 rounded transition-all duration-300 hover:bg-[#f0f7f3] border-b border-[#e8e8e8] pb-6 cursor-default">
-                    <div className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5 whitespace-nowrap">
-                      ISO
-                    </div>
-                    <div className="text-xs sm:text-[13px] font-medium text-[#4a4a4a]">
-                      9001:2015
-                    </div>
-                  </div>
-
-                  <div className="group p-4 rounded transition-all duration-300 hover:bg-[#f0f7f3] border-b border-[#e8e8e8] pb-6 cursor-default">
-                    <div className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors mb-1.5 whitespace-nowrap">
-                      One-Stop
-                    </div>
-                    <div className="text-xs sm:text-[13px] font-medium text-[#4a4a4a]">
-                      Solutions
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ── 3. Proprietary Brands Section (3 Brand Boxes) ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f8f7] border-t border-[#e8e8e8]">
+      {/* ── 2. Our Brands Section (Heading: "Our Brands", word "Proprietary" removed) ── */}
+      <section className="py-16 sm:py-20 bg-[#f8f8f7] border-b border-[#e8e8e8]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           {/* Section Header */}
-          <div className="mb-8 sm:mb-10 pb-5 border-b border-[#e8e8e8]">
+          <div className="mb-10 sm:mb-12 pb-5 border-b border-[#e8e8e8]">
             <p className="text-[11px] font-semibold text-[#004428] tracking-[0.18em] uppercase mb-2 flex items-center gap-2.5">
               <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
               Our Brands
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] tracking-tight">
-              NAEPL <span className="text-[#004428]">Proprietary</span> <span className="text-[#8c2442]">Brands</span>
+              Our <span className="text-[#004428]">Brands</span>
             </h2>
           </div>
 
           {/* 3 Brand Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {proprietaryBrands.map((brand) => (
+            {brands.map((brand) => (
               <Link
                 key={brand.id}
                 href={brand.link}
@@ -205,7 +166,7 @@ const AboutPage: React.FC = () => {
                   />
                 </div>
 
-                {/* Brand About & Details */}
+                {/* Brand Details */}
                 <div className="p-5 sm:p-6 flex flex-col flex-1">
                   <span className="text-[10px] sm:text-[10.5px] font-bold tracking-[0.14em] text-[#8c2442] uppercase mb-1.5">
                     {brand.tag}
@@ -228,60 +189,80 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Core Values Section ("What Guides Us") ── */}
-      <section className="pt-2 sm:pt-4 pb-16 sm:pb-24 bg-[#f8f8f7]">
+      {/* ── 3. Core Values Section (Redesigned as Premium Corporate Grid) ── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-[#e8e8e8]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 sm:mb-10">
-            <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 sm:mb-4 flex items-center gap-2.5">
+          <div className="max-w-[680px] mb-12 sm:mb-16">
+            <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
               <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
               Core Values
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-medium text-[#1a1a1a] leading-[1.15] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-medium text-[#1a1a1a] leading-[1.15] tracking-tight mb-4">
               What <span className="text-[#8c2442]">Guides</span> Us
             </h2>
+            <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b] leading-relaxed m-0">
+              Our principles form the foundation of our engineering integrity, customer partnerships, and global manufacturing delivery.
+            </p>
           </div>
 
-          {/* Numbered Value Rows */}
-          <div className="flex flex-col border-t border-[#e8e8e8]">
+          {/* Premium Corporate Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {values.map((v, i) => (
               <div
                 key={v.title}
-                className="group relative grid grid-cols-1 sm:grid-cols-[60px_1fr_2fr] gap-3 sm:gap-8 items-center py-6 sm:py-7 px-4 sm:px-6 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f4faf7] hover:pl-8 cursor-default"
+                className={`group relative bg-[#fbfbfa] border border-[#e8e8e8] rounded-2xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(0,68,40,0.10)] hover:border-[#004428]/30 overflow-hidden ${
+                  i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
+                }`}
               >
-                {/* Left hover gradient stripe */}
-                <span className="absolute left-0 top-0 bottom-0 w-0 bg-gradient-to-b from-[#004428] to-[#8c2442] transition-all duration-300 group-hover:w-1" />
+                {/* Top Expanding Brand Gradient Line */}
+                <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
 
-                <span className="text-xs sm:text-sm font-light text-[#9a9a9a] group-hover:text-[#8c2442] transition-colors">
-                  0{i + 1}
-                </span>
-                <h3 className="text-lg sm:text-[20px] font-medium text-[#1a1a1a] tracking-tight group-hover:text-[#004428] transition-colors">
-                  {v.title}
-                </h3>
-                <p className="text-[13.5px] sm:text-[14.5px] font-light text-[#6b6b6b] leading-relaxed">
-                  {v.desc}
-                </p>
+                <div>
+                  {/* Top Row: Icon Container & Number Badge */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#004428]/10 text-[#004428] flex items-center justify-center transition-all duration-300 group-hover:bg-[#8c2442]/10 group-hover:text-[#8c2442] group-hover:scale-110">
+                      {v.icon}
+                    </div>
+                    <span className="text-xs font-semibold text-slate-400 font-mono tracking-wider">
+                      0{i + 1}
+                    </span>
+                  </div>
+
+                  {/* Heading */}
+                  <h3 className="text-lg sm:text-[20px] font-semibold text-[#1a1a1a] tracking-tight mb-3 group-hover:text-[#004428] transition-colors">
+                    {v.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[13.5px] sm:text-[14px] font-light text-[#6b6b6b] leading-relaxed m-0">
+                    {v.desc}
+                  </p>
+                </div>
+
+                {/* Bottom subtle indicator line */}
+                <div className="w-6 h-[2px] bg-slate-200 mt-6 transition-all duration-300 group-hover:w-12 group-hover:bg-[#004428]" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 5. Our Strength Section ("Built to Deliver") ── */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* ── 4. Our Strength Section (Image Replaced with Real Quality Inspection Asset) ── */}
+      <section className="py-16 sm:py-24 bg-[#f8f8f7]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Manufacturing Facility Photo Card */}
-            <div className="relative h-[340px] sm:h-[460px] rounded overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-[#e8e8e8]">
+            {/* Left: Manufacturing & Inspection Photo Card */}
+            <div className="relative h-[340px] sm:h-[460px] rounded-2xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.12)] border border-[#e8e8e8] bg-slate-100">
               <img
-                src="/assets/built_to_deliver.webp"
-                alt="NAEPL Advanced Quality Control Lab, Precision CNC Manufacturing and Export-Ready Logistics"
-                className="w-full h-full object-cover object-center"
+                src="/assets/about_naepl.webp"
+                alt="NAEPL Advanced Quality Inspection, Precision Engineering & Manufacturing Facility"
+                className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
 
               {/* Badge */}
-              <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-[#004428]/95 backdrop-blur-sm px-5 py-3 rounded shadow">
+              <div className="absolute top-5 left-5 sm:top-6 sm:left-6 bg-[#004428]/95 backdrop-blur-sm px-5 py-3 rounded-lg shadow-lg">
                 <p className="text-[13px] font-semibold text-white tracking-wide m-0">
                   Built to Deliver
                 </p>
@@ -298,14 +279,14 @@ const AboutPage: React.FC = () => {
                 Built to <span className="text-[#004428]">Deliver</span>
               </h2>
 
-              <div className="flex flex-col gap-2.5">
+              <div className="flex flex-col gap-3">
                 {strengths.map((s) => (
                   <div
                     key={s}
-                    className="group flex items-center gap-3.5 p-3 sm:p-3.5 rounded border border-transparent transition-all duration-200 hover:bg-gradient-to-r hover:from-[#004428]/5 hover:to-transparent hover:border-[#004428]/15 hover:translate-x-1.5 cursor-default"
+                    className="group flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl border border-slate-200/70 bg-white transition-all duration-200 hover:border-[#004428]/30 hover:shadow-sm hover:translate-x-1.5 cursor-default"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#004428] transition-all duration-300 group-hover:bg-[#8c2442] group-hover:scale-125" />
-                    <span className="text-[14px] sm:text-[15px] font-normal text-[#1a1a1a]">
+                    <span className="w-2 h-2 rounded-full bg-[#004428] transition-all duration-300 group-hover:bg-[#8c2442] group-hover:scale-125 shrink-0" />
+                    <span className="text-[14px] sm:text-[15px] font-medium text-[#1a1a1a]">
                       {s}
                     </span>
                   </div>
@@ -316,10 +297,10 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 6. CTA Banner Section ── */}
+      {/* ── 5. CTA Banner Section ── */}
       <section className="py-16 sm:py-24 bg-white border-t border-[#e8e8e8]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
+          <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded-2xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
             {/* Top 3px Gradient Line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
 
@@ -332,7 +313,8 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <Link href="/contact"
+            <Link
+              href="/contact"
               className="group relative inline-flex items-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-8 py-4 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.35)] hover:-translate-y-0.5 shrink-0 w-full sm:w-auto justify-center"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

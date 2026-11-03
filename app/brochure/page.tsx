@@ -1,77 +1,92 @@
 'use client';
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Download, X, CheckCircle2, User, Mail, Building2, Phone, FileText, Loader2, } from 'lucide-react';
+import {
+  Download,
+  X,
+  CheckCircle2,
+  User,
+  Mail,
+  Building2,
+  Phone,
+  FileText,
+  Loader2,
+  Check,
+  ArrowDown,
+  ShieldCheck,
+} from 'lucide-react';
 
-interface BrochureItem {
+interface CatalogueItem {
   id: string;
   title: string;
+  series: string;
   subtitle: string;
   filename: string;
   coverImage: string;
 }
 
-const rawHighlights: BrochureItem[] = [
+// 6 Official Catalogues with descriptive naming per client instructions
+const catalogues: CatalogueItem[] = [
   {
-    id: 'cable-cleats-brochure',
-    title: 'Cable Cleats Brochure',
-    subtitle: 'Short-circuit withstand cleats, trefoil & single cable clamps (IEC 61914)',
-    filename: 'NAEPL_Cable_Cleats_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/cable_cleats_brochure_cover.webp',
-  },
-  {
-    id: 'n-loc-brochure',
-    title: 'N-Loc Brochure',
-    subtitle: 'Roller ball, ladder, coated ties & tensile strength data sheets',
-    filename: 'NAEPL_N-Loc_Brochure.pdf',
+    id: 'stainless-steel-cable-ties-catalogue',
+    title: 'Stainless Steel Cable Ties Catalogue',
+    series: 'N-LOC Series',
+    subtitle:
+      'Roller ball, ladder, releasable, zig zag ties, coated variants & tensile strength data sheets',
+    filename: 'NAEPL_Stainless_Steel_Cable_Ties_Catalogue.pdf',
     coverImage: '/assets/brochure_covers/n_loc_brochure_cover.webp',
   },
   {
-    id: 'cnc-brochure',
-    title: 'CNC Machined Components Brochure',
-    subtitle: 'Precision turned components, custom tooling & multi-axis CNC parts',
-    filename: 'NAEPL_CNC_Machined_Components_Brochure.pdf',
-    coverImage: '/assets/brochure_covers/cnc_brochure_cover.webp',
+    id: 'cable-cleats-catalogue',
+    title: 'Cable Cleats Catalogue',
+    series: 'IEC 61914 Certified',
+    subtitle:
+      'Short-circuit withstand up to 180 kA, trefoil & single cable clamps with LSOH liners',
+    filename: 'NAEPL_Cable_Cleats_Catalogue.pdf',
+    coverImage: '/assets/brochure_covers/cable_cleats_brochure_cover.webp',
   },
   {
-    id: 'link-box-brochure',
-    title: 'Link Box Brochure',
-    subtitle: 'IP66/IP68 weatherproof junction boxes & terminal arrangements',
-    filename: 'NAEPL_Link_Box_Brochure.pdf',
+    id: 'weatherproof-junction-boxes-catalogue',
+    title: 'Weatherproof Junction Boxes & Enclosures Catalogue',
+    series: 'LINKBOX Series',
+    subtitle:
+      'IP66 / IP68 aluminium die-cast & stainless steel junction boxes with terminal arrangements',
+    filename: 'NAEPL_Weatherproof_Junction_Boxes_Catalogue.pdf',
     coverImage: '/assets/brochure_covers/link_box_brochure_cover.webp',
   },
   {
-    id: 'lugx-brochure',
-    title: 'LUGX Brochure',
-    subtitle: 'High-conductivity terminal lugs, cleats & cable support hardware',
-    filename: 'NAEPL_LUGX_Brochure.pdf',
+    id: 'electrical-termination-lugs-catalogue',
+    title: 'Electrical Termination Lugs & Connectors Catalogue',
+    series: 'LUGX Series',
+    subtitle:
+      'High-conductivity copper, aluminium & bi-metallic crimping lugs (BS / DIN / IEC standards)',
+    filename: 'NAEPL_Electrical_Termination_Lugs_Catalogue.pdf',
     coverImage: '/assets/brochure_covers/lugx_brochure_cover.webp',
   },
-  { 
-    id: 'sheet-metal-brochure',
-    title: 'Sheet Metal Press Parts Brochure',
-    subtitle: 'Custom press stamping, brackets, banding strapping & deep drawn parts',
-    filename: 'NAEPL_Sheet_Metal_Press_Parts_Brochure.pdf',
+  {
+    id: 'cnc-machined-components-catalogue',
+    title: 'CNC Machined Components Catalogue',
+    series: 'Precision Machining',
+    subtitle:
+      'Precision turned components, custom tooling, micron tolerances & multi-axis CNC parts',
+    filename: 'NAEPL_CNC_Machined_Components_Catalogue.pdf',
+    coverImage: '/assets/brochure_covers/cnc_brochure_cover.webp',
+  },
+  {
+    id: 'sheet-metal-press-parts-catalogue',
+    title: 'Sheet Metal Press Parts Catalogue',
+    series: 'Press Stamping & Banding',
+    subtitle:
+      'Custom progressive stamping, brackets, stainless steel banding strapping & wing seals',
+    filename: 'NAEPL_Sheet_Metal_Press_Parts_Catalogue.pdf',
     coverImage: '/assets/brochure_covers/sheet_metal_brochure_cover.webp',
   },
 ];
 
-// Exact sequence matching Products dropdown: N-LOC -> Cable Cleats -> Link Box -> LUGX -> CNC -> Sheet Metal
-const highlightsOrder = [
-  'n-loc-brochure',
-  'cable-cleats-brochure',
-  'link-box-brochure',
-  'lugx-brochure',
-  'cnc-brochure',
-  'sheet-metal-brochure',
-];
-
-const highlights: BrochureItem[] = highlightsOrder.map((id) => rawHighlights.find((h) => h.id === id)!);
-
-const BrochureContent: React.FC = () => {
+const CatalogueContent: React.FC = () => {
   const searchParams = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBrochure, setSelectedBrochure] = useState<BrochureItem>(highlights[0]);
+  const [selectedItem, setSelectedItem] = useState<CatalogueItem>(catalogues[0]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -85,9 +100,14 @@ const BrochureContent: React.FC = () => {
   useEffect(() => {
     const docParam = searchParams?.get('doc');
     if (docParam) {
-      const match = highlights.find((h) => h.id === docParam);
+      const match = catalogues.find(
+        (c) =>
+          c.id === docParam ||
+          c.id.includes(docParam) ||
+          docParam.includes(c.id.split('-')[0])
+      );
       if (match) {
-        setSelectedBrochure(match);
+        setSelectedItem(match);
         setIsModalOpen(true);
       }
     }
@@ -114,11 +134,11 @@ const BrochureContent: React.FC = () => {
     };
   }, [isModalOpen]);
 
-  const openModal = (item?: BrochureItem) => {
+  const openModal = (item?: CatalogueItem) => {
     if (item) {
-      setSelectedBrochure(item);
+      setSelectedItem(item);
     } else {
-      setSelectedBrochure(highlights[0]);
+      setSelectedItem(catalogues[0]);
     }
     setErrors({});
     setIsSuccess(false);
@@ -128,7 +148,6 @@ const BrochureContent: React.FC = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setIsSubmitting(false);
-    // Reset after animation
     setTimeout(() => {
       setIsSuccess(false);
       setErrors({});
@@ -143,160 +162,179 @@ const BrochureContent: React.FC = () => {
     if (!formData.email.trim()) {
       errs.email = 'Please enter your work email';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      errs.email = 'Please enter a valid email address';
+      errs.email = 'Please enter a valid work email address';
     }
     if (!formData.company.trim()) {
       errs.company = 'Please enter your company name';
     }
+    // Phone Number is strictly mandatory per client feedback
+    if (!formData.phone.trim()) {
+      errs.phone = 'Please enter your phone number (mandatory)';
+    } else if (formData.phone.trim().length < 7) {
+      errs.phone = 'Please enter a valid phone number (minimum 7 digits)';
+    }
+
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
-  // Simulates download and client-side trigger
-  const triggerDownload = (filename: string = '') => { return;
+  const triggerDownload = (filename: string = '', title: string = '') => {
     try {
-      const samplePdfContent = `%PDF-1.4\n1 0 obj\n<<\n/Title (${selectedBrochure.title})\n/Author (N Gandhi Advance Engineering Pvt. Ltd.)\n/Subject (Corporate Brochure)\n>>\nendobj\n%%EOF`;
+      const samplePdfContent = `%PDF-1.4\n1 0 obj\n<<\n/Title (${
+        title || selectedItem.title
+      })\n/Author (N Gandhi Advance Engineering Pvt. Ltd.)\n/Subject (Product Catalogue)\n>>\nendobj\n%%EOF`;
       const blob = new Blob([samplePdfContent], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = filename;
+      a.download = filename || selectedItem.filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch {
-      // Fallback
       window.open('#download', '_blank');
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    // Simulate backend submission delay & store in localStorage
-    setTimeout(() => {
-      try {
-        const existingLeads = JSON.parse(localStorage.getItem('naepl_brochure_leads') || '[]');
-        existingLeads.push({
-          ...formData,
-          brochure: selectedBrochure.title,
-          timestamp: new Date().toISOString(),
-        });
-        localStorage.setItem('naepl_brochure_leads', JSON.stringify(existingLeads));
-      } catch {
-        // Safe fallback
-      }
+    try {
+      const accessKey =
+        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+        '3f07030f-0894-4634-9ac1-392f3f8ca19d';
 
-      setIsSubmitting(false);
-      setIsSuccess(true);
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          from_name: 'NAEPL Catalogue Download System',
+          subject: `Catalogue Download Request: ${selectedItem.title} - ${formData.name}`,
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone.trim(),
+          catalogue: selectedItem.title,
+        }),
+      });
 
-      // PDF download temporarily disabled per user requirement
-      // triggerDownload(selectedBrochure.filename);
-    }, 850);
+      // Save lead locally
+      const existingLeads = JSON.parse(
+        localStorage.getItem('naepl_catalogue_leads') || '[]'
+      );
+      existingLeads.push({
+        ...formData,
+        catalogue: selectedItem.title,
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem('naepl_catalogue_leads', JSON.stringify(existingLeads));
+    } catch {
+      // Graceful fallback
+    }
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
+
+    // Auto-trigger the PDF download
+    triggerDownload(selectedItem.filename, selectedItem.title);
   };
 
   return (
     <main className="w-full bg-white text-[#1a1a1a] overflow-x-hidden">
-      {/* ── 1. Hero Section ── */}
-      <section className="relative pt-6 sm:pt-10 pb-16 sm:pb-24 bg-white overflow-hidden">
+      {/* ── 1. Hero Section (Clean single-instance layout, no duplicate lists) ── */}
+      <section className="relative pt-6 sm:pt-10 pb-16 sm:pb-20 bg-white overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Column: Information & Download Trigger */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Information & CTAs */}
             <div>
               {/* Eyebrow */}
               <p className="text-[12px] sm:text-[13px] font-semibold text-[#004428] tracking-[0.14em] uppercase mb-4 sm:mb-5 flex items-center gap-2.5">
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Brochure
+                Official Technical Catalogues
               </p>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-5 sm:mb-6">
-                Download Our<br />
-                <span className="text-[#004428]">Company</span> <span className="text-[#8c2442]">Profile.</span>
+              <h1 className="text-3xl sm:text-5xl md:text-[52px] lg:text-[56px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-5 sm:mb-6">
+                Technical <span className="text-[#004428]">Product</span>
+                <br />
+                <span className="text-[#8c2442]">Catalogues.</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base md:text-[16.5px] font-light text-[#6b6b6b] leading-relaxed mb-8 max-w-[520px]">
-                Explore detailed information about our <strong className="text-[#004428] font-medium">products, capabilities</strong>, infrastructure, and quality standards — all in one comprehensive document.
+              <p className="text-sm sm:text-base md:text-[16.5px] font-light text-[#6b6b6b] leading-relaxed mb-7 max-w-[520px]">
+                Explore verified technical specifications, dimensional drawings,
+                tensile ratings, and international certifications for our complete
+                range of industrial engineering and electrical solutions.
               </p>
 
-              {/* Highlights List with Download Button in front of each item */}
-              <div className="flex flex-col gap-2.5 mb-9 sm:mb-11 max-w-[500px]">
-                {highlights.map((h) => (
-                  <div
-                    key={h.id}
-                    className="group flex items-center justify-between py-2.5 px-3.5 rounded-xl border border-slate-200/80 bg-slate-50/60 transition-all duration-300 hover:bg-white hover:border-[#004428]/30 hover:shadow-[0_4px_16px_rgba(0,68,40,0.08)]"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="w-2 h-2 rounded-full bg-[#004428] shrink-0 transition-transform duration-300 group-hover:scale-125" />
-                      <span className="text-[14px] sm:text-[14.5px] font-medium text-slate-800 group-hover:text-[#004428] transition-colors">
-                        {h.title}
-                      </span>
-                    </div>
-
-                    {/* Download Icon Button */}
-                    <button
-                      type="button"
-                      onClick={() => openModal(h)}
-                      title={`Download ${h.title}`}
-                      aria-label={`Download ${h.title}`}
-                      className="w-8 h-8 rounded-lg bg-emerald-50 text-[#004428] hover:bg-[#004428] hover:text-white flex items-center justify-center transition-all duration-200 border border-emerald-100/80 hover:border-transparent hover:scale-110 shadow-sm cursor-pointer outline-none shrink-0"
-                    >
-                      <Download size={15} />
-                    </button>
+              {/* Engineering Scope Highlights */}
+              <div className="space-y-3 mb-9 max-w-[480px]">
+                {[
+                  'IEC 61914 Certified Short-Circuit Withstand Data',
+                  'Tensile Strength, Loop Load & Material Grade Sheets (SS304 / SS316)',
+                  'IP66 / IP68 Ingress Protection & Enclosure Sizing Charts',
+                  'Micron-Tolerance CNC Machining & Progressive Press Dimensions',
+                ].map((spec, i) => (
+                  <div key={i} className="flex items-start gap-3 text-slate-700 text-sm">
+                    <span className="w-5 h-5 rounded-full bg-emerald-50 text-[#004428] flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                      <Check size={12} strokeWidth={2.5} />
+                    </span>
+                    <span className="font-light">{spec}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Primary Download Button */}
-              <button
-                type="button"
-                onClick={() => openModal(highlights[0])}
-                className="group relative inline-flex items-center gap-3 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-8 py-4 rounded text-[13.5px] sm:text-[14.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.30)] hover:-translate-y-0.5 hover:border-transparent w-full sm:w-auto justify-center cursor-pointer"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <Download size={16} className="relative z-10 transition-transform duration-200 group-hover:-translate-y-0.5" />
-                <span className="relative z-10">Download Brochure</span>
-              </button>
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => openModal(catalogues[0])}
+                  className="group relative inline-flex items-center justify-center gap-2.5 bg-[#1a1a1a] border border-[#1a1a1a] text-white px-7 py-4 rounded text-[13.5px] font-medium tracking-wider uppercase transition-all duration-300 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,68,40,0.30)] hover:-translate-y-0.5 hover:border-transparent cursor-pointer"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#004428] to-[#8c2442] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Download size={16} className="relative z-10 transition-transform duration-200 group-hover:-translate-y-0.5" />
+                  <span className="relative z-10">Download Catalogue</span>
+                </button>
+
+                <a
+                  href="#catalogues-grid"
+                  className="inline-flex items-center justify-center gap-2 border border-slate-300 bg-white hover:border-[#004428] text-slate-700 hover:text-[#004428] px-6 py-4 rounded text-[13.5px] font-medium tracking-wider uppercase transition-all hover:bg-emerald-50/40 no-underline cursor-pointer"
+                >
+                  <span>View All 6 Catalogues</span>
+                  <ArrowDown size={15} />
+                </a>
+              </div>
             </div>
 
-            {/* Right Column: High-End Brochure Mockup */}
+            {/* Right Column: High-End Company Profile Catalogue Showcase */}
             <div className="relative w-full flex items-center justify-center">
-              {/* Subtle ambient decorative backdrop glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#004428]/15 via-transparent to-[#8c2442]/15 rounded-3xl filter blur-2xl pointer-events-none" />
 
-              {/* Main Brochure Mockup Card (Visual Showcase Only) */}
-              <div 
-                className="group relative w-full max-w-[390px] aspect-[210/297] rounded-2xl overflow-hidden shadow-[0_28px_72px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_84px_rgba(0,0,0,0.24)] border border-slate-200/80 bg-white cursor-default select-none"
+              <div
+                onClick={() => openModal(catalogues[0])}
+                className="group relative w-full max-w-[390px] aspect-[210/297] rounded-2xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.16)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_76px_rgba(0,0,0,0.22)] border border-slate-200/80 bg-white cursor-pointer select-none"
               >
                 <img
                   src="/assets/brochure_covers/company_profile_brochure_cover.webp"
-                  alt="Company Profile Brochure Cover"
+                  alt="NAEPL Corporate Engineering Catalogue Cover"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="eager"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-slate-900/10 pointer-events-none rounded-2xl" />
 
-                {/* Top Accent Line */}
-                <div className="hidden absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] via-[#34d399] to-[#8c2442]" />
-
-                {/* Text Overlay */}
-                <div className="hidden absolute inset-0 p-7 sm:p-10 md:p-12 flex flex-col justify-end text-white">
-                  <div className="text-right">
-                    <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/70 mb-2">
-                      Official Technical Catalog
-                    </p>
-                    <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-white tracking-tight leading-snug mb-2.5">
-                      N Gandhi Advance<br />Engineering Pvt. Ltd.
-                    </h3>
-                    <p className="text-xs sm:text-[13px] font-light text-white/80">
-                      ISO 9001:2015 Certified · Precision Engineering Since 1991
-                    </p>
-                    <div className="mt-5 w-16 h-[2px] bg-gradient-to-r from-[#004428] to-[#8c2442] ml-auto" />
+                {/* Hover overlay hint */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="text-white text-sm font-medium flex items-center gap-2">
+                    <Download size={16} />
+                    <span>Click to Download Official Catalogue</span>
                   </div>
                 </div>
               </div>
@@ -305,32 +343,36 @@ const BrochureContent: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 2. Product Brochures Catalog Section (3 Top, 3 Bottom) ── */}
-      <section className="py-16 sm:py-24 bg-slate-50/70 border-t border-slate-200/80" id="brochures-grid">
+      {/* ── 2. Official Catalogues Grid (Single rendered instance, no duplicates) ── */}
+      <section
+        className="py-16 sm:py-24 bg-slate-50/70 border-t border-slate-200/80"
+        id="catalogues-grid"
+      >
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12">
           {/* Section Heading */}
           <div className="text-center max-w-[720px] mx-auto mb-12 sm:mb-16">
             <p className="text-[12px] sm:text-[13px] font-semibold text-[#004428] tracking-[0.14em] uppercase mb-3 flex items-center justify-center gap-2">
               <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-              Official Catalogs
+              Official Product Catalogues
               <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
-              Technical Product Brochures
+              Download Technical Catalogues
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
-              Explore and request comprehensive technical specifications, dimensions, and certification documents for our complete range of precision engineering products.
+              Select any product category below to access verified technical
+              parameters, dimensional drawings, material grades, and load ratings.
             </p>
           </div>
 
-          {/* 3 Top, 3 Bottom Grid */}
+          {/* 6 Clean Catalogue Cards (3 Top, 3 Bottom) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {highlights.map((item) => (
+            {catalogues.map((item) => (
               <div
                 key={item.id}
                 className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between"
               >
-                {/* A4 Brochure Cover Image Frame */}
+                {/* A4 Catalogue Cover Image */}
                 <div
                   onClick={() => openModal(item)}
                   className="w-full aspect-[210/297] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm relative mb-5 cursor-pointer group-hover:border-[#004428]/40 transition-colors"
@@ -342,12 +384,17 @@ const BrochureContent: React.FC = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none rounded-xl" />
+
+                  {/* Series Pill Badge */}
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm border border-slate-200/80 px-2.5 py-1 rounded-md text-[11px] font-semibold text-[#004428] shadow-sm">
+                    {item.series}
+                  </div>
                 </div>
 
                 {/* Info & Download Button */}
                 <div className="flex flex-col flex-1 justify-between">
                   <div className="mb-4">
-                    <h3 className="text-lg sm:text-[19px] font-bold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#004428] transition-colors">
+                    <h3 className="text-lg sm:text-[19px] font-bold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#004428] transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-[13px] text-slate-500 font-normal leading-relaxed line-clamp-2">
@@ -355,14 +402,14 @@ const BrochureContent: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Download Button with Brochure Name */}
+                  {/* Download Button */}
                   <button
                     type="button"
                     onClick={() => openModal(item)}
                     className="w-full inline-flex items-center justify-center gap-2 bg-[#004428] hover:bg-[#00331e] text-white py-3 px-4 rounded-xl text-[12px] sm:text-[13px] font-bold uppercase tracking-wide transition-all shadow-md hover:shadow-[#004428]/25 cursor-pointer"
                   >
                     <Download size={15} className="shrink-0" />
-                    <span className="truncate">Download {item.title}</span>
+                    <span className="truncate">Download Catalogue</span>
                   </button>
                 </div>
               </div>
@@ -371,13 +418,13 @@ const BrochureContent: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 3. Lead Capture Popup Modal Form ── */}
+      {/* ── 3. Lead Capture Popup Modal Form (Mandatory Phone Number) ── */}
       {isModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/65 backdrop-blur-md transition-all duration-300 animate-in fade-in-0"
           onClick={closeModal}
         >
-          <div 
+          <div
             className="relative w-full max-w-[520px] bg-white rounded-3xl shadow-[0_24px_70px_rgba(0,0,0,0.30)] border border-slate-100 overflow-hidden transition-all duration-300 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
@@ -388,12 +435,12 @@ const BrochureContent: React.FC = () => {
             <div className="px-6 sm:px-8 pt-6 pb-4 border-b border-slate-100 flex items-start justify-between">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight m-0">
-                  {isSuccess ? 'Request Received!' : 'Download Brochure'}
+                  {isSuccess ? 'Download Ready!' : 'Download Technical Catalogue'}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-slate-500 font-normal mt-1 leading-relaxed m-0">
-                  {isSuccess 
-                    ? 'We have received your brochure request.' 
-                    : 'Please fill in your details below to receive the technical catalog.'}
+                  {isSuccess
+                    ? 'Your download has started automatically.'
+                    : 'Please enter your professional details to download the technical documentation.'}
                 </p>
               </div>
 
@@ -416,25 +463,29 @@ const BrochureContent: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-50 text-[#004428] flex items-center justify-center mx-auto mb-4 animate-in zoom-in-75">
                     <CheckCircle2 size={36} className="text-[#004428]" />
                   </div>
-                  
+
                   <h4 className="text-lg font-bold text-slate-900 mb-1">
                     Thank you, {formData.name}!
                   </h4>
                   <p className="text-sm text-slate-600 max-w-sm mx-auto mb-6 leading-relaxed">
-                    Thank you for requesting <strong className="text-slate-800">{selectedBrochure.title}</strong>. Our team has received your details and will share the technical brochure shortly.
+                    You have requested{' '}
+                    <strong className="text-slate-800">{selectedItem.title}</strong>.
+                    If your download did not start automatically, please click below:
                   </p>
 
                   <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70 mb-6 text-xs text-slate-600 flex items-center justify-between">
                     <span className="flex items-center gap-2 truncate">
                       <FileText size={15} className="text-[#004428] shrink-0" />
-                      <span className="font-medium truncate">{selectedBrochure.filename}</span>
+                      <span className="font-medium truncate">{selectedItem.filename}</span>
                     </span>
                     <button
                       type="button"
-                      onClick={() => triggerDownload(selectedBrochure.filename)}
+                      onClick={() =>
+                        triggerDownload(selectedItem.filename, selectedItem.title)
+                      }
                       className="text-[#004428] font-bold hover:underline shrink-0 pl-2 bg-transparent border-none cursor-pointer"
                     >
-                      Request Logged
+                      Click to Re-Download
                     </button>
                   </div>
 
@@ -449,23 +500,23 @@ const BrochureContent: React.FC = () => {
               ) : (
                 /* Lead Capture Form */
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                  {/* Brochure Selector Dropdown */}
+                  {/* Selected Catalogue Dropdown */}
                   <div>
                     <label className="block text-[12px] font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
                       Selected Document
                     </label>
                     <div className="relative">
                       <select
-                        value={selectedBrochure.id}
+                        value={selectedItem.id}
                         onChange={(e) => {
-                          const found = highlights.find((b) => b.id === e.target.value);
-                          if (found) setSelectedBrochure(found);
+                          const found = catalogues.find((b) => b.id === e.target.value);
+                          if (found) setSelectedItem(found);
                         }}
                         className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-800 focus:bg-white focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15 outline-none transition-all cursor-pointer font-medium"
                       >
-                        {highlights.map((b) => (
+                        {catalogues.map((b) => (
                           <option key={b.id} value={b.id}>
-                            {b.title}
+                            {b.title} ({b.series})
                           </option>
                         ))}
                       </select>
@@ -481,15 +532,15 @@ const BrochureContent: React.FC = () => {
                       <User size={16} className="absolute left-3.5 text-slate-400 pointer-events-none" />
                       <input
                         type="text"
-                        placeholder="e.g. John Doe"
+                        placeholder="e.g. Rahul Sharma"
                         value={formData.name}
                         onChange={(e) => {
                           setFormData({ ...formData, name: e.target.value });
                           if (errors.name) setErrors({ ...errors, name: '' });
                         }}
                         className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-slate-50/60 focus:bg-white outline-none transition-all ${
-                          errors.name 
-                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20' 
+                          errors.name
+                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20'
                             : 'border-slate-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15'
                         }`}
                       />
@@ -515,8 +566,8 @@ const BrochureContent: React.FC = () => {
                           if (errors.email) setErrors({ ...errors, email: '' });
                         }}
                         className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-slate-50/60 focus:bg-white outline-none transition-all ${
-                          errors.email 
-                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20' 
+                          errors.email
+                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20'
                             : 'border-slate-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15'
                         }`}
                       />
@@ -535,15 +586,15 @@ const BrochureContent: React.FC = () => {
                       <Building2 size={16} className="absolute left-3.5 text-slate-400 pointer-events-none" />
                       <input
                         type="text"
-                        placeholder="e.g. Larsen & Toubro, Siemens"
+                        placeholder="e.g. Larsen & Toubro, Siemens, ABB"
                         value={formData.company}
                         onChange={(e) => {
                           setFormData({ ...formData, company: e.target.value });
                           if (errors.company) setErrors({ ...errors, company: '' });
                         }}
                         className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-slate-50/60 focus:bg-white outline-none transition-all ${
-                          errors.company 
-                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20' 
+                          errors.company
+                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20'
                             : 'border-slate-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15'
                         }`}
                       />
@@ -553,10 +604,10 @@ const BrochureContent: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Phone Number (Optional) */}
+                  {/* Phone Number (Mandatory with *) */}
                   <div>
                     <label className="block text-[12px] font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-                      Phone Number <span className="text-slate-400 font-normal lowercase">(optional)</span>
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <Phone size={16} className="absolute left-3.5 text-slate-400 pointer-events-none" />
@@ -564,15 +615,26 @@ const BrochureContent: React.FC = () => {
                         type="tel"
                         placeholder="+91 98765 43210"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50/60 focus:bg-white focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15 outline-none transition-all"
+                        onChange={(e) => {
+                          setFormData({ ...formData, phone: e.target.value });
+                          if (errors.phone) setErrors({ ...errors, phone: '' });
+                        }}
+                        className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-slate-50/60 focus:bg-white outline-none transition-all ${
+                          errors.phone
+                            ? 'border-red-400 focus:ring-2 focus:ring-red-400/20'
+                            : 'border-slate-200 focus:border-[#004428] focus:ring-2 focus:ring-[#004428]/15'
+                        }`}
                       />
                     </div>
+                    {errors.phone && (
+                      <p className="text-xs text-red-600 mt-1 pl-1 m-0">{errors.phone}</p>
+                    )}
                   </div>
 
                   {/* Privacy Assurance */}
-                  <p className="text-[11px] text-slate-400 leading-normal pt-1 m-0">
-                    🔒 We respect your privacy. Your information is securely kept and never shared.
+                  <p className="text-[11px] text-slate-400 leading-normal pt-1 m-0 flex items-center gap-1.5">
+                    <ShieldCheck size={13} className="text-emerald-700 shrink-0" />
+                    <span>Your technical details are secure and used only to deliver engineering documentation.</span>
                   </p>
 
                   {/* Submit Button */}
@@ -590,7 +652,7 @@ const BrochureContent: React.FC = () => {
                       ) : (
                         <>
                           <Download size={16} />
-                          <span>Download Brochure (PDF)</span>
+                          <span>Download Technical Catalogue (PDF)</span>
                         </>
                       )}
                     </button>
@@ -605,14 +667,16 @@ const BrochureContent: React.FC = () => {
   );
 };
 
-
-
-
-
 export default function BrochurePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-500 text-sm">Loading brochures...</div>}>
-      <BrochureContent />
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-500 text-sm">
+          Loading catalogue...
+        </div>
+      }
+    >
+      <CatalogueContent />
     </Suspense>
   );
 }

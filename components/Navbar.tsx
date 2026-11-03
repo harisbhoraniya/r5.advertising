@@ -10,37 +10,22 @@ interface ProductItem {
   path: string;
 }
 
-// Sub-items for N-Loc dropdown (Commented out for now as dropdown is disabled)
-/*
-const nlocSubItems: ProductItem[] = [
-  { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/products/n-loc/roller-ball' },
-  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/products/n-loc/roller-ball' },
-  { id: 'releasable', title: 'Releasable Cable Tie', path: '/products/n-loc/roller-ball' },
-  { id: 'ladder', title: 'Ladder Cable Tie', path: '/products/n-loc/roller-ball' },
-  { id: 'marker-tag', title: 'Cable Marker Tag', path: '/products/n-loc/roller-ball' },
-  { id: 'marker-plates', title: 'Marker Plates', path: '/products/n-loc/roller-ball' },
-];
-*/
-
+// Descriptive product naming per client feedback
 const otherProducts: ProductItem[] = [
   { id: 'cable-cleat', title: 'Cable Cleats', path: '/products/cable-cleat' },
-  { id: 'link-box', title: 'LINK BOX', path: '/products/link-box' },
-  { id: 'lugx', title: 'LUGX', path: '/products/lugx' },
-  { id: 'cnc-machine-component', title: 'CNC Machined Component', path: '/products/cnc-machine-component' },
+  { id: 'link-box', title: 'Weatherproof Junction Boxes', path: '/products/link-box' },
+  { id: 'lugx', title: 'Electrical Termination Lugs', path: '/products/lugx' },
+  { id: 'cnc-machine-component', title: 'CNC Machined Components', path: '/products/cnc-machine-component' },
   { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products/sheet-metal-press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [subOpen, setSubOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  // const [mobileNLocOpen, setMobileNLocOpen] = useState(false);
 
   const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
-  // const openSubTimeoutRef = useRef<number | null>(null);
-  // const subTimeoutRef = useRef<number | null>(null);
   const router = useRouter();
   const navigate = (p: string) => router.push(p);
   const pathname = usePathname() || '/';
@@ -49,7 +34,6 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setIsOpen(false);
-    // setSubOpen(false);
   }, [location.pathname]);
 
   const isProductsActive =
@@ -87,37 +71,8 @@ export const Navbar: React.FC = () => {
     }
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
-      // setSubOpen(false);
     }, 180);
   };
-
-  /*
-  const handleSubMouseEnter = () => {
-    if (subTimeoutRef.current) {
-      clearTimeout(subTimeoutRef.current);
-      subTimeoutRef.current = null;
-    }
-    if (!subOpen) {
-      if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
-      openSubTimeoutRef.current = window.setTimeout(() => {
-        setSubOpen(true);
-      }, 100);
-    }
-  };
-
-  const handleSubMouseLeave = () => {
-    if (openSubTimeoutRef.current) {
-      clearTimeout(openSubTimeoutRef.current);
-      openSubTimeoutRef.current = null;
-    }
-    if (subTimeoutRef.current) {
-      clearTimeout(subTimeoutRef.current);
-    }
-    subTimeoutRef.current = window.setTimeout(() => {
-      setSubOpen(false);
-    }, 180);
-  };
-  */
 
   const handleNavigate = (path: string, e?: React.MouseEvent) => {
     if (e) {
@@ -125,10 +80,7 @@ export const Navbar: React.FC = () => {
     }
     if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-    // if (openSubTimeoutRef.current) clearTimeout(openSubTimeoutRef.current);
-    // if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current);
     setIsOpen(false);
-    // setSubOpen(false);
     setMobileMenuOpen(false);
     navigate(path);
   };
@@ -207,10 +159,10 @@ export const Navbar: React.FC = () => {
               </button>
             </div>
 
-            {/* Desktop Dropdown Flyout Card (ngcco style with our theme) */}
+            {/* Desktop Dropdown Flyout Card */}
             {isOpen && (
               <div
-                className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-60 rounded-2xl bg-[#004428] shadow-[0_12px_40px_rgba(0,68,40,0.35),0_4px_16px_rgba(0,0,0,0.14)] overflow-visible transition-all duration-200 ease-out origin-top z-50 animate-in fade-in-0 zoom-in-95"
+                className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-72 rounded-2xl bg-[#004428] shadow-[0_12px_40px_rgba(0,68,40,0.35),0_4px_16px_rgba(0,0,0,0.14)] overflow-visible transition-all duration-200 ease-out origin-top z-50 animate-in fade-in-0 zoom-in-95"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -218,48 +170,19 @@ export const Navbar: React.FC = () => {
                 <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#004428] rotate-45 rounded-sm shadow-sm" />
 
                 <ul className="relative py-2 list-none m-0 p-0">
-                  {/* 1. N-Loc Link (Level 2 Flyout Submenu Commented Out as requested) */}
+                  {/* 1. Stainless Steel Cable Ties Link (Descriptive naming) */}
                   <li className="relative">
-                    <div>
-                      <div
-                        className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer hover:bg-white/15"
-                        onClick={(e) => handleNavigate('/products/n-loc', e)}
-                      >
-                        <span>N-LOC</span>
-                        <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
-                      </div>
-
-                      {/* Level 2 Flyout Menu (Sub-items) - Commented out for now
-                      {subOpen && (
-                        <div
-                          className="absolute left-[calc(100%+6px)] top-0 w-64 rounded-2xl bg-[#003820] shadow-[0_12px_40px_rgba(0,56,32,0.45),0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-200 ease-out origin-top-left z-50 animate-in fade-in-0 zoom-in-95"
-                          onMouseEnter={handleSubMouseEnter}
-                          onMouseLeave={handleSubMouseLeave}
-                        >
-                          <ul className="py-2 list-none m-0 p-0">
-                            {nlocSubItems.map((subItem, sIdx) => (
-                              <li key={subItem.id}>
-                                <div
-                                  className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
-                                  onClick={(e) => handleNavigate(subItem.path, e)}
-                                >
-                                  <span>{subItem.title}</span>
-                                  <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
-                                </div>
-                                {sIdx < nlocSubItems.length - 1 && (
-                                  <div className="mx-5 h-px bg-white/15" />
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      */}
+                    <div
+                      className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer hover:bg-white/15"
+                      onClick={(e) => handleNavigate('/products/n-loc', e)}
+                    >
+                      <span>Stainless Steel Cable Ties</span>
+                      <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
                     </div>
                     <div className="mx-5 h-px bg-white/15" />
                   </li>
 
-                  {/* 2. All other products with divider & right arrow */}
+                  {/* 2. All other products with descriptive names */}
                   {otherProducts.map((item, idx) => (
                     <li key={item.id}>
                       <div
@@ -288,14 +211,14 @@ export const Navbar: React.FC = () => {
           >
             Industry
           </Link>
-          <Link href="/brochure"
+          <Link href="/catalogue"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
-              location.pathname === '/brochure' || location.pathname === '/download'
+              location.pathname === '/catalogue' || location.pathname === '/brochure' || location.pathname === '/download'
                 ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
                 : 'text-slate-700 font-medium hover:text-emerald-800'
             }`}
           >
-            Download
+            Catalogue
           </Link>
           <Link href="/contact"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
@@ -352,7 +275,7 @@ export const Navbar: React.FC = () => {
               <span>About Us</span>
             </Link>
 
-            {/* Mobile Products Accordion (matching ngcco UI with our theme) */}
+            {/* Mobile Products Accordion */}
             <div className="my-1">
               <div className="flex items-center justify-between rounded-xl transition-all duration-200 hover:bg-black/3">
                 <Link href="/products"
@@ -381,36 +304,15 @@ export const Navbar: React.FC = () => {
 
               {mobileProductsOpen && (
                 <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
-                  {/* N-Loc Direct Link (Submenu dropdown commented out for now) */}
+                  {/* Stainless Steel Cable Ties Direct Link */}
                   <div>
                     <Link href="/products/n-loc"
                       className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span>N-LOC</span>
+                      <span>Stainless Steel Cable Ties</span>
                       <ArrowRight size={13} className="opacity-60" />
                     </Link>
-
-                    {/* Mobile N-Loc Submenu - Commented out for now
-                    {mobileNLocOpen && (
-                      <div className="ml-4 mr-3 mb-2 rounded-xl bg-[#003820] overflow-hidden">
-                        {nlocSubItems.map((subItem, sIdx) => (
-                          <div key={subItem.id}>
-                            <Link href={subItem.path}
-                              className="flex items-center justify-between px-4 py-2.5 text-[0.8125rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              <span>{subItem.title}</span>
-                              <ArrowRight size={12} className="opacity-60" />
-                            </Link>
-                            {sIdx < nlocSubItems.length - 1 && (
-                              <div className="mx-4 h-px bg-white/15" />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    */}
                     <div className="mx-5 h-px bg-white/15" />
                   </div>
 
@@ -444,15 +346,15 @@ export const Navbar: React.FC = () => {
               <span>Industry</span>
             </Link>
 
-            <Link href="/brochure"
+            <Link href="/catalogue"
               className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
-                location.pathname === '/brochure' || location.pathname === '/download'
+                location.pathname === '/catalogue' || location.pathname === '/brochure' || location.pathname === '/download'
                   ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'
                   : 'text-slate-800 hover:bg-slate-50'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span>Download</span>
+              <span>Catalogue</span>
             </Link>
 
             <Link href="/contact"

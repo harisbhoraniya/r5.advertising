@@ -57,8 +57,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/brochure" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
-                  Download
+                <Link href="/catalogue" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Catalogue
                 </Link>
               </li>
               <li>

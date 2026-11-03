@@ -8,7 +8,8 @@ const nextConfig = {
     return [
       { source: '/about', destination: '/about-us', permanent: true },
       { source: '/industries', destination: '/industry', permanent: true },
-      { source: '/download', destination: '/brochure', permanent: true },
+      { source: '/download', destination: '/catalogue', permanent: true },
+      { source: '/downloads', destination: '/catalogue', permanent: true },
       { source: '/product', destination: '/products', permanent: true },
       { source: '/n-loc', destination: '/products/n-loc', permanent: true },
       { source: '/nloc', destination: '/products/n-loc', permanent: true },
