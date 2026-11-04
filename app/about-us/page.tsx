@@ -218,14 +218,11 @@ const AboutPage: React.FC = () => {
                 <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
 
                 <div>
-                  {/* Top Row: Icon Container & Number Badge */}
-                  <div className="flex items-center justify-between mb-6">
+                  {/* Icon Container */}
+                  <div className="mb-6">
                     <div className="w-12 h-12 rounded-xl bg-[#004428]/10 text-[#004428] flex items-center justify-center transition-all duration-300 group-hover:bg-[#8c2442]/10 group-hover:text-[#8c2442] group-hover:scale-110">
                       {v.icon}
                     </div>
-                    <span className="text-xs font-semibold text-slate-400 font-mono tracking-wider">
-                      0{i + 1}
-                    </span>
                   </div>
 
                   {/* Heading */}
