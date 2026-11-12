@@ -9,19 +9,6 @@ import {
   FileText
 } from 'lucide-react';
 
-// Verified Technical Specifications data from enclosure engineering datasheets
-const technicalSpecifications = [
-  { spec: 'Enclosure Material', details: 'Aluminium Die-Cast (LM6 / ADC12), Stainless Steel (AISI 304 / 316), and Mild Steel (CRCA)' },
-  { spec: 'Ingress Protection', details: 'IP66, IP67, and IP68 certified weatherproof, watertight, and dust-tight sealing' },
-  { spec: 'Gasket Sealing', details: 'Continuous closed-cell Neoprene, EPDM, or Silicone weather-resistant gaskets' },
-  { spec: 'Surface Treatment', details: 'Epoxy polyester powder coating (RAL 7035 / RAL 7032), natural brushed SS, or hot-dip galvanizing' },
-  { spec: 'Cover Fastening', details: 'Stainless steel captive screws, heavy-duty hinges, and quick-release toggle clamps' },
-  { spec: 'Internal Provisions', details: 'Zinc-plated component mounting plates, DIN rail brackets, and internal/external copper earthing studs' },
-  { spec: 'Operating Temperature', details: '-40°C to +100°C (Silicone gasket rated up to +180°C)' },
-  { spec: 'Custom Machining', details: 'Factory precision CNC drilled gland entries, threaded conduit ports, and pre-wired terminal arrangements' },
-  { spec: 'Primary Applications', details: 'Outdoor solar PV combiner boxes, railway signalling, petrochemical facilities, marine dock installations, and industrial automation' },
-];
-
 const LinkBoxPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
@@ -31,7 +18,7 @@ const LinkBoxPage: React.FC = () => {
         <div className="absolute inset-0 pointer-events-none">
           <img
             src="/assets/link_box/linkbox_hero_banner_hd.webp"
-            alt="NAEPL Weatherproof Junction Boxes and Industrial Enclosures"
+            alt="NAEPL Junction Boxes and Industrial Enclosures"
             className="w-full h-full object-cover object-[center_center]"
             loading="eager"
           />
@@ -56,11 +43,11 @@ const LinkBoxPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            Weatherproof Junction Boxes · LINKBOX Series
+            Junction Boxes · LINKBOX Series
           </p>
 
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-            Weatherproof Junction Boxes <br className="hidden sm:inline" />
+            Junction Boxes <br className="hidden sm:inline" />
             <span className="text-[#8fd6ae]">Built to Protect.</span>
           </h1>
 
@@ -95,7 +82,7 @@ const LinkBoxPage: React.FC = () => {
           <div className="bg-[#f8fafc] border-2 border-slate-200/90 rounded-2xl p-6 sm:p-10 md:p-12 flex items-center justify-center shadow-sm">
             <img
               src="/assets/link_box/junction_box_overview.webp"
-              alt="NAEPL Weatherproof Industrial Enclosures"
+              alt="NAEPL Industrial Enclosures"
               className="w-full h-auto max-h-[360px] object-contain rounded-lg transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -103,7 +90,7 @@ const LinkBoxPage: React.FC = () => {
           {/* Right Side: Product Details & Core Specifications */}
           <div className="flex flex-col">
             <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.15em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
-              WEATHERPROOF ENCLOSURES · LINKBOX SERIES
+              ENCLOSURES &amp; JUNCTION BOXES · LINKBOX SERIES
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-4 sm:mb-5">
@@ -157,53 +144,6 @@ const LinkBoxPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Technical Specifications Table Section ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f9fa] border-y border-slate-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="mb-6 sm:mb-8">
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#004428]">
-              Verified Engineering Specifications
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-              Technical Specification Table
-            </h3>
-            <p className="text-sm text-slate-500 mt-1 max-w-[620px]">
-              Actual verified mechanical characteristics, ingress ratings, and fabrication specifications for NAEPL Weatherproof Enclosures.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-slate-700">
-                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-semibold text-slate-500 tracking-wider">
-                  <tr>
-                    <th className="py-4 px-5 sm:px-6 w-1/3">Specification</th>
-                    <th className="py-4 px-5 sm:px-6">Details</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {technicalSpecifications.map((row, idx) => (
-                    <tr 
-                      key={row.spec} 
-                      className={`transition-colors hover:bg-slate-50/80 ${
-                        idx % 2 === 0 ? 'bg-white' : 'bg-[#fafafa]'
-                      }`}
-                    >
-                      <td className="py-3.5 px-5 sm:px-6 font-semibold text-slate-900">
-                        {row.spec}
-                      </td>
-                      <td className="py-3.5 px-5 sm:px-6 text-slate-600 leading-relaxed">
-                        {row.details}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── 5. Product Range Showcase ── */}
       <section className="py-12 sm:py-16 pb-16 sm:pb-20 bg-white" id="products">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -222,8 +162,8 @@ const LinkBoxPage: React.FC = () => {
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/aluminium_junction_box.webp"
-                  alt="Aluminium Die Cast Junction Box"
+                  src="/assets/link_box/aluminium_die_cast_enclosure.jpg"
+                  alt="Aluminium Die Cast Enclosures"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -299,15 +239,15 @@ const LinkBoxPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Card 4: Custom Machined & Terminal Enclosures */}
+            {/* Card 4: SS Push Button Panel */}
             <div
-              id="custom-enclosure"
+              id="ss-push-button-panel"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
             >
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
-                  src="/assets/link_box/custom_machined_enclosure.webp"
-                  alt="Custom Machined & Pre-Assembled Enclosures"
+                  src="/assets/link_box/ss_push_button_panel.png"
+                  alt="SS Push Button Panel"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -315,14 +255,14 @@ const LinkBoxPage: React.FC = () => {
 
               <div className="p-5 flex flex-col flex-1">
                 <div className="text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
-                  CUSTOM ELECTRICAL ENCLOSURES
+                  STAINLESS STEEL CONTROL ENCLOSURES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  Custom Terminal Enclosures
+                  SS Push Button Panel
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Factory pre-drilled gland entries, terminal rails, and custom internal assembly to specification.
+                  Precision-fabricated stainless steel push button control panels (1, 2 &amp; 3-way) with standard 22.5 mm cutouts and IP66 sealing.
                 </p>
               </div>
             </div>
@@ -344,7 +284,7 @@ const LinkBoxPage: React.FC = () => {
               <div className="w-full aspect-[210/297] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 backdrop-blur-sm relative group mb-4">
                 <img
                   src="/assets/brochure_covers/link_box_brochure_cover.webp"
-                  alt="NAEPL Weatherproof Enclosures Catalog Brochure (A4)"
+                  alt="NAEPL Enclosures Catalog Brochure (A4)"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none rounded-2xl" />

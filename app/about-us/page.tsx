@@ -43,6 +43,11 @@ const values: ValueItem[] = [
     title: 'Continuous Improvement',
     desc: 'Kaizen mindset and defect-prevention methodologies embedded across all manufacturing operations.',
   },
+  {
+    icon: <CheckCircle2 size={24} />,
+    title: 'Timely Delivery & Quality Materials',
+    desc: 'Committed to reliable, on-time delivery schedules while sourcing and supplying certified, high-grade materials for lasting performance.',
+  },
 ];
 
 const strengths = [
@@ -76,7 +81,7 @@ const brands: BrandItem[] = [
   {
     id: 'link-box',
     name: 'LINKBOX',
-    tag: 'WEATHERPROOF ENCLOSURES',
+    tag: 'STRONG CONNECTIONS. SAFE SYSTEMS',
     desc: 'Heavy-duty IP66 & IP68 junction boxes and electrical link boxes manufactured in aluminium die-cast, stainless steel, and mild steel.',
     img: '/assets/logo_linkbox.webp',
     link: '/products/link-box',
@@ -141,7 +146,7 @@ const AboutPage: React.FC = () => {
           <div className="mb-10 sm:mb-12 pb-5 border-b border-[#e8e8e8]">
             <p className="text-[11px] font-semibold text-[#004428] tracking-[0.18em] uppercase mb-2 flex items-center gap-2.5">
               <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-              Our Brands
+              Product Portfolio
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] tracking-tight">
               Our <span className="text-[#004428]">Brands</span>
@@ -207,12 +212,10 @@ const AboutPage: React.FC = () => {
 
           {/* Premium Corporate Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {values.map((v, i) => (
+            {values.map((v) => (
               <div
                 key={v.title}
-                className={`group relative bg-[#fbfbfa] border border-[#e8e8e8] rounded-2xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(0,68,40,0.10)] hover:border-[#004428]/30 overflow-hidden ${
-                  i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
-                }`}
+                className="group relative bg-[#fbfbfa] border border-[#e8e8e8] rounded-2xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(0,68,40,0.10)] hover:border-[#004428]/30 overflow-hidden"
               >
                 {/* Top Expanding Brand Gradient Line */}
                 <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#004428] to-[#8c2442] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />

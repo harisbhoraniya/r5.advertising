@@ -32,7 +32,7 @@ const catalogues: CatalogueItem[] = [
     title: 'Stainless Steel Cable Ties Catalogue',
     series: 'N-LOC Series',
     subtitle:
-      'Roller ball, ladder, releasable, zig zag ties, coated variants & tensile strength data sheets',
+      'Roller ball, ladder, releasable, ball lock spring type ties, coated variants & tensile strength data sheets',
     filename: 'NAEPL_Stainless_Steel_Cable_Ties_Catalogue.pdf',
     coverImage: '/assets/brochure_covers/n_loc_brochure_cover.webp',
   },

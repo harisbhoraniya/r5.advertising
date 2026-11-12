@@ -28,16 +28,6 @@ const productCatalog: ProductItem[] = [
     link: '/products/n-loc',
   },
   {
-    id: 'zig-zag-cable-ties',
-    title: 'Zig Zag Cable Ties',
-    brandTag: 'N-LOC Series',
-    category: 'STAINLESS STEEL FASTENING',
-    badge: 'CONTOURED RETENTION TIES',
-    desc: 'Contoured stainless steel ties engineered for secure retention on vibrating, high-flexibility, and uneven industrial bundling profiles.',
-    image: '/assets/nloc/ladder_cable_tie.webp',
-    link: '/products/n-loc',
-  },
-  {
     id: 'cable-cleats',
     title: 'Cable Cleats',
     brandTag: 'Power Accessories',

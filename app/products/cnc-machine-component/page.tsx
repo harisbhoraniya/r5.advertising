@@ -9,19 +9,6 @@ import {
   FileText
 } from 'lucide-react';
 
-// Verified Technical Specifications data from CNC machining engineering datasheets
-const technicalSpecifications = [
-  { spec: 'Material Grades', details: 'Electrolytic Copper (C11000 / C14500), Stainless Steel (SS303 / 304 / 316 / 17-4PH), Aluminium (AL6061 / 6082 / 7075), Chrome Steel (EN31 / EN19 / 52100), and Brass' },
-  { spec: 'Machining Operations', details: 'Multi-axis CNC turning, CNC vertical milling (VMC), precision drilling, thread whirling, broaching, and fine cylindrical grinding' },
-  { spec: 'Dimensional Tolerances', details: 'High precision achievable up to ±0.005 mm (micron-level accuracy adhering to GD&T drawings)' },
-  { spec: 'Size & Capacity Range', details: 'Turning diameters from Ø 3.0 mm to Ø 300 mm; Milling work envelope up to 600 mm x 450 mm' },
-  { spec: 'Surface Roughness', details: 'Fine surface finishes achievable from Ra 0.4 μm to Ra 1.6 μm' },
-  { spec: 'Plating & Treatments', details: 'Electro-tin, hard silver, electroless nickel (ENP), passivation, zinc phosphating, and hard anodizing' },
-  { spec: 'Inspection & Metrology', details: 'CMM inspection, optical digital profile projectors, surface roughness testers, and calibrated thread gauges' },
-  { spec: 'Production Flexibility', details: 'Prototype sample development, pre-series runs, and scalable repeat batch production with PPAP documentation' },
-  { spec: 'Primary Applications', details: 'Electrical switchgear, automotive sensors & powertrain assemblies, robotics, industrial fluid instrumentation, and valve mechanisms' },
-];
-
 const CncMachineComponentPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
@@ -152,53 +139,6 @@ const CncMachineComponentPage: React.FC = () => {
               <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 Precision You Can Measure. Performance You Can Trust.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Technical Specifications Table Section ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f9fa] border-y border-slate-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="mb-6 sm:mb-8">
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#004428]">
-              Verified Engineering Specifications
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-              Technical Specification Table
-            </h3>
-            <p className="text-sm text-slate-500 mt-1 max-w-[620px]">
-              Actual verified machining parameters, metallurgical grades, and tolerance capabilities for NAEPL CNC Machined Components.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-slate-700">
-                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-semibold text-slate-500 tracking-wider">
-                  <tr>
-                    <th className="py-4 px-5 sm:px-6 w-1/3">Specification</th>
-                    <th className="py-4 px-5 sm:px-6">Details</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {technicalSpecifications.map((row, idx) => (
-                    <tr 
-                      key={row.spec} 
-                      className={`transition-colors hover:bg-slate-50/80 ${
-                        idx % 2 === 0 ? 'bg-white' : 'bg-[#fafafa]'
-                      }`}
-                    >
-                      <td className="py-3.5 px-5 sm:px-6 font-semibold text-slate-900">
-                        {row.spec}
-                      </td>
-                      <td className="py-3.5 px-5 sm:px-6 text-slate-600 leading-relaxed">
-                        {row.details}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
             </div>
           </div>
         </div>

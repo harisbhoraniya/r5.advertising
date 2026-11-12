@@ -55,10 +55,10 @@ const nlocProducts: ProductItem[] = [
   },
   {
     id: 'zig-zag',
-    title: 'Zig Zag Cable Tie',
+    title: 'Ball Lock Spring Type',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'CONTOURED · HIGH VIBRATION',
-    image: '/assets/nloc/ladder_cable_tie.webp',
+    image: '/assets/nloc/zig_zag_cable_tie_uncoated.jpg',
     link: '/products/n-loc',
   },
   {
@@ -79,30 +79,17 @@ const nlocProducts: ProductItem[] = [
   },
 ];
 
-// Verified Technical Specifications data from technical datasheets
-const technicalSpecifications = [
-  { spec: 'Material Grade', details: 'Stainless Steel AISI 304 (General Industrial) & AISI 316 (Marine / Chemical Grade)' },
-  { spec: 'Locking Mechanism', details: 'Internal stainless steel roller ball mechanism / Ladder buckle / Releasable wing lock' },
-  { spec: 'Available Types', details: 'Roller Ball Type, Heavy Duty, Releasable, Ladder Type, Zig Zag, Coated & Uncoated' },
-  { spec: 'Protective Coating', details: 'Pure Polyester, Epoxy Powder, or PPA 571 Halogen-Free Non-Toxic Polymer Coating' },
-  { spec: 'Loop Tensile Strength', details: 'Standard: 45 kg (100 lbs) | Heavy Duty: 114 kg to 160 kg+ (250 - 350 lbs)' },
-  { spec: 'Temperature Range', details: 'Uncoated: -80°C to +538°C | Coated: -40°C to +150°C' },
-  { spec: 'Flammability Rating', details: 'Non-flammable, Fire-resistant (UL 94V-0 compliant, Halogen-Free)' },
-  { spec: 'Corrosion Resistance', details: 'Exceptional resistance to salt spray, UV radiation, weathering, acids, and petrochemicals' },
-  { spec: 'Primary Applications', details: 'Power generation plants, oil & gas refineries, offshore platforms, mass transit, renewable energy, and heavy shipbuilding' },
-];
-
 const NLocPage: React.FC = () => {
   const [productTypes, setProductTypes] = useState<Record<string, 'coated' | 'uncoated'>>({
-    'roller-ball': 'coated',
-    'roller-ball-hd': 'coated',
-    'releasable': 'coated',
-    'ladder': 'coated',
-    'zig-zag': 'coated',
+    'roller-ball': 'uncoated',
+    'roller-ball-hd': 'uncoated',
+    'releasable': 'uncoated',
+    'ladder': 'uncoated',
+    'zig-zag': 'uncoated',
   });
 
   const getItemImage = (item: ProductItem) => {
-    const type = productTypes[item.id] || 'coated';
+    const type = productTypes[item.id] || 'uncoated';
     if (item.id === 'roller-ball') {
       return type === 'coated'
         ? '/assets/nloc/roller_ball_coated_black.webp'
@@ -124,7 +111,9 @@ const NLocPage: React.FC = () => {
         : '/assets/nloc/ladder_cable_tie.webp';
     }
     if (item.id === 'zig-zag') {
-      return '/assets/nloc/ladder_cable_tie.webp';
+      return type === 'coated'
+        ? '/assets/nloc/zig_zag_cable_tie_coated.jpg'
+        : '/assets/nloc/zig_zag_cable_tie_uncoated.jpg';
     }
     return item.image;
   };
@@ -136,7 +125,7 @@ const NLocPage: React.FC = () => {
         {/* Background Hero Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="/assets/nloc/nloc_hero_banner_hd.webp"
+            src="/assets/nloc/nloc_hero_banner_hd.jpg"
             alt="NAEPL Stainless Steel Cable Ties & Ball Lock Systems"
             className="w-full h-full object-cover object-[center_center]"
             loading="eager"
@@ -145,14 +134,14 @@ const NLocPage: React.FC = () => {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.52) 50%, rgba(10,17,14,0.18) 100%)',
+                'linear-gradient(to right, rgba(10,17,14,0.78) 0%, rgba(10,17,14,0.42) 45%, rgba(10,17,14,0.0) 80%)',
             }}
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,17,14,0.85) 0%, rgba(10,17,14,0.25) 40%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,17,14,0.75) 0%, rgba(10,17,14,0.18) 40%, transparent 100%)',
             }}
           />
         </div>
@@ -262,53 +251,6 @@ const NLocPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Technical Specifications Table Section ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f9fa] border-y border-slate-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="mb-6 sm:mb-8">
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#004428]">
-              Verified Engineering Specifications
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-              Technical Specification Table
-            </h3>
-            <p className="text-sm text-slate-500 mt-1 max-w-[620px]">
-              Actual verified technical parameters, material specifications, and operating characteristics for NAEPL Stainless Steel Cable Ties.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-slate-700">
-                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-semibold text-slate-500 tracking-wider">
-                  <tr>
-                    <th className="py-4 px-5 sm:px-6 w-1/3">Specification</th>
-                    <th className="py-4 px-5 sm:px-6">Details</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {technicalSpecifications.map((row, idx) => (
-                    <tr 
-                      key={row.spec} 
-                      className={`transition-colors hover:bg-slate-50/80 ${
-                        idx % 2 === 0 ? 'bg-white' : 'bg-[#fafafa]'
-                      }`}
-                    >
-                      <td className="py-3.5 px-5 sm:px-6 font-semibold text-slate-900">
-                        {row.spec}
-                      </td>
-                      <td className="py-3.5 px-5 sm:px-6 text-slate-600 leading-relaxed">
-                        {row.details}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── 5. Product Range Showcase ── */}
       <section className="py-12 sm:py-16 pb-16 sm:pb-20 bg-white" id="products">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -319,12 +261,12 @@ const NLocPage: React.FC = () => {
             Explore the <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Stainless Steel Cable Ties Range</span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
             {nlocProducts.map((item) => (
               <div 
                 key={item.id} 
                 id={item.id} 
-                className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
               >
                 <div className={`relative h-[190px] sm:h-[220px] flex items-center justify-center overflow-hidden bg-slate-50 p-4`}>
                   <img
@@ -344,22 +286,8 @@ const NLocPage: React.FC = () => {
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder'].includes(item.id) && (
+                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder', 'zig-zag'].includes(item.id) && (
                     <div className="flex items-center gap-2 mb-4">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setProductTypes((prev) => ({ ...prev, [item.id]: 'coated' }));
-                        }}
-                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          (productTypes[item.id] || 'coated') === 'coated'
-                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
-                        }`}
-                      >
-                        Coated
-                      </button>
                       <button
                         type="button"
                         onClick={(e) => {
@@ -367,12 +295,26 @@ const NLocPage: React.FC = () => {
                           setProductTypes((prev) => ({ ...prev, [item.id]: 'uncoated' }));
                         }}
                         className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          productTypes[item.id] === 'uncoated'
+                          (productTypes[item.id] || 'uncoated') === 'uncoated'
                             ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
                             : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
                         }`}
                       >
                         Uncoated
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setProductTypes((prev) => ({ ...prev, [item.id]: 'coated' }));
+                        }}
+                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
+                          productTypes[item.id] === 'coated'
+                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        Coated
                       </button>
                     </div>
                   )}

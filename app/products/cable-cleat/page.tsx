@@ -9,19 +9,6 @@ import {
   FileText
 } from 'lucide-react';
 
-// Verified Technical Specifications data from IEC 61914 standards
-const technicalSpecifications = [
-  { spec: 'Material Grade', details: 'Marine-Grade Stainless Steel AISI 316 / 316L & Die-Cast Aluminium' },
-  { spec: 'Cleat Configuration', details: 'Trefoil Cleats (triangular three-phase arrangement) & Single Cable Clamps' },
-  { spec: 'Cushioning Liner', details: 'Low-Smoke Zero-Halogen (LSOH) UV-resistant polymer pad (protects cable sheath)' },
-  { spec: 'Short-Circuit Withstand', details: 'Type-tested for peak dynamic fault forces up to 180 kA (IEC 61914:2015)' },
-  { spec: 'Operating Temperature', details: '-40°C to +120°C continuous operating range' },
-  { spec: 'Fastener Hardware', details: 'High-tensile Stainless Steel M10 / M12 fixing bolts, flat washers, and nylon locknuts' },
-  { spec: 'Standard & Compliance', details: 'Fully compliant and certified to IEC 61914:2015 (Cable cleats for electrical installations)' },
-  { spec: 'Corrosion Resistance', details: 'Severe-duty marine environment resistance (tested to salt-spray and outdoor weathering)' },
-  { spec: 'Primary Applications', details: 'High-voltage power generation, substations, offshore platforms, wind turbines, metro tunnels, and industrial power distribution' },
-];
-
 const CableCleatPage: React.FC = () => {
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
@@ -151,53 +138,6 @@ const CableCleatPage: React.FC = () => {
               <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 Secure cable management built for reliable performance.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Technical Specifications Table Section ── */}
-      <section className="py-12 sm:py-16 bg-[#f8f9fa] border-y border-slate-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="mb-6 sm:mb-8">
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#004428]">
-              Verified Engineering Specifications
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-              Technical Specification Table
-            </h3>
-            <p className="text-sm text-slate-500 mt-1 max-w-[620px]">
-              Actual verified technical parameters, mechanical withstand ratings, and material standards for NAEPL Cable Cleats.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-slate-700">
-                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase font-semibold text-slate-500 tracking-wider">
-                  <tr>
-                    <th className="py-4 px-5 sm:px-6 w-1/3">Specification</th>
-                    <th className="py-4 px-5 sm:px-6">Details</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {technicalSpecifications.map((row, idx) => (
-                    <tr 
-                      key={row.spec} 
-                      className={`transition-colors hover:bg-slate-50/80 ${
-                        idx % 2 === 0 ? 'bg-white' : 'bg-[#fafafa]'
-                      }`}
-                    >
-                      <td className="py-3.5 px-5 sm:px-6 font-semibold text-slate-900">
-                        {row.spec}
-                      </td>
-                      <td className="py-3.5 px-5 sm:px-6 text-slate-600 leading-relaxed">
-                        {row.details}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
             </div>
           </div>
         </div>

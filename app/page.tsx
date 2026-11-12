@@ -166,15 +166,6 @@ const featuredProducts = [
     link: '/products/n-loc',
   },
   {
-    slug: 'zig-zag-cable-ties',
-    name: 'Zig Zag Cable Ties',
-    brandNote: 'N-LOC Series',
-    category: 'STAINLESS STEEL FASTENING',
-    desc: 'Contoured stainless steel ties engineered for secure retention on vibrating, high-flexibility, and uneven bundling profiles',
-    img: '/assets/nloc/ladder_cable_tie.webp',
-    link: '/products/n-loc',
-  },
-  {
     slug: 'cable-cleats',
     name: 'Cable Cleats',
     brandNote: 'Power Accessories',
@@ -496,7 +487,7 @@ const HomePage: React.FC = () => {
 
             {/* Right Column: Rich Manufacturing Capability Cards */}
             <div className="flex flex-col border-t border-[#e8e8e8]">
-              {capabilities.map((cap, i) => (
+              {capabilities.map((cap) => (
                 <div
                   key={cap.title}
                   className="group relative flex flex-col py-6 sm:py-7 px-4 sm:px-6 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f0f7f3] hover:pl-8 cursor-default"
@@ -507,9 +498,6 @@ const HomePage: React.FC = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-bold tracking-wider text-[#8c2442] uppercase">
                       {cap.badge}
-                    </span>
-                    <span className="font-sans text-xs font-light text-[#9a9a9a] group-hover:text-[#004428] group-hover:font-semibold transition-colors">
-                      0{i + 1}
                     </span>
                   </div>
 

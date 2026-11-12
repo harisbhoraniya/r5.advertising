@@ -12,11 +12,11 @@ interface ProductItem {
 
 // Descriptive product naming per client feedback
 const otherProducts: ProductItem[] = [
-  { id: 'cable-cleat', title: 'Cable Cleats', path: '/products/cable-cleat' },
-  { id: 'link-box', title: 'Weatherproof Junction Boxes', path: '/products/link-box' },
-  { id: 'lugx', title: 'Electrical Termination Lugs', path: '/products/lugx' },
+  { id: 'cable-cleat', title: 'Cable Cleats & Accessories', path: '/products/cable-cleat' },
+  { id: 'link-box', title: 'Electrical Enclosures & Junction Boxes', path: '/products/link-box' },
+  { id: 'lugx', title: 'Electrical Lugs & Terminals', path: '/products/lugx' },
   { id: 'cnc-machine-component', title: 'CNC Machined Components', path: '/products/cnc-machine-component' },
-  { id: 'press-parts', title: 'Sheet Metal Press Parts', path: '/products/sheet-metal-press-parts' },
+  { id: 'press-parts', title: 'Sheet Metal Components', path: '/products/sheet-metal-press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -229,6 +229,20 @@ export const Navbar: React.FC = () => {
           >
             Contact
           </Link>
+
+          <a
+            href="https://www.ngandhi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit N. Gandhi Group website"
+            className="flex items-center pl-4 border-l border-slate-200 hover:opacity-85 transition-opacity"
+          >
+            <img
+              src="/assets/logo_ngandhi_group.png"
+              alt="N. Gandhi Group"
+              className="h-[26px] lg:h-[30px] w-auto object-contain"
+            />
+          </a>
         </nav>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -367,6 +381,21 @@ export const Navbar: React.FC = () => {
             >
               <span>Contact</span>
             </Link>
+
+            <a
+              href="https://www.ngandhi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit N. Gandhi Group website"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 py-2.5 px-3 rounded-lg flex items-center hover:bg-slate-50 transition-colors"
+            >
+              <img
+                src="/assets/logo_ngandhi_group.png"
+                alt="N. Gandhi Group"
+                className="h-[28px] w-auto object-contain"
+              />
+            </a>
 
             {/* Mobile Footer Badge */}
             <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2 px-2 text-xs text-slate-500">

@@ -30,7 +30,7 @@ const requirementOptions: Record<
       'Heavy Duty Cable Ties',
       'Releasable Cable Ties',
       'Ladder Cable Ties',
-      'Zig Zag Cable Ties',
+      'Ball Lock Spring Type',
       'Cable Marker Tags & Plates',
       'General / Custom SS Ties',
     ],

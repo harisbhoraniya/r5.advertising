@@ -134,7 +134,7 @@ const IndustryPage: React.FC = () => {
         {/* Professional 8-Card Clean Image Grid (Consistent dimensions, clean styling) */}
         <div className="max-w-[1240px] mx-auto px-4 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-            {industries.map((ind, i) => (
+            {industries.map((ind) => (
               <div
                 key={ind.id}
                 className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 bg-slate-950 border border-slate-200/80 aspect-[4/3] flex flex-col justify-end cursor-default"
@@ -149,13 +149,6 @@ const IndustryPage: React.FC = () => {
 
                 {/* Dark Vignette & Gradient Overlays for Crystal Clear Text Contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10 transition-opacity duration-300 group-hover:opacity-90" />
-
-                {/* Top-Right Number Pill Badge */}
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white/90 text-[11px] font-mono font-medium shadow-sm">
-                    0{i + 1}
-                  </span>
-                </div>
 
                 {/* Bottom Content Container: Displaying ONLY the Industry Title */}
                 <div className="relative z-10 p-5 sm:p-6">
