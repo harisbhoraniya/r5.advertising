@@ -46,7 +46,7 @@ const industries: IndustryItem[] = [
   {
     id: 'automobile',
     name: 'Automobile',
-    img: '/assets/hero_slides/slide_5_end_to_end.webp',
+    img: '/assets/sector_automobile.jpg',
   },
   {
     id: 'water-wastewater-treatment',

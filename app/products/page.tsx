@@ -23,37 +23,37 @@ const productCatalog: ProductItem[] = [
     brandTag: 'N-LOC Series',
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'BALL LOCK & LADDER TIES',
-    desc: 'Self-locking roller ball, ladder, releasable and coated stainless steel ties in SS 304 & 316 for extreme temperature bundling.',
+    desc: 'High-strength self-locking, ladder, spring type and releasable stainless steel cable ties in SS 304 & 316, engineered for secure fastening and reliable performance in demanding environments.',
     image: '/assets/featured_products/featured_nloc.webp',
     link: '/products/n-loc',
   },
   {
     id: 'cable-cleats',
-    title: 'Cable Cleats',
+    title: 'Cable Cleats & Accessories',
     brandTag: 'Power Accessories',
     category: 'POWER CABLE ACCESSORIES',
     badge: 'IEC 61914 CERTIFIED',
-    desc: 'Short-circuit withstand retention cleats for single and trefoil power cables engineered to withstand up to 180 kA peak fault forces.',
+    desc: 'Precision-engineered cable cleats designed to provide secure cable retention and withstand short-circuit forces up to 180 kA, ensuring dependable support for single and trefoil power cable installations.',
     image: '/assets/featured_products/featured_cable_cleats.webp',
     link: '/products/cable-cleat',
   },
   {
     id: 'junction-boxes',
-    title: 'Weatherproof Junction Boxes & Enclosures',
+    title: 'Electrical Enclosures & Junction Boxes',
     brandTag: 'LINKBOX Series',
     category: 'ENCLOSURES & JUNCTION BOXES',
     badge: 'IP66 / IP68 WEATHERPROOF',
-    desc: 'Heavy-duty industrial terminal enclosures and junction boxes in die-cast aluminium, stainless steel, and mild steel.',
+    desc: 'Robust electrical enclosures manufactured in die-cast aluminium, stainless steel and mild steel, designed to safeguard electrical connections against harsh industrial and environmental conditions.',
     image: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
   },
   {
     id: 'electrical-lugs',
-    title: 'Electrical Termination Lugs & Connectors',
+    title: 'Electrical Lugs & Terminals',
     brandTag: 'LUGX Series',
     category: 'ELECTRICAL LUGS & TERMINALS',
     badge: 'HIGH CONDUCTIVITY COPPER / AL',
-    desc: 'Precision copper, aluminium, and bi-metallic friction-welded cable lugs, ring terminals, and electrical power connectors.',
+    desc: 'Precision-manufactured copper, aluminium and bi-metallic cable lugs, ring terminals and electrical connectors engineered for secure connections and efficient power transmission.',
     image: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
@@ -63,17 +63,17 @@ const productCatalog: ProductItem[] = [
     brandTag: 'Precision Turning & Milling',
     category: 'PRECISION ENGINEERING',
     badge: 'MICRON TOLERANCE MACHINING',
-    desc: 'Multi-axis CNC turned, milled, and drilled components in Copper, SS, Aluminium, and Chrome Steel manufactured to drawings.',
+    desc: 'Precision CNC-turned, milled and drilled components manufactured in copper, stainless steel, aluminium and chrome steel, tailored to customer drawings and specifications.',
     image: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
   },
   {
     id: 'press-parts',
-    title: 'Sheet Metal Press Parts & Banding',
+    title: 'Sheet Metal Components',
     brandTag: 'Stamping & Banding',
     category: 'SHEET METAL COMPONENTS',
     badge: 'PROGRESSIVE DIE STAMPING',
-    desc: 'Precision progressive tool stamping, pressed parts, stainless steel banding straps, and buckles for global assemblies.',
+    desc: 'Precision-stamped, progressive-tool and sheet metal components, including pressed parts, stainless steel banding straps and buckles, manufactured for demanding industrial applications.',
     image: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
@@ -106,17 +106,17 @@ const ProductsPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            Engineered Range · ISO 9001:2015
+            PRECISION ENGINEERING • INDUSTRIAL SOLUTIONS
           </p>
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-[54px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-            Our Product Range
+            Where Precision Meets Performance.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[580px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-            Precision-engineered metallic fastening, short-circuit cable retention, weatherproof enclosures, electrical connectivity, and custom CNC components.
+          <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[620px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
+            From concept to component, we deliver reliable engineering solutions built for demanding industrial applications.
           </p>
         </div>
 

@@ -177,7 +177,7 @@ const CableCleatPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Engineered for single-core cables laid in trefoil formation to withstand high electromagnetic short-circuit stresses.
+                  Engineered to secure trefoil-arranged power cables, providing dependable mechanical restraint and cable retention under demanding short-circuit conditions.
                 </p>
               </div>
             </div>
@@ -205,7 +205,7 @@ const CableCleatPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Single cable clamps providing strong mechanical support, vibration absorption, and cable sheath protection.
+                  Designed for secure single-cable installations, delivering reliable cable retention, mechanical stability, and organized cable support across power distribution systems.
                 </p>
               </div>
             </div>

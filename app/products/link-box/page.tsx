@@ -126,9 +126,6 @@ const LinkBoxPage: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
                 Corrosion Resistant
               </span>
-              <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                UV &amp; Thermal Tested
-              </span>
             </div>
 
             {/* Bottom Tagline Container */}
@@ -178,7 +175,7 @@ const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Corrosion-resistant die-cast aluminium enclosures offering IP66 protection against mechanical impacts.
+                  Precision die-cast aluminium enclosures designed for electrical components and control applications, offering a robust construction and compact housing solution.
                 </p>
               </div>
             </div>
@@ -206,7 +203,7 @@ const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Fabricated in AISI 304/316 for severe marine, offshore, and chemical washdown applications.
+                  Stainless steel enclosures manufactured in SS 304 and SS 316, suitable for electrical installations, industrial equipment and demanding application environments.
                 </p>
               </div>
             </div>
@@ -234,12 +231,12 @@ const LinkBoxPage: React.FC = () => {
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Heavy-gauge CRCA sheet steel enclosures with high-grade powder coating for industrial indoor use.
+                  Heavy-duty CRCA sheet steel junction boxes with powder-coated finishes, manufactured for reliable electrical housing and industrial applications.
                 </p>
               </div>
             </div>
 
-            {/* Card 4: SS Push Button Panel */}
+            {/* Card 4: SS Push Button Panels */}
             <div
               id="ss-push-button-panel"
               className="group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
@@ -247,7 +244,7 @@ const LinkBoxPage: React.FC = () => {
               <div className="relative h-[190px] sm:h-[220px] bg-slate-50 flex items-center justify-center overflow-hidden p-4">
                 <img
                   src="/assets/link_box/ss_push_button_panel.png"
-                  alt="SS Push Button Panel"
+                  alt="SS Push Button Panels"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -258,11 +255,11 @@ const LinkBoxPage: React.FC = () => {
                   STAINLESS STEEL CONTROL ENCLOSURES
                 </div>
                 <h3 className="text-[18px] sm:text-[19px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                  SS Push Button Panel
+                  SS Push Button Panels
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
                 <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
-                  Precision-fabricated stainless steel push button control panels (1, 2 &amp; 3-way) with standard 22.5 mm cutouts and IP66 sealing.
+                  Precision-fabricated stainless steel push button panels featuring 1, 2 and 3-way configurations, standard 22.5 mm cut-outs and IP66 sealing options.
                 </p>
               </div>
             </div>

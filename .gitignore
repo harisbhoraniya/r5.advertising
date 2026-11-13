@@ -14,6 +14,17 @@ dist-ssr
 out
 *.local
 
+# Environment files
+.env
+.env*.local
+.env.local
+.env.production
+.env.development
+
+# Reference documents
+*.pdf
+!public/brochures/*.pdf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

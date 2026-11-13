@@ -27,7 +27,7 @@ const nlocProducts: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'SELF-LOCKING · BALL LOCK',
     image: '/assets/nloc/roller_ball_standard_transparent.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/roller-ball',
   },
   {
     id: 'roller-ball-hd',
@@ -35,7 +35,7 @@ const nlocProducts: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'HEAVY DUTY · HIGH TENSILE',
     image: '/assets/nloc/roller_ball_hd_transparent.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/roller-ball-hd',
   },
   {
     id: 'releasable',
@@ -43,7 +43,7 @@ const nlocProducts: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'REUSABLE · PPA571 COATED',
     image: '/assets/nloc/releasable_cable_tie.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/releasable',
   },
   {
     id: 'ladder',
@@ -51,7 +51,7 @@ const nlocProducts: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'LADDER TYPE · SELF-LOCKING',
     image: '/assets/nloc/ladder_cable_tie.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/ladder',
   },
   {
     id: 'zig-zag',
@@ -59,7 +59,15 @@ const nlocProducts: ProductItem[] = [
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'CONTOURED · HIGH VIBRATION',
     image: '/assets/nloc/zig_zag_cable_tie_uncoated.jpg',
-    link: '/products/n-loc',
+    link: '/products/n-loc/zig-zag',
+  },
+  {
+    id: 'zig-zag-hd',
+    title: 'Ball Lock Spring Type Heavy Duty',
+    category: 'STAINLESS STEEL CABLE TIES',
+    badge: 'HEAVY DUTY · HIGH VIBRATION',
+    image: '/assets/nloc/zig_zag_hd_cable_tie_uncoated.jpg',
+    link: '/products/n-loc/zig-zag-hd',
   },
   {
     id: 'marker-tag',
@@ -67,7 +75,7 @@ const nlocProducts: ProductItem[] = [
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'LASER & EMBOSSED',
     image: '/assets/nloc/cable_marker_tag.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/marker-tag',
   },
   {
     id: 'marker-plates',
@@ -75,7 +83,15 @@ const nlocProducts: ProductItem[] = [
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'STAINLESS STEEL PLATES',
     image: '/assets/nloc/marker_plates.webp',
-    link: '/products/n-loc',
+    link: '/products/n-loc/marker-plates',
+  },
+  {
+    id: 'alphanumeric-characters',
+    title: 'Alphanumeric Characters',
+    category: 'IDENTIFICATION SYSTEMS',
+    badge: 'STAINLESS STEEL EMBOSSED',
+    image: '/assets/nloc/alphanumeric_characters.jpg',
+    link: '/products/n-loc/alphanumeric-characters',
   },
 ];
 
@@ -86,6 +102,7 @@ const NLocPage: React.FC = () => {
     'releasable': 'uncoated',
     'ladder': 'uncoated',
     'zig-zag': 'uncoated',
+    'zig-zag-hd': 'uncoated',
   });
 
   const getItemImage = (item: ProductItem) => {
@@ -114,6 +131,11 @@ const NLocPage: React.FC = () => {
       return type === 'coated'
         ? '/assets/nloc/zig_zag_cable_tie_coated.jpg'
         : '/assets/nloc/zig_zag_cable_tie_uncoated.jpg';
+    }
+    if (item.id === 'zig-zag-hd') {
+      return type === 'coated'
+        ? '/assets/nloc/zig_zag_hd_cable_tie_coated.jpg'
+        : '/assets/nloc/zig_zag_hd_cable_tie_uncoated.jpg';
     }
     return item.image;
   };
@@ -231,12 +253,6 @@ const NLocPage: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
                 Fire Resistant (UL 94V-0)
               </span>
-              <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Marine &amp; Salt-Spray Proof
-              </span>
-              <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                -80°C to +538°C Tested
-              </span>
             </div>
 
             <div className="flex flex-col gap-1 border-t border-slate-100 pt-4">
@@ -286,7 +302,7 @@ const NLocPage: React.FC = () => {
                   </h3>
                   <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder', 'zig-zag'].includes(item.id) && (
+                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder', 'zig-zag', 'zig-zag-hd'].includes(item.id) && (
                     <div className="flex items-center gap-2 mb-4">
                       <button
                         type="button"
@@ -318,6 +334,14 @@ const NLocPage: React.FC = () => {
                       </button>
                     </div>
                   )}
+
+                  <Link 
+                    href={item.link} 
+                    className="mt-auto pt-3 inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3"
+                  >
+                    <span>VIEW DETAILS</span>
+                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -354,8 +378,7 @@ const NLocPage: React.FC = () => {
 
             {/* Right Column: Technical Consultation Info + Request Quotation */}
             <div className="lg:col-span-7 lg:pl-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-4 border border-emerald-400/20">
-                <CheckCircle2 size={14} className="text-emerald-400" />
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-4 border border-emerald-400/20">
                 <span>NAEPL Technical Consultation</span>
               </div>
               
