@@ -176,9 +176,17 @@ const CableCleatPage: React.FC = () => {
                   Trefoil Cable Cleats
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-                <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
+                <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0 mb-4">
                   Engineered to secure trefoil-arranged power cables, providing dependable mechanical restraint and cable retention under demanding short-circuit conditions.
                 </p>
+
+                <Link 
+                  href="/products/cable-cleat/trefoil-cleat" 
+                  className="mt-auto pt-3 inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3"
+                >
+                  <span>VIEW DETAILS</span>
+                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
               </div>
             </div>
 
@@ -204,10 +212,65 @@ const CableCleatPage: React.FC = () => {
                   Single Cable Cleats
                 </h3>
                 <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-                <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0">
+                <p className="text-[13px] text-slate-500 font-normal leading-relaxed m-0 mb-4">
                   Designed for secure single-cable installations, delivering reliable cable retention, mechanical stability, and organized cable support across power distribution systems.
                 </p>
+
+                <Link 
+                  href="/products/cable-cleat/single-cleat" 
+                  className="mt-auto pt-3 inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3"
+                >
+                  <span>VIEW DETAILS</span>
+                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5B. Typical Industrial Applications (Styled identical to "Sectors We Serve" from Homepage) ── */}
+      <section className="py-14 sm:py-20 bg-[#1a1a1a] relative overflow-hidden text-white">
+        {/* Ambient Gradient Glows */}
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(0,68,40,0.3)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(140,36,66,0.25)_0%,transparent_70%)] pointer-events-none" />
+
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-center">
+            <div>
+              <p className="text-[11px] font-semibold text-[#8b96a5] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
+                <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
+                Applications
+              </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium text-white leading-[1.2] tracking-tight">
+                Typical Industrial <br className="hidden sm:inline" />
+                <span className="text-[#8c2442]">Applications</span>
+              </h2>
+              <p className="text-[13.5px] text-white/60 mt-3 font-light leading-relaxed max-w-[340px]">
+                Engineered to deliver dependable retention across demanding mission-critical operating environments.
+              </p>
+            </div>
+
+            {/* Interactive Application Chips */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Cable Tray & Ladder Systems',
+                'Power Distribution & Substations',
+                'Industrial Switchgear & Transformers',
+                'Solar Photovoltaic Inverter Skids',
+                'Wind Turbine Down-Tower Cables',
+                'Offshore Oil & Gas Rigs & Marine Vessels',
+                'Underground Metro & Rail Transit Systems',
+                'Petrochemical & Industrial Processing Plants',
+                'Short-Circuit Electromechanical Protection',
+              ].map((app, idx) => (
+                <div
+                  key={idx}
+                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-pointer shadow-sm select-none"
+                >
+                  {app}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -242,8 +305,7 @@ const CableCleatPage: React.FC = () => {
 
             {/* Right Column: Technical Consultation Info + Request Quotation */}
             <div className="lg:col-span-7 lg:pl-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-4 border border-emerald-400/20">
-                <CheckCircle2 size={14} className="text-emerald-400" />
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider mb-4 border border-emerald-400/20">
                 <span>NAEPL Technical Consultation</span>
               </div>
               

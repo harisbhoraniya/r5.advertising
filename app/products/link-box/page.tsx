@@ -98,7 +98,7 @@ const LinkBoxPage: React.FC = () => {
             </h2>
 
             <p className="text-[14px] sm:text-[15px] leading-[1.7] text-gray-700 mb-5 font-normal">
-              NAEPL manufactures precision electrical junction boxes and terminal enclosures under the LINKBOX series in die-cast Aluminium, Stainless Steel, and Mild Steel. Designed to shield internal electrical connections from moisture ingress, dust storms, UV radiation, and mechanical impacts, these enclosures offer dependable IP66/IP68 ingress protection across industrial manufacturing and infrastructure networks.
+              NAEPL manufactures precision electrical junction boxes and terminal enclosures under the LINKBOX series in die-cast Aluminium, Stainless Steel, and Mild Steel. Designed to shield internal electrical connections from moisture ingress, dust storms, and mechanical impacts, these enclosures offer dependable IP66/IP68 ingress protection across industrial manufacturing and infrastructure networks.
             </p>
 
             {/* Two Simple Highlights */}

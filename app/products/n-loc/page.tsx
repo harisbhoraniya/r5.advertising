@@ -251,13 +251,13 @@ const NLocPage: React.FC = () => {
             {/* Badges / Pill Tags */}
             <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Fire Resistant (UL 94V-0)
+                Fire-proof
               </span>
             </div>
 
             <div className="flex flex-col gap-1 border-t border-slate-100 pt-4">
               <p className="text-[12.5px] sm:text-[13.5px] text-slate-500">
-                Engineered to withstand extreme industrial weathering and continuous UV exposure.
+                Engineered for dependable mechanical restraint across demanding industrial installations.
               </p>
               <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 Secure Today. Reliable Tomorrow.

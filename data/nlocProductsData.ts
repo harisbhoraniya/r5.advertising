@@ -57,8 +57,8 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Fully enclosed head prevents dirt, dust, grit, or moisture from interfering with the internal locking ball.',
       'Smooth rounded edges eliminate fraying and ensure safe handling during high-tension cable pulls.',
       'Suitable for all types of cable insulation including PVC, XLPE, EPR, and silicon rubber.',
-      'Fire-proof (UL 94V-0 compliant), non-toxic, and halogen-free for critical transit and marine safety.',
-      'High resistance to saltwater spray, chemical washdowns, UV weathering, and gamma radiation.',
+      'Fire-proof, non-toxic, and halogen-free for critical transit and marine safety.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -67,7 +67,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       tempRange: '-60°C to +300°C (Uncoated) | -60°C to +150°C (Coated)',
       surfaceFinish: 'Metallic Uncoated / Pure Polyester & Nylon Coated',
       loopTensile: '4.6mm: 445 N (100 lbs) | 7.9mm: 1112 N (250 lbs)',
-      flammability: 'Non-flammable, Fire-resistant (UL 94V-0 compliant)',
+      flammability: 'Fire-proof & Non-flammable',
       packaging: '100 Nos. per Bag (Custom bulk pack options available)',
     },
     applications: [
@@ -169,6 +169,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Fully enclosed roller-ball mechanism locks securely and prevents environmental ingress.',
       'Available in AISI 304 for general outdoor use and marine-grade AISI 316 for severe offshore exposure.',
       'Uncoated operating temperature rating up to +500°C for extreme thermal survivability.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -177,7 +178,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       tempRange: '-60°C to +500°C (Uncoated) | -60°C to +150°C (Coated)',
       surfaceFinish: 'Metallic Uncoated / Pure Polyester & Nylon Coated',
       loopTensile: '12.7mm: 3115 N (318 kg) | 16.0mm: 3560 N (363 kg)',
-      flammability: 'UL 94V-0 Fireproof & Non-flammable',
+      flammability: 'Fire-proof & Non-flammable',
       packaging: '100 Nos. per Bag',
     },
     applications: [
@@ -270,6 +271,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Available with PPA 571 or Polyester coatings designed for long-lasting exterior and subsea service.',
       'Flame retardant, non-toxic, and free from water absorption.',
       'Smooth edges and soft polymer cushion prevent pinching or sheath abrasion.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -363,6 +365,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Smooth rounded edges protect cable insulation against cuts under heavy tension.',
       'Available in pure polyester coated variant to eliminate contact between dissimilar metals.',
       'Packaged in standard 100 Nos. per bag.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -371,7 +374,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       tempRange: '-60°C to +300°C (Uncoated) | -60°C to +150°C (Coated)',
       surfaceFinish: 'Metallic Uncoated / Pure Polyester Coated',
       loopTensile: '7.0mm: 445 N | 12.0mm: 1112 N',
-      flammability: 'UL 94V-0 Fireproof & Halogen-Free',
+      flammability: 'Fire-proof & Halogen-Free',
       packaging: '100 Nos. per Bag',
     },
     applications: [
@@ -464,6 +467,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Ball lock head ensures fast, high-speed single-motion installation.',
       'Prevents bundle pinch points and damage to soft-sheathed instrumentation cabling.',
       'Available in both uncoated mirror-finish and protective black polyester coated options.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -472,7 +476,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       tempRange: '-60°C to +300°C (Uncoated) | -60°C to +150°C (Coated)',
       surfaceFinish: 'Metallic Uncoated / Pure Polyester Coated',
       loopTensile: '4.6mm: 445 N | 7.9mm: 1112 N',
-      flammability: 'UL 94V-0 Fireproof & Non-flammable',
+      flammability: 'Fire-proof & Non-flammable',
       packaging: '100 Nos. per Bag',
     },
     applications: [
@@ -517,7 +521,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
     category: 'STAINLESS STEEL CABLE TIES',
     badge: 'HEAVY DUTY · HIGH VIBRATION',
     tagline: 'Heavy-duty spring-wave ties engineered for extreme vibration loads and high-capacity industrial power runs.',
-    description: 'Combining the tension-retaining benefits of spring geometry with the sheer mechanical holding power of 12.7 mm and 16 mm heavy-duty straps, NAEPL Ball Lock Spring Type Heavy Duty Cable Ties are built for heavy cable runs subjected to intense vibration and harsh weather.',
+    description: 'Combining the tension-retaining benefits of spring geometry with the sheer mechanical holding power of 12.7 mm and 16 mm heavy-duty straps, NAEPL Ball Lock Spring Type Heavy Duty Cable Ties are built for heavy cable runs subjected to intense vibration and demanding operational conditions.',
     images: {
       uncoated: '/assets/nloc/zig_zag_hd_cable_tie_uncoated.jpg',
       coated: '/assets/nloc/zig_zag_hd_cable_tie_coated.jpg',
@@ -527,6 +531,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Active spring contour prevents slackening under seismic or mechanical vibration.',
       'Fully sealed ball locking head for maximum resistance against dust and grit.',
       'Available in SS 304 and marine-grade SS 316.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 304 / 304L & AISI 316 / 316L Stainless Steel',
@@ -535,7 +540,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       tempRange: '-60°C to +500°C (Uncoated) | -60°C to +150°C (Coated)',
       surfaceFinish: 'Metallic Uncoated / Pure Polyester Coated',
       loopTensile: '12.7mm: 3115 N | 16.0mm: 3560 N',
-      flammability: 'UL 94V-0 Fireproof & Non-flammable',
+      flammability: 'Fire-proof & Non-flammable',
       packaging: '100 Nos. per Bag',
     },
     applications: [
@@ -588,7 +593,8 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Slides directly onto N-LOC cable ties to form a self-contained wrap tag.',
       'Carrier strips available in multiple lengths to accommodate 7 to 26 characters.',
       'High legibility under dim light, smoke, and grime exposure.',
-      'UV resistant and operational across an extreme temperature range of -80°C to +538°C.',
+      'Operational across an extreme temperature range of -80°C to +538°C.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 316 / 316L & AISI 304 / 304L Stainless Steel',
@@ -625,7 +631,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
     category: 'IDENTIFICATION SYSTEMS',
     badge: 'LASER & EMBOSSED PLATES',
     tagline: 'Multi-line custom laser-etched and embossed marker plates engineered for lifetime readability in extreme environments.',
-    description: 'NAEPL Stainless Steel Marker Plates are designed to identify conduits, valves, high-voltage cables, and industrial equipment. Custom-marked using computer-controlled laser etching or mechanical embossing systems, each plate provides permanent, abrasion-proof identification that withstands marine saltwater, corrosive chemicals, and outdoor weathering.',
+    description: 'NAEPL Stainless Steel Marker Plates are designed to identify conduits, valves, high-voltage cables, and industrial equipment. Custom-marked using computer-controlled laser etching or mechanical embossing systems, each plate provides permanent, abrasion-proof identification that withstands marine saltwater, corrosive chemicals, and harsh industrial environments.',
     images: {
       uncoated: '/assets/nloc/marker_plates.webp',
     },
@@ -635,6 +641,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Laser etching delivers razor-sharp contrast and sequential barcode / serial numbering.',
       'Mounts securely onto cables and conduits using standard 4.6 mm or 7.9 mm N-LOC cable ties.',
       'Manufactured from AISI 316 / 316L and AISI 304 / 304L stainless steel.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 316 / 316L & AISI 304 / 304L Stainless Steel',
@@ -681,6 +688,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
       'Slides smoothly into N-LOC carrier strips (NLU/NLC series) and locks with end clips.',
       'Engineered in AISI 316 / 316L and AISI 304 / 304L stainless steel for maximum corrosion resistance.',
       'Packaged in organized packs of 100 characters per bag.',
+      'Ideal for applications where corrosion, vibration, radiation or extremes of temperature are a concern.',
     ],
     specs: {
       materialGrades: 'AISI 316 / 316L & AISI 304 / 304L Stainless Steel',

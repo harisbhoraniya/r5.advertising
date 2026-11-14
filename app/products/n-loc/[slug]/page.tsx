@@ -35,10 +35,11 @@ const ProductDetailPage: React.FC = () => {
   const [activeFinish, setActiveFinish] = useState<'uncoated' | 'coated'>('uncoated');
   const [activeSubTableIdx, setActiveSubTableIdx] = useState<number>(0);
 
-  // When finish changes, reset sub-table index to 0
+  // Reset to initial tab only when product slug changes
   useEffect(() => {
     setActiveSubTableIdx(0);
-  }, [activeFinish]);
+    setActiveFinish('uncoated');
+  }, [slug]);
 
   const hasCoatedOption = Boolean(product.images.coated);
 
@@ -53,6 +54,36 @@ const ProductDetailPage: React.FC = () => {
   });
 
   const activeTable = visibleTables[activeSubTableIdx] || visibleTables[0] || product.tables[0];
+
+  // Preserve the selected width (e.g. 7.9mm Width) when switching between Uncoated and Coated finishes
+  const handleFinishChange = (newFinish: 'uncoated' | 'coated') => {
+    if (newFinish === activeFinish) return;
+
+    const currentTable = visibleTables[activeSubTableIdx] || visibleTables[0];
+    const currentWidth = currentTable?.title.split('–')[1]?.trim() || currentTable?.title.split('-')[1]?.trim();
+
+    const nextVisibleTables = product.tables.filter((tbl) => {
+      if (!tbl.finishType || tbl.finishType === 'all') return true;
+      return tbl.finishType === newFinish;
+    });
+
+    if (currentWidth && nextVisibleTables.length > 0) {
+      const matchedIdx = nextVisibleTables.findIndex((tbl) => {
+        const nextWidth = tbl.title.split('–')[1]?.trim() || tbl.title.split('-')[1]?.trim();
+        return nextWidth && nextWidth.toLowerCase() === currentWidth.toLowerCase();
+      });
+
+      if (matchedIdx !== -1) {
+        setActiveSubTableIdx(matchedIdx);
+      } else if (activeSubTableIdx >= nextVisibleTables.length) {
+        setActiveSubTableIdx(0);
+      }
+    } else if (activeSubTableIdx >= nextVisibleTables.length) {
+      setActiveSubTableIdx(0);
+    }
+
+    setActiveFinish(newFinish);
+  };
 
   const currentTemp = (activeFinish === 'coated' && product.specs.tempRangeCoated)
     ? product.specs.tempRangeCoated
@@ -146,7 +177,7 @@ const ProductDetailPage: React.FC = () => {
                 <div className="w-full mt-4 flex items-center justify-center gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
                   <button
                     type="button"
-                    onClick={() => setActiveFinish('uncoated')}
+                    onClick={() => handleFinishChange('uncoated')}
                     className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                       activeFinish === 'uncoated'
                         ? 'bg-[#004428] text-white shadow-md'
@@ -158,7 +189,7 @@ const ProductDetailPage: React.FC = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setActiveFinish('coated')}
+                    onClick={() => handleFinishChange('coated')}
                     className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                       activeFinish === 'coated'
                         ? 'bg-[#004428] text-white shadow-md'
@@ -193,7 +224,7 @@ const ProductDetailPage: React.FC = () => {
                   <Flame size={18} className="text-[#004428] shrink-0 mt-0.5" />
                   <div>
                     <p className="text-[10.5px] font-bold uppercase tracking-wider text-slate-400">Flammability</p>
-                    <p className="text-[12.5px] font-semibold text-slate-800 leading-tight mt-0.5">UL 94V-0 Fireproof</p>
+                    <p className="text-[12.5px] font-semibold text-slate-800 leading-tight mt-0.5">Fire-proof</p>
                   </div>
                 </div>
 
@@ -303,7 +334,7 @@ const ProductDetailPage: React.FC = () => {
                 <div className="flex items-center p-1 bg-white border border-slate-200 rounded-xl shadow-sm">
                   <button
                     type="button"
-                    onClick={() => setActiveFinish('uncoated')}
+                    onClick={() => handleFinishChange('uncoated')}
                     className={`px-3.5 py-1.5 rounded-lg text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       activeFinish === 'uncoated'
                         ? 'bg-[#004428] text-white shadow-sm'
@@ -314,7 +345,7 @@ const ProductDetailPage: React.FC = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setActiveFinish('coated')}
+                    onClick={() => handleFinishChange('coated')}
                     className={`px-3.5 py-1.5 rounded-lg text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       activeFinish === 'coated'
                         ? 'bg-[#004428] text-white shadow-sm'
