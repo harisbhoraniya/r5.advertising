@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X, ArrowRight } from 'lucide-react';
 
 interface ProductItem {
   id: string;
@@ -10,22 +10,70 @@ interface ProductItem {
   path: string;
 }
 
+// 9 Stainless Steel Cable Tie Products (N-LOC Series)
+const cableTieProducts: ProductItem[] = [
+  { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/products/n-loc/roller-ball' },
+  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/products/n-loc/roller-ball-hd' },
+  { id: 'releasable', title: 'Releasable Cable Tie', path: '/products/n-loc/releasable' },
+  { id: 'ladder', title: 'Ladder Cable Tie', path: '/products/n-loc/ladder' },
+  { id: 'zig-zag', title: 'Ball Lock Spring Type', path: '/products/n-loc/zig-zag' },
+  { id: 'zig-zag-hd', title: 'Ball Lock Spring Type Heavy Duty', path: '/products/n-loc/zig-zag-hd' },
+  { id: 'marker-tag', title: 'Cable Marker Tag', path: '/products/n-loc/marker-tag' },
+  { id: 'marker-plates', title: 'Marker Plates', path: '/products/n-loc/marker-plates' },
+  { id: 'alphanumeric-characters', title: 'Alphanumeric Characters', path: '/products/n-loc/alphanumeric-characters' },
+];
+
+// Cable Cleats Products
+const cableCleatProducts: ProductItem[] = [
+  { id: 'trefoil-cleat', title: 'Trefoil Cable Cleats', path: '/products/cable-cleat/trefoil-cleat' },
+  { id: 'single-cleat', title: 'Single Cable Cleats', path: '/products/cable-cleat/single-cleat' },
+];
+
+// Electrical Lugs & Terminals Products (LUGX Series)
+const lugProducts: ProductItem[] = [
+  { id: 'copper-one-hole-standard', title: 'Copper One-Hole Standard Cable Lugs', path: '/products/lugx/copper-one-hole-standard' },
+  { id: 'copper-one-hole-long-barrel', title: 'Copper One-Hole Long Barrel Cable Lugs', path: '/products/lugx/copper-one-hole-long-barrel' },
+  { id: 'copper-one-hole-heavy-duty', title: 'Copper One-Hole Heavy Duty Cable Lugs', path: '/products/lugx/copper-one-hole-heavy-duty' },
+  { id: 'copper-one-hole-bell-mouth', title: 'Copper One-Hole Bell Mouth Cable Lugs', path: '/products/lugx/copper-one-hole-bell-mouth' },
+  { id: 'copper-one-hole-narrow-palm', title: 'Copper One-Hole Narrow Palm Cable Lugs', path: '/products/lugx/copper-one-hole-narrow-palm' },
+  { id: 'copper-two-hole-heavy-duty', title: 'Copper Two-Hole Heavy Duty Cable Lugs', path: '/products/lugx/copper-two-hole-heavy-duty' },
+  { id: 'copper-two-hole-long-barrel', title: 'Copper Two-Hole Long Barrel Cable Lugs', path: '/products/lugx/copper-two-hole-long-barrel' },
+  { id: 'copper-two-hole-long-barrel-heavy-duty', title: 'Copper Two-Hole Long Barrel Heavy Duty', path: '/products/lugx/copper-two-hole-long-barrel-heavy-duty' },
+  { id: 'copper-four-hole-transformer', title: 'Copper Four-Hole Transformer Lugs', path: '/products/lugx/copper-four-hole-transformer' },
+  { id: 'aluminium-one-hole-standard', title: 'Aluminium One-Hole Crimping Terminals', path: '/products/lugx/aluminium-one-hole-standard' },
+  { id: 'aluminium-two-hole-standard', title: 'Aluminium Two-Hole Crimping Terminals', path: '/products/lugx/aluminium-two-hole-standard' },
+  { id: 'aluminium-one-hole-long-barrel', title: 'Aluminium One-Hole Long Barrel Terminals', path: '/products/lugx/aluminium-one-hole-long-barrel' },
+  { id: 'copper-ring-open-closed-soldering', title: 'Copper Ring Terminals – Soldering Type', path: '/products/lugx/copper-ring-open-closed-soldering' },
+  { id: 'bimetallic-friction-welded', title: 'Bi-Metallic Friction-Welded Terminals', path: '/products/lugx/bimetallic-friction-welded' },
+  { id: 'bimetallic-copper-ring', title: 'Bi-Metallic Copper Ring Terminals', path: '/products/lugx/bimetallic-copper-ring' },
+  { id: 'copper-crimping-pin', title: 'Copper Crimping Pin Terminals', path: '/products/lugx/copper-crimping-pin' },
+  { id: 'copper-crimping-ring', title: 'Copper Crimping Ring Terminals', path: '/products/lugx/copper-crimping-ring' },
+  { id: 'copper-crimping-fork', title: 'Copper Crimping Fork Terminals', path: '/products/lugx/copper-crimping-fork' },
+  { id: 'copper-ring-tongue-fork', title: 'Copper Crimping Ring Tongue Fork Terminals', path: '/products/lugx/copper-ring-tongue-fork' },
+];
+
 // Descriptive product naming per client feedback
 const otherProducts: ProductItem[] = [
-  { id: 'cable-cleat', title: 'Cable Cleats & Accessories', path: '/products/cable-cleat' },
-  { id: 'link-box', title: 'Electrical Enclosures & Junction Boxes', path: '/products/link-box' },
-  { id: 'lugx', title: 'Electrical Lugs & Terminals', path: '/products/lugx' },
   { id: 'cnc-machine-component', title: 'CNC Machined Components', path: '/products/cnc-machine-component' },
   { id: 'press-parts', title: 'Sheet Metal Components', path: '/products/sheet-metal-press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [cableTiesOpen, setCableTiesOpen] = useState(false);
+  const [cableCleatsOpen, setCableCleatsOpen] = useState(false);
+  const [lugsOpen, setLugsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileCableTiesOpen, setMobileCableTiesOpen] = useState(false);
+  const [mobileCableCleatsOpen, setMobileCableCleatsOpen] = useState(false);
+  const [mobileLugsOpen, setMobileLugsOpen] = useState(false);
 
   const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
+  const cableTiesCloseTimeoutRef = useRef<number | null>(null);
+  const cableCleatsCloseTimeoutRef = useRef<number | null>(null);
+  const lugsCloseTimeoutRef = useRef<number | null>(null);
   const router = useRouter();
   const navigate = (p: string) => router.push(p);
   const pathname = usePathname() || '/';
@@ -33,7 +81,14 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setMobileProductsOpen(false);
+    setMobileCableTiesOpen(false);
+    setMobileCableCleatsOpen(false);
+    setMobileLugsOpen(false);
     setIsOpen(false);
+    setCableTiesOpen(false);
+    setCableCleatsOpen(false);
+    setLugsOpen(false);
   }, [location.pathname]);
 
   const isProductsActive =
@@ -71,7 +126,73 @@ export const Navbar: React.FC = () => {
     }
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
+      setCableTiesOpen(false);
+      setCableCleatsOpen(false);
+      setLugsOpen(false);
     }, 180);
+  };
+
+  const handleCableTiesEnter = () => {
+    if (cableTiesCloseTimeoutRef.current) {
+      clearTimeout(cableTiesCloseTimeoutRef.current);
+      cableTiesCloseTimeoutRef.current = null;
+    }
+    if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
+    if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
+    setCableCleatsOpen(false);
+    setLugsOpen(false);
+    setCableTiesOpen(true);
+  };
+
+  const handleCableTiesLeave = () => {
+    if (cableTiesCloseTimeoutRef.current) {
+      clearTimeout(cableTiesCloseTimeoutRef.current);
+    }
+    cableTiesCloseTimeoutRef.current = window.setTimeout(() => {
+      setCableTiesOpen(false);
+    }, 160);
+  };
+
+  const handleCableCleatsEnter = () => {
+    if (cableCleatsCloseTimeoutRef.current) {
+      clearTimeout(cableCleatsCloseTimeoutRef.current);
+      cableCleatsCloseTimeoutRef.current = null;
+    }
+    if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
+    setCableTiesOpen(false);
+    setLugsOpen(false);
+    setCableCleatsOpen(true);
+  };
+
+  const handleCableCleatsLeave = () => {
+    if (cableCleatsCloseTimeoutRef.current) {
+      clearTimeout(cableCleatsCloseTimeoutRef.current);
+    }
+    cableCleatsCloseTimeoutRef.current = window.setTimeout(() => {
+      setCableCleatsOpen(false);
+    }, 160);
+  };
+
+  const handleLugsEnter = () => {
+    if (lugsCloseTimeoutRef.current) {
+      clearTimeout(lugsCloseTimeoutRef.current);
+      lugsCloseTimeoutRef.current = null;
+    }
+    if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
+    setCableTiesOpen(false);
+    setCableCleatsOpen(false);
+    setLugsOpen(true);
+  };
+
+  const handleLugsLeave = () => {
+    if (lugsCloseTimeoutRef.current) {
+      clearTimeout(lugsCloseTimeoutRef.current);
+    }
+    lugsCloseTimeoutRef.current = window.setTimeout(() => {
+      setLugsOpen(false);
+    }, 160);
   };
 
   const handleNavigate = (path: string, e?: React.MouseEvent) => {
@@ -80,7 +201,13 @@ export const Navbar: React.FC = () => {
     }
     if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
+    if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
     setIsOpen(false);
+    setCableTiesOpen(false);
+    setCableCleatsOpen(false);
+    setLugsOpen(false);
     setMobileMenuOpen(false);
     navigate(path);
   };
@@ -170,21 +297,184 @@ export const Navbar: React.FC = () => {
                 <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#004428] rotate-45 rounded-sm shadow-sm" />
 
                 <ul className="relative py-2 list-none m-0 p-0">
-                  {/* 1. Stainless Steel Cable Ties Link (Descriptive naming) */}
-                  <li className="relative">
+                  {/* 1. Stainless Steel Cable Ties Link with Nested Sub-Flyout */}
+                  <li
+                    className="relative"
+                    onMouseEnter={handleCableTiesEnter}
+                    onMouseLeave={handleCableTiesLeave}
+                  >
                     <div
-                      className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer hover:bg-white/15"
+                      className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                        cableTiesOpen ? 'bg-white/15' : 'hover:bg-white/15'
+                      }`}
                       onClick={(e) => handleNavigate('/products/n-loc', e)}
                     >
                       <span>Stainless Steel Cable Ties</span>
+                      <ChevronRight
+                        size={14}
+                        className={`opacity-70 shrink-0 ml-2 transition-transform duration-150 ${
+                          cableTiesOpen ? 'translate-x-0.5 opacity-100 text-emerald-200' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Sub-dropdown flyout on hover */}
+                    {cableTiesOpen && (
+                      <div
+                        className="absolute left-[calc(100%-4px)] top-0 pl-2 w-72 z-50 animate-in fade-in-0 zoom-in-95 origin-top-left"
+                        onMouseEnter={handleCableTiesEnter}
+                        onMouseLeave={handleCableTiesLeave}
+                      >
+                        <div className="rounded-2xl bg-[#004428] shadow-[0_14px_44px_rgba(0,68,40,0.45),0_6px_20px_rgba(0,0,0,0.22)] border border-white/10 py-2 overflow-hidden">
+                          <ul className="list-none m-0 p-0">
+                            {cableTieProducts.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="block px-4 py-2 text-[0.8125rem] font-medium text-white/90 hover:text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  {subItem.title}
+                                </div>
+                                {sIdx < cableTieProducts.length - 1 && (
+                                  <div className="mx-4 h-px bg-white/10" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* 2. Cable Cleats & Accessories Link with Nested Sub-Flyout */}
+                  <li
+                    className="relative"
+                    onMouseEnter={handleCableCleatsEnter}
+                    onMouseLeave={handleCableCleatsLeave}
+                  >
+                    <div
+                      className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                        cableCleatsOpen ? 'bg-white/15' : 'hover:bg-white/15'
+                      }`}
+                      onClick={(e) => handleNavigate('/products/cable-cleat', e)}
+                    >
+                      <span>Cable Cleats & Accessories</span>
+                      <ChevronRight
+                        size={14}
+                        className={`opacity-70 shrink-0 ml-2 transition-transform duration-150 ${
+                          cableCleatsOpen ? 'translate-x-0.5 opacity-100 text-emerald-200' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Sub-dropdown flyout on hover */}
+                    {cableCleatsOpen && (
+                      <div
+                        className="absolute left-[calc(100%-4px)] top-0 pl-2 w-72 z-50 animate-in fade-in-0 zoom-in-95 origin-top-left"
+                        onMouseEnter={handleCableCleatsEnter}
+                        onMouseLeave={handleCableCleatsLeave}
+                      >
+                        <div className="rounded-2xl bg-[#004428] shadow-[0_14px_44px_rgba(0,68,40,0.45),0_6px_20px_rgba(0,0,0,0.22)] border border-white/10 py-2 overflow-hidden">
+                          <ul className="list-none m-0 p-0">
+                            {cableCleatProducts.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="block px-4 py-2.5 text-[0.8125rem] font-medium text-white/90 hover:text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  {subItem.title}
+                                </div>
+                                {sIdx < cableCleatProducts.length - 1 && (
+                                  <div className="mx-4 h-px bg-white/10" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* 3. Electrical Enclosures & Junction Boxes */}
+                  <li 
+                    onMouseEnter={() => {
+                      setCableTiesOpen(false);
+                      setCableCleatsOpen(false);
+                      setLugsOpen(false);
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                      onClick={(e) => handleNavigate('/products/link-box', e)}
+                    >
+                      <span>Electrical Enclosures & Junction Boxes</span>
                       <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
                     </div>
                     <div className="mx-5 h-px bg-white/15" />
                   </li>
 
-                  {/* 2. All other products with descriptive names */}
+                  {/* 4. Electrical Lugs & Terminals with Nested Sub-Flyout */}
+                  <li
+                    className="relative"
+                    onMouseEnter={handleLugsEnter}
+                    onMouseLeave={handleLugsLeave}
+                  >
+                    <div
+                      className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                        lugsOpen ? 'bg-white/15' : 'hover:bg-white/15'
+                      }`}
+                      onClick={(e) => handleNavigate('/products/lugx', e)}
+                    >
+                      <span>Electrical Lugs & Terminals</span>
+                      <ChevronRight
+                        size={14}
+                        className={`opacity-70 shrink-0 ml-2 transition-transform duration-150 ${
+                          lugsOpen ? 'translate-x-0.5 opacity-100 text-emerald-200' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Sub-dropdown flyout on hover */}
+                    {lugsOpen && (
+                      <div
+                        className="absolute left-[calc(100%-4px)] top-0 pl-2 w-80 z-50 animate-in fade-in-0 zoom-in-95 origin-top-left"
+                        onMouseEnter={handleLugsEnter}
+                        onMouseLeave={handleLugsLeave}
+                      >
+                        <div className="rounded-2xl bg-[#004428] shadow-[0_14px_44px_rgba(0,68,40,0.45),0_6px_20px_rgba(0,0,0,0.22)] border border-white/10 py-2 max-h-[390px] overflow-y-auto">
+                          <ul className="list-none m-0 p-0">
+                            {lugProducts.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="block px-4 py-2 text-[0.8125rem] font-medium text-white/90 hover:text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  {subItem.title}
+                                </div>
+                                {sIdx < lugProducts.length - 1 && (
+                                  <div className="mx-4 h-px bg-white/10" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* 5. Remaining products (CNC & Press Parts) */}
                   {otherProducts.map((item, idx) => (
-                    <li key={item.id}>
+                    <li 
+                      key={item.id}
+                      onMouseEnter={() => {
+                        setCableTiesOpen(false);
+                        setCableCleatsOpen(false);
+                        setLugsOpen(false);
+                      }}
+                    >
                       <div
                         className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
                         onClick={(e) => handleNavigate(item.path, e)}
@@ -318,16 +608,157 @@ export const Navbar: React.FC = () => {
 
               {mobileProductsOpen && (
                 <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
-                  {/* Stainless Steel Cable Ties Direct Link */}
+                  {/* Stainless Steel Cable Ties with Sub-Accordion */}
                   <div>
-                    <Link href="/products/n-loc"
+                    <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
+                      <Link href="/products/n-loc"
+                        className="flex-1 text-white no-underline"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>Stainless Steel Cable Ties</span>
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle cable ties sub-menu"
+                        className="p-1 text-white/80 hover:text-white bg-transparent border-none cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileCableTiesOpen(!mobileCableTiesOpen);
+                        }}
+                      >
+                        <ChevronDown 
+                          size={14} 
+                          className={`transition-transform duration-200 ${mobileCableTiesOpen ? 'rotate-180 text-emerald-300' : ''}`} 
+                        />
+                      </button>
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* 9 Cable Tie Sub-Items on Mobile */}
+                    {mobileCableTiesOpen && (
+                      <div className="bg-black/20 py-1 pl-3 pr-2 animate-in fade-in-0 duration-150">
+                        {cableTieProducts.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              href={subItem.path}
+                              className="block px-4 py-2.5 text-[0.8rem] font-normal text-white/90 no-underline transition-colors duration-150 hover:bg-white/15 rounded"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.title}
+                            </Link>
+                            {sIdx < cableTieProducts.length - 1 && (
+                              <div className="mx-4 h-px bg-white/10" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Cable Cleats with Sub-Accordion */}
+                  <div>
+                    <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
+                      <Link href="/products/cable-cleat"
+                        className="flex-1 text-white no-underline"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>Cable Cleats & Accessories</span>
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle cable cleats sub-menu"
+                        className="p-1 text-white/80 hover:text-white bg-transparent border-none cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileCableCleatsOpen(!mobileCableCleatsOpen);
+                        }}
+                      >
+                        <ChevronDown 
+                          size={14} 
+                          className={`transition-transform duration-200 ${mobileCableCleatsOpen ? 'rotate-180 text-emerald-300' : ''}`} 
+                        />
+                      </button>
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Cable Cleat Sub-Items on Mobile */}
+                    {mobileCableCleatsOpen && (
+                      <div className="bg-black/20 py-1 pl-3 pr-2 animate-in fade-in-0 duration-150">
+                        {cableCleatProducts.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              href={subItem.path}
+                              className="block px-4 py-2.5 text-[0.8rem] font-normal text-white/90 no-underline transition-colors duration-150 hover:bg-white/15 rounded"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.title}
+                            </Link>
+                            {sIdx < cableCleatProducts.length - 1 && (
+                              <div className="mx-4 h-px bg-white/10" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Electrical Enclosures & Junction Boxes Direct Link */}
+                  <div>
+                    <Link href="/products/link-box"
                       className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span>Stainless Steel Cable Ties</span>
+                      <span>Electrical Enclosures & Junction Boxes</span>
                       <ArrowRight size={13} className="opacity-60" />
                     </Link>
                     <div className="mx-5 h-px bg-white/15" />
+                  </div>
+
+                  {/* Electrical Lugs & Terminals with Sub-Accordion */}
+                  <div>
+                    <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
+                      <Link href="/products/lugx"
+                        className="flex-1 text-white no-underline"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>Electrical Lugs & Terminals</span>
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle lugs sub-menu"
+                        className="p-1 text-white/80 hover:text-white bg-transparent border-none cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileLugsOpen(!mobileLugsOpen);
+                        }}
+                      >
+                        <ChevronDown 
+                          size={14} 
+                          className={`transition-transform duration-200 ${mobileLugsOpen ? 'rotate-180 text-emerald-300' : ''}`} 
+                        />
+                      </button>
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* 19 Lug Sub-Items on Mobile */}
+                    {mobileLugsOpen && (
+                      <div className="bg-black/20 py-1 pl-3 pr-2 max-h-[320px] overflow-y-auto animate-in fade-in-0 duration-150">
+                        {lugProducts.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              href={subItem.path}
+                              className="block px-4 py-2.5 text-[0.8rem] font-normal text-white/90 no-underline transition-colors duration-150 hover:bg-white/15 rounded"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.title}
+                            </Link>
+                            {sIdx < lugProducts.length - 1 && (
+                              <div className="mx-4 h-px bg-white/10" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Other Products with Dividers & Right Arrow */}

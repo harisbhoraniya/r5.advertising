@@ -238,44 +238,7 @@ const CableCleatDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 3. Typical Industrial Applications (Styled identical to "Sectors We Serve" from Homepage & LUGS) ── */}
-      <section className="py-16 sm:py-24 bg-[#1a1a1a] relative overflow-hidden text-white">
-        {/* Ambient Gradient Glows */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(0,68,40,0.3)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(140,36,66,0.25)_0%,transparent_70%)] pointer-events-none" />
-
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20 items-center">
-            <div>
-              <p className="text-[11px] font-semibold text-[#8b96a5] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-                Applications
-              </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-white leading-[1.18] tracking-tight">
-                Typical Industrial <br />
-                <span className="text-[#8c2442]">Installation Sectors</span>
-              </h2>
-              <p className="text-[14px] sm:text-[15px] text-white/70 leading-relaxed font-light mt-3 max-w-[360px]">
-                NAEPL Cable Cleats are engineered to meet rigorous international mechanical tensile and dynamic short-circuit fault withstand requirements across high-uptime critical infrastructure.
-              </p>
-            </div>
-
-            {/* Interactive Application Chips (Identical to Sectors We Serve on Homepage & LUGS) */}
-            <div className="flex flex-wrap gap-3">
-              {product.applications.map((app, idx) => (
-                <div
-                  key={idx}
-                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-pointer shadow-sm select-none"
-                >
-                  {app}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Technical Sizing Matrix (shadcn Table Component) ── */}
+      {/* ── 3. Technical Sizing Matrix (shadcn Table Component) ── */}
       <section className="py-12 sm:py-16 md:py-20 bg-slate-50" id="sizing-matrix">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           

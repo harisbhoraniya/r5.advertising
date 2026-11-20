@@ -263,7 +263,7 @@ export const nlocProductsDetails: Record<string, ProductDetail> = {
     description: 'NAEPL Releasable Stainless Steel Cable Ties feature an innovative buckle with foldable wing-locks, allowing technicians to open, adjust, or replace cables multiple times without destroying the tie. Coated with specialized PPA 571 polymer, they provide exceptional stress-crack resistance and remain flexible even at -60°C.',
     images: {
       uncoated: '/assets/nloc/releasable_cable_tie.webp',
-      coated: '/assets/nloc/releasable_cable_tie.webp',
+      coated: '/assets/nloc/releasable_cable_tie_coated.webp',
     },
     features: [
       'Releasable and reusable wing-lock head allows easy cable bundle modifications during lifecycle maintenance.',

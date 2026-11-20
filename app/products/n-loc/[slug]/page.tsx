@@ -274,43 +274,6 @@ const ProductDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 3. Typical Industrial Applications (Styled identical to "Sectors We Serve" from Homepage) ── */}
-      <section className="py-14 sm:py-20 bg-[#1a1a1a] relative overflow-hidden text-white">
-        {/* Ambient Gradient Glows */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(0,68,40,0.3)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(140,36,66,0.25)_0%,transparent_70%)] pointer-events-none" />
-
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-center">
-            <div>
-              <p className="text-[11px] font-semibold text-[#8b96a5] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-                Applications
-              </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-medium text-white leading-[1.2] tracking-tight">
-                Typical Industrial <br className="hidden sm:inline" />
-                <span className="text-[#8c2442]">Applications</span>
-              </h2>
-              <p className="text-[13.5px] text-white/60 mt-3 font-light leading-relaxed max-w-[340px]">
-                Engineered to deliver dependable retention across demanding mission-critical operating environments.
-              </p>
-            </div>
-
-            {/* Interactive Application Chips */}
-            <div className="flex flex-wrap gap-3">
-              {product.applications.map((app, idx) => (
-                <div
-                  key={idx}
-                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-pointer shadow-sm select-none"
-                >
-                  {app}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── 3. Technical Sizing & Part Numbers (Strictly filtered by Uncoated / Coated) ── */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#f8fafc] border-y border-slate-200" id="specifications">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
