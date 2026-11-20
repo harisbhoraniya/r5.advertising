@@ -89,45 +89,14 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-interface CapabilityItem {
-  title: string;
-  desc: string;
-  badge: string;
-}
-
-// "What We Do" section: Meaningful, independent capabilities content
-// detailing NAEPL's engineering processes and capabilities rather than repeating product names.
-const capabilities: CapabilityItem[] = [
-  {
-    title: 'Precision CNC Machining & Turning',
-    desc: 'Multi-axis CNC turning, milling, and precision drilling across stainless steel, copper, brass, and alloy steels with micron-level tolerances and stringent surface finish standards.',
-    badge: 'PRECISION MACHINING',
-  },
-  {
-    title: 'Sheet Metal Stamping & Progressive Tooling',
-    desc: 'In-house high-tonnage power presses and progressive die tooling for blanking, piercing, bending, and deep drawing in mild steel, stainless steel, and aluminium.',
-    badge: 'PRESS OPERATIONS',
-  },
-  {
-    title: 'Severe-Duty Fastening & Bundling Systems',
-    desc: 'Metallic self-locking retention mechanisms engineered for extreme thermal conditions, fire resistance, and aggressive chemical and marine environments.',
-    badge: 'RETENTION SYSTEMS',
-  },
-  {
-    title: 'Short-Circuit Withstand Retention Engineering',
-    desc: 'Design and fabrication of dynamic fault-current retention systems tested in accordance with IEC 61914 standards to safeguard critical cabling networks.',
-    badge: 'FAULT PROTECTION',
-  },
-  {
-    title: 'Electromechanical Termination & Conductivity',
-    desc: 'Manufacturing high-conductivity copper, aluminium, and bi-metallic friction-welded terminals engineered for optimal current transfer and mechanical grip.',
-    badge: 'ELECTRICAL HARDWARE',
-  },
-  {
-    title: 'Ingress-Protected Weatherproof Enclosures',
-    desc: 'Aluminium die-casting, sheet steel forming, and sealing assembly delivering robust IP66 & IP68 weatherproof enclosures for demanding industrial sites.',
-    badge: 'ENCLOSURE FABRICATION',
-  },
+// Engineering Capabilities (headings per client instruction)
+const capabilities: string[] = [
+  'Precision CNC Machining & Turning',
+  'Sheet Metal Stamping & Tooling',
+  'Cable Management & Fastening Systems',
+  'Electrical Fault Protection',
+  'Electrical Termination Solutions',
+  'Industrial Enclosures & Junction Boxes',
 ];
 
 const reasons = [
@@ -153,75 +122,94 @@ const reasons = [
   },
 ];
 
-// Featured Products: Descriptive naming (brand names as secondary identifiers)
-// Added Zig Zag Cable Ties per client feedback
+// Featured Products: Renamed per client instruction
 const featuredProducts = [
   {
     slug: 'stainless-steel-cable-ties',
     name: 'Stainless Steel Cable Ties',
-    brandNote: 'N-LOC Series',
-    category: 'STAINLESS STEEL CABLE TIES',
-    desc: 'High-strength self-locking, ladder, spring type and releasable stainless steel cable ties in SS 304 & 316, engineered for secure fastening and reliable performance in demanding environments.',
     img: '/assets/featured_products/featured_nloc.webp',
     link: '/products/n-loc',
   },
   {
     slug: 'cable-cleats',
     name: 'Cable Cleats & Accessories',
-    brandNote: 'Power Accessories',
-    category: 'POWER CABLE ACCESSORIES',
-    desc: 'Precision-engineered cable cleats designed to provide secure cable retention and withstand short-circuit forces up to 180 kA, ensuring dependable support for single and trefoil power cable installations.',
     img: '/assets/featured_products/featured_cable_cleats.webp',
     link: '/products/cable-cleat',
   },
   {
     slug: 'junction-boxes',
-    name: 'Electrical Enclosures & Junction Boxes',
-    brandNote: 'LINKBOX Series',
-    category: 'ENCLOSURES & JUNCTION BOXES',
-    desc: 'Robust electrical enclosures manufactured in die-cast aluminium, stainless steel and mild steel, designed to safeguard electrical connections against harsh industrial and environmental conditions.',
+    name: 'Junction Boxes & Enclosures',
     img: '/assets/featured_products/featured_link_box.webp',
     link: '/products/link-box',
   },
   {
     slug: 'electrical-lugs',
-    name: 'Electrical Lugs & Terminals',
-    brandNote: 'LUGX Series',
-    category: 'ELECTRICAL LUGS & TERMINALS',
-    desc: 'Precision-manufactured copper, aluminium and bi-metallic cable lugs, ring terminals and electrical connectors engineered for secure connections and efficient power transmission.',
+    name: 'Lugs & Terminals',
     img: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
   },
   {
     slug: 'cnc-machined-components',
     name: 'CNC Machined Components',
-    brandNote: 'Precision Turned Parts',
-    category: 'PRECISION ENGINEERING',
-    desc: 'Precision CNC-turned, milled and drilled components manufactured in copper, stainless steel, aluminium and chrome steel, tailored to customer drawings and specifications.',
     img: '/assets/featured_products/featured_cnc.webp',
     link: '/products/cnc-machine-component',
   },
   {
     slug: 'press-parts',
     name: 'Sheet Metal Components',
-    brandNote: 'Stamping & Banding',
-    category: 'SHEET METAL COMPONENTS',
-    desc: 'Precision-stamped, progressive-tool and sheet metal components, including pressed parts, stainless steel banding straps and buckles, manufactured for demanding industrial applications.',
     img: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
 ];
 
-// Industries list: "Process Instrumentation & Control" replaced with "Automobile"
-const industries = [
-  'Electrical & Control Systems',
-  'Robotics & Industrial Automation',
-  'Renewable Energy (Solar & Wind)',
-  'Oil & Gas / Petrochemicals',
-  'Marine & Shipbuilding',
-  'Infrastructure & Rail Transit',
-  'Automobile',
-  'Water & Wastewater Treatment',
+interface IndustryItem {
+  id: string;
+  name: string;
+  img: string;
+}
+
+// 8 Verified Industries with High-Res Imagery
+const industries: IndustryItem[] = [
+  {
+    id: 'electrical-control-systems',
+    name: 'Electrical & Control Systems',
+    img: '/assets/sector_control_panel.webp',
+  },
+  {
+    id: 'robotics-industrial-automation',
+    name: 'Robotics & Industrial Automation',
+    img: '/assets/sector_robotics_automation.webp',
+  },
+  {
+    id: 'renewable-energy',
+    name: 'Renewable Energy (Solar & Wind)',
+    img: '/assets/sector_renewable_energy.webp',
+  },
+  {
+    id: 'oil-gas-petrochemicals',
+    name: 'Oil & Gas / Petrochemicals',
+    img: '/assets/sector_oil_gas.webp',
+  },
+  {
+    id: 'marine-shipbuilding',
+    name: 'Marine & Shipbuilding',
+    img: '/assets/sector_marine_shipbuilding.webp',
+  },
+  {
+    id: 'infrastructure-rail-transit',
+    name: 'Infrastructure & Rail Transit',
+    img: '/assets/sector_metro_infrastructure.webp',
+  },
+  {
+    id: 'automobile',
+    name: 'Automobile',
+    img: '/assets/sector_automobile.jpg',
+  },
+  {
+    id: 'water-wastewater-treatment',
+    name: 'Water & Wastewater Treatment',
+    img: '/assets/sector_water_treatment.webp',
+  },
 ];
 
 const HomePage: React.FC = () => {
@@ -468,8 +456,18 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* ── 3. Capabilities Section ("What We Do") ── */}
-      <section id="capabilities" className="py-16 sm:py-24 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <section id="capabilities" className="relative py-16 sm:py-24 bg-white overflow-hidden">
+        {/* Subtle engineering background image */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
+          <img
+            src="/assets/cnc_machined/cnc_hero_banner_hd.webp"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20 items-start">
             {/* Left Column (Sticky) */}
             <div className="lg:sticky lg:top-28">
@@ -485,29 +483,20 @@ const HomePage: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Column: Rich Manufacturing Capability Cards */}
+            {/* Right Column: Original rows with JUST HEADINGS (no numbers) */}
             <div className="flex flex-col border-t border-[#e8e8e8]">
-              {capabilities.map((cap) => (
+              {capabilities.map((title) => (
                 <div
-                  key={cap.title}
-                  className="group relative flex flex-col py-6 sm:py-7 px-4 sm:px-6 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f0f7f3] hover:pl-8 cursor-default"
+                  key={title}
+                  className="group relative flex items-center justify-between py-6 sm:py-7 px-4 sm:px-6 border-b border-[#e8e8e8] transition-all duration-300 hover:bg-[#f0f7f3] hover:pl-8 cursor-default"
                 >
                   {/* Left accent hover stripe */}
                   <span className="absolute left-0 top-0 bottom-0 w-0 bg-gradient-to-b from-[#004428] to-[#8c2442] transition-all duration-300 group-hover:w-1" />
 
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold tracking-wider text-[#8c2442] uppercase">
-                      {cap.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg sm:text-[20px] font-semibold text-[#1a1a1a] group-hover:text-[#004428] transition-colors mb-2">
-                    {cap.title}
+                  <h3 className="text-lg sm:text-[20px] font-semibold text-[#1a1a1a] group-hover:text-[#004428] transition-colors m-0">
+                    {title}
                   </h3>
-
-                  <p className="text-[13.5px] sm:text-[14px] font-light text-[#6b6b6b] leading-relaxed m-0">
-                    {cap.desc}
-                  </p>
+                  <ArrowRight size={18} className="text-slate-300 group-hover:text-[#004428] transition-all group-hover:translate-x-1" />
                 </div>
               ))}
             </div>
@@ -515,7 +504,70 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 4. Why Choose Us Section ("Built on Excellence") ── */}
+      {/* ── 4. Featured Products Section (Placed before Why Choose Us per client feedback) ── */}
+      <section className="py-16 sm:py-24 bg-[#fbfbfa]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          {/* Header row: Paragraph removed, View All Products retained */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14 pb-6 sm:pb-7 border-b border-slate-200">
+            <div>
+              <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
+                <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
+                Featured Products
+              </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal text-slate-900 leading-[1.25] tracking-tight m-0">
+                Engineered for <br className="hidden sm:inline" />
+                <span className="font-normal text-[#8c2442]">Demanding</span> Applications
+              </h2>
+            </div>
+            <div>
+              <Link
+                href="/products"
+                className="group inline-flex items-center gap-2 text-[13px] font-bold tracking-wider text-[#8c2442] hover:text-[#5c182c] transition-colors relative uppercase"
+              >
+                <span>View All Products</span>
+                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card Grid with Renamed Products and Clean Layout (Grey category tags removed) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {featuredProducts.map((product) => (
+              <Link
+                key={product.slug}
+                id={product.slug}
+                href={product.link}
+                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 cursor-pointer block no-underline"
+              >
+                {/* Image Container */}
+                <div className="relative h-[200px] sm:h-[230px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100 flex items-center justify-center p-4">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Card Body */}
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
+                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
+                    {product.name}
+                  </h3>
+                  <div className="w-7 h-[2px] bg-slate-200 mb-6 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
+
+                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 group-hover:gap-3">
+                    <span>EXPLORE PRODUCTS</span>
+                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Why Choose Us Section ("Built on Excellence" - Moved after Featured Products) ── */}
       <section className="py-16 sm:py-24 bg-[#f8f8f7]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
@@ -553,117 +605,64 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 5. Featured Products Section ── */}
-      <section className="py-16 sm:py-24 bg-[#fbfbfa]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-10 mb-10 sm:mb-14 pb-6 sm:pb-7 border-b border-slate-200">
-            <div>
-              <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Featured Products
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal text-slate-900 leading-[1.25] tracking-tight m-0">
-                Engineered for <br className="hidden sm:inline" />
-                <span className="font-normal text-[#8c2442]">Demanding</span> Applications
-              </h2>
-            </div>
-            <div className="flex flex-col sm:items-end gap-3">
-              <p className="max-w-[480px] text-[14px] sm:text-[15px] font-normal text-slate-500 leading-relaxed m-0 md:text-right">
-                Every product in our range is built to perform — precision materials, exacting tolerances, and global-standard certifications.
-              </p>
-              <Link
-                href="/products"
-                className="group inline-flex items-center gap-2 text-[12.5px] font-bold tracking-wider text-[#8c2442] hover:text-[#5c182c] transition-colors relative uppercase"
-              >
-                <span>View All Products</span>
-                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Card Grid with Descriptive Product Naming & Zig Zag Cable Ties Included */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {featuredProducts.map((product) => (
-              <Link
-                key={product.slug}
-                id={product.slug}
-                href={product.link}
-                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 cursor-pointer block no-underline"
-              >
-                {/* Image Container */}
-                <div className="relative h-[190px] sm:h-[220px] bg-white overflow-hidden rounded-t-2xl border-b border-slate-100 flex items-center justify-center p-3">
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 sm:p-6 flex flex-col flex-1">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">
-                      {product.category}
-                    </span>
-                    {product.brandNote && (
-                      <span className="text-[10px] font-semibold text-[#004428] bg-emerald-50 px-2 py-0.5 rounded">
-                        {product.brandNote}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
-                    {product.name}
-                  </h3>
-                  <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
-
-                  <p className="text-[13px] text-slate-500 font-normal leading-relaxed mb-6">
-                    {product.desc}
-                  </p>
-
-                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 group-hover:gap-3">
-                    <span>EXPLORE PRODUCTS</span>
-                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. Industries Section ("Sectors We Serve") ── */}
-      <section className="py-16 sm:py-24 bg-[#1a1a1a] relative overflow-hidden text-white">
+      {/* ── 6. Industries Section ("Sectors We Serve" - Visual Grid with Images & Redirect) ── */}
+      <section className="py-16 sm:py-24 bg-[#111613] relative overflow-hidden text-white">
         {/* Ambient Gradient Glows */}
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(0,68,40,0.3)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(140,36,66,0.25)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20 items-center">
+          {/* Header row with redirect icon/link to industry page */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12 pb-6 border-b border-white/10">
             <div>
-              <p className="text-[11px] font-semibold text-[#8b96a5] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-5 h-[1.5px] bg-gradient-to-r from-[#004428] to-[#8c2442]" />
-                Industries
+              <p className="text-[11px] font-semibold text-[#8fd6ae] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
+                <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
+                Industries We Serve
               </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-white leading-[1.18] tracking-tight">
-                Sectors We <span className="text-[#8c2442]">Serve</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-white leading-[1.18] tracking-tight m-0">
+                Sectors We <span className="text-[#8fd6ae]">Serve</span>
               </h2>
             </div>
-
-            {/* Interactive Industry Chips */}
-            <div className="flex flex-wrap gap-3">
-              {industries.map((ind) => (
-                <Link
-                  key={ind}
-                  href="/industry"
-                  className="text-[14px] sm:text-[15px] font-medium text-[#cccccc] border border-[#333333] rounded py-2.5 px-4 sm:px-5 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#004428] hover:to-[#8c2442] hover:text-white hover:border-transparent hover:-translate-y-0.5 cursor-pointer inline-block"
-                >
-                  {ind}
-                </Link>
-              ))}
+            <div>
+              <Link
+                href="/industry"
+                className="group inline-flex items-center gap-2 text-[13px] font-bold tracking-wider text-[#8fd6ae] hover:text-white transition-colors uppercase"
+              >
+                <span>Explore All Industries</span>
+                <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
             </div>
+          </div>
+
+          {/* Visual Industry Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {industries.map((ind) => (
+              <Link
+                key={ind.id}
+                href="/industry"
+                className="group relative h-[180px] sm:h-[200px] rounded-xl overflow-hidden border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-[#8fd6ae]/60 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)] block"
+              >
+                {/* Background Image */}
+                <img
+                  src={ind.img}
+                  alt={ind.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Dark Gradient Overlay for Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity group-hover:from-black/95" />
+
+                {/* Content */}
+                <div className="absolute bottom-0 inset-x-0 p-4 flex items-end justify-between gap-2">
+                  <h3 className="text-[14.5px] sm:text-[15.5px] font-semibold text-white group-hover:text-[#8fd6ae] transition-colors leading-snug m-0">
+                    {ind.name}
+                  </h3>
+                  <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-[#004428] flex items-center justify-center shrink-0 transition-colors">
+                    <ArrowRight size={13} className="text-white group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -51,12 +51,12 @@ const values: ValueItem[] = [
 ];
 
 const strengths = [
-  'Strong In-House Capabilities',
-  'Standardized Packaging & Logistics',
-  'Batch Production Flexibility',
-  'Cost Optimization for Clients',
-  'Export-Ready Quality Standards',
-  'Advanced Quality Control Lab',
+  'Strong In-House Manufacturing Capabilities',
+  'Standardized Packaging & Export Logistics',
+  'Flexible Batch & Volume Production',
+  'Cost-Effective Manufacturing Solutions',
+  'Export-Oriented Quality Standards',
+  'Quality Assurance & Inspection',
 ];
 
 interface BrandItem {
@@ -81,7 +81,7 @@ const brands: BrandItem[] = [
   {
     id: 'link-box',
     name: 'LINKBOX',
-    tag: 'STRONG CONNECTIONS. SAFE SYSTEMS',
+    tag: 'JUNCTION BOXES & ENCLOSURES',
     desc: 'Robust electrical enclosures manufactured in die-cast aluminium, stainless steel and mild steel, designed to safeguard electrical connections against harsh industrial and environmental conditions.',
     img: '/assets/logo_linkbox.webp',
     link: '/products/link-box',
@@ -89,7 +89,7 @@ const brands: BrandItem[] = [
   {
     id: 'lugx',
     name: 'LUGX',
-    tag: 'ELECTRICAL TERMINATION LUGS',
+    tag: 'ELECTRICAL LUGS & TERMINALS',
     desc: 'Precision-manufactured copper, aluminium and bi-metallic cable lugs, ring terminals and electrical connectors engineered for secure connections and efficient power transmission.',
     img: '/assets/logo_lugx.webp',
     link: '/products/lugx',
@@ -124,7 +124,7 @@ const AboutPage: React.FC = () => {
           {/* Eyebrow */}
           <p className="text-[12px] sm:text-[13px] font-semibold text-[#8fd6ae] tracking-[0.14em] uppercase mb-4 sm:mb-5 drop-shadow-sm flex items-center gap-2.5">
             <span className="inline-block w-5 h-[1.5px] bg-[#8fd6ae]" />
-            About Us · N Gandhi Group
+            About Us · N Gandhi Advance Engineering Pvt. Ltd.
           </p>
 
           {/* Headline */}
@@ -134,7 +134,7 @@ const AboutPage: React.FC = () => {
 
           {/* Subtitle */}
           <p className="max-w-[640px] text-sm sm:text-base md:text-[16.5px] font-light text-white/90 leading-relaxed mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-            NAEPL is part of <strong className="text-white font-semibold">N Gandhi Group</strong> — an ISO 9001:2015 certified engineering company focused on delivering quality-driven, cost-effective manufacturing solutions to global markets.
+            <strong className="text-white font-semibold">N Gandhi Advance Engineering Pvt. Ltd. (NAEPL)</strong> is an ISO 9001:2015 certified engineering company focused on delivering quality-driven, cost-effective manufacturing solutions to global markets.
           </p>
         </div>
       </section>
