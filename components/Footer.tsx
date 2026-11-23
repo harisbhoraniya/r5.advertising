@@ -21,14 +21,25 @@ export const Footer: React.FC = () => {
               </Link>
             </div>
             
-            <p className="text-[13.5px] leading-relaxed text-slate-500 max-w-[380px] mb-5 sm:mb-6">
-              ISO 9001:2015 certified precision engineering company delivering CNC machining, 
-              fabrication, and industrial solutions.
+            <p className="text-[13.5px] leading-relaxed text-slate-500 max-w-[380px] mb-4 sm:mb-5">
+              The engineering arm of the N Gandhi Group, delivering precision-manufactured cable management, 
+              electrical connectivity, enclosures, and CNC machining solutions across global industrial markets.
             </p>
 
-            <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full border border-slate-300 bg-white text-xs font-medium text-slate-700">
-              <span className="w-[7px] h-[7px] rounded-full bg-emerald-600" />
-              <span>ISO 9001:2015 Certified</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link 
+                href="/quality-certifications"
+                className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full border border-slate-300 bg-slate-50 text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition-colors"
+              >
+                <span className="w-[7px] h-[7px] rounded-full bg-emerald-600" />
+                <span>ISO 9001:2015 Certified QMS</span>
+              </Link>
+              <Link
+                href="/quality-certifications"
+                className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full border border-slate-300 bg-slate-50 text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition-colors"
+              >
+                <span>D-U-N-S&reg; Registered</span>
+              </Link>
             </div>
           </div>
 
@@ -59,6 +70,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/catalogue" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
                   Catalogue
+                </Link>
+              </li>
+              <li>
+                <Link href="/quality-certifications" className="cursor-pointer transition-colors duration-200 hover:text-emerald-700 font-medium">
+                  Quality &amp; Certifications
                 </Link>
               </li>
               <li>
@@ -94,7 +110,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-emerald-700 shrink-0 mt-0.5" />
                 <span className="leading-snug text-[13px]">
-                  104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel ( E ), Mumbai – 400013 Maharashtra, India
+                  104, First Floor, C Wing, Marathon Futurex, NM Joshi Marg, Mafatlal Mill Compound, Lower Parel (E), Mumbai – 400013, Maharashtra, India
                 </span>
               </li>
             </ul>
@@ -104,7 +120,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100 pt-6 sm:pt-7 text-[12px] sm:text-[12.5px] text-slate-500 text-center sm:text-left">
           <div>
-            © 2026 N Gandhi Advance Engineering Pvt. Ltd. All rights reserved.
+            © 2026 N Gandhi Advance Engineering Private Limited. All rights reserved.
           </div>
           <div className="text-slate-400">
             Made in India

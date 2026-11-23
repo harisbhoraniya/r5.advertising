@@ -122,7 +122,7 @@ const reasons = [
   },
 ];
 
-// Featured Products: Renamed per client instruction
+// Featured Products: Structured according to Master Catalogue
 const featuredProducts = [
   {
     slug: 'stainless-steel-cable-ties',
@@ -131,22 +131,28 @@ const featuredProducts = [
     link: '/products/n-loc',
   },
   {
+    slug: 'cable-marker-tags',
+    name: 'Cable Marker Tags',
+    img: '/assets/nloc/cable_marker_tag.webp',
+    link: '/products/n-loc/marker-tag',
+  },
+  {
     slug: 'cable-cleats',
     name: 'Cable Cleats & Accessories',
     img: '/assets/featured_products/featured_cable_cleats.webp',
     link: '/products/cable-cleat',
   },
   {
-    slug: 'junction-boxes',
-    name: 'Junction Boxes & Enclosures',
-    img: '/assets/featured_products/featured_link_box.webp',
-    link: '/products/link-box',
-  },
-  {
     slug: 'electrical-lugs',
     name: 'Lugs & Terminals',
     img: '/assets/featured_products/featured_lugx.webp',
     link: '/products/lugx',
+  },
+  {
+    slug: 'junction-boxes',
+    name: 'Junction Boxes & Enclosures',
+    img: '/assets/featured_products/featured_link_box.webp',
+    link: '/products/link-box',
   },
   {
     slug: 'cnc-machined-components',
@@ -156,7 +162,7 @@ const featuredProducts = [
   },
   {
     slug: 'press-parts',
-    name: 'Sheet Metal Components',
+    name: 'Sheet Metal Press Parts & Banding Solutions',
     img: '/assets/sheet_metal/page_98_img_0.webp',
     link: '/products/sheet-metal-press-parts',
   },
@@ -676,10 +682,10 @@ const HomePage: React.FC = () => {
 
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-[38px] font-medium text-[#1a1a1a] tracking-tight mb-3">
-                Looking for a reliable <span className="text-[#004428]">engineering partner</span>?
+                Looking for a trusted <span className="text-[#004428]">engineering &amp; manufacturing partner</span>?
               </h2>
               <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b]">
-                Let&apos;s build <span className="text-[#8c2442] font-semibold">precision</span> together.
+                Let&apos;s build <span className="text-[#8c2442] font-semibold">precision &amp; performance</span> together.
               </p>
             </div>
 

@@ -133,8 +133,8 @@ const CableCleatDetailPage: React.FC = () => {
               {/* Quick Spec Highlights */}
               <div className="w-full grid grid-cols-2 gap-3 mt-4">
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Standard</p>
-                  <p className="text-[13px] sm:text-[14px] font-bold text-slate-900">IEC 61914</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Peak Current</p>
+                  <p className="text-[13px] sm:text-[14px] font-bold text-slate-900">Up to 180 kA</p>
                 </div>
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Frame Material</p>
@@ -327,10 +327,39 @@ const CableCleatDetailPage: React.FC = () => {
                     </TableRow>
                   )}
                 </TableBody>
-                <TableCaption>
-                  All dimensional units in millimeters (mm) · Certified to IEC 61914 · Custom sizes manufactured upon request.
-                </TableCaption>
               </Table>
+            </div>
+          </div>
+
+          {/* ── Redirecting Navigation & Action Bar Below Table ── */}
+          <div className="mt-8 p-6 sm:p-7 bg-[#0b1310] rounded-2xl border border-white/10 shadow-lg text-white flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="text-center md:text-left">
+              <span className="text-[11px] font-bold tracking-widest uppercase text-emerald-400 block mb-1">
+                FAST DIRECT INQUIRY &middot; NAEPL CABLE CLEATS
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight">
+                Need Fault Current Calculation or Cleat Spacing Support?
+              </h3>
+              <p className="text-[13px] text-white/70 mt-1 max-w-[560px]">
+                Our engineering team assists with dynamic short-circuit calculation, cleat sizing, and custom mounting hardware supply.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0 w-full md:w-auto">
+              <Link
+                href="/products/cable-cleat"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#1e2420] hover:bg-[#2b3530] text-white/95 font-medium text-[13px] transition-all border border-white/15"
+              >
+                <ArrowLeft size={15} />
+                <span>All Cable Cleats</span>
+              </Link>
+              <Link
+                href={`/contact?subject=RFQ%20for%20${encodeURIComponent(product.title)}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#004d2e] hover:bg-[#005f38] text-white font-bold text-[13px] uppercase tracking-wider transition-all shadow-md border border-emerald-500/40"
+              >
+                <span>REQUEST RFQ</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
 
@@ -344,7 +373,7 @@ const CableCleatDetailPage: React.FC = () => {
             <div className="mb-6">
               <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#004428] mb-1.5 flex items-center gap-2">
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                <span>IEC 61914 Dynamic Fault Performance Matrix</span>
+                <span>ELECTROMECHANICAL WITHSTAND SPECIFICATIONS · NAEPL CABLE CLEATS</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 {product.withstandTable.title}

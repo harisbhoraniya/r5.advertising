@@ -6,7 +6,9 @@ import { TrustRow } from '@/components/TrustRow';
 import { 
   CheckCircle2, 
   ArrowRight,
-  FileText
+  FileText,
+  Search,
+  X
 } from 'lucide-react';
 
 interface ProductItem {
@@ -96,6 +98,9 @@ const nlocProducts: ProductItem[] = [
 ];
 
 const NLocPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'cable-ties' | 'identification'>('all');
+
   const [productTypes, setProductTypes] = useState<Record<string, 'coated' | 'uncoated'>>({
     'roller-ball': 'uncoated',
     'roller-ball-hd': 'uncoated',
@@ -232,34 +237,48 @@ const NLocPage: React.FC = () => {
             </p>
 
             {/* Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-7">
-              <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">PREMIUM SS 304 / 316</h4>
-                <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  Precision-manufactured from marine-grade stainless steel for corrosion-proof longevity.
-                </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-[13.5px] sm:text-[14.5px] font-bold text-gray-900 mb-1.5 uppercase tracking-wide">
+                    PREMIUM SS 316/316L &amp; 304/304L
+                  </h4>
+                  <p className="text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 m-0">
+                    Precision-manufactured from marine-grade stainless steel for corrosion-proof longevity.
+                  </p>
+                </div>
               </div>
               
-              <div className="p-3 sm:p-0 rounded-lg sm:rounded-none bg-slate-50 sm:bg-transparent">
-                <h4 className="text-[14px] sm:text-[15px] font-bold text-gray-900 mb-1">SUPERIOR LOOP STRENGTH</h4>
-                <p className="text-[13px] sm:text-[13.5px] leading-normal text-slate-500">
-                  High tensile rating up to 160 kg+ ensuring zero slippage under severe dynamic loads.
-                </p>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-[13.5px] sm:text-[14.5px] font-bold text-gray-900 mb-1.5 uppercase tracking-wide">
+                    SUPERIOR LOOP STRENGTH
+                  </h4>
+                  <p className="text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 m-0">
+                    High tensile rating up to 160 kg+ ensuring zero slippage under severe dynamic loads.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Badges / Pill Tags */}
-            <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7">
-              <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                Fire-proof
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6">
+              <span className="inline-flex items-center gap-1.5 py-1 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[12px] font-medium rounded-full select-none">
+                Fire-Proof (Non-Flammable)
+              </span>
+              <span className="inline-flex items-center gap-1.5 py-1 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[12px] font-medium rounded-full select-none">
+                Corrosion Resistant
+              </span>
+              <span className="inline-flex items-center gap-1.5 py-1 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[12px] font-medium rounded-full select-none">
+                UV &amp; Weather Resistant
               </span>
             </div>
 
-            <div className="flex flex-col gap-1 border-t border-slate-100 pt-4">
-              <p className="text-[12.5px] sm:text-[13.5px] text-slate-500">
+            <div className="flex flex-col gap-1 border-t border-slate-200 pt-4">
+              <p className="text-[12.5px] sm:text-[13.5px] text-slate-500 m-0">
                 Engineered for dependable mechanical restraint across demanding industrial installations.
               </p>
-              <p className="text-[14px] sm:text-[15px] font-bold text-gray-900">
+              <p className="text-[14px] sm:text-[15px] font-bold text-gray-900 m-0">
                 Secure Today. Reliable Tomorrow.
               </p>
             </div>
@@ -273,18 +292,111 @@ const NLocPage: React.FC = () => {
           <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-[#004428] mb-2 before:content-[''] before:inline-block before:w-5 sm:before:w-6 before:h-[1.5px] before:bg-[#004428]">
             OUR RANGE
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-7 sm:mb-9">
+          <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-[#111827] tracking-tight leading-[1.2] sm:leading-[1.15] mt-1 mb-6">
             Explore the <span className="font-bold text-[#8c2442] ml-1 sm:ml-1.5">Stainless Steel Cable Ties Range</span>
           </h2>
 
+          {/* Search & Filter Bar */}
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-slate-50 p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+            {/* Filter Tabs */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory('all')}
+                className={`px-3.5 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+                  selectedCategory === 'all'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                All Products ({nlocProducts.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCategory('cable-ties')}
+                className={`px-3.5 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+                  selectedCategory === 'cable-ties'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                Cable Ties (6)
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCategory('identification')}
+                className={`px-3.5 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+                  selectedCategory === 'identification'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                Identification &amp; Tags (3)
+              </button>
+            </div>
+
+            {/* Quick Search Input */}
+            <div className="relative min-w-[240px] md:w-[320px]">
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search products (e.g. Roller, Ladder)..."
+                className="w-full pl-10 pr-9 py-2 bg-white border border-slate-200 rounded-xl text-[13px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004428]/20 focus:border-[#004428] transition-all"
+              />
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                >
+                  <X size={15} />
+                </button>
+              )}
+            </div>
+          </div>
+
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-            {nlocProducts.map((item) => (
-              <div 
+            {(() => {
+              const filteredProducts = nlocProducts.filter((item) => {
+                if (selectedCategory === 'cable-ties' && item.category !== 'STAINLESS STEEL CABLE TIES') return false;
+                if (selectedCategory === 'identification' && item.category !== 'IDENTIFICATION SYSTEMS') return false;
+                if (searchTerm.trim()) {
+                  const q = searchTerm.toLowerCase();
+                  return (
+                    item.title.toLowerCase().includes(q) ||
+                    item.badge.toLowerCase().includes(q) ||
+                    item.category.toLowerCase().includes(q)
+                  );
+                }
+                return true;
+              });
+
+              if (filteredProducts.length === 0) {
+                return (
+                  <div className="w-full text-center py-16 px-4 bg-slate-50 rounded-2xl border border-slate-200 my-4">
+                    <p className="text-base font-semibold text-slate-800 mb-1">No products found</p>
+                    <p className="text-[13px] text-slate-500 mb-4">No cable ties or identification systems match "{searchTerm}"</p>
+                    <button
+                      type="button"
+                      onClick={() => { setSearchTerm(''); setSelectedCategory('all'); }}
+                      className="px-4 py-2 bg-[#004428] text-white font-medium text-[13px] rounded-xl hover:bg-[#00331e] transition-all cursor-pointer"
+                    >
+                      Reset filters
+                    </button>
+                  </div>
+                );
+              }
+
+              return filteredProducts.map((item) => (
+              <Link 
                 key={item.id} 
                 id={item.id} 
-                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
+                href={item.link}
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] group scroll-mt-24 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300 block no-underline"
               >
-                <div className={`relative h-[190px] sm:h-[220px] flex items-center justify-center overflow-hidden bg-slate-50 p-4`}>
+                <div className="relative h-[190px] sm:h-[220px] flex items-center justify-center overflow-hidden bg-slate-50 p-4">
                   <img
                     src={getItemImage(item)}
                     alt={item.title}
@@ -297,54 +409,19 @@ const NLocPage: React.FC = () => {
                   <div className="text-[10.5px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-1.5">
                     {item.category}
                   </div>
-                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3">
+                  <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 tracking-tight m-0 mb-3 group-hover:text-[#004428] transition-colors">
                     {item.title}
                   </h3>
-                  <div className="w-7 h-[2px] bg-slate-200 mb-4 sm:mb-5 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
+                  <div className="w-7 h-[2px] bg-slate-200 mb-6 transition-all duration-300 group-hover:w-11 group-hover:bg-[#8c2442]" />
 
-                  {['roller-ball', 'roller-ball-hd', 'releasable', 'ladder', 'zig-zag', 'zig-zag-hd'].includes(item.id) && (
-                    <div className="flex items-center gap-2 mb-4">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setProductTypes((prev) => ({ ...prev, [item.id]: 'uncoated' }));
-                        }}
-                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          (productTypes[item.id] || 'uncoated') === 'uncoated'
-                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
-                        }`}
-                      >
-                        Uncoated
-                      </button>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setProductTypes((prev) => ({ ...prev, [item.id]: 'coated' }));
-                        }}
-                        className={`px-3.5 py-1.5 text-[11.5px] sm:text-[12px] font-bold tracking-wider uppercase rounded-lg transition-all duration-200 border cursor-pointer ${
-                          productTypes[item.id] === 'coated'
-                            ? 'bg-[#004428] text-white border-[#004428] shadow-sm'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100'
-                        }`}
-                      >
-                        Coated
-                      </button>
-                    </div>
-                  )}
-
-                  <Link 
-                    href={item.link} 
-                    className="mt-auto pt-3 inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 hover:text-[#67142e] group-hover:gap-3"
-                  >
+                  <div className="mt-auto inline-flex items-center gap-2 text-[12px] sm:text-[12.5px] font-bold tracking-wider text-[#8c2442] uppercase transition-all duration-200 group-hover:gap-3">
                     <span>VIEW DETAILS</span>
-                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </Link>
+                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              </Link>
+            ));
+          })()}
           </div>
         </div>
       </section>

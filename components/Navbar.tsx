@@ -10,26 +10,31 @@ interface ProductItem {
   path: string;
 }
 
-// 9 Stainless Steel Cable Tie Products (N-LOC Series)
+// 01. Stainless Steel Cable Tie Products (N-LOC Series - Page 08-33)
 const cableTieProducts: ProductItem[] = [
-  { id: 'roller-ball', title: 'Roller Ball Cable Tie', path: '/products/n-loc/roller-ball' },
-  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Tie', path: '/products/n-loc/roller-ball-hd' },
-  { id: 'releasable', title: 'Releasable Cable Tie', path: '/products/n-loc/releasable' },
-  { id: 'ladder', title: 'Ladder Cable Tie', path: '/products/n-loc/ladder' },
-  { id: 'zig-zag', title: 'Ball Lock Spring Type', path: '/products/n-loc/zig-zag' },
-  { id: 'zig-zag-hd', title: 'Ball Lock Spring Type Heavy Duty', path: '/products/n-loc/zig-zag-hd' },
-  { id: 'marker-tag', title: 'Cable Marker Tag', path: '/products/n-loc/marker-tag' },
-  { id: 'marker-plates', title: 'Marker Plates', path: '/products/n-loc/marker-plates' },
-  { id: 'alphanumeric-characters', title: 'Alphanumeric Characters', path: '/products/n-loc/alphanumeric-characters' },
+  { id: 'roller-ball', title: 'Roller Ball Cable Ties', path: '/products/n-loc/roller-ball' },
+  { id: 'zig-zag', title: 'Roller Ball Spring Type Cable Ties', path: '/products/n-loc/zig-zag' },
+  { id: 'roller-ball-hd', title: 'Roller Ball Heavy Duty Cable Ties', path: '/products/n-loc/roller-ball-hd' },
+  { id: 'zig-zag-hd', title: 'Roller Ball Spring Type Heavy Duty', path: '/products/n-loc/zig-zag-hd' },
+  { id: 'releasable', title: 'Releasable Cable Ties', path: '/products/n-loc/releasable' },
+  { id: 'ladder', title: 'Ladder Cable Ties', path: '/products/n-loc/ladder' },
 ];
 
-// Cable Cleats Products
+// 02. Cable Marker Tags & Identification (Page 34-37)
+const cableMarkerTagProducts: ProductItem[] = [
+  { id: 'marker-tag', title: 'Cable Marker Tags', path: '/products/n-loc/marker-tag' },
+  { id: 'carrier-strips', title: 'Carrier Strips – Coated & Uncoated', path: '/products/n-loc/marker-tag' },
+  { id: 'alphanumeric-characters', title: 'Alphanumeric Characters', path: '/products/n-loc/alphanumeric-characters' },
+  { id: 'marker-plates', title: 'Marker Plates & Tags', path: '/products/n-loc/marker-plates' },
+];
+
+// 03. Cable Cleats (Page 38-43)
 const cableCleatProducts: ProductItem[] = [
   { id: 'trefoil-cleat', title: 'Trefoil Cable Cleats', path: '/products/cable-cleat/trefoil-cleat' },
   { id: 'single-cleat', title: 'Single Cable Cleats', path: '/products/cable-cleat/single-cleat' },
 ];
 
-// Electrical Lugs & Terminals Products (LUGX Series)
+// 04. Electrical Lugs & Terminals Products (LUGX Series - Page 44-79)
 const lugProducts: ProductItem[] = [
   { id: 'copper-one-hole-standard', title: 'Copper One-Hole Standard Cable Lugs', path: '/products/lugx/copper-one-hole-standard' },
   { id: 'copper-one-hole-long-barrel', title: 'Copper One-Hole Long Barrel Cable Lugs', path: '/products/lugx/copper-one-hole-long-barrel' },
@@ -52,43 +57,66 @@ const lugProducts: ProductItem[] = [
   { id: 'copper-ring-tongue-fork', title: 'Copper Crimping Ring Tongue Fork Terminals', path: '/products/lugx/copper-ring-tongue-fork' },
 ];
 
-// Descriptive product naming per client feedback
+// 05. Electrical Enclosures & Junction Boxes Products (LINKBOX Series - Page 80-91)
+const junctionBoxProducts: ProductItem[] = [
+  { id: 'aluminium-enclosure', title: 'Aluminium Die Cast Enclosure', path: '/products/link-box#aluminium-enclosure' },
+  { id: 'aluminium-terminal', title: 'Aluminium Junction Box', path: '/products/link-box#aluminium-terminal' },
+  { id: 'mild-steel', title: 'Mild Steel Junction Box', path: '/products/link-box#mild-steel' },
+  { id: 'stainless-steel', title: 'Stainless Steel Junction Box', path: '/products/link-box#stainless-steel' },
+  { id: 'push-button', title: 'Stainless Steel Push Button Panel', path: '/products/link-box#stainless-steel' },
+];
+
+// 06 & 07. CNC Machined Components & Sheet Metal Solutions (Page 92-105)
 const otherProducts: ProductItem[] = [
   { id: 'cnc-machine-component', title: 'CNC Machined Components', path: '/products/cnc-machine-component' },
-  { id: 'press-parts', title: 'Sheet Metal Components', path: '/products/sheet-metal-press-parts' },
+  { id: 'press-parts', title: 'Sheet Metal Press Parts & Banding Solutions', path: '/products/sheet-metal-press-parts' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cableTiesOpen, setCableTiesOpen] = useState(false);
+  const [markerTagsOpen, setMarkerTagsOpen] = useState(false);
   const [cableCleatsOpen, setCableCleatsOpen] = useState(false);
   const [lugsOpen, setLugsOpen] = useState(false);
+  const [junctionBoxOpen, setJunctionBoxOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileCableTiesOpen, setMobileCableTiesOpen] = useState(false);
+  const [mobileMarkerTagsOpen, setMobileMarkerTagsOpen] = useState(false);
   const [mobileCableCleatsOpen, setMobileCableCleatsOpen] = useState(false);
   const [mobileLugsOpen, setMobileLugsOpen] = useState(false);
+  const [mobileJunctionBoxOpen, setMobileJunctionBoxOpen] = useState(false);
 
   const openTimeoutRef = useRef<number | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
   const cableTiesCloseTimeoutRef = useRef<number | null>(null);
+  const markerTagsCloseTimeoutRef = useRef<number | null>(null);
   const cableCleatsCloseTimeoutRef = useRef<number | null>(null);
   const lugsCloseTimeoutRef = useRef<number | null>(null);
+  const junctionBoxCloseTimeoutRef = useRef<number | null>(null);
   const router = useRouter();
   const navigate = (p: string) => router.push(p);
   const pathname = usePathname() || '/';
   const location = { pathname };
 
+  const closeAllSubMenus = () => {
+    setCableTiesOpen(false);
+    setMarkerTagsOpen(false);
+    setCableCleatsOpen(false);
+    setLugsOpen(false);
+    setJunctionBoxOpen(false);
+  };
+
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileProductsOpen(false);
     setMobileCableTiesOpen(false);
+    setMobileMarkerTagsOpen(false);
     setMobileCableCleatsOpen(false);
     setMobileLugsOpen(false);
+    setMobileJunctionBoxOpen(false);
     setIsOpen(false);
-    setCableTiesOpen(false);
-    setCableCleatsOpen(false);
-    setLugsOpen(false);
+    closeAllSubMenus();
   }, [location.pathname]);
 
   const isProductsActive =
@@ -126,9 +154,7 @@ export const Navbar: React.FC = () => {
     }
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
-      setCableTiesOpen(false);
-      setCableCleatsOpen(false);
-      setLugsOpen(false);
+      closeAllSubMenus();
     }, 180);
   };
 
@@ -137,10 +163,11 @@ export const Navbar: React.FC = () => {
       clearTimeout(cableTiesCloseTimeoutRef.current);
       cableTiesCloseTimeoutRef.current = null;
     }
+    if (markerTagsCloseTimeoutRef.current) clearTimeout(markerTagsCloseTimeoutRef.current);
     if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
     if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
-    setCableCleatsOpen(false);
-    setLugsOpen(false);
+    if (junctionBoxCloseTimeoutRef.current) clearTimeout(junctionBoxCloseTimeoutRef.current);
+    closeAllSubMenus();
     setCableTiesOpen(true);
   };
 
@@ -153,15 +180,38 @@ export const Navbar: React.FC = () => {
     }, 160);
   };
 
+  const handleMarkerTagsEnter = () => {
+    if (markerTagsCloseTimeoutRef.current) {
+      clearTimeout(markerTagsCloseTimeoutRef.current);
+      markerTagsCloseTimeoutRef.current = null;
+    }
+    if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
+    if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
+    if (junctionBoxCloseTimeoutRef.current) clearTimeout(junctionBoxCloseTimeoutRef.current);
+    closeAllSubMenus();
+    setMarkerTagsOpen(true);
+  };
+
+  const handleMarkerTagsLeave = () => {
+    if (markerTagsCloseTimeoutRef.current) {
+      clearTimeout(markerTagsCloseTimeoutRef.current);
+    }
+    markerTagsCloseTimeoutRef.current = window.setTimeout(() => {
+      setMarkerTagsOpen(false);
+    }, 160);
+  };
+
   const handleCableCleatsEnter = () => {
     if (cableCleatsCloseTimeoutRef.current) {
       clearTimeout(cableCleatsCloseTimeoutRef.current);
       cableCleatsCloseTimeoutRef.current = null;
     }
     if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (markerTagsCloseTimeoutRef.current) clearTimeout(markerTagsCloseTimeoutRef.current);
     if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
-    setCableTiesOpen(false);
-    setLugsOpen(false);
+    if (junctionBoxCloseTimeoutRef.current) clearTimeout(junctionBoxCloseTimeoutRef.current);
+    closeAllSubMenus();
     setCableCleatsOpen(true);
   };
 
@@ -180,9 +230,10 @@ export const Navbar: React.FC = () => {
       lugsCloseTimeoutRef.current = null;
     }
     if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (markerTagsCloseTimeoutRef.current) clearTimeout(markerTagsCloseTimeoutRef.current);
     if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
-    setCableTiesOpen(false);
-    setCableCleatsOpen(false);
+    if (junctionBoxCloseTimeoutRef.current) clearTimeout(junctionBoxCloseTimeoutRef.current);
+    closeAllSubMenus();
     setLugsOpen(true);
   };
 
@@ -195,6 +246,28 @@ export const Navbar: React.FC = () => {
     }, 160);
   };
 
+  const handleJunctionBoxEnter = () => {
+    if (junctionBoxCloseTimeoutRef.current) {
+      clearTimeout(junctionBoxCloseTimeoutRef.current);
+      junctionBoxCloseTimeoutRef.current = null;
+    }
+    if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (markerTagsCloseTimeoutRef.current) clearTimeout(markerTagsCloseTimeoutRef.current);
+    if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
+    if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
+    closeAllSubMenus();
+    setJunctionBoxOpen(true);
+  };
+
+  const handleJunctionBoxLeave = () => {
+    if (junctionBoxCloseTimeoutRef.current) {
+      clearTimeout(junctionBoxCloseTimeoutRef.current);
+    }
+    junctionBoxCloseTimeoutRef.current = window.setTimeout(() => {
+      setJunctionBoxOpen(false);
+    }, 160);
+  };
+
   const handleNavigate = (path: string, e?: React.MouseEvent) => {
     if (e) {
       e.stopPropagation();
@@ -202,12 +275,12 @@ export const Navbar: React.FC = () => {
     if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     if (cableTiesCloseTimeoutRef.current) clearTimeout(cableTiesCloseTimeoutRef.current);
+    if (markerTagsCloseTimeoutRef.current) clearTimeout(markerTagsCloseTimeoutRef.current);
     if (cableCleatsCloseTimeoutRef.current) clearTimeout(cableCleatsCloseTimeoutRef.current);
     if (lugsCloseTimeoutRef.current) clearTimeout(lugsCloseTimeoutRef.current);
+    if (junctionBoxCloseTimeoutRef.current) clearTimeout(junctionBoxCloseTimeoutRef.current);
     setIsOpen(false);
-    setCableTiesOpen(false);
-    setCableCleatsOpen(false);
-    setLugsOpen(false);
+    closeAllSubMenus();
     setMobileMenuOpen(false);
     navigate(path);
   };
@@ -347,7 +420,57 @@ export const Navbar: React.FC = () => {
                     )}
                   </li>
 
-                  {/* 2. Cable Cleats & Accessories Link with Nested Sub-Flyout */}
+                  {/* 2. Cable Marker Tags Link with Nested Sub-Flyout */}
+                  <li
+                    className="relative"
+                    onMouseEnter={handleMarkerTagsEnter}
+                    onMouseLeave={handleMarkerTagsLeave}
+                  >
+                    <div
+                      className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                        markerTagsOpen ? 'bg-white/15' : 'hover:bg-white/15'
+                      }`}
+                      onClick={(e) => handleNavigate('/products/n-loc/marker-tag', e)}
+                    >
+                      <span>Cable Marker Tags</span>
+                      <ChevronRight
+                        size={14}
+                        className={`opacity-70 shrink-0 ml-2 transition-transform duration-150 ${
+                          markerTagsOpen ? 'translate-x-0.5 opacity-100 text-emerald-200' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Sub-dropdown flyout on hover */}
+                    {markerTagsOpen && (
+                      <div
+                        className="absolute left-[calc(100%-4px)] top-0 pl-2 w-72 z-50 animate-in fade-in-0 zoom-in-95 origin-top-left"
+                        onMouseEnter={handleMarkerTagsEnter}
+                        onMouseLeave={handleMarkerTagsLeave}
+                      >
+                        <div className="rounded-2xl bg-[#004428] shadow-[0_14px_44px_rgba(0,68,40,0.45),0_6px_20px_rgba(0,0,0,0.22)] border border-white/10 py-2 overflow-hidden">
+                          <ul className="list-none m-0 p-0">
+                            {cableMarkerTagProducts.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="block px-4 py-2 text-[0.8125rem] font-medium text-white/90 hover:text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  {subItem.title}
+                                </div>
+                                {sIdx < cableMarkerTagProducts.length - 1 && (
+                                  <div className="mx-4 h-px bg-white/10" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* 3. Cable Cleats & Accessories Link with Nested Sub-Flyout */}
                   <li
                     className="relative"
                     onMouseEnter={handleCableCleatsEnter}
@@ -395,24 +518,6 @@ export const Navbar: React.FC = () => {
                         </div>
                       </div>
                     )}
-                  </li>
-
-                  {/* 3. Electrical Enclosures & Junction Boxes */}
-                  <li 
-                    onMouseEnter={() => {
-                      setCableTiesOpen(false);
-                      setCableCleatsOpen(false);
-                      setLugsOpen(false);
-                    }}
-                  >
-                    <div
-                      className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
-                      onClick={(e) => handleNavigate('/products/link-box', e)}
-                    >
-                      <span>Electrical Enclosures & Junction Boxes</span>
-                      <ArrowRight size={13} className="opacity-60 shrink-0 ml-2" />
-                    </div>
-                    <div className="mx-5 h-px bg-white/15" />
                   </li>
 
                   {/* 4. Electrical Lugs & Terminals with Nested Sub-Flyout */}
@@ -465,15 +570,61 @@ export const Navbar: React.FC = () => {
                     )}
                   </li>
 
-                  {/* 5. Remaining products (CNC & Press Parts) */}
+                  {/* 5. Electrical Enclosures & Junction Boxes with Nested Sub-Flyout */}
+                  <li 
+                    className="relative"
+                    onMouseEnter={handleJunctionBoxEnter}
+                    onMouseLeave={handleJunctionBoxLeave}
+                  >
+                    <div
+                      className={`flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white transition-colors duration-150 select-none cursor-pointer ${
+                        junctionBoxOpen ? 'bg-white/15' : 'hover:bg-white/15'
+                      }`}
+                      onClick={(e) => handleNavigate('/products/link-box', e)}
+                    >
+                      <span>Electrical Enclosures & Junction Boxes</span>
+                      <ChevronRight
+                        size={14}
+                        className={`opacity-70 shrink-0 ml-2 transition-transform duration-150 ${
+                          junctionBoxOpen ? 'translate-x-0.5 opacity-100 text-emerald-200' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Sub-dropdown flyout on hover */}
+                    {junctionBoxOpen && (
+                      <div
+                        className="absolute left-[calc(100%-4px)] top-0 pl-2 w-72 z-50 animate-in fade-in-0 zoom-in-95 origin-top-left"
+                        onMouseEnter={handleJunctionBoxEnter}
+                        onMouseLeave={handleJunctionBoxLeave}
+                      >
+                        <div className="rounded-2xl bg-[#004428] shadow-[0_14px_44px_rgba(0,68,40,0.45),0_6px_20px_rgba(0,0,0,0.22)] border border-white/10 py-2 overflow-hidden">
+                          <ul className="list-none m-0 p-0">
+                            {junctionBoxProducts.map((subItem, sIdx) => (
+                              <li key={subItem.id}>
+                                <div
+                                  className="block px-4 py-2.5 text-[0.8125rem] font-medium text-white/90 hover:text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
+                                  onClick={(e) => handleNavigate(subItem.path, e)}
+                                >
+                                  {subItem.title}
+                                </div>
+                                {sIdx < junctionBoxProducts.length - 1 && (
+                                  <div className="mx-4 h-px bg-white/10" />
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* 6 & 7. CNC Machined Components & Sheet Metal Solutions */}
                   {otherProducts.map((item, idx) => (
                     <li 
                       key={item.id}
-                      onMouseEnter={() => {
-                        setCableTiesOpen(false);
-                        setCableCleatsOpen(false);
-                        setLugsOpen(false);
-                      }}
+                      onMouseEnter={closeAllSubMenus}
                     >
                       <div
                         className="flex items-center justify-between px-5 py-2.5 text-[0.875rem] font-medium text-white cursor-pointer transition-colors duration-150 hover:bg-white/15"
@@ -509,6 +660,15 @@ export const Navbar: React.FC = () => {
             }`}
           >
             Catalogue
+          </Link>
+          <Link href="/quality-certifications"
+            className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
+              location.pathname === '/quality-certifications'
+                ? 'text-emerald-800 font-semibold after:content-[\'\'] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-emerald-700 after:rounded-full' 
+                : 'text-slate-700 font-medium hover:text-emerald-800'
+            }`}
+          >
+            Quality &amp; Certifications
           </Link>
           <Link href="/contact"
             className={`text-[14.5px] transition-all duration-200 select-none cursor-pointer relative py-1 ${
@@ -608,7 +768,7 @@ export const Navbar: React.FC = () => {
 
               {mobileProductsOpen && (
                 <div className="ml-2 mt-1 mb-2 rounded-xl bg-[#004428] overflow-hidden shadow-sm animate-in fade-in-0 duration-200">
-                  {/* Stainless Steel Cable Ties with Sub-Accordion */}
+                  {/* 1. Stainless Steel Cable Ties with Sub-Accordion */}
                   <div>
                     <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
                       <Link href="/products/n-loc"
@@ -634,7 +794,7 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="mx-5 h-px bg-white/15" />
 
-                    {/* 9 Cable Tie Sub-Items on Mobile */}
+                    {/* Cable Tie Sub-Items on Mobile */}
                     {mobileCableTiesOpen && (
                       <div className="bg-black/20 py-1 pl-3 pr-2 animate-in fade-in-0 duration-150">
                         {cableTieProducts.map((subItem, sIdx) => (
@@ -655,7 +815,54 @@ export const Navbar: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Cable Cleats with Sub-Accordion */}
+                  {/* 2. Cable Marker Tags with Sub-Accordion */}
+                  <div>
+                    <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
+                      <Link href="/products/n-loc/marker-tag"
+                        className="flex-1 text-white no-underline"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>Cable Marker Tags</span>
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle marker tags sub-menu"
+                        className="p-1 text-white/80 hover:text-white bg-transparent border-none cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileMarkerTagsOpen(!mobileMarkerTagsOpen);
+                        }}
+                      >
+                        <ChevronDown 
+                          size={14} 
+                          className={`transition-transform duration-200 ${mobileMarkerTagsOpen ? 'rotate-180 text-emerald-300' : ''}`} 
+                        />
+                      </button>
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Marker Tags Sub-Items on Mobile */}
+                    {mobileMarkerTagsOpen && (
+                      <div className="bg-black/20 py-1 pl-3 pr-2 animate-in fade-in-0 duration-150">
+                        {cableMarkerTagProducts.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              href={subItem.path}
+                              className="block px-4 py-2.5 text-[0.8rem] font-normal text-white/90 no-underline transition-colors duration-150 hover:bg-white/15 rounded"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.title}
+                            </Link>
+                            {sIdx < cableMarkerTagProducts.length - 1 && (
+                              <div className="mx-4 h-px bg-white/10" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 3. Cable Cleats with Sub-Accordion */}
                   <div>
                     <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
                       <Link href="/products/cable-cleat"
@@ -702,19 +909,7 @@ export const Navbar: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Electrical Enclosures & Junction Boxes Direct Link */}
-                  <div>
-                    <Link href="/products/link-box"
-                      className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white no-underline transition-colors duration-150 hover:bg-white/15"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span>Electrical Enclosures & Junction Boxes</span>
-                      <ArrowRight size={13} className="opacity-60" />
-                    </Link>
-                    <div className="mx-5 h-px bg-white/15" />
-                  </div>
-
-                  {/* Electrical Lugs & Terminals with Sub-Accordion */}
+                  {/* 4. Electrical Lugs & Terminals with Sub-Accordion */}
                   <div>
                     <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
                       <Link href="/products/lugx"
@@ -761,7 +956,54 @@ export const Navbar: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Other Products with Dividers & Right Arrow */}
+                  {/* 5. Electrical Enclosures & Junction Boxes with Sub-Accordion */}
+                  <div>
+                    <div className="flex items-center justify-between px-5 py-3 text-[0.875rem] font-medium text-white transition-colors duration-150 hover:bg-white/15">
+                      <Link href="/products/link-box"
+                        className="flex-1 text-white no-underline"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>Electrical Enclosures & Junction Boxes</span>
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle junction box sub-menu"
+                        className="p-1 text-white/80 hover:text-white bg-transparent border-none cursor-pointer outline-none"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileJunctionBoxOpen(!mobileJunctionBoxOpen);
+                        }}
+                      >
+                        <ChevronDown 
+                          size={14} 
+                          className={`transition-transform duration-200 ${mobileJunctionBoxOpen ? 'rotate-180 text-emerald-300' : ''}`} 
+                        />
+                      </button>
+                    </div>
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Junction Box Sub-Items on Mobile */}
+                    {mobileJunctionBoxOpen && (
+                      <div className="bg-black/20 py-1 pl-3 pr-2 animate-in fade-in-0 duration-150">
+                        {junctionBoxProducts.map((subItem, sIdx) => (
+                          <div key={subItem.id}>
+                            <Link
+                              href={subItem.path}
+                              className="block px-4 py-2.5 text-[0.8rem] font-normal text-white/90 no-underline transition-colors duration-150 hover:bg-white/15 rounded"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.title}
+                            </Link>
+                            {sIdx < junctionBoxProducts.length - 1 && (
+                              <div className="mx-4 h-px bg-white/10" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 6 & 7. Other Products (CNC & Sheet Metal Solutions) */}
                   {otherProducts.map((item, idx) => (
                     <div key={item.id}>
                       <Link href={item.path}
@@ -800,6 +1042,17 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Catalogue</span>
+            </Link>
+
+            <Link href="/quality-certifications"
+              className={`flex items-center justify-between py-3 px-3 rounded-lg text-[15px] font-semibold transition-colors ${
+                location.pathname === '/quality-certifications'
+                  ? 'bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-700 pl-2'
+                  : 'text-slate-800 hover:bg-slate-50'
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Quality &amp; Certifications</span>
             </Link>
 
             <Link href="/contact"

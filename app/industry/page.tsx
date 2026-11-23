@@ -207,10 +207,10 @@ const IndustryPage: React.FC = () => {
 
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-[38px] font-medium text-[#1a1a1a] tracking-tight mb-3">
-                Looking for a reliable <span className="text-[#004428]">engineering partner</span>?
+                Securing critical <span className="text-[#004428]">infrastructure across global industries</span>
               </h2>
               <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b]">
-                Let&apos;s build <span className="text-[#8c2442] font-semibold">precision</span> together.
+                Engineered to withstand <span className="text-[#8c2442] font-semibold">extreme industrial conditions</span> worldwide.
               </p>
             </div>
 

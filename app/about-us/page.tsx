@@ -9,6 +9,7 @@ import {
   Users,
   TrendingUp,
   Award,
+  Globe,
 } from 'lucide-react';
 
 interface ValueItem {
@@ -51,6 +52,7 @@ const values: ValueItem[] = [
 ];
 
 const strengths = [
+  'Built to Deliver',
   'Strong In-House Manufacturing Capabilities',
   'Standardized Packaging & Export Logistics',
   'Flexible Batch & Volume Production',
@@ -81,7 +83,7 @@ const brands: BrandItem[] = [
   {
     id: 'link-box',
     name: 'LINKBOX',
-    tag: 'JUNCTION BOXES & ENCLOSURES',
+    tag: 'ELECTRICAL ENCLOSURES & JUNCTION BOXES',
     desc: 'Robust electrical enclosures manufactured in die-cast aluminium, stainless steel and mild steel, designed to safeguard electrical connections against harsh industrial and environmental conditions.',
     img: '/assets/logo_linkbox.webp',
     link: '/products/link-box',
@@ -273,10 +275,10 @@ const AboutPage: React.FC = () => {
             <div>
               <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 sm:mb-4 flex items-center gap-2.5">
                 <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                Our Strength
+                Why NAEPL
               </p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1a1a1a] leading-[1.18] tracking-tight mb-7 sm:mb-9">
-                Built to <span className="text-[#004428]">Deliver</span>
+                Our <span className="text-[#004428]">Strength</span>
               </h2>
 
               <div className="flex flex-col gap-3">
@@ -297,7 +299,107 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 5. CTA Banner Section ── */}
+      {/* ── 5. Quality Management & ISO 9001:2015 Certifications Section ── */}
+      <section className="py-16 sm:py-24 bg-white border-t border-[#e8e8e8]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+          <div className="max-w-[720px] mb-10 sm:mb-14">
+            <p className="text-[11px] font-semibold text-[#004428] tracking-[0.16em] uppercase mb-3 flex items-center gap-2.5">
+              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
+              Quality Standards &amp; Certifications
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-medium text-[#1a1a1a] leading-[1.18] tracking-tight mb-4">
+              Engineered for Reliability. <span className="text-[#8c2442]">Built on Trust.</span>
+            </h2>
+            <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b] leading-relaxed m-0">
+              NAEPL operates under internationally recognized quality management systems, rigorous inspection protocols, and verified global business standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* ISO 9001:2015 Card */}
+            <div className="p-6 rounded-2xl bg-[#fbfbfa] border-2 border-emerald-900/10 hover:border-[#004428] transition-all duration-300 flex flex-col justify-between group hover:shadow-lg">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#004428] flex items-center justify-center font-bold text-sm mb-4 border border-emerald-200">
+                  <ShieldCheck size={26} className="text-[#004428]" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10.5px] font-bold uppercase tracking-wider mb-2">
+                  Certified QMS
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">ISO 9001:2015</h3>
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  Quality Management System commitment to consistent quality, rigorous process control, and continual improvement across all manufacturing operations.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200 text-[12px] font-semibold text-emerald-800 flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-emerald-700" />
+                <span>Internationally Recognized</span>
+              </div>
+            </div>
+
+            {/* D-U-N-S Registered */}
+            <div className="p-6 rounded-2xl bg-[#fbfbfa] border-2 border-slate-200 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center font-bold text-sm mb-4 border border-blue-200">
+                  <Globe size={24} className="text-blue-800" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[10.5px] font-bold uppercase tracking-wider mb-2">
+                  Global Credibility
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">D-U-N-S&reg; Registered</h3>
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  Globally recognized business identification through Dun &amp; Bradstreet, providing transparent international trade and verified credentials.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200 text-[12px] font-semibold text-blue-800 flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-blue-700" />
+                <span>Verified Business Identity</span>
+              </div>
+            </div>
+
+            {/* Quality Inspection */}
+            <div className="p-6 rounded-2xl bg-[#fbfbfa] border-2 border-slate-200 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-900 flex items-center justify-center font-bold text-sm mb-4 border border-amber-200">
+                  <Award size={24} className="text-amber-800" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10.5px] font-bold uppercase tracking-wider mb-2">
+                  Rigorous Testing
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Quality Inspection</h3>
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  Multi-stage inspection protocols to verify tensile strength, dimensional accuracy, metallurgy test certificates (MTC), and zero-defect delivery.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200 text-[12px] font-semibold text-amber-800 flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-amber-700" />
+                <span>100% Quality Inspected</span>
+              </div>
+            </div>
+
+            {/* Make in India */}
+            <div className="p-6 rounded-2xl bg-[#fbfbfa] border-2 border-slate-200 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-orange-50 text-orange-900 flex items-center justify-center font-bold text-sm mb-4 border border-orange-200">
+                  <span className="font-extrabold text-[12px] text-orange-900">MII</span>
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[10.5px] font-bold uppercase tracking-wider mb-2">
+                  Domestic &amp; Export
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Make in India (MII)</h3>
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  Proud to support India&apos;s manufacturing ecosystem with in-house precision engineering while serving demanding global export markets.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200 text-[12px] font-semibold text-orange-800 flex items-center gap-1.5">
+                <CheckCircle2 size={14} className="text-orange-700" />
+                <span>Self-Reliant Manufacturing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. CTA Banner Section ── */}
       <section className="py-16 sm:py-24 bg-white border-t border-[#e8e8e8]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="relative bg-[#f8f8f7] border border-[#e8e8e8] rounded-2xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 overflow-hidden transition-all duration-300 hover:shadow-[0_24px_56px_rgba(0,68,40,0.10)] hover:border-[#004428]/30">
@@ -306,10 +408,10 @@ const AboutPage: React.FC = () => {
 
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-[38px] font-medium text-[#1a1a1a] tracking-tight mb-3">
-                Looking for a reliable <span className="text-[#004428]">engineering partner</span>?
+                Partner with proven <span className="text-[#004428]">industrial manufacturing expertise</span>
               </h2>
               <p className="text-[14.5px] sm:text-base font-light text-[#6b6b6b]">
-                Let&apos;s build <span className="text-[#8c2442] font-semibold">precision</span> together.
+                Decades of engineering rigor, backed by the strength of the <span className="text-[#8c2442] font-semibold">N Gandhi Group</span>.
               </p>
             </div>
 

@@ -1,15 +1,35 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { BackToProducts } from '@/components/BackToProducts';
 import { TrustRow } from '@/components/TrustRow';
 import {
   CheckCircle2,
   ArrowRight,
-  FileText
+  ArrowLeft,
+  FileText,
+  Search,
+  X,
+  Check
 } from 'lucide-react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  aluminiumEnclosuresData,
+  mildSteelJunctionBoxesData,
+  stainlessSteelJunctionBoxesData,
+  pushButtonPanelsData,
+} from '@/data/linkBoxProductsData';
 
 const LinkBoxPage: React.FC = () => {
+  const [activeTable, setActiveTable] = useState<'aluminium' | 'mild-steel' | 'stainless-steel' | 'push-button'>('aluminium');
+  const [searchQuery, setSearchQuery] = useState('');
   return (
     <main className="w-full bg-[#fcfcfd] text-[#111827]">
       {/* ── 1. Hero Banner (Descriptive Naming: "Weatherproof Junction Boxes & Enclosures", Pink removed) ── */}
@@ -264,6 +284,370 @@ const LinkBoxPage: React.FC = () => {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Technical Sizing Tables Section (From Official NAEPL Catalogue) ── */}
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f8fafc] border-y border-slate-200" id="specifications">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <div className="flex items-center gap-2 text-[10.5px] sm:text-[11.5px] font-bold tracking-[0.14em] uppercase text-[#004428] mb-1.5 before:content-[''] before:inline-block before:w-5 before:h-[1.5px] before:bg-[#004428]">
+                TECHNICAL DATA SHEET · SIZING MATRIX
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Enclosure Sizing &amp; Part Numbers
+              </h2>
+              <p className="text-[13.5px] text-slate-500 mt-1">
+                Standard catalogue models and dimensions. Custom drillings, gland cutouts, and bespoke sizes manufactured upon request.
+              </p>
+            </div>
+
+            {/* Table Selector Tabs */}
+            <div className="flex flex-wrap items-center gap-2 p-1 bg-white border border-slate-200 rounded-xl shadow-sm">
+              <button
+                type="button"
+                onClick={() => { setActiveTable('aluminium'); setSearchQuery(''); }}
+                className={`px-3.5 py-2 rounded-lg text-[11.5px] sm:text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeTable === 'aluminium'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                Aluminium Enclosures (20)
+              </button>
+              <button
+                type="button"
+                onClick={() => { setActiveTable('mild-steel'); setSearchQuery(''); }}
+                className={`px-3.5 py-2 rounded-lg text-[11.5px] sm:text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeTable === 'mild-steel'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                Mild Steel JB (9)
+              </button>
+              <button
+                type="button"
+                onClick={() => { setActiveTable('stainless-steel'); setSearchQuery(''); }}
+                className={`px-3.5 py-2 rounded-lg text-[11.5px] sm:text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeTable === 'stainless-steel'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                Stainless Steel JB (8)
+              </button>
+              <button
+                type="button"
+                onClick={() => { setActiveTable('push-button'); setSearchQuery(''); }}
+                className={`px-3.5 py-2 rounded-lg text-[11.5px] sm:text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeTable === 'push-button'
+                    ? 'bg-[#004428] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                Push Button Panels (7)
+              </button>
+            </div>
+          </div>
+
+          {/* Active Table Card */}
+          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+            <div className="px-6 py-4 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <h3 className="text-[16px] font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                  <span>
+                    {activeTable === 'aluminium' && 'Aluminium Die-Cast Enclosures (IP66/67)'}
+                    {activeTable === 'mild-steel' && 'Mild Steel Clamp-Secured Junction Boxes'}
+                    {activeTable === 'stainless-steel' && 'Stainless Steel AISI 304 / 316 Enclosures'}
+                    {activeTable === 'push-button' && 'SS Push Button Enclosures & Control Stations'}
+                  </span>
+                  <span className="text-[10.5px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">
+                    Official NAEPL Catalogue
+                  </span>
+                </h3>
+                <p className="text-[12.5px] text-slate-500 mt-0.5">
+                  {activeTable === 'aluminium' && 'High corrosion resistance, polyurethane gasket, internal earthing screw.'}
+                  {activeTable === 'mild-steel' && 'Heavy-duty CRCA construction with polyurethane door seal and internal mounting panel.'}
+                  {activeTable === 'stainless-steel' && 'AISI 304 / 316 grade stainless steel with brushed grain finish for sanitary and marine use.'}
+                  {activeTable === 'push-button' && 'Pre-punched standard 22.5 mm actuator holes with silicone/neoprene oil-resistant seals.'}
+                </p>
+              </div>
+
+              {/* Table Search */}
+              <div className="flex items-center gap-3">
+                <div className="relative w-full sm:w-[260px]">
+                  <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search Part No., dimensions..."
+                    className="w-full pl-9 pr-8 py-1.5 bg-white border border-slate-200 rounded-xl text-[12px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004428]/20 focus:border-[#004428] transition-all"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Table Display */}
+            <div className="p-2 sm:p-4 overflow-x-auto">
+              {activeTable === 'aluminium' && (
+                <Table>
+                  <TableHeader className="bg-slate-100/90">
+                    <TableRow className="border-b-2 border-slate-200">
+                      <TableHead className="font-bold text-[#004428] text-[12px] uppercase tracking-wider py-3.5">Part No.</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Width (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Length (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Height (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5 text-center">Mounting Plate</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5 text-center">DIN Rail (T15)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5 text-center">DIN Rail (T35)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5 text-center">Hinges Set</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5 text-center">Mounting Bracket</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(() => {
+                      const q = searchQuery.toLowerCase().trim();
+                      const filtered = q
+                        ? aluminiumEnclosuresData.filter(
+                            (r) =>
+                              r.partNo.toLowerCase().includes(q) ||
+                              r.width.includes(q) ||
+                              r.length.includes(q) ||
+                              r.height.includes(q)
+                          )
+                        : aluminiumEnclosuresData;
+
+                      if (filtered.length === 0) {
+                        return (
+                          <TableRow>
+                            <TableCell colSpan={9} className="text-center py-10 text-slate-500 text-[13px]">
+                              No enclosures match your search "{searchQuery}".
+                            </TableCell>
+                          </TableRow>
+                        );
+                      }
+
+                      return filtered.map((row, idx) => (
+                        <TableRow key={idx} className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50">
+                          <TableCell className="font-bold text-slate-900 font-mono text-[12.5px]">{row.partNo}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.width}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.length}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.height}</TableCell>
+                          <TableCell className="text-center">
+                            {row.mountingPlate ? <Check size={16} className="text-emerald-700 inline" /> : <span className="text-slate-300 font-bold">—</span>}
+                          </TableCell>
+                          <TableCell className="text-center">
+                            {row.dinRailT15 ? <Check size={16} className="text-emerald-700 inline" /> : <span className="text-slate-300 font-bold">—</span>}
+                          </TableCell>
+                          <TableCell className="text-center">
+                            {row.dinRailT35 ? <Check size={16} className="text-emerald-700 inline" /> : <span className="text-slate-300 font-bold">—</span>}
+                          </TableCell>
+                          <TableCell className="text-center">
+                            {row.hingesSet ? <Check size={16} className="text-emerald-700 inline" /> : <span className="text-slate-300 font-bold">—</span>}
+                          </TableCell>
+                          <TableCell className="text-center">
+                            {row.mountingBracket ? <Check size={16} className="text-emerald-700 inline" /> : <span className="text-slate-300 font-bold">—</span>}
+                          </TableCell>
+                        </TableRow>
+                      ));
+                    })()}
+                  </TableBody>
+                </Table>
+              )}
+
+              {activeTable === 'mild-steel' && (
+                <Table>
+                  <TableHeader className="bg-slate-100/90">
+                    <TableRow className="border-b-2 border-slate-200">
+                      <TableHead className="font-bold text-[#004428] text-[12px] uppercase tracking-wider py-3.5">Part No.</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Enclosure Height (H)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Enclosure Width (W)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Enclosure Depth (D)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Panel Height (H)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Panel Width (W)</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(() => {
+                      const q = searchQuery.toLowerCase().trim();
+                      const filtered = q
+                        ? mildSteelJunctionBoxesData.filter(
+                            (r) =>
+                              r.partNo.toLowerCase().includes(q) ||
+                              r.enclosureH.includes(q) ||
+                              r.enclosureW.includes(q) ||
+                              r.enclosureD.includes(q)
+                          )
+                        : mildSteelJunctionBoxesData;
+
+                      if (filtered.length === 0) {
+                        return (
+                          <TableRow>
+                            <TableCell colSpan={6} className="text-center py-10 text-slate-500 text-[13px]">
+                              No mild steel boxes match your search "{searchQuery}".
+                            </TableCell>
+                          </TableRow>
+                        );
+                      }
+
+                      return filtered.map((row, idx) => (
+                        <TableRow key={idx} className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50">
+                          <TableCell className="font-bold text-slate-900 font-mono text-[12.5px]">{row.partNo}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.enclosureH}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.enclosureW}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.enclosureD}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.panelH}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.panelW}</TableCell>
+                        </TableRow>
+                      ));
+                    })()}
+                  </TableBody>
+                </Table>
+              )}
+
+              {activeTable === 'stainless-steel' && (
+                <Table>
+                  <TableHeader className="bg-slate-100/90">
+                    <TableRow className="border-b-2 border-slate-200">
+                      <TableHead className="font-bold text-[#004428] text-[12px] uppercase tracking-wider py-3.5">Part No.</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Width (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Length (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Height (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Weight (kg approx.)</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(() => {
+                      const q = searchQuery.toLowerCase().trim();
+                      const filtered = q
+                        ? stainlessSteelJunctionBoxesData.filter(
+                            (r) =>
+                              r.partNo.toLowerCase().includes(q) ||
+                              r.width.includes(q) ||
+                              r.length.includes(q) ||
+                              r.height.includes(q)
+                          )
+                        : stainlessSteelJunctionBoxesData;
+
+                      if (filtered.length === 0) {
+                        return (
+                          <TableRow>
+                            <TableCell colSpan={5} className="text-center py-10 text-slate-500 text-[13px]">
+                              No stainless steel enclosures match your search "{searchQuery}".
+                            </TableCell>
+                          </TableRow>
+                        );
+                      }
+
+                      return filtered.map((row, idx) => (
+                        <TableRow key={idx} className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50">
+                          <TableCell className="font-bold text-slate-900 font-mono text-[12.5px]">{row.partNo}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.width}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.length}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.height}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.weight}</TableCell>
+                        </TableRow>
+                      ));
+                    })()}
+                  </TableBody>
+                </Table>
+              )}
+
+              {activeTable === 'push-button' && (
+                <Table>
+                  <TableHeader className="bg-slate-100/90">
+                    <TableRow className="border-b-2 border-slate-200">
+                      <TableHead className="font-bold text-[#004428] text-[12px] uppercase tracking-wider py-3.5">Part No.</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Holes / Cut-Outs</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Width (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Length (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Height (mm)</TableHead>
+                      <TableHead className="font-bold text-slate-700 text-[12px] uppercase tracking-wider py-3.5">Weight (kg approx.)</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(() => {
+                      const q = searchQuery.toLowerCase().trim();
+                      const filtered = q
+                        ? pushButtonPanelsData.filter(
+                            (r) =>
+                              r.partNo.toLowerCase().includes(q) ||
+                              r.holes.includes(q) ||
+                              r.width.includes(q) ||
+                              r.length.includes(q)
+                          )
+                        : pushButtonPanelsData;
+
+                      if (filtered.length === 0) {
+                        return (
+                          <TableRow>
+                            <TableCell colSpan={6} className="text-center py-10 text-slate-500 text-[13px]">
+                              No push button panels match your search "{searchQuery}".
+                            </TableCell>
+                          </TableRow>
+                        );
+                      }
+
+                      return filtered.map((row, idx) => (
+                        <TableRow key={idx} className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50">
+                          <TableCell className="font-bold text-slate-900 font-mono text-[12.5px]">{row.partNo}</TableCell>
+                          <TableCell className="font-bold text-emerald-800 text-[12.5px]">{row.holes} {row.holes === '1' ? 'Hole (22.5mm)' : 'Holes (22.5mm)'}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.width}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.length}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.height}</TableCell>
+                          <TableCell className="text-slate-700 text-[12.5px]">{row.weight}</TableCell>
+                        </TableRow>
+                      ));
+                    })()}
+                  </TableBody>
+                </Table>
+              )}
+            </div>
+          </div>
+
+          {/* ── Redirecting Navigation Bar Below Table (Matching Client Design) ── */}
+          <div className="mt-8 p-6 sm:p-7 bg-[#0b1310] rounded-2xl border border-white/10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-5">
+            <div>
+              <span className="text-[11px] font-bold tracking-widest uppercase text-emerald-400 block mb-1">
+                FAST DIRECT INQUIRY &middot; NAEPL LINK-BOX
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                Need Custom Machining, Holes, or Terminal Assembly?
+              </h3>
+              <p className="text-[13px] text-white/70 mt-1 max-w-[560px]">
+                We supply pre-drilled enclosures, terminal blocks, DIN rails, and IP68 cable glands as pre-assembled kits.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0 w-full md:w-auto">
+              <a
+                href="#our-range"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#1b231f] hover:bg-[#25322c] text-white/90 hover:text-white font-medium text-[13px] transition-all border border-white/15 cursor-pointer"
+              >
+                <ArrowLeft size={15} />
+                <span>All Enclosures Range</span>
+              </a>
+              <Link
+                href="/contact?subject=RFQ%20for%20Link-Box%20Enclosures"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#004d2e] hover:bg-[#005f38] text-white font-bold text-[13px] uppercase tracking-wider transition-all shadow-md border border-emerald-500/40"
+              >
+                <span>REQUEST RFQ</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

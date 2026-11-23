@@ -207,123 +207,48 @@ const LugProductDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── 3. Technical Sizing Matrix (shadcn Table Component) ── */}
-      <section className="py-12 sm:py-16 md:py-20 bg-slate-50" id="sizing-matrix">
+      {/* ── 3. Technical Sizing Matrix (Hidden for the time being per client request) ── */}
+      <section className="py-12 sm:py-16 md:py-20 bg-slate-50 border-y border-slate-200" id="sizing-matrix">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-            <div>
-              <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#004428] mb-1.5 flex items-center gap-2">
-                <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
-                <span>NAEPL Technical Sizing Matrix</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                {currentTable?.title || 'Dimensional Specifications'}
-              </h2>
-              <p className="text-[13px] sm:text-[14px] text-slate-600 mt-1 max-w-[700px]">
-                {currentTable?.subtitle || 'Standard catalogue codes and dimensional specifications from the official NAEPL engineering brochure.'}
-              </p>
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 sm:p-12 text-center max-w-[820px] mx-auto shadow-sm">
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-[#004428] flex items-center justify-center mb-4 border border-emerald-200">
+              <FileText size={28} />
             </div>
-
-            {/* Search / Filter Input */}
-            <div className="flex items-center gap-3">
-              <div className="relative w-full sm:w-64">
-                <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Filter part code, size..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-[12.5px] rounded-lg border border-slate-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#004428] focus:border-[#004428]"
-                />
-              </div>
-
-              <span className="text-[11.5px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-2 rounded-lg uppercase tracking-wider shrink-0">
-                {filteredRows.length} Sizes
-              </span>
+            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#004428] mb-2 flex items-center justify-center gap-2">
+              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
+              <span>TECHNICAL SPECIFICATIONS &middot; NAEPL LUGX</span>
+              <span className="inline-block w-5 h-[1.5px] bg-[#004428]" />
             </div>
-          </div>
-
-          {/* Table Card */}
-          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-            <div className="p-2 sm:p-4 overflow-x-auto max-h-[640px] overflow-y-auto">
-              <Table>
-                <TableHeader className="bg-slate-100/90 sticky top-0 z-10">
-                  <TableRow className="border-b-2 border-slate-200">
-                    {currentTable?.headers.map((h, hIdx) => (
-                      <TableHead 
-                        key={hIdx} 
-                        className={`font-bold text-[12px] sm:text-[12.5px] uppercase tracking-wider py-3.5 ${
-                          hIdx === 0 ? 'text-[#004428]' : 'text-slate-700'
-                        }`}
-                      >
-                        {h}
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredRows.map((row, rIdx) => (
-                    <TableRow 
-                      key={rIdx}
-                      className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50 transition-colors"
-                    >
-                      <TableCell className="font-bold text-slate-900 font-mono text-[12.5px] sm:text-[13px] py-2.5">
-                        {row.code}
-                      </TableCell>
-                      <TableCell className="text-slate-800 font-medium text-[12.5px] sm:text-[13px] py-2.5">
-                        {row.sqmm}
-                      </TableCell>
-                      <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                        {row.stud}
-                      </TableCell>
-                      {row.studHole && (
-                        <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.studHole}
-                        </TableCell>
-                      )}
-                      {row.extra && currentTable.headers.length >= 8 && (
-                        <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.extra}
-                        </TableCell>
-                      )}
-                      {row.barrelId && (
-                        <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.barrelId}
-                        </TableCell>
-                      )}
-                      {row.palmWidth && (
-                        <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.palmWidth}
-                        </TableCell>
-                      )}
-                      {row.barrelLength && (
-                        <TableCell className="text-slate-700 text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.barrelLength}
-                        </TableCell>
-                      )}
-                      {row.totalLength && (
-                        <TableCell className="text-slate-900 font-semibold text-[12.5px] sm:text-[13px] py-2.5">
-                          {row.totalLength}
-                        </TableCell>
-                      )}
-                    </TableRow>
-                  ))}
-                  {filteredRows.length === 0 && (
-                    <TableRow>
-                      <TableCell colSpan={currentTable?.headers.length || 8} className="text-center py-8 text-slate-500">
-                        No sizes match your search &ldquo;{searchTerm}&rdquo;. Try another term.
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </TableBody>
-                <TableCaption>
-                  NAEPL Certified Terminals &amp; Lugs. Custom sizes and plating specifications manufactured upon request.
-                </TableCaption>
-              </Table>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+              Dimensional Sizing &amp; Part Numbers
+            </h2>
+            <p className="text-[14px] sm:text-[15px] text-slate-600 mb-8 leading-relaxed max-w-[620px] mx-auto">
+              Complete dimensional drawings, stud hole configurations, palm dimensions, and custom plating specifications for <span className="font-semibold text-slate-900">{product.title}</span> are available in our official engineering catalogue or directly upon enquiry.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3.5">
+              <Link
+                href="/products/lugx"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-[13px] transition-all border border-slate-200"
+              >
+                <ArrowLeft size={16} />
+                <span>All Lugs Range</span>
+              </Link>
+              <Link
+                href="/brochure?doc=lugx-brochure"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-[13px] transition-all border border-slate-200"
+              >
+                <FileText size={16} />
+                <span>Download LUGX Brochure (PDF)</span>
+              </Link>
+              <Link
+                href={`/contact?subject=RFQ%20for%20${encodeURIComponent(product.title)}`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#004428] hover:bg-[#00331e] text-white font-bold text-[13px] uppercase tracking-wide transition-all shadow-md hover:shadow-lg"
+              >
+                <span>Request Sizing Sheet &amp; Quote</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
-
         </div>
       </section>
 

@@ -13,7 +13,9 @@ import {
   FileText, 
   ArrowRight, 
   ChevronRight,
-  Package
+  Package,
+  Search,
+  X
 } from 'lucide-react';
 import { 
   Table, 
@@ -34,11 +36,13 @@ const ProductDetailPage: React.FC = () => {
 
   const [activeFinish, setActiveFinish] = useState<'uncoated' | 'coated'>('uncoated');
   const [activeSubTableIdx, setActiveSubTableIdx] = useState<number>(0);
+  const [tableSearch, setTableSearch] = useState<string>('');
 
   // Reset to initial tab only when product slug changes
   useEffect(() => {
     setActiveSubTableIdx(0);
     setActiveFinish('uncoated');
+    setTableSearch('');
   }, [slug]);
 
   const hasCoatedOption = Boolean(product.images.coated);
@@ -58,6 +62,7 @@ const ProductDetailPage: React.FC = () => {
   // Preserve the selected width (e.g. 7.9mm Width) when switching between Uncoated and Coated finishes
   const handleFinishChange = (newFinish: 'uncoated' | 'coated') => {
     if (newFinish === activeFinish) return;
+    setTableSearch('');
 
     const currentTable = visibleTables[activeSubTableIdx] || visibleTables[0];
     const currentWidth = currentTable?.title.split('–')[1]?.trim() || currentTable?.title.split('-')[1]?.trim();
@@ -167,38 +172,55 @@ const ProductDetailPage: React.FC = () => {
                       ? 'bg-emerald-950 text-emerald-200 border-emerald-800'
                       : 'bg-white/95 text-slate-800 border-slate-300'
                   }`}>
-                    {activeFinish === 'coated' ? 'Polyester Coated' : 'Metallic Uncoated'}
+                    {activeFinish === 'coated' ? ' Coated' : 'Metallic Uncoated'}
                   </span>
                 </div>
               </div>
 
               {/* Coated / Uncoated Toggle Buttons */}
               {hasCoatedOption && (
-                <div className="w-full mt-4 flex items-center justify-center gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
-                  <button
-                    type="button"
-                    onClick={() => handleFinishChange('uncoated')}
-                    className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                      activeFinish === 'uncoated'
-                        ? 'bg-[#004428] text-white shadow-md'
-                        : 'bg-transparent text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <span>Uncoated</span>
-                    <span className="text-[10px] opacity-75 font-normal">(Metallic)</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleFinishChange('coated')}
-                    className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                      activeFinish === 'coated'
-                        ? 'bg-[#004428] text-white shadow-md'
-                        : 'bg-transparent text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <span>Coated</span>
-                    <span className="text-[10px] opacity-75 font-normal">(Polyester)</span>
-                  </button>
+                <div className="w-full mt-4">
+                  <div className="flex items-center justify-center gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
+                    <button
+                      type="button"
+                      onClick={() => handleFinishChange('uncoated')}
+                      className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center ${
+                        activeFinish === 'uncoated'
+                          ? 'bg-[#004428] text-white shadow-md'
+                          : 'bg-transparent text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <span>UNCOATED</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleFinishChange('coated')}
+                      className={`flex-1 py-2.5 text-[12px] sm:text-[13px] font-bold tracking-wide uppercase rounded-lg transition-all cursor-pointer flex items-center justify-center ${
+                        activeFinish === 'coated'
+                          ? 'bg-[#004428] text-white shadow-md'
+                          : 'bg-transparent text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <span>COATED</span>
+                    </button>
+                  </div>
+
+                  {/* Surface Finish Color Options for Coated Variant */}
+                  {activeFinish === 'coated' && (
+                    <div className="mt-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex flex-col gap-1.5 animate-fadeIn">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-slate-700 m-0">
+                        Surface Finish: Polyester and Nylon - Coated
+                      </p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="w-5 h-5 rounded bg-black border border-slate-300 shadow-sm" title="Black" />
+                        <span className="w-5 h-5 rounded bg-[#e11d48] border border-slate-300 shadow-sm" title="Red" />
+                        <span className="w-5 h-5 rounded bg-[#16a34a] border border-slate-300 shadow-sm" title="Green" />
+                        <span className="w-5 h-5 rounded bg-[#2563eb] border border-slate-300 shadow-sm" title="Blue" />
+                        <span className="w-5 h-5 rounded bg-[#eab308] border border-slate-300 shadow-sm" title="Yellow" />
+                        <span className="text-[11px] text-slate-500 italic ml-1">*Colour as per requirements</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -208,7 +230,7 @@ const ProductDetailPage: React.FC = () => {
                   <ShieldCheck size={18} className="text-[#004428] shrink-0 mt-0.5" />
                   <div>
                     <p className="text-[10.5px] font-bold uppercase tracking-wider text-slate-400">Material Grade</p>
-                    <p className="text-[12.5px] font-semibold text-slate-800 leading-tight mt-0.5">AISI 304 &amp; 316</p>
+                    <p className="text-[12.5px] font-semibold text-slate-800 leading-tight mt-0.5">SS 316/316L &amp; 304/304L</p>
                   </div>
                 </div>
 
@@ -254,14 +276,14 @@ const ProductDetailPage: React.FC = () => {
 
               {/* Key Features List */}
               <div className="mb-8">
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-900 mb-3.5 flex items-center gap-2">
-                  <Layers size={16} className="text-[#004428]" />
-                  <span>Key Features &amp; Advantages</span>
+                <h3 className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2.5">
+                  <Layers size={18} className="text-[#004428]" />
+                  <span>KEY FEATURES &amp; ADVANTAGES</span>
                 </h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3.5">
                   {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[13.5px] sm:text-[14px] text-slate-700 leading-normal">
-                      <CheckCircle2 size={16} className="text-emerald-700 shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-3 text-[14px] sm:text-[14.5px] text-slate-700 leading-relaxed">
+                      <CheckCircle2 size={18} className="text-[#00663d] shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -347,9 +369,9 @@ const ProductDetailPage: React.FC = () => {
 
           {/* Active Table Card */}
           <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-            <div className="px-6 py-4 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <div className="px-6 py-4 bg-slate-50/80 border-b border-slate-200 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
               <div>
-                <h3 className="text-[16px] font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                <h3 className="text-[16px] font-bold text-slate-900 tracking-tight flex items-center gap-2 flex-wrap">
                   <span>{activeTable.title}</span>
                   <span className={`text-[10.5px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${
                     activeFinish === 'coated'
@@ -365,9 +387,46 @@ const ProductDetailPage: React.FC = () => {
                   </p>
                 )}
               </div>
-              <span className="text-[11.5px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider self-start sm:self-auto">
-                {activeTable.rows.length} Sizes Available
-              </span>
+
+              {/* Table Search & Size Count */}
+              <div className="flex items-center gap-3 w-full lg:w-auto">
+                <div className="relative flex-1 sm:w-[260px]">
+                  <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={tableSearch}
+                    onChange={(e) => setTableSearch(e.target.value)}
+                    placeholder="Search Part No., Length..."
+                    className="w-full pl-9 pr-8 py-1.5 bg-white border border-slate-200 rounded-xl text-[12px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#004428]/20 focus:border-[#004428] transition-all"
+                  />
+                  {tableSearch && (
+                    <button
+                      type="button"
+                      onClick={() => setTableSearch('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
+                </div>
+
+                <span className="text-[11.5px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl uppercase tracking-wider whitespace-nowrap">
+                  {(() => {
+                    const q = tableSearch.toLowerCase().trim();
+                    const filtered = q
+                      ? activeTable.rows.filter(r => 
+                          r.partNo.toLowerCase().includes(q) ||
+                          r.width.toLowerCase().includes(q) ||
+                          r.length.toLowerCase().includes(q) ||
+                          r.thickness.toLowerCase().includes(q) ||
+                          r.maxBundleDia.toLowerCase().includes(q) ||
+                          r.tensileStrength.toLowerCase().includes(q)
+                        )
+                      : activeTable.rows;
+                    return `${filtered.length} ${filtered.length === 1 ? 'Size' : 'Sizes'} Available`;
+                  })()}
+                </span>
+              </div>
             </div>
 
             {/* shadcn Table Component */}
@@ -396,36 +455,96 @@ const ProductDetailPage: React.FC = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {activeTable.rows.map((row, rIdx) => (
-                    <TableRow 
-                      key={rIdx}
-                      className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50 transition-colors"
-                    >
-                      <TableCell className="font-bold text-slate-900 font-mono text-[13px]">
-                        {row.partNo}
-                      </TableCell>
-                      <TableCell className="text-slate-700 text-[13px]">
-                        {row.width}
-                      </TableCell>
-                      <TableCell className="text-slate-700 text-[13px]">
-                        {row.length}
-                      </TableCell>
-                      <TableCell className="text-slate-700 text-[13px]">
-                        {row.thickness}
-                      </TableCell>
-                      <TableCell className="text-slate-700 text-[13px]">
-                        {row.maxBundleDia}
-                      </TableCell>
-                      <TableCell className="text-slate-900 font-semibold text-[13px] text-right">
-                        {row.tensileStrength}
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                  {(() => {
+                    const q = tableSearch.toLowerCase().trim();
+                    const filtered = q
+                      ? activeTable.rows.filter(r => 
+                          r.partNo.toLowerCase().includes(q) ||
+                          r.width.toLowerCase().includes(q) ||
+                          r.length.toLowerCase().includes(q) ||
+                          r.thickness.toLowerCase().includes(q) ||
+                          r.maxBundleDia.toLowerCase().includes(q) ||
+                          r.tensileStrength.toLowerCase().includes(q)
+                        )
+                      : activeTable.rows;
+
+                    if (filtered.length === 0) {
+                      return (
+                        <TableRow>
+                          <TableCell colSpan={6} className="text-center py-10 text-slate-500 text-[13px]">
+                            No matching sizes found for "<span className="font-semibold text-slate-800">{tableSearch}</span>".{' '}
+                            <button
+                              type="button"
+                              onClick={() => setTableSearch('')}
+                              className="text-[#004428] font-bold hover:underline ml-1 cursor-pointer"
+                            >
+                              Clear filter
+                            </button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    }
+
+                    return filtered.map((row, rIdx) => (
+                      <TableRow 
+                        key={rIdx}
+                        className="border-b border-slate-100 hover:bg-emerald-50/40 odd:bg-white even:bg-slate-50/50 transition-colors"
+                      >
+                        <TableCell className="font-bold text-slate-900 font-mono text-[13px]">
+                          {row.partNo}
+                        </TableCell>
+                        <TableCell className="text-slate-700 text-[13px]">
+                          {row.width}
+                        </TableCell>
+                        <TableCell className="text-slate-700 text-[13px]">
+                          {row.length}
+                        </TableCell>
+                        <TableCell className="text-slate-700 text-[13px]">
+                          {row.thickness}
+                        </TableCell>
+                        <TableCell className="text-slate-700 text-[13px]">
+                          {row.maxBundleDia}
+                        </TableCell>
+                        <TableCell className="text-slate-900 font-semibold text-[13px] text-right">
+                          {row.tensileStrength}
+                        </TableCell>
+                      </TableRow>
+                    ));
+                  })()}
                 </TableBody>
-                <TableCaption>
-                  Standard pack: 100 Nos./Bag. Material: AISI 304 / 316. Custom lengths manufactured upon request.
-                </TableCaption>
               </Table>
+            </div>
+          </div>
+
+          {/* ── Redirecting Navigation & Action Bar Below Table ── */}
+          <div className="mt-8 p-6 sm:p-7 bg-[#0b1310] rounded-2xl border border-white/10 shadow-lg text-white flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="text-center md:text-left">
+              <span className="text-[11px] font-bold tracking-widest uppercase text-emerald-400 block mb-1">
+                FAST DIRECT INQUIRY &middot; NAEPL N-LOC
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight">
+                Need Custom Sizes, Bulk Quantities or Spec Sheets?
+              </h3>
+              <p className="text-[13px] text-white/70 mt-1 max-w-[560px]">
+                Our application engineering team provides fast turnaround on RFQs, material test certificates (MTC), and project sizing support.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0 w-full md:w-auto">
+              <Link
+                href="/products/n-loc"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#1e2420] hover:bg-[#2b3530] text-white/95 font-medium text-[13px] transition-all border border-white/15"
+              >
+                <ArrowLeft size={15} />
+                <span>All Cable Ties</span>
+              </Link>
+              <Link
+                href={`/contact?subject=RFQ%20for%20${encodeURIComponent(product.title)}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#004d2e] hover:bg-[#005f38] text-white font-bold text-[13px] uppercase tracking-wider transition-all shadow-md border border-emerald-500/40"
+              >
+                <span>REQUEST RFQ</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
         </div>
@@ -483,7 +602,7 @@ const ProductDetailPage: React.FC = () => {
                   href="/products/n-loc"
                   className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-medium px-6 py-3.5 rounded-xl text-[13px] sm:text-[14px] transition-all border border-white/15"
                 >
-                  <span>Back to N-LOC Catalog</span>
+                  <span>Back to N-LOC Series</span>
                 </Link>
               </div>
             </div>

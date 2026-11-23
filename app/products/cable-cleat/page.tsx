@@ -52,7 +52,7 @@ const CableCleatPage: React.FC = () => {
           </h1>
 
           <p className="text-sm sm:text-base md:text-[16.5px] text-white/90 font-light leading-relaxed max-w-[640px] mb-8 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-            Engineered to securely hold and support cables under all operating conditions and protect electrical installations from destructive electromagnetic short-circuit forces up to 180 kA peak (IEC 61914).
+            Engineered to securely hold and support cables under all operating conditions and protect electrical installations from destructive electromagnetic short-circuit forces up to 180 kA peak.
           </p>
 
           {/* Quick Action CTAs */}
@@ -98,7 +98,7 @@ const CableCleatPage: React.FC = () => {
             </h2>
 
             <p className="text-[14px] sm:text-[15px] leading-[1.7] text-gray-700 mb-5 font-normal">
-              NAEPL&apos;s Cable Cleats are designed to securely hold and support cables within cable ladder and tray systems under all operational conditions. Crucially, they safeguard personnel and equipment during short circuits by resisting catastrophic electromagnetic repulsion forces. Engineered in marine-grade stainless steel AISI 316 and cast aluminium, our cleats undergo rigorous dynamic mechanical testing compliant with international IEC 61914 standards.
+              NAEPL&apos;s Cable Cleats are designed to securely hold and support cables within cable ladder and tray systems under all operational conditions. Crucially, they safeguard personnel and equipment during short circuits by resisting catastrophic electromagnetic repulsion forces. Engineered in marine-grade stainless steel AISI 316L and composite bodies, our cleats withstand electromechanical short-circuit fault surges up to 180 kA peak.
             </p>
 
             {/* Two Simple Highlights */}
@@ -121,7 +121,7 @@ const CableCleatPage: React.FC = () => {
             {/* Badges / Pill Tags */}
             <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
-                IEC 61914 Certified
+                Tested to 180 kA Peak
               </span>
               <span className="inline-flex items-center gap-1.5 py-1 sm:py-1.5 px-3 sm:px-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11.5px] sm:text-[12.5px] font-medium rounded-full select-none">
                 Single &amp; Trefoil Formations
